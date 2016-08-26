@@ -1,0 +1,49 @@
+.infoBar {
+  font-variant: italics;
+}
+
+.time {
+  margin: 0 30px;
+}
+
+.footer{
+ background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    color: white;
+    opacity: 0.95;
+}
+.footer h5
+{
+color:#555;
+	 font-weight: bold;
+}
+
+.footer h4
+{
+color:#3c948b;
+	 font-weight: bold;
+}
+
+.footer h4,h5:hover
+{
+	color:#888;
+}
+
+.footerstyles
+{
+   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    color: white;
+    opacity: 0.95;
+}
+
+.copyright
+{
+	background-color:black;
+	color:white;
+	height:30px;
+	padding-top:5px;
+}
+
+.blackColor
+{
+	color:black;
+}

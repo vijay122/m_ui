@@ -1,0 +1,48 @@
+$borderRadius: .3rem;
+$margin: .5rem ;
+$padding: .25rem .5rem;
+$eventColor: #3b91ad;
+$eventFontSize: 14px;
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.flexContainer {
+    max-width: 100%;
+    width: 100%;
+    border-top: 1px solid $eventColor;
+    border-left: 1px solid $eventColor;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    label{
+    padding:10px;
+    }
+}
+
+.thead
+{
+	border:1px solid $eventColor;
+}
+
+.headercell
+{
+	height:24px;
+	border:1px solid $eventColor;
+}
+
+.datacell
+{
+	height:100px;
+	border:1px solid $eventColor;
+}
+
+.tbody
+{
+	border:1px solid $eventColor;
+}
