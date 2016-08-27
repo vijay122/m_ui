@@ -305,7 +305,7 @@ resizeImage(url, height, width)
 }
 componentWillReceiveProps(newprops)
 {
-  debugger;
+  ;
   var input = newprops.data;
   var res = newprops.referenceproduct;
   var inMeters = geolib.getDistance(
@@ -320,7 +320,7 @@ componentWillReceiveProps(newprops)
 }
   componentDidMount()
 {
-  debugger;
+  ;
   //var input = this.props.referenceproduct;
   var res = this.props.referenceproduct;
   var inMeters = geolib.getDistance(
@@ -334,7 +334,7 @@ componentWillReceiveProps(newprops)
 
 }
   render() {
-    debugger;
+    ;
     var product=this.state.product;
      var ty = this;
      var prodimage = product.image!= undefined ? product.image[0]: product.scrollimage;

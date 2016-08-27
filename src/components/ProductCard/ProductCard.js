@@ -15,7 +15,7 @@ export default class ProductCard extends React.Component {
 }
     render() 
     {
-      debugger;
+      ;
       var image;
        var ty= this;
       var name = this.props.data.name== undefined?"":this.props.data.name;

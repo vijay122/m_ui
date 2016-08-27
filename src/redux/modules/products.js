@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         loading: true,
-        loaded: false,
+        loaded: true,
         current: action.result.id,
         detail:typeof state.products== (null|| "undefined")?initialState: state.products.get(action.result.id),
         error: null
@@ -35,7 +35,7 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         loading: true,
-        loaded: false,
+        loaded: true,
         categorysearch: action.result,
          error: null
       };
@@ -163,6 +163,7 @@ export function load1() {
   };
 }
 export function isLoaded(globalState) {
+  debugger;
     promise: ({store: {dispatch, getState}}) => {
     if (!globalState.products.loaded) {
       dispatch({ type: 'LOAD'});

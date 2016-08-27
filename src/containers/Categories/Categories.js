@@ -67,7 +67,7 @@ export class Categories extends Component {
     var results;
     if(this.props!= null && this.props.products!= null )
     results = this.props.products;
-    debugger;
+    ;
     return (
       <div className="container">
          <FilterToolbox />

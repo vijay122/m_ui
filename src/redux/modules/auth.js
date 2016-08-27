@@ -84,7 +84,7 @@ export function load() {
   };
 }
 export function register(mobno) {
-    debugger;
+    ;
     return dispatch =>{
     fetch('http://localhost:8000/register', {
       method: 'post',
@@ -98,7 +98,7 @@ export function register(mobno) {
     }).then(checkStatus) 
   .then(parseJSON)
   .then(function(data) {
-debugger;
+;
     // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
   //  console.log('request succeeded with JSON response', list)
   }).catch(function(error) {
@@ -109,7 +109,7 @@ debugger;
 }
 
 export function loginUser(name,password) {
-  debugger;
+  ;
    return dispatch =>{
     fetch('http://localhost:8000/login', {
       method: 'post',
@@ -124,7 +124,7 @@ export function loginUser(name,password) {
     }).then(checkStatus) 
   .then(parseJSON)
   .then(function(data) {
-debugger;
+;
     // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
   //  console.log('request succeeded with JSON response', list)
   }).catch(function(error) {

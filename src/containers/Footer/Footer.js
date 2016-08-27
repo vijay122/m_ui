@@ -69,7 +69,7 @@ export class Footer extends Component {
 
  
   render() {
-  debugger;
+  ;
     const {info, load} = this.props; // eslint-disable-line no-shadow
     const styles = require('./Footer.scss');
     return (
@@ -170,7 +170,7 @@ Help
 }
 
 function mapStateToProps(state) {
-  debugger;
+  ;
   console.log('state '+state);
   return { products: state.products }
 }

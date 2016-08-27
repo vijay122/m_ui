@@ -37,7 +37,7 @@ export default function reducer(state = initialState, action = {}) {
         error: action.error
       };
       case 'SET_ENTRIES':
-      debugger;
+      ;
       const newItems = action.result;
       return {
         ...state,
@@ -64,7 +64,7 @@ export function load() {
     }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
-    debugger;
+    ;
     const list = List(data);
      dispatch({ type: 'SET_ENTRIES', result: data });
   //  dispatch(setEntries(list));
@@ -83,7 +83,7 @@ export function save() {
 }
 export function isLoaded(globalState) {
  // return globalState.widgets && globalState.widgets.loaded;
- debugger;
+ ;
  return false;
 }
 

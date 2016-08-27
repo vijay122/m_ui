@@ -29,14 +29,14 @@ export default class Login extends Component {
   }
 
   handleSubmit = (event) => {
-    debugger;
+    ;
     event.preventDefault();
     const input = this.refs.username;
     this.props.loginUser("user","pass");
     input.value = '';
   }
    handleRegister = (event) => {
-    debugger;
+    ;
     event.preventDefault();
     this.props.register("user");
   }
@@ -46,7 +46,7 @@ export default class Login extends Component {
       this.state[e.currentTarget.attributes["data-ctrlid"].value] = e.currentTarget.value;
   }
   render() {
-    debugger;
+    ;
     const {user, logout} = this.props;
     const styles = require('./Login.scss');
     return (

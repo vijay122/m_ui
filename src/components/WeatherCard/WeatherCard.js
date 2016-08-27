@@ -16,7 +16,7 @@ export default class WeatherCard extends React.Component {
   }
   componentWillReceiveProps(newprops)
 {
-debugger;
+;
 var lat =this.props.detail.latitude;
 var lang =this.props.detail.longitude;
 var latlang = lat+','+lang;
@@ -26,7 +26,7 @@ this.setState({latlang:latlang});
   console.log("Success!", response);
 
   });
-  debugger;
+  ;
  // var input = newprops.data;
  // var res = newprops.referenceproduct;
   

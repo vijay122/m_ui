@@ -108,7 +108,7 @@ export default class PlaceUploader extends Component {
   }
  handleChange(e,index,value)
  {
-  debugger;
+  ;
   this.setState({type:value});
  } 
 
@@ -217,7 +217,7 @@ postdata
 }
 handleSelect = (event, index, value) => 
 {
-  debugger;
+  ;
   this.setState({type:value})
   this.state.type = value;
 }
@@ -321,7 +321,7 @@ getClassName()
 }
   submitform()
   {
-    debugger;
+    ;
  
     // this.uploadImage();
      //.then(function(resp)

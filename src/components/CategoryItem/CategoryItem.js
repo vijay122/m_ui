@@ -14,14 +14,14 @@ export default class CategoryItem extends Component{
   }
    render() 
    {
-
+debugger;
    	  const styles = require('./CategoryItem.scss');
          var state = this.state;
     return (
      <Row>
      <div>
      <Col md={3}>
-     <img src="http://placehold.it/300x250"></img>
+     <img src="http://placehold.it/250x250"></img>
      </Col>
       <Col md={7}>
       <Row>

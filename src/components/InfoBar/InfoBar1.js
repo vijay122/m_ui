@@ -53,7 +53,8 @@ const styles = {
   deferred: true,
   promise: ({store: {dispatch, getState}}) => {
     if (!isLoaded(getState())) {
-      return dispatch(loadFooter());
+//      return dispatch(loadFooter());
+return true;
     }
   }
 }])
@@ -69,7 +70,7 @@ export default class Footer extends Component {
 
  
   render() {
-  debugger;
+  ;
     const {info, load} = this.props; // eslint-disable-line no-shadow
     const styles = require('./InfoBar.scss');
     return (
@@ -171,13 +172,13 @@ Help
 }
 
 function mapStateToProps(state) {
-  debugger;
+  ;
   console.log('state '+state);
   return { footerinfo: state.info }
 }
 
 function mapDispatchToProps(dispatch) {
-  debugger;
+  ;
   return bindActionCreators(Object.assign({}, footerActions), dispatch)
 }
 

@@ -17,7 +17,7 @@ export default class Register extends React.Component {
   }
   handleSelect = (event, index, value) => 
 {
-  debugger;
+  ;
   this.setState({type:value})
   this.state.type = value;
 }

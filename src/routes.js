@@ -115,7 +115,7 @@ const onRouteEnter = async (nextState, replaceState, done) => {
       });
     } catch (err) {
       if (!__PROD__) {
-        debugger;
+        ;
        // window.console.log(err);
       }
     }

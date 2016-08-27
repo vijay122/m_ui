@@ -38,7 +38,7 @@ export default function reducer(state = initialState, action = {}) {
         error: action.error
       };
       case 'SET_CATEGORY_RESULTS':
-      debugger;
+      ;
       const newItems = action.result;
       return {
         ...state,
@@ -47,7 +47,7 @@ export default function reducer(state = initialState, action = {}) {
         getCategoryResult: newItems,
       }
        case 'ADD_TO_CART':
-       debugger;
+       ;
         console.log("added ADD");
         var cart = state.cart;
        if( cart == undefined)
@@ -60,7 +60,7 @@ export default function reducer(state = initialState, action = {}) {
       return {...state, 
         cart :cart }
     case 'REMOVE_TO_CART':
-    debugger;
+    ;
         console.log("removed ADD");
        return {
        // ...state.cart.pop()
@@ -74,7 +74,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 export function getProducts(searchby,searchwith) {
-  debugger;
+  ;
   try
   {
      return dispatch =>{
@@ -109,7 +109,7 @@ export function getProducts(searchby,searchwith) {
 }
   catch(ex)
   {
-    debugger;
+    ;
   }
    
 }

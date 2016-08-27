@@ -48,7 +48,7 @@ this.handleSelect= this.handleSelect.bind(this);
 }
   Typeahead(a,passstate)
 {
-  debugger;
+  ;
   var that = this;
   var datalist =[];
   var search = a;

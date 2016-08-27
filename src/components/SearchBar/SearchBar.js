@@ -42,12 +42,14 @@ export default class SearchBar extends React.Component
 
   viewDetails(data,fn,st)
 {
+  debugger;
   var searchtable = this.state.key;
 
   var searchvalue ="";
-  if(this.refs!= undefined && this.refs.newproduct!= undefined && this.refs.newproduct.state)
+   searchvalue = this.state.searchText;
+//  if(this.refs!= undefined && this.refs.newproduct!= undefined && this.refs.newproduct.state)
   {
-      searchvalue = this.refs.newproduct.state.searchText;
+  //    searchvalue = this.state.searchText;
     }
   //var placeid= data.props.data._id;
    data.props.dispatch(push('/categories:'+searchtable+'/search:'+searchvalue));
@@ -96,7 +98,13 @@ const style = {
     />
 </Col>
 <Col md={2}>
-  <TypeAhead  ref="newproduct" floatinglabel="City to stay"/>
+<TextField
+      hintText="City Name"
+      floatingLabelText="enter the city name for service"
+      floatingLabelFixed={true}
+      data-ctrlid="searchText" 
+      onChange={that.onChange.bind(that)} 
+      value={that.state.searchText} onChange={that.onChange.bind(that)} value={that.state.searchText}/>
 </Col>
 <Col md={2}>
 {this.state.key=="hotels" && this.state.tempprod.map(function(x)

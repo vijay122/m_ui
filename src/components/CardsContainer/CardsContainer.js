@@ -40,7 +40,7 @@ render()
     };
   var that = this;
   const styles = require('./CardsContainer.scss');
-  debugger;
+  ;
 var packagelist = this.props.packagelist;
   return(
     <div >
@@ -58,7 +58,7 @@ var packagelist = this.props.packagelist;
         {
           x.image ="";
         }
-        debugger;
+        ;
         return(
             <Col xs={6} md={3}>
  <div onClick={that.viewDetails.bind(this,that)}>

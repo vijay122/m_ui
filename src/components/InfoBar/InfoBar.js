@@ -26,26 +26,19 @@ const styles = {
     dispatch => bindActionCreators({load}, dispatch))
 */
 
-@asyncConnect([{
-  deferred: true,
-  promise: ({store: {dispatch, getState}}) => {
-    if (!isLoaded(getState())) {
-      return dispatch(loadFooter());
-    }
-  }
-}])
-export class InfoBar extends Component {
+
+export default class InfoBar extends Component {
   static propTypes = {
     info: PropTypes.object,
     load: PropTypes.func.isRequired
   }
   componentDidMount(){
 //this.props.loadFooter();
-loadFooter();
+//loadFooter();
 }
 
   render() {
-  debugger;
+  ;
     const {info, load} = this.props; // eslint-disable-line no-shadow
     const styles = require('./InfoBar.scss');
     return (
@@ -154,4 +147,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Object.assign({}, footerActions), dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(InfoBar);
+

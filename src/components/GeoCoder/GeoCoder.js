@@ -53,7 +53,7 @@ data.append('requiredkey', 'key');
     var address ={};
     address.country = this.state.country;
     address.postalCode = this.state.zipcode;
-  	debugger;
+  	;
   	 this.post('http://localhost:8000/geoCode').then(function(response) {
   console.log("Success!", response);
 

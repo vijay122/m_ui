@@ -83,7 +83,7 @@ var placeid= data.props.data._id;
     var that = this;
 //  const { productList } = this.props.products.products;
 var view = this.state!= null? this.state.view:"";
-debugger;
+;
   var offer = this.props.products.offers;
  var productlist =this.props.products.products;
  var eventlist = this.props.products.events;

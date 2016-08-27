@@ -15,7 +15,7 @@ export default class FullWidthSlider extends React.Component {
     super(props);
   }
   render() {
-    debugger;
+    ;
     var that = this;
     var packagelist = this.props.packagelist;
     var settings = {

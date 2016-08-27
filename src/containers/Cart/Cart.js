@@ -36,7 +36,7 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 
 function mapStateToProps(state) {
   console.log('state '+state);
-  return { products: state.detail }
+  return { cartcontext: state.cart }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -118,11 +118,11 @@ clicking()
 
 }
   render() {
-    
+    debugger;
     var self = this;
     var that = this.props;
     var title ="Shopping Cart";
-    const cartItems= this.props.products.cart;
+    const cartItems= this.props.cartcontext.items;
     const styles = require('./Detail.scss');
     // require the logo image both from client and server
     return (

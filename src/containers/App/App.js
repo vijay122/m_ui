@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { IndexLink } from 'react-router';
+import { bindActionCreators } from 'redux';
+import { IndexLink, Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
@@ -8,7 +9,9 @@ import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
 import { isLoaded as isInfoLoaded, load as loadInfo , loadFooter } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar } from 'components';
+import { InfoBar, Badge } from 'components';
+
+import * as detailActions from 'redux/modules/detail';
 
 import Footer from 'containers';
 
@@ -41,7 +44,6 @@ import MenuItem from 'material-ui/MenuItem/MenuItem';
 
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
-import Badge from 'material-ui/Badge';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -77,7 +79,7 @@ const AppbarStyles = () => getMuiTheme({
     const promises = [];
 
     if (!isInfoLoaded(getState())) {
-      promises.push(dispatch(loadFooter()));
+//      promises.push(dispatch(loadFooter()));
     }
     if (!isAuthLoaded(getState())) {
       promises.push(dispatch(loadAuth()));
@@ -113,7 +115,7 @@ export default class App extends Component {
 
   handleTouch(param)
   {
-    debugger;
+    ;
    var nexturl = param.currentTarget.attributes["data-url"].value;
     this.props.pushState(nexturl);
 }
@@ -142,6 +144,10 @@ componentDidMount()
   };
 
   render() {
+    debugger;
+     var cartcount ;
+    if(this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items!= null)
+  cartcount = this.props.appstate.cart.items.length;
     const {user} = this.props;
     const styles = require('./App.scss');
      var buttonStyle = {
@@ -159,7 +165,7 @@ componentDidMount()
             </div>
         <Navbar fixedTop className={styles.insightsBar} id="fxd">
          <LinearProgress mode="determinate" value={75} />
-         {this.state!= null && this.state.document!= undefined && this.state.document.map(function(x)
+         {this.props!= null && this.state.document!= undefined && this.state.document.map(function(x)
   {
                    return( <SnowStorm targetElement="fxd"/>);
   })}
@@ -232,24 +238,46 @@ componentDidMount()
      <Col md={9} className="mininav">
 <nav className="minnav">
   <ul>
-    <li><a onClick={this.handleTouch.bind(this)}>Home</a></li>
+    <li> 
+    <Link to={'/products/'} activeClassName="active">Home</Link>
+    </li>
     <li>
-      <a href="products.html">Products <span class="caret"></span></a>
+      <a href="products.html">I Travel for.. <span class="caret"></span></a>
       <div>
         <ul>
-          <li><a href="products.html#chair">Chair</a></li>
-          <li><a href="products.html#table">Table</a></li>
-          <li><a href="cooker.html">Cooker</a></li>
+          <li>
+              <Link to={'/products/'} activeClassName="active">Sight Seeing</Link>
+              </li>
+               <li>
+              <Link to={'/products/'} activeClassName="active">Adventure</Link>
+              </li>
+               <li>
+              <Link to={'/products/'} activeClassName="active">Culture</Link>
+              </li>
+               <li>
+              <Link to={'/products/'} activeClassName="active">Trekking</Link>
+              </li>
+              <li>
+              <Link to={'/products/'} activeClassName="active">Honeymoon</Link>
+              </li>
         </ul>
       </div>
     </li>
-    <li><a href="about.html">About</a></li>
+    <li> <Link to={'/products/'} activeClassName="active">Bookings</Link></li>
+     <li>
+     <div>
+       <Badge />
+     <Link to={'/cart'} activeClassName="active">Cart</Link>
+     </div>
+     </li>
+     <li>cart
+   
+     </li>
     <li><a href="help.html">Help</a></li>
     <li>
-{this.state!= null && this.state.document!= undefined && this.state.document.map(function(x)
-  {
+    {this.cartcount!= null && this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items.map(function(x)
+               {    
                    return( 
-
                     <Badge
       badgeContent={10}
       secondary={true}
@@ -260,7 +288,8 @@ componentDidMount()
       </IconButton>
     </Badge>
     );
-  })}
+                 }
+  )}
     </li>
   </ul>
 </nav>
@@ -283,3 +312,17 @@ componentDidMount()
     );
   }
 }
+
+function mapStateToProps(state) {
+  debugger;
+  console.log('state '+state);
+ 
+  return { appstate: state, detail: state.detail }
+}
+
+function mapDispatchToProps(dispatch) {
+  debugger;
+  return bindActionCreators(Object.assign({}, detailActions), dispatch)
+}
+
+//export default connect(mapStateToProps, mapDispatchToProps)(App);

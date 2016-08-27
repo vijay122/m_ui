@@ -38,7 +38,7 @@ export default function reducer(state = initialState, action = {}) {
         error: action.error
       };
       case 'SET_DEPENDANT':
-      debugger;
+      
       const newItems = action.result;
       return {
         ...state,
@@ -60,7 +60,7 @@ export default function reducer(state = initialState, action = {}) {
       return {...state, 
         cart :cart }
     case 'REMOVE_TO_CART':
-    debugger;
+    ;
         console.log("removed ADD");
        return {
        // ...state.cart.pop()

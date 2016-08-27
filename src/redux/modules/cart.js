@@ -18,10 +18,10 @@ const initialState = {
 function addedIds(state = initialState.addedIds, action) {
   switch (action.type) {
     case 'ADD_TO_CART':
-      if (state.indexOf(action.productId) !== -1) {
+      if (state.indexOf(action.result._id) !== -1) {
         return state
       }
-      return [ ...state, action.productId ]
+      return [ ...state,action.result._id ]
     default:
       return state
   }
@@ -30,10 +30,17 @@ function addedIds(state = initialState.addedIds, action) {
 function quantityById(state = initialState.quantityById, action) {
   switch (action.type) {
     case 'ADD_TO_CART':
-      const { productId } = action
-      return Object.assign({}, state, {
-        [productId]: (state[productId] || 0) + 1
-      })
+      const { productId } = action.result._id;
+         var cart = state.cart;
+       if( cart == undefined)
+       {
+        cart=[]; 
+       }
+       cart.push(action.result);
+      return {
+        ...state,
+        cart
+      }
     default:
       return state
   }
@@ -41,14 +48,26 @@ function quantityById(state = initialState.quantityById, action) {
 
 export default function cart(state = initialState, action) {
   switch (action.type) {
+    case 'ADD_TO_CART':
+    {
+      debugger;
+        const { productId } = action.result._id
+      var cart = state.items;
+       if( cart == undefined)
+       {
+        cart=[]; 
+       }
+       cart.push(action.result);
+        return {...state, 
+        items :cart }
+    }
     case 'CHECKOUT_REQUEST':
       return initialState
     case 'CHECKOUT_FAILURE':
       return action.cart
-    default:
-      return {
-        addedIds: addedIds(state.addedIds, action),
-        quantityById: quantityById(state.quantityById, action)
+      default:
+      {
+        return state;
       }
   }
 }
