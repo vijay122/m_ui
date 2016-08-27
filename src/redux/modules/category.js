@@ -73,7 +73,7 @@ export default function reducer(state = initialState, action = {}) {
       return state;
   }
 }
-export function getProducts(searchby,searchwith) {
+export function getProducts(searchtable,searchby,searchvalue) {
   ;
   try
   {
@@ -87,14 +87,14 @@ export function getProducts(searchby,searchwith) {
       body: JSON.stringify({
  latitude:'12.12',
  longitude:'12.14',
- table:searchby,
- type:'standalone',
- city:searchwith
+ table:searchtable,
+ searchtype:searchby,
+ searchvalue:searchvalue
     })
     }).then(checkStatus) 
   .then(parseJSON)
   .then(function(data) {
-   var response = data[searchby];
+   var response = data[searchtable];
   var CategoryList = Map(response.reduce(function(previous, current) { 
     previous[ current._id ] = current;
     return previous;

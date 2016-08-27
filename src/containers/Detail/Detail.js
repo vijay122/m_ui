@@ -320,7 +320,6 @@ componentWillReceiveProps(newprops)
 }
   componentDidMount()
 {
-  ;
   //var input = this.props.referenceproduct;
   var res = this.props.referenceproduct;
   var inMeters = geolib.getDistance(
@@ -334,7 +333,6 @@ componentWillReceiveProps(newprops)
 
 }
   render() {
-    ;
     var product=this.state.product;
      var ty = this;
      var prodimage = product.image!= undefined ? product.image[0]: product.scrollimage;

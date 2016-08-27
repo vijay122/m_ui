@@ -44,7 +44,7 @@ export default class SearchBar extends React.Component
 {
   debugger;
   var searchtable = this.state.key;
-
+var searchtype ='city';
   var searchvalue ="";
    searchvalue = this.state.searchText;
 //  if(this.refs!= undefined && this.refs.newproduct!= undefined && this.refs.newproduct.state)
@@ -52,7 +52,7 @@ export default class SearchBar extends React.Component
   //    searchvalue = this.state.searchText;
     }
   //var placeid= data.props.data._id;
-   data.props.dispatch(push('/categories:'+searchtable+'/search:'+searchvalue));
+   data.props.dispatch(push('/categories:'+searchtable+ '/searchtype:'+searchtype+'/search:'+searchvalue));
 }
 
 

@@ -48,9 +48,10 @@ function mapDispatchToProps(dispatch) {
 @asyncConnect([{
   deferred: true,
   promise: ({store: {dispatch, getState}}) => {
-      var searchby = qs('categories');
+      var searchtable = qs('categories');
+      var searchtype= qs('searchtype');
    var searchvalue = qs('search')
-    return  dispatch (categoryActions.getProducts(searchby,searchvalue));
+    return  dispatch (categoryActions.getProducts(searchtable,searchtype,searchvalue));
     //if (!isLoaded(getState())) {
     //  return dispatch(load());
    // }
@@ -59,15 +60,13 @@ function mapDispatchToProps(dispatch) {
 
 export class Categories extends Component {
   componentDidMount(){
-  
-//this.props.getProducts(searchby,searchvalue);
 }
   render() {
-
+    debugger;
+var that = this;
     var results;
     if(this.props!= null && this.props.products!= null )
     results = this.props.products;
-    ;
     return (
       <div className="container">
          <FilterToolbox />
@@ -75,7 +74,7 @@ export class Categories extends Component {
 
 {
   return(<div>
-      <CategoryItem products ={item}/>
+      <CategoryItem products ={item} dispatch={that.props.dispatch}/>
       <hr />
     </div>)  
 

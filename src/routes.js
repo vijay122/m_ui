@@ -62,7 +62,9 @@ export default (store) => {
 
 function loadCategories(nextState, replace)
 {
+  debugger;
    var category=qs('categories');
+   var searchtype = qs('searchtype');
    var value = qs('search');
    store.dispatch({type:'CATEGORIES', result:{
     SEARCHBY:category,
@@ -86,7 +88,7 @@ function loadCategories(nextState, replace)
 
       { /* Routes */ }
       <Route path="/about" component={About}/>
-      <Route path="/categories:id/search:id" component={Categories} onEnter={loadCategories}/>
+      <Route path="/categories:id/searchtype:id/search:id" component={Categories} onEnter={loadCategories}/>
       <Route path="/login" component={Login}/>
       <Route path="/survey" component={Survey}/>
        <Route path="/contests" component={Votings}/>

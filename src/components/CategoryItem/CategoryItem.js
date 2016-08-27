@@ -2,6 +2,8 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import CarouselItem from 'react-bootstrap/lib/CarouselItem';
 import Divider from 'material-ui/Divider';
+import { push } from 'react-router-redux';
+
 
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -12,28 +14,45 @@ export default class CategoryItem extends Component{
       this.state={};
       this.state.images =[];
   }
+   resizeImage(url, height, width)
+{
+  var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/l_text:Doppio%20One_20:Vijay:%20Jonathan%20Doe,g_south_west,y_5,x_10,co_rgb:eee/';
+
+
+ var str = url;
+    var index = str.indexOf("upload/") + 7;
+  var rest=  str.substr(0, index) + filter + str.substr(index);
+  return rest;
+}
    render() 
    {
 debugger;
+var that = this;
    	  const styles = require('./CategoryItem.scss');
          var state = this.state;
+         var product = this.props.products;
     return (
      <Row>
      <div>
      <Col md={3}>
-     <img src="http://placehold.it/250x250"></img>
+     <img src={this.resizeImage(product.scrollimage,250,250)}></img>
      </Col>
       <Col md={7}>
       <Row>
-      <h2>Package name</h2>
-      <h5>base address, soo and sooooo... with pin code</h5>
-      <h5>Tour Operator</h5>
+      <h2>{product.name}</h2>
+      <h3>{product.title}</h3>
+      <h5>{product.city}</h5>
+      <h5>{product.operator}</h5>
       </Row>
       <Row>
       <Divider />
       </Row>
       <Row>
       SightSeeing:
+      {product && product.products.map(function(x)
+        {
+          return(<VisitIcons menu={x} dispatch={that.props.dispatch}/>);
+        })}
       </Row>
      </Col>
       <Col md={2} className={styles.center}>
@@ -56,3 +75,41 @@ Price
   }
 }
 
+export class VisitIcons extends Component {
+ constructor(props) {
+    super(props);
+       this.state = {};
+       this.state.product=props.menu;
+       if(props.menu == undefined)
+       {
+        this.state.product={};
+        this.state.image=[];
+        this.state.image[0]='empty';
+        this.state.name ="";
+       }
+  }
+   handleClick(data,fn,st) {
+    debugger;
+var placeid= data.props.menu.value;
+   data.props.dispatch(push('/detail/id:'+placeid));
+}
+resizeImage(url, height, width)
+{
+  var filter='h_'+height +',w_'+width+'/';
+ var str = url;
+    var index = str.indexOf("upload/") + 7;
+  var rest=  str.substr(0, index) + filter + str.substr(index);
+  return rest;
+}
+  render() {
+    debugger;
+
+    var product=this.state.product;
+     var ty = this;
+     var prodimage = product.image!= undefined ? product.image: product.scrollimage;
+     var imagesrc = this.resizeImage(prodimage,80,80)
+return(
+      <img src={imagesrc}   onClick={this.handleClick.bind(product,ty)}/>
+      );
+  }
+}
