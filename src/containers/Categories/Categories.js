@@ -57,7 +57,7 @@ function mapDispatchToProps(dispatch) {
   }
 }])
 
-export default class Categories extends Component {
+export class Categories extends Component {
   componentDidMount(){
   
 //this.props.getProducts(searchby,searchvalue);

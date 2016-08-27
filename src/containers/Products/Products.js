@@ -48,7 +48,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
     //productlist :state.entries
   //}),
   //{...productActions, initializeWithKey })
-export default class Products extends Component {
+export class Products extends Component {
   constructor(props) {
     super(props);
         this.setSelectedFilter = this.setSelectedFilter.bind(this);

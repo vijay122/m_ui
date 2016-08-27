@@ -96,7 +96,7 @@ const buttonsInstance = (
   }
 }])
 
-export default class Cart extends Component {
+export class Cart extends Component {
   addToCart(data,fn,st) {
 
      data.dispatch({type:'ADD_TO_CART', result:{prd:fn}});

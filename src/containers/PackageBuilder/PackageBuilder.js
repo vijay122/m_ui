@@ -4,7 +4,6 @@ import { CounterButton, GithubButton } from 'components';
 import { FileUploader, TypeAhead } from 'components';
 import config from '../../config';
 import Helmet from 'react-helmet';
-import Autosuggest from 'react-autosuggest';
 import Button from 'react-bootstrap/lib/Button';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import Grid from 'react-bootstrap/lib/Grid';

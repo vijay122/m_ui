@@ -58,7 +58,7 @@ const styles = {
   }
 }])
 
-export default class Footer extends Component {
+export class Footer extends Component {
   constructor(props) {
     super(props);
         this.setSelectedFilter = this.setSelectedFilter.bind(this);
