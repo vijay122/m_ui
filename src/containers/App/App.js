@@ -246,7 +246,7 @@ componentDidMount()
       <div>
         <ul>
           <li>
-              <Link to={'/products/'} activeClassName="active">Sight Seeing</Link>
+              <Link to={'/categories:packages/searchtype:category/search:Beach'} activeClassName="active">Sight Seeing</Link>
               </li>
                <li>
               <Link to={'/products/'} activeClassName="active">Adventure</Link>
@@ -258,7 +258,7 @@ componentDidMount()
               <Link to={'/products/'} activeClassName="active">Trekking</Link>
               </li>
               <li>
-              <Link to={'/products/'} activeClassName="active">Honeymoon</Link>
+              <Link to={'/categories:packages/searchtype:category/search:Honeymoon'} activeClassName="active">Honeymoon</Link>
               </li>
         </ul>
       </div>

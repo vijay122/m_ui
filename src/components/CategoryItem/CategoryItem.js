@@ -42,17 +42,23 @@ var that = this;
       <h2>{product.name}</h2>
       <h3>{product.title}</h3>
       <h5>{product.city}</h5>
-      <h5>{product.operator}</h5>
+      <h5>Operator: {product.operator}</h5>
       </Row>
       <Row>
       <Divider />
       </Row>
       <Row>
-      SightSeeing:
+      <Col md={4}>
+      <div>SightSeeing:</div>
       {product && product.products.map(function(x)
         {
           return(<VisitIcons menu={x} dispatch={that.props.dispatch}/>);
         })}
+      </Col>
+      <Col md={4}>
+      </Col>
+      <Col md={4}>
+      </Col>
       </Row>
      </Col>
       <Col md={2} className={styles.center}>
