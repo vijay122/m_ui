@@ -111,7 +111,7 @@ app.use((req, res) => {
 });
 
 if (config.port) {
-  server.listen(config.port, (err) => {
+  server.listen(process.env.PORT||config.port, (err) => {
     if (err) {
       console.error(err);
     }
