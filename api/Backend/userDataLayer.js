@@ -1,3 +1,4 @@
+/* move these to api side
 var mongo = require('mongodb');
 var util = require('util');
 var fs = require('fs');
@@ -60,7 +61,8 @@ exports.addUser = function (name) {
                 }
             });
         });
-        */
+     
+     
 }
 exports.loadUserInfo = function (name,password) {
     var user = name;
@@ -85,7 +87,7 @@ console.log(userdetails);
                 }
             });
         });
-        */
+       
 }
 exports.updatePlace = function (req, res) {
     var id = req.params.id;
@@ -122,3 +124,4 @@ exports.deletePlace = function (req, res) {
 }
 
 //ToDo
+ */

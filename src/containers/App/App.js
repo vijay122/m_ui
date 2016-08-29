@@ -37,7 +37,7 @@ import LinearProgress from 'material-ui/LinearProgress';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import SnowStorm from 'react-snowstorm';
+//import SnowStorm from 'react-snowstorm';
 
 import IconMenu from 'material-ui/IconMenu/IconMenu';
 import MenuItem from 'material-ui/MenuItem/MenuItem';
@@ -165,10 +165,7 @@ componentDidMount()
             </div>
         <Navbar fixedTop className={styles.insightsBar} id="fxd">
          <LinearProgress mode="determinate" value={75} />
-         {this.props!= null && this.state.document!= undefined && this.state.document.map(function(x)
-  {
-                   return( <SnowStorm targetElement="fxd"/>);
-  })}
+       
           <Navbar.Header>
             <Navbar.Brand>
               <IndexLink to="/" activeStyle={{color: '#343434'}}>
