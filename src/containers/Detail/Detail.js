@@ -356,7 +356,9 @@ return(
      <Col md={4}>
      <div>price</div>
      <div>stars</div>
-     <div>    <RaisedButton label="view" primary={true}/></div>
+     <div>    
+     <a>view</a>
+     </div>
      </Col>
      </Row>
       </div>
