@@ -64,7 +64,7 @@ app.use((req, res) => {
   const splittedUrlPath = req.url.split('?')[0].split('/').slice(1);
 
   const {action, params} = mapUrl(actions, splittedUrlPath);
-
+console.log("action value:" action); 
   if (action) {
     action(req, params)
       .then((result) => {
@@ -82,7 +82,7 @@ app.use((req, res) => {
         }
       });
   } else {
-    res.status(404).end('NOT FOUND');
+    res.status(404).end('NOT FOUND in api/api.js');
   }
 });
 
