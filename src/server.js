@@ -110,13 +110,13 @@ app.use((req, res) => {
   });
 });
 
-if (config.port) {
+if (process.env.PORT) {
   server.listen(process.env.PORT||config.port, (err) => {
     if (err) {
       console.error(err);
     }
     console.info('----\n==> ✅  %s is running, talking to API server on %s.', config.app.title, config.apiPort);
-    console.info('==> 💻  Open http://%s:%s in a browser to view the app.', config.host, config.port);
+    console.info('==> 💻  Open http://%s:%s in a browser to view the app.', process.env.HOST, process.env.PORT);
       console.info('==> 💻 Po service targetUrl.', config.host, process.env.Svc);
      console.info('==> 💻 Port assigned by heroku.', config.host, process.env.PORT);
   });

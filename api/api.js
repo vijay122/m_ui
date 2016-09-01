@@ -62,7 +62,7 @@ app.use(bodyParser.json());
 
 app.use((req, res) => {
   const splittedUrlPath = req.url.split('?')[0].split('/').slice(1);
-
+console.log("url path value:"+ splittedUrlPath); 
   const {action, params} = mapUrl(actions, splittedUrlPath);
 console.log("action value:"+ action); 
   if (action) {
@@ -91,13 +91,13 @@ const bufferSize = 100;
 const messageBuffer = new Array(bufferSize);
 let messageIndex = 0;
 
-if (config.apiPort) {
+if (process.env.PORT) {
   const runnable = app.listen(process.env.PORT||config.apiPort, (err) => {
     if (err) {
       console.error(err);
     }
-    console.info('----\n==> 🌎  API is running on port %s', config.apiPort);
-    console.info('==> 💻  Send requests to http://%s:%s', config.apiHost, config.apiPort);
+    console.info('----\n==> 🌎  API is running on port %s', process.env.PORT);
+    console.info('==> 💻  Send requests to http://%s:%s', process.env.HOST, process.env.PORT);
   });
 
   io.on('connection', (socket) => {
