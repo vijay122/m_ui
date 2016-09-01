@@ -61,7 +61,7 @@ function checkStatus(response) {
 
 export function loadFooter() {
     return dispatch =>{
-    fetch('http://localhost:8000/seo', {
+    fetch(process.env.Svc+'/seo', {
       method: 'get',
       headers: {
         'Accept': 'application/json',

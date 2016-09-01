@@ -115,7 +115,7 @@ export default class PlaceUploader extends Component {
    _create() {
     this.state.image =this.refs['UploadImages'].state.images;
      var postdata = this.state;
-       fetch('http://localhost:8000/Save', {
+       fetch(process.env.Svc+'/Save', {
   method: 'post',
   headers: {
     'Accept': 'application/json',
@@ -181,7 +181,7 @@ postdata
     {
   var image = this.refs["file"].files[i];
     {
-      this.ajax('http://localhost:8000/api/photo',image).then(function(result)
+      this.ajax(process.env.Svc+'/api/photo',image).then(function(result)
         {
           console.log(result);
        var  responseObj = JSON.parse(result);

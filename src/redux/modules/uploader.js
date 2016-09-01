@@ -51,7 +51,7 @@ export default function reducer(state = initialState, action = {}) {
 }
 export function load() {
     return dispatch =>{
-    fetch('http://localhost:8000/test', {
+    fetch(process.env.Svc+'/test', {
       method: 'get',
       headers: {
         'Accept': 'application/json',
@@ -92,7 +92,7 @@ export function isLoaded(globalState) {
 export function saveProduct(product) {
   var input = JSON.stringify(product);
   return dispatch =>
-    fetch('http://localhost:8000/Save', {
+    fetch(process.env.Svc+'/Save', {
       method: 'post',
       headers: {
         'Accept': 'application/json',

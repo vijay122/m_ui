@@ -164,8 +164,6 @@ componentDidMount()
 
             </div>
         <Navbar fixedTop className={styles.insightsBar} id="fxd">
-         <LinearProgress mode="determinate" value={75} />
-       
           <Navbar.Header>
             <Navbar.Brand>
               <IndexLink to="/" activeStyle={{color: '#343434'}}>

@@ -7,7 +7,7 @@ export default class FileUploader extends Component{
     super(props);
       this.uploadImage = this.uploadImage.bind(this);
       this.state={};
-      this.state.images =[];
+      this.state.images =[]
   }
 
   ajax(url,file) {
@@ -62,7 +62,7 @@ export default class FileUploader extends Component{
     {
 
 
-      this.ajax('http://localhost:8000/api/photo',image).then(function(result)
+      this.ajax(process.env.Svc+'/api/photo',image).then(function(result)
         {
           console.log(result);
        var  responseObj = JSON.parse(result);

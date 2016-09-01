@@ -62,7 +62,7 @@
         "NODE_ENV": "development",
         "PORT": 3000,
         "APIPORT": 3030,
-         "Svc":"localhost://8000"
+         "Svc":"http://localhost:8000"
       }
     },
     "start-dev-api": {
@@ -71,7 +71,7 @@
         "NODE_PATH": "./api",
         "NODE_ENV": "development",
         "APIPORT": 3030,
-         "Svc":"localhost://8000"
+         "Svc":"http://localhost:8000"
       }
     },
     "watch-client": {

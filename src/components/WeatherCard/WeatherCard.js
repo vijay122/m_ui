@@ -22,7 +22,7 @@ var lang =this.props.detail.longitude;
 var latlang = lat+','+lang;
 this.setState({latlang:latlang});
 
-   this.post('http://localhost:8000/getTemperature/'+latlang).then(function(response) {
+   this.post(process.env.Svc+'/getTemperature/'+latlang).then(function(response) {
   console.log("Success!", response);
 
   });

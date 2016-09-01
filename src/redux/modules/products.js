@@ -103,7 +103,7 @@ export default function reducer(state = initialState, action = {}) {
 }
 export function load() {
     return dispatch =>{
-    fetch('http://localhost:8000/test', {
+    fetch(process.env.Svc+'/test', {
       method: 'get',
       headers: {
         'Accept': 'application/json',
@@ -138,7 +138,7 @@ map.useroffers=data.useroffers;
 
 export function loadAllData() {
     return dispatch =>{
-    fetch('http://localhost:8000/getProducts', {
+    fetch(process.env.Svc+'/getProducts', {
       method: 'post',
       headers: {
         'Accept': 'application/json',

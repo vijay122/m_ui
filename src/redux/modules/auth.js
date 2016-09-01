@@ -84,9 +84,8 @@ export function load() {
   };
 }
 export function register(mobno) {
-    ;
     return dispatch =>{
-    fetch('http://localhost:8000/register', {
+    fetch(process.env.Svc+'/register', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -98,7 +97,6 @@ export function register(mobno) {
     }).then(checkStatus) 
   .then(parseJSON)
   .then(function(data) {
-;
     // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
   //  console.log('request succeeded with JSON response', list)
   }).catch(function(error) {
@@ -109,9 +107,8 @@ export function register(mobno) {
 }
 
 export function loginUser(name,password) {
-  ;
    return dispatch =>{
-    fetch('http://localhost:8000/login', {
+    fetch(process.env.Svc+'/login', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -124,7 +121,6 @@ export function loginUser(name,password) {
     }).then(checkStatus) 
   .then(parseJSON)
   .then(function(data) {
-;
     // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
   //  console.log('request succeeded with JSON response', list)
   }).catch(function(error) {

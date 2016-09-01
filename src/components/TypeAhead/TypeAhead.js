@@ -52,7 +52,7 @@ this.handleSelect= this.handleSelect.bind(this);
   var that = this;
   var datalist =[];
   var search = a;
-  passstate.get('http://localhost:8000/autocomplete/'+search).then(function(response) {
+  passstate.get(process.env.Svc+'/autocomplete/'+search).then(function(response) {
   console.log("Success!", response);
   for(var i=0;i<response.length; i++)
 

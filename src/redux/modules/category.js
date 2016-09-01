@@ -78,7 +78,7 @@ export function getProducts(searchtable,searchby,searchvalue) {
   try
   {
      return dispatch =>{
-    fetch('http://localhost:8000/getProducts', {
+    fetch(process.env.Svc+'/getProducts', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
