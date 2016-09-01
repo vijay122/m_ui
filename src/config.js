@@ -14,6 +14,7 @@ module.exports = Object.assign({
   port: process.env.PORT,
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT || '3030',
+  svc:process.env.Svc,
   app: {
     title: 'LivelyTrips',
     description: 'All the modern best practices in one example.',

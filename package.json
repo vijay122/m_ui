@@ -43,14 +43,16 @@
       "command": "node ./bin/server.js",
       "env": {
         "NODE_PATH": "./src",
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "Svc":"https://stark-wildwood-65875.herokuapp.com"
       }
     },
     "start-prod-api": {
       "command": "node ./bin/api.js",
       "env": {
         "NODE_PATH": "./api",
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+         "Svc":"https://stark-wildwood-65875.herokuapp.com"
       }
     },
     "start-dev": {
@@ -59,7 +61,8 @@
         "NODE_PATH": "./src",
         "NODE_ENV": "development",
         "PORT": 3000,
-        "APIPORT": 3030
+        "APIPORT": 3030,
+         "Svc":"localhost://8000"
       }
     },
     "start-dev-api": {
@@ -67,7 +70,8 @@
       "env": {
         "NODE_PATH": "./api",
         "NODE_ENV": "development",
-        "APIPORT": 3030
+        "APIPORT": 3030,
+         "Svc":"localhost://8000"
       }
     },
     "watch-client": {
