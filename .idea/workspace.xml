@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/react_redux_universal_hot_example_node_modules.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/react-redux-universal-hot-example.iml" afterPath="$PROJECT_DIR$/.idea/react-redux-universal-hot-example.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/modules/products.js" afterPath="$PROJECT_DIR$/src/redux/modules/products.js" />
-    </list>
+    <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="" />
     <ignored path="react-redux-universal-hot-example.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -144,15 +138,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1456845911567</updated>
-      <workItem from="1472827565146" duration="332000" />
+      <workItem from="1472827565146" duration="489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="332000" />
+    <option name="totallyTimeSpent" value="489000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1934" height="1042" extended-state="0" />
+    <frame x="-11" y="-11" width="1934" height="1042" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986681" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
