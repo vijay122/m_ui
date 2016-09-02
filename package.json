@@ -44,6 +44,7 @@
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
+        "APIPORT": 3030,
         "Svc":"https://stark-wildwood-65875.herokuapp.com"
       }
     },
@@ -52,6 +53,7 @@
       "env": {
         "NODE_PATH": "./api",
         "NODE_ENV": "production",
+        "APIPORT": 3030,
          "Svc":"https://stark-wildwood-65875.herokuapp.com"
       }
     },

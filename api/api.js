@@ -92,12 +92,12 @@ const messageBuffer = new Array(bufferSize);
 let messageIndex = 0;
 
 if (process.env.PORT|| config.PORT) {
-  const runnable = app.listen(process.env.PORT||config.apiPort, (err) => {
+  const runnable = app.listen(config.apiPort, (err) => {
     if (err) {
       console.error(err);
     }
-    console.info('----\n==> 🌎  API is running on port %s', process.env.PORT);
-    console.info('==> 💻  Send requests to http://%s:%s', process.env.HOST, process.env.PORT);
+    console.info('----\n==> 🌎  API is running on port %s', config.apiPort);
+    console.info('==> 💻  Send requests to http://%s:%s', process.env.HOST, config.apiPort);
   });
 
   io.on('connection', (socket) => {
