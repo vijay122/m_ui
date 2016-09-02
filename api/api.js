@@ -91,7 +91,7 @@ const bufferSize = 100;
 const messageBuffer = new Array(bufferSize);
 let messageIndex = 0;
 
-if (process.env.PORT) {
+if (process.env.PORT|| config.PORT) {
   const runnable = app.listen(process.env.PORT||config.apiPort, (err) => {
     if (err) {
       console.error(err);
