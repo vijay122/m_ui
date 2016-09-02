@@ -114,6 +114,7 @@ export default class PlaceUploader extends Component {
  }
 
    _create() {
+    var that = this;
     this.state.image =this.refs['UploadImages'].state.images;
      var postdata = this.state;
        fetch(config.svc+'/Save', {
@@ -127,7 +128,7 @@ postdata
   })
 }).then(function()
 {
-  this.setState({InitialState});
+  that.setState({InitialState});
 });
   }
    ajax(url,file) {
