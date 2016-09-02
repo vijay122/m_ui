@@ -32,6 +32,8 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+
+import config from '../../config';
 const styles = {
   headline: {
     fontSize: 24,
@@ -103,7 +105,7 @@ export default class PlaceUploader extends Component {
     this.submitform = this.submitform.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.validateForm = this.validateForm.bind(this);
-    
+
       this.state = {type: null};
   }
  handleChange(e,index,value)
@@ -115,7 +117,7 @@ export default class PlaceUploader extends Component {
    _create() {
     this.state.image =this.refs['UploadImages'].state.images;
      var postdata = this.state;
-       fetch(process.env.Svc+'/Save', {
+       fetch(config.svc+'/Save', {
   method: 'post',
   headers: {
     'Accept': 'application/json',
@@ -172,11 +174,11 @@ postdata
 
   }
   uploadImage(file)
-  {  
+  {
           var that = this;
           var images=[];
 
-      
+
     for(var i=0; i<this.refs["file"].files.length; i++)
     {
   var image = this.refs["file"].files[i];
@@ -186,9 +188,9 @@ postdata
           console.log(result);
        var  responseObj = JSON.parse(result);
          images.push(responseObj.url);
-        
+
       });
-     
+
     }
         }
   }
@@ -204,7 +206,7 @@ postdata
   {
     if(this.state!=null)
     {
-      
+
     }
   }
   onChange(e)
@@ -215,7 +217,7 @@ postdata
   componentWillReceiveProps(nextProps) {
     this.setState({value: nextProps.value});
 }
-handleSelect = (event, index, value) => 
+handleSelect = (event, index, value) =>
 {
   ;
   this.setState({type:value})
@@ -298,7 +300,7 @@ arr.push(status);
 
   }
 
- 
+
     return errorlist;
 
 }
@@ -322,7 +324,7 @@ getClassName()
   submitform()
   {
     ;
- 
+
     // this.uploadImage();
      //.then(function(resp)
     //  {
@@ -332,7 +334,7 @@ getClassName()
 
 this._create();
   };
-  
+
   render() {
     const styles = require('./PlaceUploader.scss');
     // require the logo image both from client and server
@@ -343,7 +345,7 @@ this._create();
 
           <Grid>
              <form validationState={this.getValidationState}>
-              
+
   <Row>
   {this.state.status != undefined && this.state.status.length>0 && this.state.status.map(function(status)
     {
@@ -362,8 +364,8 @@ this._create();
       hintText="Name in Characters"
       floatingLabelText="Enter the place name"
       floatingLabelFixed={true}
-      data-ctrlid="name" 
-      onChange={this.onChange.bind(this)} 
+      data-ctrlid="name"
+      onChange={this.onChange.bind(this)}
       value={this.state.name}/>
 
 
@@ -371,50 +373,50 @@ this._create();
       hintText="Title for the place"
       floatingLabelText="Suggest a title"
       floatingLabelFixed={true}
-      data-ctrlid="name" 
-      onChange={this.onChange.bind(this)} 
+      data-ctrlid="name"
+      onChange={this.onChange.bind(this)}
      data-ctrlid='title' onChange={this.onChange.bind(this)} value={this.state.title}/>
 
-  
+
 <TextField
       hintText="Get me the latitude"
       floatingLabelText="Geo coordinates latitude"
       floatingLabelFixed={true}
-      data-ctrlid="name" 
-      onChange={this.onChange.bind(this)} 
+      data-ctrlid="name"
+      onChange={this.onChange.bind(this)}
      data-ctrlid='latitude' onChange={this.onChange.bind(this)} value={this.state.latitude}/>
 
  <TextField
       hintText="Get me the longitude"
       floatingLabelText="Geo coordinates longitude"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
+      onChange={this.onChange.bind(this)}
      data-ctrlid='longitude' onChange={this.onChange.bind(this)} value={this.state.longitude}/>
 
 <TextField
       hintText="City that the place belongs to"
       floatingLabelText="Get me the city name"
       floatingLabelFixed={true}
-      data-ctrlid="city" 
-      onChange={this.onChange.bind(this)} 
+      data-ctrlid="city"
+      onChange={this.onChange.bind(this)}
        data-ctrlid='city' onChange={this.onChange.bind(this)} value={this.state.city}/>
        <TextField
       hintText="State that the place belongs to"
       floatingLabelText="Get me the state name"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
+      onChange={this.onChange.bind(this)}
        data-ctrlid='state' onChange={this.onChange.bind(this)} value={this.state.state}/>
  <TextField
       hintText="Pin code details"
       floatingLabelText="Pincode"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
+      onChange={this.onChange.bind(this)}
        data-ctrlid='pincode' onChange={this.onChange.bind(this)} value={this.state.pincode}/>
 <TextField
       hintText="Country that the place belongs to"
       floatingLabelText="Get me the country name"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
+      onChange={this.onChange.bind(this)}
        data-ctrlid='class' onChange={this.onChange.bind(this)} value={this.state.country}/>
 
 
@@ -425,16 +427,16 @@ this._create();
  <TextField
       floatingLabelText="Describe the place in 20 words"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
+      onChange={this.onChange.bind(this)}
        multiLine={true}
       rows={3}
      data-ctrlid='description' onChange={this.onChange.bind(this)} value={this.state.description}/>
- 
+
  <TextField
  hintText="tell us abt the nearby landmarks...."
       floatingLabelText="Landmark details"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
+      onChange={this.onChange.bind(this)}
        multiLine={true}
       rows={3}
      data-ctrlid='landmark' onChange={this.onChange.bind(this)} value={this.state.landmark} />
@@ -472,8 +474,8 @@ this._create();
       </div>
     </Tab>
   </Tabs>
-            
-   
+
+
      </form>
          </Grid>
         </div>
