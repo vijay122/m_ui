@@ -33,7 +33,6 @@ import Slider from 'material-ui/Slider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-import config from '../../config';
 const styles = {
   headline: {
     fontSize: 24,
@@ -112,7 +111,7 @@ export default class PlaceUploader extends Component {
  {
   ;
   this.setState({type:value});
- } 
+ }
 
    _create() {
     this.state.image =this.refs['UploadImages'].state.images;
