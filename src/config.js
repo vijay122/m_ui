@@ -14,7 +14,7 @@ module.exports = Object.assign({
   port: process.env.PORT,
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT || '3030',
-  svc:process.env.Svc,
+  svc:process.env.Svc||'https://stark-wildwood-65875.herokuapp.com',
   app: {
     title: 'LivelyTrips',
     description: 'All the modern best practices in one example.',
