@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client.js" afterPath="$PROJECT_DIR$/src/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config.js" afterPath="$PROJECT_DIR$/src/config.js" />
-    </list>
+    <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="" />
     <ignored path="react-redux-universal-hot-example.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,7 +47,7 @@
       <file leaf-file-name="client.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="302">
               <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -179,12 +176,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1456845911567</updated>
-      <workItem from="1472827565146" duration="1132000" />
+      <workItem from="1472827565146" duration="1705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1132000" />
+    <option name="totallyTimeSpent" value="1705000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1934" height="1042" extended-state="0" />
@@ -258,7 +255,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="302">
           <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
