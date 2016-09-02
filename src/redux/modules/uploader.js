@@ -8,6 +8,8 @@ const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
 const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
 
+ import config from '../../config';
+
 const initialState = {
   count: 0
 };
@@ -51,7 +53,7 @@ export default function reducer(state = initialState, action = {}) {
 }
 export function load() {
     return dispatch =>{
-    fetch(process.env.Svc+'/test', {
+    fetch(config.svc+'/test', {
       method: 'get',
       headers: {
         'Accept': 'application/json',
@@ -92,7 +94,7 @@ export function isLoaded(globalState) {
 export function saveProduct(product) {
   var input = JSON.stringify(product);
   return dispatch =>
-    fetch(process.env.Svc+'/Save', {
+    fetch(config.svc+'/Save', {
       method: 'post',
       headers: {
         'Accept': 'application/json',

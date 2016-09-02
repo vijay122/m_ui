@@ -8,6 +8,8 @@ const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
 const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
 
+ import config from '../../config';
+
 const initialState = {
   count: 0
 };
@@ -78,7 +80,7 @@ export function getProducts(searchtable,searchby,searchvalue) {
   try
   {
      return dispatch =>{
-    fetch(process.env.Svc+'/getProducts', {
+    fetch(config.svc+'/getProducts', {
       method: 'post',
       headers: {
         'Accept': 'application/json',

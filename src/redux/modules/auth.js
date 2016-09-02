@@ -8,6 +8,8 @@ const LOGOUT = 'redux-example/auth/LOGOUT';
 const LOGOUT_SUCCESS = 'redux-example/auth/LOGOUT_SUCCESS';
 const LOGOUT_FAIL = 'redux-example/auth/LOGOUT_FAIL';
 
+ import config from '../../config';
+
 const initialState = {
   loaded: false
 };
@@ -85,7 +87,7 @@ export function load() {
 }
 export function register(mobno) {
     return dispatch =>{
-    fetch(process.env.Svc+'/register', {
+    fetch(config.svc+'/register', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -108,7 +110,7 @@ export function register(mobno) {
 
 export function loginUser(name,password) {
    return dispatch =>{
-    fetch(process.env.Svc+'/login', {
+    fetch(config.svc+'/login', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
