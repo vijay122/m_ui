@@ -103,7 +103,7 @@ export default function reducer(state = initialState, action = {}) {
 }
 export function load() {
     return dispatch =>{
-    fetch(config.svc+'/isready', {
+    fetch(config.svc+'/test', {
       method: 'get',
       headers: {
         'Accept': 'application/json',
