@@ -100,6 +100,7 @@ if (process.env.PORT|| config.PORT) {
     console.info('==> 💻  Send requests to http://%s:%s', process.env.HOST, config.apiPort);
   });
 
+/*
   io.on('connection', (socket) => {
     socket.emit('news', {msg: `'Hello World!' from server`});
 
@@ -121,6 +122,8 @@ if (process.env.PORT|| config.PORT) {
     });
   });
   io.listen(runnable);
-} else {
+  */
+} else 
+{
   console.error('==>     ERROR: No PORT environment variable has been specified');
 }
