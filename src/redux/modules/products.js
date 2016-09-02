@@ -9,7 +9,7 @@ const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
 
 import  'isomorphic-fetch';
-
+ import config from '../../config';
 const initialState = {
   count: 0
 };
@@ -79,7 +79,7 @@ export default function reducer(state = initialState, action = {}) {
         console.log("added ADD");
        if( state.cart == undefined)
        {
-        state.cart=[]; 
+        state.cart=[];
        }
        state.cart.push(action.result.prd);
         return {...state,
@@ -96,7 +96,7 @@ export default function reducer(state = initialState, action = {}) {
       }
         // here is my problem
    // return setEntries(...state,action.result);
-    
+
     default:
       return state;
   }
@@ -109,16 +109,16 @@ export function load() {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }
-    }).then(checkStatus) 
+    }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
- /*   var Offersmap = Map(data.offers.reduce(function(previous, current) { 
+ /*   var Offersmap = Map(data.offers.reduce(function(previous, current) {
     previous[ current._id ] = current;
     return previous;
 }, {}));
 */
 
-var Placesmap = Map(data.places.reduce(function(previous, current) { 
+var Placesmap = Map(data.places.reduce(function(previous, current) {
     previous[ current._id ] = current;
     return previous;
 }, {}));
@@ -138,13 +138,13 @@ map.useroffers=data.useroffers;
 
 export function loadAllData() {
     return dispatch =>{
-    fetch(process.env.Svc+'/getProducts', {
+    fetch(config.svc+'/getProducts', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }
-    }).then(checkStatus) 
+    }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
 
@@ -217,7 +217,7 @@ export function viewdetail(state) {
 
 export function AddToCart(fn) {
    //return state.set('current', list);
-   
+
     return dispatch =>{
    //return state.set('current', list);
    return dispatch({type:'ADD_TO_CART', result:{prd:fn}});
