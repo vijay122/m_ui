@@ -45,8 +45,8 @@
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
         "APIPORT": 3030,
-          "PORT": 8000,
-        "Svc":"https://stark-wildwood-65875.herokuapp.com"
+          "PORT": 7000,
+        "Svc":"https://localhost:8000"
       }
     },
     "start-prod-api": {
@@ -55,8 +55,8 @@
         "NODE_PATH": "./api",
         "NODE_ENV": "production",
         "APIPORT": 3030,
-          "PORT": 8000,
-         "Svc":"https://stark-wildwood-65875.herokuapp.com"
+          "PORT": 7000,
+         "Svc":"https://localhost:8000"
       }
     },
     "start-dev": {
