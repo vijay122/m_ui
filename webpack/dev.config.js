@@ -1,5 +1,5 @@
 require('babel-polyfill');
-var config = require('../config');
+var config = require('../src/config');
 
 // Webpack config for development
 var fs = require('fs');

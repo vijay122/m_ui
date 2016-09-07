@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="" />
+    <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack/dev.config.js" afterPath="$PROJECT_DIR$/webpack/dev.config.js" />
+    </list>
     <ignored path="react-redux-universal-hot-example.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +41,7 @@
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
-                <marker date="1473174159840" expanded="true" signature="3853:4030" ph="{...}" />
+                <marker date="1473218955339" expanded="true" signature="3853:3940" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -67,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Detail.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Detail.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/Detail/Detail.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -75,6 +77,16 @@
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dev.config.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webpack/dev.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-50">
+              <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,6 +103,7 @@
         <option value="$PROJECT_DIR$/src/redux/modules/products.js" />
         <option value="$PROJECT_DIR$/src/client.js" />
         <option value="$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js" />
+        <option value="$PROJECT_DIR$/webpack/dev.config.js" />
       </list>
     </option>
   </component>
@@ -151,6 +164,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="checkinui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-redux-universal-hot-example" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="checkinui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webpack" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -261,12 +288,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1456845911567</updated>
-      <workItem from="1472827565146" duration="3166000" />
+      <workItem from="1472827565146" duration="3226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3166000" />
+    <option name="totallyTimeSpent" value="3226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="0" width="1934" height="1030" extended-state="0" />
@@ -334,7 +361,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-            <marker date="1473174159840" expanded="true" signature="3853:4030" ph="{...}" />
+            <marker date="1473218955339" expanded="true" signature="3853:3940" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -364,6 +391,14 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/dev.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
