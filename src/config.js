@@ -10,8 +10,8 @@ const environment = {
 }[process.env.NODE_ENV || 'development'];
 
 module.exports = Object.assign({
-  host: process.env.HOST || 'localhost',
-  port: process.env.PORT|| '8000',
+  host: process.env.HOST || config.host,
+  port: process.env.PORT|| config.port,
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT || '3030',
   svc:process.env.Svc||'https://stark-wildwood-65875.herokuapp.com',

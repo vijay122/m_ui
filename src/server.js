@@ -119,8 +119,7 @@ if (config.port) {
     console.info('----\n==> ✅  %s is running, talking to API server on %s.', config.app.title, config.apiPort);
     console.info('==> 💻  Open http://%s:%s in a browser to view the app.', config.host, config.port);
       console.info('==> 💻 Po service targetUrl.', config.host, process.env.Svc);
-     console.info('==> 💻 Port assigned by heroku.', config.host, process.env.PORT);
   });
 } else {
-  console.error('==>     ERROR: No PORT environment variable has been specified');
+  console.error('==>     ERROR: No PORT server.js environment variable has been specified');
 }
