@@ -4,7 +4,7 @@ import Well from 'react-bootstrap/lib/Well';
 import React, { Component } from 'react';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import { TypeAhead } from 'components';
+import { TypeAhead } from '../../components';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
