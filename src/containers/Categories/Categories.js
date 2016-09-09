@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CategoryItem, FilterToolbox } from 'components';
+import { CategoryItem, FilterToolbox } from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';
@@ -19,8 +19,8 @@ import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 
-import * as categoryActions from 'redux/modules/category';
-import {isLoaded, load as load, viewdetail} from 'redux/modules/products';
+import * as categoryActions from '../../redux/modules/category';
+import {isLoaded, load as load, viewdetail} from '../../redux/modules/products';
 import { asyncConnect } from 'redux-async-connect';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';

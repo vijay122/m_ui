@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Helmet from 'react-helmet';
-import { MiniInfoBar, GoogleMaps } from 'components';
+import { MiniInfoBar, GoogleMaps } from '../../components';
 
 export default class About extends Component {
 

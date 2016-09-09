@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton, OrderSummary,Calendar } from 'components';
+import { CounterButton, GithubButton, OrderSummary,Calendar } from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';
@@ -20,11 +20,11 @@ import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
-import {isLoaded, load as load, viewdetail} from 'redux/modules/products';
+import {isLoaded, load as load, viewdetail} from '../../redux/modules/products';
 import { asyncConnect } from 'redux-async-connect';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as productActions from 'redux/modules/products';
+import * as productActions from '../../redux/modules/products';
 
 import IconButton from 'material-ui/IconButton';
 import ActionGrade from 'material-ui/svg-icons/action/grade';

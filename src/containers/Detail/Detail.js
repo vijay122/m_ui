@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton, Booking, WeatherCard } from 'components';
+import { CounterButton, GithubButton, Booking, WeatherCard } from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';
@@ -22,12 +22,12 @@ import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import Panel from 'react-bootstrap/lib/Panel';
-import {isLoaded, load as load, viewdetail} from 'redux/modules/products';
-import * as detailActions from 'redux/modules/detail';
+import {isLoaded, load as load, viewdetail} from '../../redux/modules/products';
+import * as detailActions from '../../redux/modules/detail';
 import { asyncConnect } from 'redux-async-connect';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as productActions from 'redux/modules/products';
+import * as productActions from '../../redux/modules/products';
 import { push } from 'react-router-redux';
 
 import geolib  from 'geolib';

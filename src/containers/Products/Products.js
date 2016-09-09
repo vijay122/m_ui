@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton, ProductGrid,ProductCard,SquareCard, SearchBar, CardsContainer } from 'components';
+import { CounterButton, GithubButton, ProductGrid,ProductCard,SquareCard, SearchBar, CardsContainer } from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';
@@ -20,9 +20,9 @@ import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 
-import * as productActions from 'redux/modules/products';
+import * as productActions from '../../redux/modules/products';
 import {connect} from 'react-redux';
-import {isLoaded, load as load, viewdetail,loadAllData} from 'redux/modules/products';
+import {isLoaded, load as load, viewdetail,loadAllData} from '../../redux/modules/products';
 import {initializeWithKey} from 'redux-form';
 import { asyncConnect } from 'redux-async-connect';
 import { bindActionCreators } from 'redux';

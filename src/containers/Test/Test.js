@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import Helmet from 'react-helmet';
 import {connect} from 'react-redux';
-import * as productActions from 'redux/modules/products';
-import {isLoaded, load as loadproducts} from 'redux/modules/products';
+import * as productActions from '../../redux/modules/products';
+import {isLoaded, load as loadproducts} from '../../redux/modules/products';
 import {initializeWithKey} from 'redux-form';
 import { asyncConnect } from 'redux-async-connect';
 

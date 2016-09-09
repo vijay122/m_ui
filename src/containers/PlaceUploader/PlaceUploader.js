@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { FileUploader, TabsSection, GeoCoder } from 'components';
+import { FileUploader, TabsSection, GeoCoder } from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';

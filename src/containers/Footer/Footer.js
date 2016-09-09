@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton, ProductGrid,ProductCard,SquareCard, SearchBar } from 'components';
+import { CounterButton, GithubButton, ProductGrid,ProductCard,SquareCard, SearchBar } from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';
@@ -30,8 +30,8 @@ import { push } from 'react-router-redux';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
 
-import * as footerActions from 'redux/modules/info';
-import {load, loadFooter} from 'redux/modules/info';
+import * as footerActions from '../../redux/modules/info';
+import {load, loadFooter} from '../../redux/modules/info';
 import { asyncConnect } from 'redux-async-connect';
 import  'isomorphic-fetch';
 
