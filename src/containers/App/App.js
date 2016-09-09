@@ -13,7 +13,7 @@ import { InfoBar, Badge } from '../../components';
 
 import * as detailActions from '../../redux/modules/detail';
 
-import Footer from '../containers';
+import Footer from '../../containers';
 
 import { routeActions, push } from 'react-router-redux';
 import config from '../../config';
