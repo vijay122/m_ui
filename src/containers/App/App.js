@@ -8,10 +8,10 @@ import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
 import { isLoaded as isInfoLoaded, load as loadInfo , loadFooter } from '../../redux/modules/info';
-import { isLoaded as isAuthLoaded, load as loadAuth, logout } from '../redux/modules/auth';
-import { InfoBar, Badge } from '../components';
+import { isLoaded as isAuthLoaded, load as loadAuth, logout } from '../../redux/modules/auth';
+import { InfoBar, Badge } from '../../components';
 
-import * as detailActions from '../redux/modules/detail';
+import * as detailActions from '../../redux/modules/detail';
 
 import Footer from '../containers';
 
