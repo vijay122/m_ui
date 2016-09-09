@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as footerActions from 'redux/modules/info';
-import {load, loadFooter} from 'redux/modules/info';
+import * as footerActions from '../../redux/modules/info';
+import {load, loadFooter} from '../../redux/modules/info';
 import { asyncConnect } from 'redux-async-connect';
 import  'isomorphic-fetch';
 
