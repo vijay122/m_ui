@@ -19,7 +19,7 @@ import {
     Votings,
     NotFound,
     PackageBuilder,
-  } from 'containers';
+  } from './containers';
 
 export default (store) => {
   const requireLogin = (nextState, replace, cb) => {
