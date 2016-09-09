@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/lib/Col';
 
 var Slider = require('react-slick');
 
-import { ProductCard} from 'components';
+import { ProductCard} from '../../components';
 
 export default class CardsContainer extends React.Component {
    constructor(props) {
