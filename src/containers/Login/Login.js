@@ -15,7 +15,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 @connect(
   state => ({user: state.auth.user}),
-  isLoaded)
+  isAuthLoaded)
 export default class Login extends Component {
   static propTypes = {
     user: PropTypes.object,
