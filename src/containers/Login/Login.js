@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Helmet from 'react-helmet';
-import * as authActions from 'redux/modules/auth';
+import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
 
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
@@ -15,7 +15,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 @connect(
   state => ({user: state.auth.user}),
-  authActions)
+  isLoaded)
 export default class Login extends Component {
   static propTypes = {
     user: PropTypes.object,
