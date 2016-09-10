@@ -82,7 +82,7 @@ const AppbarStyles = () => getMuiTheme({
 //      promises.push(dispatch(loadFooter()));
     }
     if (!isAuthLoaded(getState())) {
-      promises.push(dispatch(loadAuth()));
+    //  promises.push(dispatch(loadAuth()));
     }
 
     return Promise.all(promises);
