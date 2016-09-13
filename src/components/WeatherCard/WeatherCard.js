@@ -48,7 +48,7 @@ this.setState({latlang:latlang});
       // so check the status
       if (req.status == 200) {
         // Resolve the promise with the response text
-        resolve(JSON.parse(req.response));
+      //  resolve(JSON.parse(req.response));
       }
       else {
         // Otherwise reject with the status text

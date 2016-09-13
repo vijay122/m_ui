@@ -49,7 +49,6 @@ export default function reducer(state = initialState, action = {}) {
         getProductsResult: newItems,
       }
        case 'ADD_TO_CART':
-       debugger;
         console.log("added ADD");
         var cart = state.cart;
        if( cart == undefined)
@@ -61,8 +60,14 @@ export default function reducer(state = initialState, action = {}) {
       //}
       return {...state, 
         cart :cart }
+          case 'VIEW_MORE':
+          debugger;
+        console.log("View More");
+       return {
+       // ...state.cart.pop()
+       // ...state.cart.filter(product._id => action.result.prd._id !=== product._id)
+      }
     case 'REMOVE_TO_CART':
-    ;
         console.log("removed ADD");
        return {
        // ...state.cart.pop()
@@ -74,6 +79,33 @@ export default function reducer(state = initialState, action = {}) {
     default:
       return state;
   }
+}
+
+export function viewMore(product, type) {
+     return dispatch =>{
+    fetch(config.svc+'/viewmore', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+ table:'places',
+ product:product
+  })
+    }).then(checkStatus).error(function(x)
+    {
+      console.log("error at fetch: "+x);
+    })
+  .then(parseJSON)
+  .then(function(data) {
+
+   //  dispatch({ type: 'SET_ALL_ENTRIES', result: data });
+  //  console.log('request succeeded with JSON response', list)
+  }).catch(function(error) {
+    console.log('request failed', error)
+  })
+  }  
 }
 export function getProducts(productid) {
     return dispatch =>{

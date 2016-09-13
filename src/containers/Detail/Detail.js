@@ -73,6 +73,12 @@ componentWillReceiveProps(newprops)
   this.setState({'dependencies':newprops.detail.getProductsResult});
 
 }
+viewmore(data,fn)
+{
+  debugger;
+  data.viewMore(fn,"places");
+// data.dispatch({ type: 'VIEW_MORE', result: fn });
+}
   addToCart(data,fn,st) {
    // data.dispatch({"ADD_TO_CART",fn});
       data.dispatch({ type: 'ADD_TO_CART', result: fn });
@@ -125,6 +131,7 @@ return (
         detail!= undefined && detail.nearbylocation!= undefined && detail.nearbylocation.map(function (nearbyloc){
             return <SidebarTiles data={nearbyloc} referenceproduct={detail} key={nearbyloc.id}></SidebarTiles>;
           })}
+        <a onClick={this.viewmore.bind(this,that,detail)}>View More</a>
       </Col>
       <Col xs={12} md={6}>
       <Row>

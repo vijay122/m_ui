@@ -8,6 +8,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var strip = require('strip-loader');
 
 var projectRootPath = path.resolve(__dirname, '../');
+//var assetsPath = path.resolve(projectRootPath, './static/dist');
 var assetsPath = path.resolve(projectRootPath, './static/dist');
 //assetsPath ="~/static/dist";
 // https://github.com/halt-hammerzeit/webpack-isomorphic-tools

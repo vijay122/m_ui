@@ -62,21 +62,21 @@ export default function reducer(state = initialState, action = {}) {
       return {...state, 
         cart :cart }
     case 'REMOVE_TO_CART':
-    ;
         console.log("removed ADD");
        return {
        // ...state.cart.pop()
        // ...state.cart.filter(product._id => action.result.prd._id !=== product._id)
       }
+        default:
+      return state;
         // here is my problem
    // return setEntries(...state,action.result);
     
-    default:
-      return state;
+  //  default:
+    //  return state;
   }
 }
 export function getProducts(searchtable,searchby,searchvalue) {
-  ;
   try
   {
      return dispatch =>{
@@ -111,7 +111,6 @@ export function getProducts(searchtable,searchby,searchvalue) {
 }
   catch(ex)
   {
-    ;
   }
    
 }

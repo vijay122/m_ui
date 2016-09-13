@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import FlatButton from 'material-ui/FlatButton';
 
+import config from '../../config';
+
 export default class FileUploader extends Component{
      constructor(props) {
     super(props);
@@ -62,7 +64,7 @@ export default class FileUploader extends Component{
     {
 
 
-      this.ajax(process.env.Svc+'/api/photo',image).then(function(result)
+      this.ajax(config.svc+'/api/photo',image).then(function(result)
         {
           console.log(result);
        var  responseObj = JSON.parse(result);
