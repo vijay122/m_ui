@@ -193,7 +193,7 @@ componentDidMount()
     <Link to={'/products/'} activeClassName="active">Home</Link>
     </li>
     <li>
-      <a href="products.html">I Travel for.. <span class="caret"></span></a>
+      <a>I Travel for.. <span class="caret"></span></a>
       <div>
         <ul>
           <li>
