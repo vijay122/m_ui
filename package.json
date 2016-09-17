@@ -45,8 +45,8 @@
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
         "APIPORT": 3030,
-          "PORT": 7000,
-        "Svc":"http://localhost:8000"
+        "PORT": 7000,
+        "Svc": "http://localhost:8000"
       }
     },
     "start-prod-api": {
@@ -55,8 +55,8 @@
         "NODE_PATH": "./api",
         "NODE_ENV": "production",
         "APIPORT": 3030,
-          "PORT": 7000,
-         "Svc":"http://localhost:8000"
+        "PORT": 7000,
+        "Svc": "http://localhost:8000"
       }
     },
     "start-dev": {
@@ -66,7 +66,7 @@
         "NODE_ENV": "development",
         "PORT": 3000,
         "APIPORT": 3030,
-         "Svc":"http://localhost:8000"
+        "Svc": "http://localhost:8000"
       }
     },
     "start-dev-api": {
@@ -74,9 +74,9 @@
       "env": {
         "NODE_PATH": "./api",
         "NODE_ENV": "development",
-         "PORT": 3030,
+        "PORT": 3030,
         "APIPORT": 3030,
-         "Svc":"http://localhost:8000"
+        "Svc": "http://localhost:8000"
       }
     },
     "watch-client": {
@@ -155,7 +155,7 @@
     "webpack-isomorphic-tools": "^2.2.18"
   },
   "devDependencies": {
-   "autoprefixer-loader": "^3.1.0",
+    "autoprefixer-loader": "^3.1.0",
     "babel-eslint": "^5.0.0-beta6",
     "babel-plugin-react-transform": "^2.0.0",
     "babel-plugin-typecheck": "^3.6.0",
@@ -190,6 +190,11 @@
     "random-key": "^0.3.2",
     "react-a11y": "^0.2.6",
     "react-addons-test-utils": "^0.14.0",
+    "react-event-calendar": "^0.3.0",
+    "react-google-maps": "^4.11.0",
+    "react-material-icons": "^1.0.1",
+    "react-slick": "^0.14.3",
+    "react-tap-event-plugin": "^1.0.0",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
