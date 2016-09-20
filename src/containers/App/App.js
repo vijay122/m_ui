@@ -253,7 +253,7 @@ componentDidMount()
         <br />
         <br />
         <div className={styles.appContent}>
-        <div className="container">
+        <div className={styles.pageContainer}>
           {this.props.children}
           </div>
         </div>
