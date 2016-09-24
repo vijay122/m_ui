@@ -26,7 +26,6 @@ export default class CategoryItem extends Component{
 }
    render() 
    {
-debugger;
 var that = this;
    	  const styles = require('./CategoryItem.scss');
          var state = this.state;
@@ -95,7 +94,6 @@ export class VisitIcons extends Component {
        }
   }
    handleClick(data,fn,st) {
-    debugger;
 var placeid= data.props.menu.value;
    data.props.dispatch(push('/detail/id:'+placeid));
 }
@@ -108,7 +106,6 @@ resizeImage(url, height, width)
   return rest;
 }
   render() {
-    debugger;
 
     var product=this.state.product;
      var ty = this;

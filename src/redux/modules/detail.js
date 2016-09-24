@@ -61,7 +61,6 @@ export default function reducer(state = initialState, action = {}) {
       return {...state, 
         cart :cart }
           case 'VIEW_MORE':
-          debugger;
         console.log("View More");
        return {
        // ...state.cart.pop()

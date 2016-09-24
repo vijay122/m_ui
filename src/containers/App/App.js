@@ -144,7 +144,6 @@ componentDidMount()
   };
 
   render() {
-    debugger;
      var cartcount ;
     if(this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items!= null)
   cartcount = this.props.appstate.cart.items.length;
@@ -265,14 +264,12 @@ componentDidMount()
 }
 
 function mapStateToProps(state) {
-  debugger;
   console.log('state '+state);
  
   return { appstate: state, detail: state.detail }
 }
 
 function mapDispatchToProps(dispatch) {
-  debugger;
   return bindActionCreators(Object.assign({}, detailActions), dispatch)
 }
 

@@ -118,7 +118,6 @@ clicking()
 
 }
   render() {
-    debugger;
     var self = this;
     var that = this.props;
     var title ="Shopping Cart";

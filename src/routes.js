@@ -62,7 +62,6 @@ export default (store) => {
 
 function loadCategories(nextState, replace)
 {
-  debugger;
    var category=qs('categories');
    var searchtype = qs('searchtype');
    var value = qs('search');

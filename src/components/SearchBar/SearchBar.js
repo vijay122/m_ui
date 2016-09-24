@@ -42,7 +42,6 @@ export default class SearchBar extends React.Component
 
   viewDetails(data,fn,st)
 {
-  debugger;
   var searchtable = this.state.key;
 var searchtype ='city';
   var searchvalue ="";

@@ -50,7 +50,6 @@ export default function cart(state = initialState, action) {
   switch (action.type) {
     case 'ADD_TO_CART':
     {
-      debugger;
         const { productId } = action.result._id
       var cart = state.items;
        if( cart == undefined)
