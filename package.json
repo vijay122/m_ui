@@ -111,6 +111,7 @@
     "babel-runtime": "^6.3.19",
     "body-parser": "^1.14.1",
     "can-use-dom": "^0.1.0",
+    "child_process": "^1.0.2",
     "compression": "^1.6.0",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
@@ -132,6 +133,7 @@
     "react-addons-update": "^15.3.0",
     "react-bootstrap": "^0.28.5",
     "react-dom": "^15.2.0",
+    "react-event-calendar": "^0.3.0",
     "react-helmet": "^2.3.1",
     "react-icons": "^2.2.1",
     "react-inline-css": "^2.0.0",
@@ -152,7 +154,8 @@
     "superagent": "^1.4.0",
     "url-loader": "^0.5.7",
     "warning": "^2.1.0",
-    "webpack-isomorphic-tools": "^2.2.18"
+    "webpack-isomorphic-tools": "^2.2.18",
+    "webpage": "^0.3.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -163,6 +166,7 @@
     "bootstrap-sass": "^3.3.5",
     "bootstrap-sass-loader": "^1.0.9",
     "chai": "^3.3.0",
+    "child_process": "^1.0.2",
     "clean-webpack-plugin": "^0.1.6",
     "concurrently": "^0.1.1",
     "css-loader": "^0.23.1",

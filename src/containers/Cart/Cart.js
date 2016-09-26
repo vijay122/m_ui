@@ -29,8 +29,11 @@ import * as productActions from '../../redux/modules/products';
 import IconButton from 'material-ui/IconButton';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import DeleteIcon from 'react-material-icons/icons/action/delete';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import EventCalendar from 'react-event-calendar';
+
+
 
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
@@ -113,6 +116,20 @@ removeCart(data,fn,st)
  //  data.props.dispatch(push('/detail/:'+placeid));
   //    this.props.dispatch({ type: 'LOAD',result:data});
 }
+printit()
+{
+  /*
+  // options is optional, sets the width and height for the viewport to render the pdf from. (see additional options)
+NodePDF.render('http://www.google.com', 'google.pdf', options, function(err, filePath){
+    // handle error and filepath
+});
+*/
+
+// use default options
+//NodePDF.render('http://www.google.com', 'google.pdf', function(err, filePath){
+    // handle error and filepath
+//});
+}
 clicking()
 {
 
@@ -155,7 +172,13 @@ clicking()
   </Col>
   </Row>
   <Row>
- <Calendar />
+<EventCalendar 
+    month={7}
+    year={2015}
+    events={events} />
+  </Row>
+  <Row>
+    <RaisedButton label="Print" primary={true} onClick={this.printit()}/>
   </Row>
         </div>
       </div>

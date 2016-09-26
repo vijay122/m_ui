@@ -38,12 +38,11 @@ export default class InfoBar extends Component {
 }
 
   render() {
-  ;
     const {info, load} = this.props; // eslint-disable-line no-shadow
     const styles = require('./InfoBar.scss');
     return (
       <div className={styles.footer}>
-      <div className="container">
+      <div className={styles.centerWidth}>
          <Row>
     <Col xs={12} md={3}>
    <div className={styles.blackColor}>
@@ -56,12 +55,6 @@ Make your trips lively
  Our Commitment 
 We are committed to establishing lasting relationships with our customers by exceeding their expectations the first time and every time, through consistently delivering outstanding quality of service, experience and value.
    </p>
-   <Row>
-   Contact Us
-   </Row>
-   <Row>
-   Social icons
-   </Row>
    </Col>
     <Col xs={12} md={3}>
 <div>

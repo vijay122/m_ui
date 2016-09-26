@@ -38,7 +38,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 function mapStateToProps(state) {
   console.log('state '+state);
- 
+  if(state.detail!= undefined && state.detail.nearby!= null)
+  {
+     state.products.detail.nearbylocation = state.products.detail.nearbylocation.concat(state.detail.nearby).unique();
+   }
   return { products: state.products, detail: state.detail }
 }
 
@@ -123,7 +126,7 @@ const dummySentences = ['Lorem ipsum dolor sit amet, consectetuer adipiscing eli
 return (
       <div className={styles.home}>
         <Helmet title="Home"/>
-        <label>Places near to {detail!=undefined&& detail.name}</label>
+        <label>Places near to {detail!=undefined&& detail.name} </label>
           <Grid>
     <Row className="show-grid">
      <Col xs={12} md={2}>
@@ -299,7 +302,7 @@ export class DetailRecommendations extends Component {
        }
   }
    handleClick(data,fn,st) {
-var placeid= data.props.recommended._id;
+   var placeid= data.props.recommended._id;
    data.props.dispatch(push('/detail/id:'+placeid));
 }
 resizeImage(url, height, width)

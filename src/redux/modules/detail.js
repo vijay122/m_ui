@@ -72,6 +72,12 @@ export default function reducer(state = initialState, action = {}) {
        // ...state.cart.pop()
        // ...state.cart.filter(product._id => action.result.prd._id !=== product._id)
       }
+      case 'UPDATE_NEARBY':
+      return{
+        ...state,
+        nearby:action.result
+      }
+
         // here is my problem
    // return setEntries(...state,action.result);
     
@@ -79,6 +85,18 @@ export default function reducer(state = initialState, action = {}) {
       return state;
   }
 }
+
+Array.prototype.unique = function() {
+    var a = this.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+
+    return a;
+};
 
 export function viewMore(product, type) {
      return dispatch =>{
@@ -92,14 +110,11 @@ export function viewMore(product, type) {
  table:'places',
  product:product
   })
-    }).then(checkStatus).error(function(x)
-    {
-      console.log("error at fetch: "+x);
-    })
+    }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
 
-   //  dispatch({ type: 'SET_ALL_ENTRIES', result: data });
+    dispatch({ type: 'UPDATE_NEARBY', result: data });
   //  console.log('request succeeded with JSON response', list)
   }).catch(function(error) {
     console.log('request failed', error)

@@ -1,8 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Helmet from 'react-helmet';
-import { isLoaded as isAuthLoaded, load as loadAuth, logout } from '../../redux/modules/auth';
-
+import { isLoaded as isAuthLoaded, load as loadAuth, logout, loginUser } from '../../redux/modules/auth';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import TextField from 'material-ui/TextField';
@@ -13,9 +12,28 @@ import SelectField from 'material-ui/SelectField';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import MenuItem from 'material-ui/MenuItem';
 
-@connect(
-  state => ({user: state.auth.user}),
-  isAuthLoaded)
+import { asyncConnect } from 'redux-async-connect';
+import { bindActionCreators } from 'redux';
+
+import * as loginActions from '../../redux/modules/auth';
+
+function mapStateToProps(state) {
+  console.log('state '+state);
+  return { products: state.products }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Object.assign({}, productActions), dispatch)
+}
+
+@asyncConnect([{
+  deferred: true,
+  promise: ({store: {dispatch, getState}}) => {
+    if (!isAuthLoaded(getState())) {
+      return dispatch(loginUser());
+    }
+  }
+}])
 export default class Login extends Component {
   static propTypes = {
     user: PropTypes.object,
@@ -29,11 +47,17 @@ export default class Login extends Component {
   }
 
   handleSubmit = (event) => {
-    ;
-    event.preventDefault();
+    debugger;
+     promise: ({store: {dispatch, getState}}) => {
+    if (!isAuthLoaded(getState())) {
+      return dispatch(loginUser());
+    }
+  }
+    //event.preventDefault();
+   // loginUser();
     const input = this.refs.username;
-    this.props.loginUser("user","pass");
-    input.value = '';
+    //return loginActions.loginUser("user","pass");
+    //input.value = '';
   }
    handleRegister = (event) => {
     ;

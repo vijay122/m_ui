@@ -174,8 +174,13 @@ componentDidMount()
           </Navbar.Header>
 
           <Navbar.Collapse eventKey={0}>
-           
+           <Nav navbar pullRight>
+              <LinkContainer to="/login">
+                <NavItem eventKey={5}>Login</NavItem>
+              </LinkContainer>
+            </Nav>
           </Navbar.Collapse>
+          
         </Navbar>
         
 <div>
@@ -215,13 +220,10 @@ componentDidMount()
     </li>
     <li> <Link to={'/products/'} activeClassName="active">Bookings</Link></li>
      <li>
-     <div>
-       <Badge />
      <Link to={'/cart'} activeClassName="active">Cart</Link>
-     </div>
      </li>
-     <li>cart
-   
+     <li>
+<a href="#">Profile<span className={styles.pink}>2</span></a>
      </li>
     <li><a href="help.html">Help</a></li>
     <li>

@@ -8,7 +8,7 @@ const LOGOUT = 'redux-example/auth/LOGOUT';
 const LOGOUT_SUCCESS = 'redux-example/auth/LOGOUT_SUCCESS';
 const LOGOUT_FAIL = 'redux-example/auth/LOGOUT_FAIL';
 
- import config from '../../config';
+import config from '../../config';
 
 const initialState = {
   loaded: false
@@ -89,6 +89,7 @@ export function load() {
   */
 }
 export function register(mobno) {
+  console.log("config: "+config.svc);
     return dispatch =>{
     fetch(config.svc+'/register', {
       method: 'post',
@@ -112,6 +113,7 @@ export function register(mobno) {
 }
 
 export function loginUser(name,password) {
+   console.log("config: "+config.svc);
    return dispatch =>{
     fetch(config.svc+'/login', {
       method: 'post',
