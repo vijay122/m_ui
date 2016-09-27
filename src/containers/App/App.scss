@@ -19,10 +19,16 @@
   }
 }
 .insightsBar{
-  background-color:#f4f4f4;
+border-top:5px solid #457DBB;
+  background-color:#5CB8DB;
 // background-color:#36b8e9;
-  color:#bbbfbf;
-  height:45px;
+  color:white;
+  height:50px;
+}
+
+.insightsBar___xoTIV > container
+{
+  background-color:#5CB8DB;
 }
 .appContent {
 top:100px;
