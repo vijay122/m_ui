@@ -102,24 +102,24 @@ We are committed to establishing lasting relationships with our customers by exc
       </div>
       <div className={styles.copyright}>
       <Row>
-    <Col xs={6} md={6}>
+    <Col xs={12} md={6}>
     @2016 livelytrips copyrighted
     </Col>
-    <Col xs={6} md={6}>
-<Row>
-<Col xs={2} md={2}>
+    <Col xs={12} md={6}>
+<Row className={styles.footerlinks}>
+<Col xs={12} md={2}>
 About
 </Col>
-<Col xs={2} md={2}>
+<Col xs={12} md={2}>
 Livelytrips
 </Col>
-<Col xs={2} md={2}>
+<Col xs={12} md={2}>
 Contact
 </Col>
-<Col xs={2} md={2}>
+<Col xs={12} md={2}>
 Survey
 </Col>
-<Col xs={2} md={2}>
+<Col xs={12} md={2}>
 Help
 </Col>
 </Row>

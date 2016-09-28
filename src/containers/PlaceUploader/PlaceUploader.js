@@ -109,7 +109,6 @@ export default class PlaceUploader extends Component {
   }
  handleChange(e,index,value)
  {
-  ;
   this.setState({type:value});
  }
 
@@ -117,7 +116,7 @@ export default class PlaceUploader extends Component {
     var that = this;
     this.state.image =this.refs['UploadImages'].state.images;
      var postdata = this.state;
-       fetch(config.svc+'/Save', {
+       fetch(config.svc+'/Save',{
   method: 'post',
   headers: {
     'Accept': 'application/json',
@@ -126,11 +125,12 @@ export default class PlaceUploader extends Component {
   body: JSON.stringify({
 postdata
   })
-}).then(function()
-{
-  that.setState({InitialState});
+}).then((resp) => {
+  alert("then");
 });
-  }
+this.setState(InitialState);
+}
+
    ajax(url,file) {
   return new Promise(function(resolve, reject) {
   var data = new FormData();
@@ -240,6 +240,8 @@ else
 }
 validateForm()
 {
+  var isvalid=false;
+   var status ={};
   var errorlist=[];
   if(!this.isValid(this.state.name))
   {
@@ -287,21 +289,25 @@ validateForm()
   }
   if(errorlist.length<=0)
   {
-      this.state.status ="Success";
+     status.text ="Success";
+       status.message=[];
+      status.message[0] = "Place details has been successfully saved. It will be validated once in our backend and will be available soon for purchase."
   }
   else if(errorlist.length>0)
   {
-        var arr=[];
-    var status ={};
+   
     status.text ="Error";
-    status.message = 'err';
-arr.push(status);
-    this.setState({status:arr});
+    status.message = errorlist;
+   
 
   }
+  if(errorlist.length==0)
+  {
+isvalid = true;
+  }
+ this.setState({status:status});
 
-
-    return errorlist;
+    return isvalid;
 
 }
 
@@ -323,17 +329,12 @@ getClassName()
 }
   submitform()
   {
-    ;
+   if(this.validateForm())
+   {
+    this._create();
+   }
 
-    // this.uploadImage();
-     //.then(function(resp)
-    //  {
-    //    console.log(resp);
-       // this._create();
-   //   });
-
-this._create();
-  };
+  }
 
   render() {
     const styles = require('./PlaceUploader.scss');
@@ -341,19 +342,21 @@ this._create();
     return (
       <div className={styles.home}>
         <Helmet title="Home"/>
-        <div className="container">
+        <div className="">
 
           <Grid>
              <form validationState={this.getValidationState}>
 
   <Row>
-  {this.state.status != undefined && this.state.status.length>0 && this.state.status.map(function(status)
+  {this.state.status != undefined && this.state.status.message!= undefined &&
+    <Panel header={this.state!= undefined && this.state.status != undefined && this.state.status.text} bsStyle="primary">
+    {this.state.status != undefined && this.state.status.message!= undefined && this.state.status.message.length>0 && this.state.status.message.map(function(status)
     {
-     <Panel header={status.text} bsStyle="primary">
-      {status.message}
-    </Panel>
+     return<li><span>{status}</span></li>
     })
   }
+      </Panel>
+    }
   </Row>
     <Tabs>
     <Tab label="Item One" >
@@ -374,7 +377,6 @@ this._create();
       floatingLabelText="Suggest a title"
       floatingLabelFixed={true}
       data-ctrlid="name"
-      onChange={this.onChange.bind(this)}
      data-ctrlid='title' onChange={this.onChange.bind(this)} value={this.state.title}/>
 
 
@@ -383,14 +385,12 @@ this._create();
       floatingLabelText="Geo coordinates latitude"
       floatingLabelFixed={true}
       data-ctrlid="name"
-      onChange={this.onChange.bind(this)}
      data-ctrlid='latitude' onChange={this.onChange.bind(this)} value={this.state.latitude}/>
 
  <TextField
       hintText="Get me the longitude"
       floatingLabelText="Geo coordinates longitude"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)}
      data-ctrlid='longitude' onChange={this.onChange.bind(this)} value={this.state.longitude}/>
 
 <TextField
@@ -398,26 +398,22 @@ this._create();
       floatingLabelText="Get me the city name"
       floatingLabelFixed={true}
       data-ctrlid="city"
-      onChange={this.onChange.bind(this)}
        data-ctrlid='city' onChange={this.onChange.bind(this)} value={this.state.city}/>
        <TextField
       hintText="State that the place belongs to"
       floatingLabelText="Get me the state name"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)}
        data-ctrlid='state' onChange={this.onChange.bind(this)} value={this.state.state}/>
  <TextField
       hintText="Pin code details"
       floatingLabelText="Pincode"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)}
        data-ctrlid='pincode' onChange={this.onChange.bind(this)} value={this.state.pincode}/>
 <TextField
       hintText="Country that the place belongs to"
       floatingLabelText="Get me the country name"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)}
-       data-ctrlid='class' onChange={this.onChange.bind(this)} value={this.state.country}/>
+       data-ctrlid='country' onChange={this.onChange.bind(this)} value={this.state.country}/>
 
 
      <FileUploader ref='UploadImages' />
@@ -430,7 +426,7 @@ this._create();
       onChange={this.onChange.bind(this)}
        multiLine={true}
       rows={3}
-     data-ctrlid='description' onChange={this.onChange.bind(this)} value={this.state.description}/>
+     data-ctrlid='desc' onChange={this.onChange.bind(this)} value={this.state.desc}/>
 
  <TextField
  hintText="tell us abt the nearby landmarks...."
