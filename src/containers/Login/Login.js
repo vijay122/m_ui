@@ -23,18 +23,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Object.assign({}, productActions), dispatch)
+  return bindActionCreators(Object.assign({}, loginActions), dispatch)
 }
 
-@asyncConnect([{
-  deferred: true,
-  promise: ({store: {dispatch, getState}}) => {
-    if (!isAuthLoaded(getState())) {
-      return dispatch(loginUser());
-    }
-  }
-}])
-export default class Login extends Component {
+
+
+export  class Login extends Component {
   static propTypes = {
     user: PropTypes.object,
     login: PropTypes.func,
@@ -45,7 +39,7 @@ export default class Login extends Component {
      this.state = {value1: 1};
    
   }
-
+/*
   handleSubmit = (event) => {
     debugger;
      promise: ({store: {dispatch, getState}}) => {
@@ -53,14 +47,19 @@ export default class Login extends Component {
       return dispatch(loginUser());
     }
   }
+
     //event.preventDefault();
    // loginUser();
     const input = this.refs.username;
     //return loginActions.loginUser("user","pass");
     //input.value = '';
   }
+  */
+       handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.loginUser(this.state.username,this.state.password);
+  }
    handleRegister = (event) => {
-    ;
     event.preventDefault();
     this.props.register("user");
   }
@@ -127,15 +126,15 @@ export default class Login extends Component {
       floatingLabelText="This is the username"
       floatingLabelFixed={true}
       onChange={this.onChange.bind(this)} 
-      data-ctrlid='username' onChange={this.onChange.bind(this)} value={this.state.uname}/>
+      data-ctrlid='username' onChange={this.onChange.bind(this)} value={this.state.username}/>
 </Row>
 <Row>
 <TextField
       hintText="Enter the password"
-      floatingLabelText="This is the username"
+      floatingLabelText="This is the password"
       floatingLabelFixed={true}
       onChange={this.onChange.bind(this)} 
-      data-ctrlid='username' onChange={this.onChange.bind(this)} value={this.state.pwd}/>
+      data-ctrlid='password' onChange={this.onChange.bind(this)} value={this.state.password}/>
 </Row>
 <Row>
   <RaisedButton label="Login" primary={true} onClick={this.handleSubmit}/>
@@ -148,3 +147,4 @@ export default class Login extends Component {
     );
   }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
