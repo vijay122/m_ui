@@ -69,25 +69,10 @@ export  class Login extends Component {
       this.state[e.currentTarget.attributes["data-ctrlid"].value] = e.currentTarget.value;
   }
   render() {
-    ;
     const {user, logout} = this.props;
     const styles = require('./Login.scss');
     return (
       <div className={styles.loginPage + ' container'}>
-        <Helmet title="Login"/>
-        <h1>Login</h1>
-        {!user &&
-        <div>
-          <form className="login-form form-inline" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <input type="text" ref="username" placeholder="Enter a username" className="form-control"/>
-            </div>
-            <button className="btn btn-success" onClick={this.handleSubmit}><i className="fa fa-sign-in"/>{' '}Log In
-            </button>
-          </form>
-          <p>This will "log you in" as this user, storing the username in the session of the API server.</p>
-        </div>
-        }
         {user &&
         <div>
           <p>You are currently logged in as {user.name}.</p>
@@ -97,7 +82,6 @@ export  class Login extends Component {
           </div>
         </div>
         }
-
  <div>
 <Row>
 <Col md={6}>

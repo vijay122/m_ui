@@ -27,3 +27,16 @@
 	border: 1px solid #36b8e9;
 	background: #cfeaf4;
 }
+
+.slick-prev
+{
+	background-color:red;
+}
+.slick-next
+{
+	right:20px !important;
+}
+.slick-next:before {
+    font-size: 36px;
+    color: black;
+    }

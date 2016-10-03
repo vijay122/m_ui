@@ -9,6 +9,8 @@ import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
 import { isLoaded as isInfoLoaded, load as loadInfo , loadFooter } from '../../redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from '../../redux/modules/auth';
+
+import { load as load, isLoaded } from '../../redux/modules/products';
 import { InfoBar, Badge } from '../../components';
 
 import * as detailActions from '../../redux/modules/detail';
@@ -71,7 +73,14 @@ const AppbarStyles = () => getMuiTheme({
 });
 
 
-
+@asyncConnect([{
+  deferred: true,
+  promise: ({store: {dispatch, getState}}) => {
+    if (!isLoaded(getState())) {
+      return dispatch(load());
+    }
+  }
+}])
 
 
 @asyncConnect([{
@@ -115,7 +124,6 @@ export default class App extends Component {
 
   handleTouch(param)
   {
-    ;
    var nexturl = param.currentTarget.attributes["data-url"].value;
     this.props.pushState(nexturl);
 }
@@ -145,6 +153,7 @@ componentDidMount()
 
   render() {
      var cartcount ;
+     debugger;
     if(this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items!= null)
   cartcount = this.props.appstate.cart.items.length;
     const {user} = this.props;

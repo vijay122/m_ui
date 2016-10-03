@@ -18,9 +18,9 @@ import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 
-import Input from 'react-bootstrap/lib/Input';
+//import Input from 'react-bootstrap/lib/Input';
 import Panel from 'react-bootstrap/lib/Panel';
-import ButtonInput from 'react-bootstrap/lib/ButtonInput';
+//import ButtonInput from 'react-bootstrap/lib/ButtonInput';
 
 import DropDownMenu from 'material-ui/DropDownMenu';
 
@@ -104,6 +104,7 @@ export default class PlaceUploader extends Component {
     this.submitform = this.submitform.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.validateForm = this.validateForm.bind(this);
+    this.onChange = this.onChange.bind(this);
 
       this.state = {type: null};
   }
@@ -368,6 +369,7 @@ getClassName()
       floatingLabelText="Enter the place name"
       floatingLabelFixed={true}
       data-ctrlid="name"
+      default
       onChange={this.onChange.bind(this)}
       value={this.state.name}/>
 
@@ -385,6 +387,7 @@ getClassName()
       floatingLabelText="Geo coordinates latitude"
       floatingLabelFixed={true}
       data-ctrlid="name"
+      errorText=""
      data-ctrlid='latitude' onChange={this.onChange.bind(this)} value={this.state.latitude}/>
 
  <TextField

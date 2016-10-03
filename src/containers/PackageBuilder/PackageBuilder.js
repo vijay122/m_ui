@@ -20,9 +20,9 @@ import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import DropdownButton from 'react-bootstrap/lib/DropdownButton';
 import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 
-import Input from 'react-bootstrap/lib/Input';
+//import Input from 'react-bootstrap/lib/Input';
 import Panel from 'react-bootstrap/lib/Panel';
-import ButtonInput from 'react-bootstrap/lib/ButtonInput';
+//import ButtonInput from 'react-bootstrap/lib/ButtonInput';
 
 import TextField from 'material-ui/TextField';
 import {Tabs, Tab} from 'material-ui/Tabs';

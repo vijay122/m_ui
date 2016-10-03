@@ -77,7 +77,7 @@ function loadCategories(nextState, replace)
   return (
     <Route path="/" component={App}>
       { /* Home (main) route */ }
-      <IndexRoute component={Home}/>
+      <IndexRoute component={Products}/>
 
       { /* Routes requiring login */ }
       <Route onEnter={requireLogin}>
