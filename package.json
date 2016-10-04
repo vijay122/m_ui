@@ -131,7 +131,7 @@
     "pretty-error": "^1.2.0",
     "react": "^15.2.0",
     "react-addons-update": "^15.3.0",
-    "react-bootstrap": "^0.28.5",
+    "react-bootstrap": "^0.30.3",
     "react-dom": "^15.2.0",
     "react-event-calendar": "^0.3.0",
     "react-helmet": "^2.3.1",
