@@ -165,6 +165,8 @@ export function load1() {
 export function isLoaded(globalState) {
     promise: ({store: {dispatch, getState}}) => {
     if (!globalState.products.loaded) {
+      debugger;
+      console.log(" load state :"+globalState.products.loaded);
       dispatch({ type: 'LOAD'});
 
     }

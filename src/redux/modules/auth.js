@@ -21,7 +21,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: true
       };
-    case LOAD_SUCCESS:
+    case 'LOAD_SUCCESS':
       return {
         ...state,
         loading: false,
@@ -40,7 +40,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loggingIn: true
       };
-    case LOGIN_SUCCESS:
+    case 'LOGIN_SUCCESS':
       return {
         ...state,
         loggingIn: false,
@@ -100,7 +100,7 @@ export function register(mobno) {
       body: JSON.stringify({
     name: mobno,
   })
-    }).then(checkStatus) 
+    }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
     // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
@@ -109,7 +109,7 @@ export function register(mobno) {
     console.log('request failed', error)
   })
   }
-   
+
 }
 
 export function loginUser(name,password) {
@@ -125,10 +125,10 @@ export function loginUser(name,password) {
     name: name,
     password: password
   })
-    }).then(checkStatus) 
+    }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
-    // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
+     dispatch({ type: 'LOGIN_SUCCESS', result: data });
   //  console.log('request succeeded with JSON response', list)
   }).catch(function(error) {
     console.log('request failed', error)
