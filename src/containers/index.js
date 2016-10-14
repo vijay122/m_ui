@@ -1,6 +1,5 @@
 export App from './App/App';
 export Chat from './Chat/Chat';
-export Home from './Home/Home';
 export Products from './Products/Products';
 export Detail from './Detail/Detail';
 export Cart from './Cart/Cart';
@@ -15,3 +14,5 @@ export PackageBuilder from './PackageBuilder/PackageBuilder';
 export NotFound from './NotFound/NotFound';
 export Votings from './Votings/Votings';
 export Footer from './Footer/Footer';
+export MyProfile from './MyProfile/MyProfile';
+export Admin from './Admin/Admin';

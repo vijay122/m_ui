@@ -78,7 +78,6 @@ componentWillReceiveProps(newprops)
 }
 viewmore(data,fn)
 {
-  debugger;
   data.viewMore(fn,"places");
 // data.dispatch({ type: 'VIEW_MORE', result: fn });
 }
@@ -138,7 +137,7 @@ return (
       </Col>
       <Col xs={12} md={6}>
       <Row>
-              <Image src={detail!= undefined && detail.displaypicture!= undefined && this.resizeImage(detail.displaypicture[0],400,550)} />
+              <Image src={detail!= undefined && detail.image!= undefined && this.resizeImage(detail.image[0],400,550)} />
               </Row>
               <Row>
               this is the small images

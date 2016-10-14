@@ -76,7 +76,7 @@ const AppbarStyles = () => getMuiTheme({
 @asyncConnect([{
   deferred: true,
   promise: ({store: {dispatch, getState}}) => {
-    if (getState== undefined || getState.products== undefined || !getState.products.loaded) {
+    if (!isLoaded(getState())) {
       return dispatch(load());
     }
   }
@@ -101,7 +101,7 @@ const AppbarStyles = () => getMuiTheme({
   state => ({user: state.auth.user}),
   {logout, pushState: push})
 export default class App extends Component {
-  
+
  constructor(props) {
     super(props);
     this.state = {
@@ -110,7 +110,7 @@ export default class App extends Component {
   }
 
   handleChange = (event, index, value) => this.setState({value});
-  
+
   static propTypes = {
     children: PropTypes.object.isRequired,
     user: PropTypes.object,
@@ -136,7 +136,6 @@ componentDidMount()
   componentWillReceiveProps(nextProps) {
     if (!this.props.user && nextProps.user) {
       // login
-      debugger;
       this.props.pushState('/');
     } else if (this.props.user && !nextProps.user) {
       // logout
@@ -154,12 +153,21 @@ componentDidMount()
 
   render() {
      var cartcount ;
-     debugger;
     if(this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items!= null)
   cartcount = this.props.appstate.cart.items.length;
     const {user} = this.props;
     const styles = require('./App.scss');
-    var logintext =(this!= undefined && this.props!= undefined && this.props.user!= null && this.props.user.name!= null )? this.props.user.name: "Login";//this!= undefined && this.props!= undefined && this.props.user!= null && this.props.user.name!= null ?"Hello " this.props.user.name : "Login";
+    var logintext ="Login";
+    if(this!= undefined && this.props!= undefined && this.props.user!= null )
+    {
+      if(this.props.user.name!= null)
+      logintext = this.props.user.name;
+      else if(this.props.user.phone_number!= null)
+      {
+        logintext = this.props.user.phone_number;
+      }
+    }
+   // =(this!= undefined && this.props!= undefined && this.props.user!= null && this.props.user.name!= null )? this.props.user.name: "Login";//this!= undefined && this.props!= undefined && this.props.user!= null && this.props.user.name!= null ?"Hello " this.props.user.name : "Login";
      var buttonStyle = {
     backgroundColor: 'transparent',
     color: 'white'
@@ -170,7 +178,7 @@ componentDidMount()
       <div className={styles.app}>
         <Helmet {...config.app.head}/>
  <div>
- 
+
 
             </div>
         <Navbar fixedTop className={styles.insightsBar} id="fxd">
@@ -184,19 +192,26 @@ componentDidMount()
             <Navbar.Toggle/>
           </Navbar.Header>
 
-          <Navbar.Collapse eventKey={0}>
+          <Navbar.Collapse>
            <Nav navbar pullRight>
 
               <LinkContainer to="/login">
                 <NavItem eventKey={5}>{logintext}</NavItem>
               </LinkContainer>
+               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+          <MenuItem eventKey={3.1}>Action</MenuItem>
+          <MenuItem eventKey={3.2}>Another action</MenuItem>
+          <MenuItem eventKey={3.3}>Something else here</MenuItem>
+          <MenuItem/>
+          <MenuItem eventKey={3.3}>Separated link</MenuItem>
+        </NavDropdown>
             </Nav>
           </Navbar.Collapse>
-          
+
         </Navbar>
-        
+
 <div>
-         
+
       </div>
      <div>
      <Row>
@@ -205,11 +220,11 @@ componentDidMount()
      <Col md={9} className="mininav">
 <nav className="minnav">
   <ul>
-    <li> 
+    <li>
     <Link to={'/products/'} activeClassName="active">Home</Link>
     </li>
     <li>
-      <a>I Travel for.. <span class="caret"></span></a>
+      <a>I Travel for.. <span className="caret"></span></a>
       <div>
         <ul>
           <li>
@@ -235,13 +250,16 @@ componentDidMount()
      <Link to={'/cart'} activeClassName="active">Cart</Link>
      </li>
      <li>
-<a href="#">Profile<span className={styles.pink}>2</span></a>
+       <Link to={'/myprofile/'} activeClassName="active">Profile</Link>
+     </li>
+      <li>
+       <Link to={'/admin/'} activeClassName="active">Admin</Link>
      </li>
     <li><a href="help.html">Help</a></li>
     <li>
     {this.cartcount!= null && this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items.map(function(x)
-               {    
-                   return( 
+               {
+                   return(
                     <Badge
       badgeContent={10}
       secondary={true}
@@ -257,10 +275,10 @@ componentDidMount()
     </li>
   </ul>
 </nav>
-     
+
      </Col>
      </Row>
-    
+
      </div>
         <br />
         <br />
@@ -279,7 +297,7 @@ componentDidMount()
 
 function mapStateToProps(state) {
   console.log('state '+state);
- 
+
   return { appstate: state, detail: state.detail }
 }
 

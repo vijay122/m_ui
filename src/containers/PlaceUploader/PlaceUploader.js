@@ -116,7 +116,7 @@ export default class PlaceUploader extends Component {
    _create() {
     var that = this;
     this.state.image =this.refs['UploadImages'].state.images;
-     var postdata = this.state;
+     var payload = this.state;
        fetch(config.svc+'/Save',{
   method: 'post',
   headers: {
@@ -124,7 +124,7 @@ export default class PlaceUploader extends Component {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-postdata
+payload
   })
 }).then((resp) => {
   alert("then");
@@ -213,6 +213,9 @@ this.setState(InitialState);
   onChange(e)
   {
       e.preventDefault();
+      var statename = e.target.attributes["data-ctrlid"].value;
+      var newvalue = e.currentTarget.value;
+      this.setState({statename : newvalue});
       this.state[e.target.attributes["data-ctrlid"].value] = e.currentTarget.value;
   }
   componentWillReceiveProps(nextProps) {
@@ -296,10 +299,10 @@ validateForm()
   }
   else if(errorlist.length>0)
   {
-   
+
     status.text ="Error";
     status.message = errorlist;
-   
+
 
   }
   if(errorlist.length==0)
@@ -338,6 +341,7 @@ getClassName()
   }
 
   render() {
+    this.onChange = this.onChange.bind(this);
     const styles = require('./PlaceUploader.scss');
     // require the logo image both from client and server
     return (
@@ -378,7 +382,6 @@ getClassName()
       hintText="Title for the place"
       floatingLabelText="Suggest a title"
       floatingLabelFixed={true}
-      data-ctrlid="name"
      data-ctrlid='title' onChange={this.onChange.bind(this)} value={this.state.title}/>
 
 
@@ -386,7 +389,6 @@ getClassName()
       hintText="Get me the latitude"
       floatingLabelText="Geo coordinates latitude"
       floatingLabelFixed={true}
-      data-ctrlid="name"
       errorText=""
      data-ctrlid='latitude' onChange={this.onChange.bind(this)} value={this.state.latitude}/>
 
@@ -400,7 +402,6 @@ getClassName()
       hintText="City that the place belongs to"
       floatingLabelText="Get me the city name"
       floatingLabelFixed={true}
-      data-ctrlid="city"
        data-ctrlid='city' onChange={this.onChange.bind(this)} value={this.state.city}/>
        <TextField
       hintText="State that the place belongs to"
@@ -426,7 +427,6 @@ getClassName()
  <TextField
       floatingLabelText="Describe the place in 20 words"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)}
        multiLine={true}
       rows={3}
      data-ctrlid='desc' onChange={this.onChange.bind(this)} value={this.state.desc}/>
@@ -435,7 +435,6 @@ getClassName()
  hintText="tell us abt the nearby landmarks...."
       floatingLabelText="Landmark details"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)}
        multiLine={true}
       rows={3}
      data-ctrlid='landmark' onChange={this.onChange.bind(this)} value={this.state.landmark} />

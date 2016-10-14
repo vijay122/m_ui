@@ -114,6 +114,7 @@ const style = {
       floatingLabelText="Number of Adults"
       floatingLabelFixed={true}
       data-ctrlid="name" 
+            key={x}
       onChange={that.onChange.bind(this)} 
       value={that.state.name} data-ctrlid='adults' onChange={that.onChange.bind(that)} value={that.state.adults}/>
 )})
@@ -127,9 +128,10 @@ const style = {
       hintText="Number of rooms required"
       floatingLabelText="Number of Rooms"
       floatingLabelFixed={true}
-      data-ctrlid="name" 
+      data-ctrlid="name"
+      key={x}
       onChange={that.onChange.bind(that)} 
-      value={that.state.name} data-ctrlid='rooms' onChange={that.onChange.bind(that)} value={that.state.rooms}/>
+      value={that.state.name} data-ctrlid='rooms' onChange={that.onChange.bind(that)} value={that.state.rooms} />
 )})
 }
 </Col>

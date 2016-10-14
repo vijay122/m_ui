@@ -19,6 +19,8 @@ import {
     Votings,
     NotFound,
     PackageBuilder,
+  MyProfile,
+  Admin,
   } from './containers';
 
 export default (store) => {
@@ -97,7 +99,9 @@ function loadCategories(nextState, replace)
       <Route path="/detail/id:productid" component={Detail}  onEnter={loadDetails} />
        <Route path="/cart" component={Cart}/>
         <Route path="/packagebuilder" component={PackageBuilder}/>
-      //onEnter={loadDetails} 
+         <Route path="/admin" component={Admin}/>
+      <Route path="/myprofile" component={MyProfile}/>
+      //onEnter={loadDetails}
 
       { /* Catch all route */ }
       <Route path="*" component={NotFound} status={404} />
@@ -142,13 +146,13 @@ const onRouteEnter = async (nextState, replaceState, done) => {
     if( typeof window!= "undefined")
     {
       hashes = window.location.href.slice(window.location.href.indexOf('/') + 1).split('/');
-     
+
     }
     else
     {
       hashes = 'id:57413ffe7a1d3a001111b3ec';
     }
-   
+
     for(var i = 0; i < hashes.length; i++)
     {
         hash = hashes[i].split(':');

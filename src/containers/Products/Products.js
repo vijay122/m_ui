@@ -28,16 +28,16 @@ import { asyncConnect } from 'redux-async-connect';
 import { bindActionCreators } from 'redux';
 import { push } from 'react-router-redux';
 import { ReactRpg } from 'react-rpg';
-               
+
 
 import {Tabs, Tab} from 'material-ui/Tabs';
 
 @asyncConnect([{
   deferred: true,
   promise: ({store: {dispatch, getState}}) => {
-    if (!isLoaded(getState())) {
-      return dispatch(load());
-    }
+  //  if (!isLoaded(getState())) {
+  //    return dispatch(load());
+  //  }
   }
 }])
 
@@ -76,7 +76,7 @@ var placeid= data.props.data._id;
    this.setState({'suggestionlist':this.props.products.packages});
   }
  }
-  render() 
+  render()
   {
      if(this.props.products.loaded)
   {
@@ -87,7 +87,6 @@ var view = this.state!= null? this.state.view:"";
  var productlist =this.props.products.products;
  var eventlist = this.props.products.events;
  var hotellist = this.props.products.hotels;
-
   var packagelist = this.props.products.packages;
    var hotels = this.props.products.hotels;
   // offer = this.props.products.products[0];
@@ -121,7 +120,6 @@ var view = this.state!= null? this.state.view:"";
      {
     productlist && productlist.map(function (product){
     return <SquareCard data={product} key={product.id}  dispatch={that.props.dispatch}/>;
-  //return <CardsContainer product={product} key={product.id} dispatch={this.props.dispatch} />
     })}
     </Row>
     </div>
@@ -143,7 +141,7 @@ var view = this.state!= null? this.state.view:"";
     return(<div />);
   }
   }
-  
+
 }
 
 function mapStateToProps(state) {
@@ -159,7 +157,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Products);
 
 
 export class ProductTiles extends Component {
- 
+
  constructor(props) {
     super(props);
         var that = this;
@@ -196,7 +194,7 @@ image = this.props.data.image[0];
     </Col>
       )
     }
-  
+
   }
      state = {
     showKitten: false
@@ -209,10 +207,10 @@ var placeid= data.props.data._id;
 }
 
 export class HomeSlider extends Component {
- 
+
  constructor(props) {
     super(props);
-      
+
   }
   render() {
       var that = this;
@@ -232,7 +230,7 @@ export class HomeSlider extends Component {
     )
   }
      )}
-   
+
   </Carousel>
   )
   }

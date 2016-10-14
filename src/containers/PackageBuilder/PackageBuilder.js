@@ -358,7 +358,7 @@ this._create();
   {this.state.status != undefined && this.state.status.length>0 && this.state.status.map(function(status)
     {
  return(
- <Panel header={status.text} bsStyle="primary">
+ <Panel header={status.text}>
       {status.message}
     </Panel>
      )

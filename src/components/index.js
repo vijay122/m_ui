@@ -30,3 +30,4 @@ export CardsContainer from './CardsContainer/CardsContainer';
 export Calendar from './Calendar/Calendar';
 export FullWidthSlider from './FullWidthSlider/FullWidthSlider';
 export Badge from './Badge/Badge';
+export TablePanel from './TablePanel/TablePanel';

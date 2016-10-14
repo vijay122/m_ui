@@ -30,7 +30,7 @@ const styles = {
 export default class InfoBar extends Component {
   static propTypes = {
     info: PropTypes.object,
-    load: PropTypes.func.isRequired
+   // load: PropTypes.func.isRequired
   }
   componentDidMount(){
 //this.props.loadFooter();

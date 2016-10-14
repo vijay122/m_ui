@@ -122,6 +122,11 @@ export function viewMore(product, type) {
   }  
 }
 export function getProducts(productid) {
+  var payload={};
+  payload.lat ='12.12';
+  payload.lon='12.14';
+  payload.sectionName="detail";
+  payload.max="100";
     return dispatch =>{
     fetch(config.svc+'/getProducts', {
       method: 'post',
@@ -130,11 +135,7 @@ export function getProducts(productid) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
- latitude:'12.12',
- longitude:'12.14',
- table:'ALL',
- type:'standalone',
- product:productid
+payload
   })
     }).then(checkStatus)
   .then(parseJSON)
@@ -160,11 +161,10 @@ var Hotelsmap = Map(data.hotels.reduce(function(previous, current) {
     return previous;
 }, {}));
 var map={};
-map.place=data.place;
+//map.place=data.place;
 map.packages=Packagesmap;
 map.events = Eventsmap;
 map.hotels = Hotelsmap;
-
      dispatch({ type: 'SET_DEPENDANT', result: map });
   }).catch(function(error) {
     console.log('request failed', error)

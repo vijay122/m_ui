@@ -13,7 +13,6 @@ export default class FileUploader extends Component{
   }
 
   ajax(url,file) {
-
   return new Promise(function(resolve, reject) {
   var data = new FormData();
     data.append('SelectedFile', file);

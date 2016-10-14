@@ -66,6 +66,7 @@ export default function reducer(state = initialState, action = {}) {
           seo:action.result.seo
       }
          case 'SET_ALL_ENTRIES':
+         {
       const newItems1 = action.result.offers;
       return {
         ...state,
@@ -75,6 +76,7 @@ export default function reducer(state = initialState, action = {}) {
         packages:action.result.packages,
         events:action.result.events,
       }
+    }
        case 'ADD_TO_CART':
         console.log("added ADD");
        if( state.cart == undefined)
@@ -126,24 +128,29 @@ var map={};
 map.places=Placesmap;
 map.offers=data.offers;
 map.useroffers=data.useroffers;
-
      dispatch({ type: 'SET_ENTRIES', result: map });
-      dispatch(loadAllData());
+    dispatch(loadAllData("home"));
   //  console.log('request succeeded with JSON response', list)
   }).catch(function(error) {
-    console.log('request failed', error)
+    console.log('request failed', error);
+       dispatch(loadAllData("home"));
   })
   }
 }
 
-export function loadAllData() {
+export function loadAllData(sectionName) {
+  var payload={};
+  payload.sectionName=sectionName;
     return dispatch =>{
     fetch(config.svc+'/getProducts', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-      }
+      },
+       body: JSON.stringify({
+        payload
+  })
     }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
@@ -163,18 +170,14 @@ export function load1() {
   };
 }
 export function isLoaded(globalState) {
-    promise: ({store: {dispatch, getState}}) => {
-    if (!globalState.products.loaded) {
-      debugger;
-      console.log(" load state :"+globalState.products.loaded);
-      dispatch({ type: 'LOAD'});
-
-    }
-    else
-    {
- return true;
-    }
-  }
+   if(globalState!= undefined && globalState.products!= undefined && globalState.products.loaded)
+   {
+    return true;
+   }
+   else
+   {
+    return false;
+   }
 }
 
 export function NavigateToDetail(globalState,id) {

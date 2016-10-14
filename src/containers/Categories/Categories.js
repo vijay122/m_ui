@@ -62,7 +62,6 @@ export class Categories extends Component {
   componentDidMount(){
 }
   render() {
-    debugger;
 var that = this;
     var results;
     if(this.props!= null && this.props.products!= null )

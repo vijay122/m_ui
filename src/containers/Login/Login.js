@@ -37,7 +37,7 @@ export  class Login extends Component {
    constructor(props) {
     super(props);
      this.state = {value1: 1};
-   
+
   }
 /*
   handleSubmit = (event) => {
@@ -61,7 +61,8 @@ export  class Login extends Component {
   }
    handleRegister = (event) => {
     event.preventDefault();
-    this.props.register("user");
+     if(this.state.username != "")
+    this.props.register(this.state.username,"");
   }
   onChange(e)
   {
@@ -93,7 +94,6 @@ export  class Login extends Component {
       hintText="Enter your 10 digit mobile number"
       floatingLabelText="This is the username"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='username' onChange={this.onChange.bind(this)} value={this.state.username}/>
 </Row>
 <Row>
@@ -109,15 +109,14 @@ export  class Login extends Component {
       hintText="Enter the username"
       floatingLabelText="This is the username"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='username' onChange={this.onChange.bind(this)} value={this.state.username}/>
 </Row>
 <Row>
 <TextField
       hintText="Enter the password"
+      type="password"
       floatingLabelText="This is the password"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='password' onChange={this.onChange.bind(this)} value={this.state.password}/>
 </Row>
 <Row>
