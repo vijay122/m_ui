@@ -140,11 +140,11 @@ payload
     }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
-    /*   var Placemap = Map(data.place.reduce(function(previous, current) { 
+      var Placemap = Map(data.places.reduce(function(previous, current) { 
     previous[ current._id ] = current;
     return previous;
 }, {}));
-*/
+
 
 var Packagesmap = Map(data.packages.reduce(function(previous, current) { 
     previous[ current._id ] = current;
@@ -165,6 +165,7 @@ var map={};
 map.packages=Packagesmap;
 map.events = Eventsmap;
 map.hotels = Hotelsmap;
+map.places =data.packages;
      dispatch({ type: 'SET_DEPENDANT', result: map });
   }).catch(function(error) {
     console.log('request failed', error)

@@ -110,18 +110,21 @@ var packages =[];
 var events =[];
 //(this.state.dependencies!= null && this.state.dependencies.events!= null):this.state.dependencies.events:[];
 var hotels =[];
+var places =[];
 
 if(this.state!= null && this.state.dependencies!= null )
 {
 hotels = this.state.dependencies.hotels;
 packages = this.state.dependencies.packages;
 events = this.state.dependencies.events;
+places = this.state.dependencies.hotels;
 }
 
 const dummySentences = ['Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'Donec hendrerit tempor tellus.', 'Donec pretium posuere tellus.', 'Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'Nulla posuere.', 'Donec vitae dolor.', 'Nullam tristique diam non turpis.', 'Cras placerat accumsan nulla.', 'Nullam rutrum.', 'Nam vestibulum accumsan nisl.'];
 
     const styles = require('./Detail.scss');
     {
+      debugger;
 return (
       <div className={styles.home}>
         <Helmet title="Home"/>
@@ -130,7 +133,7 @@ return (
     <Row className="show-grid">
      <Col xs={12} md={2}>
       {
-        detail!= undefined && detail.nearbylocation!= undefined && detail.nearbylocation.map(function (nearbyloc){
+        detail!= undefined && places!= undefined && places.map(function (nearbyloc){
             return <SidebarTiles data={nearbyloc} referenceproduct={detail} key={nearbyloc.id}></SidebarTiles>;
           })}
         <a onClick={this.viewmore.bind(this,that,detail)}>View More</a>
@@ -233,6 +236,7 @@ componentDidMount()
 }
 componentWillReceiveProps(newprops)
 {
+
   var input = newprops.data;
   var refprod = newprops.referenceproduct;
   var inMeters = geolib.getDistance(
@@ -251,13 +255,13 @@ componentWillReceiveProps(newprops)
 return(
   <div>
   <Row>
-    <label>{current.placename} </label>
+    <label>{current.name} </label>
   </Row>
          <Row>   
       <Col xs={12} md={7} width={150} height={150}>
           
       <div>
-      <Image src={this.resizeImage(current.displaypicture,100,100)} alt="150x100">
+      <Image src={this.resizeImage(current.image[0],100,100)} alt="150x100">
       </Image>
       </div>
 </Col>
