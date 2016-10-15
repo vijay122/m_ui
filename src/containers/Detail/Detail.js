@@ -318,7 +318,6 @@ resizeImage(url, height, width)
 }
 componentWillReceiveProps(newprops)
 {
-  ;
   var input = newprops.data;
   var res = newprops.referenceproduct;
   var inMeters = geolib.getDistance(
