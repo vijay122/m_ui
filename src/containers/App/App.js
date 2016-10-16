@@ -263,8 +263,7 @@ componentDidMount()
                     <Badge
       badgeContent={10}
       secondary={true}
-      badgeStyle={{top: 12, right: 12}}
-    >
+      badgeStyle={{top: 12, right: 12}}>
       <IconButton tooltip="Notifications">
         <DeleteIcon />
       </IconButton>

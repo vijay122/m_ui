@@ -54,6 +54,7 @@ export default class PackageBuilder extends Component {
       arr.push(emptyInfo);
     this.state ={
       products:[],
+      assets:{display:"",image:[]},
       type:'package',
       additionalinfo:[],
        finished: false,
@@ -96,10 +97,11 @@ displayoffer: (!!this.props.complete) || false
 
 
 addProduct(product)
-  {  
+  {
+    debugger;
     var prod ={};
     if(this!= undefined && this.refs!= undefined && this.refs.newproduct!= undefined &&
-this.refs.newproduct.state!= undefined && 
+this.refs.newproduct.state!= undefined &&
      this.refs.newproduct.state.searchText != undefined && this.refs.newproduct.state.searchText.valueKey!= undefined)
     {
       prod = this.refs.newproduct.state.searchText.product
@@ -111,8 +113,9 @@ this.refs.newproduct.state!= undefined &&
       }
 
    _create() {
-     this.state.scrollimage =this.refs['scrollimage'].state.images[0];
-     var postdata = this.state;
+    debugger;
+     this.state.assets.display =this.refs['scrollimage'].state.images[0];
+     var payload = this.state;
        fetch(process.env.Svc+'/Save', {
   method: 'post',
   headers: {
@@ -120,7 +123,7 @@ this.refs.newproduct.state!= undefined &&
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-postdata
+payload
   })
 })
   }
@@ -167,11 +170,11 @@ postdata
 
   }
   uploadImage(file)
-  {  
+  {
           var that = this;
           var images=[];
 
-      
+
     for(var i=0; i<this.refs["file"].files.length; i++)
     {
   var image = this.refs["file"].files[i];
@@ -181,9 +184,9 @@ postdata
           console.log(result);
        var  responseObj = JSON.parse(result);
          images.push(responseObj.url);
-        
+
       });
-     
+
     }
         }
   }
@@ -199,7 +202,7 @@ postdata
   {
     if(this.state!=null)
     {
-      
+
     }
   }
   onChange(e)
@@ -252,7 +255,7 @@ validateForm()
   {
     errorlist.push("please enter valid pincode.");
   }
-     if(!this.isValid(this.state.desc))
+     if(!this.isValid(this.state.description))
   {
     errorlist.push("please enter valid description.");
   }
@@ -263,6 +266,10 @@ validateForm()
    if(!this.isValid(this.state.type))
   {
     errorlist.push("please enter valid placetype.");
+  }
+   if(!this.isValid(this.state.state))
+  {
+    errorlist.push("please enter valid state.");
   }
   if(errorlist.length<=0)
   {
@@ -279,7 +286,7 @@ arr.push(status);
 
   }
 
- 
+
     return errorlist;
 
 }
@@ -385,21 +392,18 @@ this._create();
       hintText="Enter the name of the place"
       floatingLabelText="Enter the package name"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='name' onChange={this.onChange.bind(this)} value={this.state.name}/>
 
 <TextField
       hintText="Suitable title for the place"
       floatingLabelText="Suggest a package title"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='title' onChange={this.onChange.bind(this)} value={this.state.title}/>
 
 <TextField
       hintText="Geo co-ordinates of the place"
       floatingLabelText="Get me the latitude"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='latitude' onChange={this.onChange.bind(this)} value={this.state.latitude}/>
 
 
@@ -407,21 +411,24 @@ this._create();
       hintText="Geo co-ordinates of the place"
       floatingLabelText="Get me the longitude"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='longitude' onChange={this.onChange.bind(this)} value={this.state.longitude}/>
 
  <TextField
       hintText="Nearest city to the place"
       floatingLabelText="Get me the city name"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='city' onChange={this.onChange.bind(this)} value={this.state.city}/>
+
+<TextField
+      hintText="Nearest city to the state"
+      floatingLabelText="Get me the city state"
+      floatingLabelFixed={true}
+      data-ctrlid='state' onChange={this.onChange.bind(this)} value={this.state.state}/>
 
 <TextField
       hintText="Pincode of the place"
       floatingLabelText="Get me the pincode"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='pincode' onChange={this.onChange.bind(this)} value={this.state.pincode}/>
 
       </Col>
@@ -432,8 +439,7 @@ this._create();
       floatingLabelFixed={true}
         multiLine={true}
       rows={3}
-      onChange={this.onChange.bind(this)} 
-      data-ctrlid='desc' onChange={this.onChange.bind(this)} value={this.state.description}/>
+      data-ctrlid='description' onChange={this.onChange.bind(this)} value={this.state.description}/>
 
 <TextField
       hintText="Tell us abt the nearby landmarks"
@@ -441,34 +447,29 @@ this._create();
       floatingLabelFixed={true}
         multiLine={true}
       rows={3}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='landmark' onChange={this.onChange.bind(this)} value={this.state.landmark}/>
       <TextField
       hintText="Best price to complete the package"
       floatingLabelText="Package Price"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='price' onChange={this.onChange.bind(this)} value={this.state.price}/>
-      
+
         <TextField
       hintText="Offers"
       floatingLabelText="Promotional Offers"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='offer' onChange={this.onChange.bind(this)} value={this.state.offer}/>
 
          <TextField
       hintText="Category"
       floatingLabelText="category type"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='category' onChange={this.onChange.bind(this)} value={this.state.category}/>
-  
+
         <TextField
       hintText="Tour Package Operator"
       floatingLabelText="Created By"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='operator' onChange={this.onChange.bind(this)} value={this.state.operator}/>
 <Checkbox
       label="Publish on home screen?"
@@ -476,7 +477,7 @@ this._create();
       style={styles.checkbox}
       ref="complete"
        onChange={this.handleChange} />
-  
+
         <FileUploader ref='scrollimage' />
    <RaisedButton label="Submit" onClick={this.submitform} primary={true}/>
      </Col>
@@ -502,7 +503,7 @@ this._create();
   {stepIndex==2 &&
     (<div>
  {this.state && this.state.additionalinfo.length>0 && this.state.additionalinfo.map(function(info){
- return( 
+ return(
   <div>
   <Row>
   Additional info Available:
@@ -519,26 +520,24 @@ this._create();
   )
 })
 }
-  <Row> 
+  <Row>
   <TextField
       hintText="(food/snacks etc)"
       floatingLabelText="Add Additional Info"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='key' onChange={this.onChange.bind(this)} value={this.state.key}/>
 
        <TextField
       hintText="Why this Additional info is important"
       floatingLabelText="Add Additional Value"
       floatingLabelFixed={true}
-      onChange={this.onChange.bind(this)} 
       data-ctrlid='value' onChange={this.onChange.bind(this)} value={this.state.value}/>
 </Row>
 <Row>
  <RaisedButton label="Additional Field" onClick={this.addAdditionalInfo} primary={true}/>
 </Row>
 </div>)}
- 
+
   <div>
               <p>{this.getStepContent(stepIndex)}</p>
               <div style={{marginTop: 12}}>

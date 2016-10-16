@@ -98,7 +98,7 @@ var view = this.state!= null? this.state.view:"";
         <Helmet title="Home"/>
     <Row className="show-grid">
    <Col xs={12} md={8}>
-     <HomeSlider  data={this.props.products.offers}/>
+     <HomeSlider  data={packagelist}/>
  </Col>
   <Col xs={12} md={4}>
     <ReactRpg imagesArray={images} columns={[ 2, 2, 2 ]} padding={2} />
@@ -213,6 +213,7 @@ export class HomeSlider extends Component {
 
   }
   render() {
+    debugger;
       var that = this;
     var list = this.props.data;
     return (

@@ -48,7 +48,7 @@ this.handleSelect= this.handleSelect.bind(this);
 }
   Typeahead(a,passstate)
 {
-  ;
+  debugger;
   var that = this;
   var datalist =[];
   var search = a;
@@ -58,34 +58,77 @@ this.handleSelect= this.handleSelect.bind(this);
 
   {
     var input = {};
-    input.textKey =response[i].name;
-    input.valueKey = response[i].value;
-    input.product = response[i];
+    input["text"] = response[i].word;
+        input["value"] =response[i].data[0];
+   // input.textKey =response[i].word;
+   // input.valueKey = response[i].data[0];
+  //  input.product = response[i].data;
+  const dataSource3 = [
+  {textKey: 'Some Text', valueKey: 'someFirstValue'},
+  {textKey: 'Some Text', valueKey: 'someSecondValue'},
+];
 datalist.push(input);
+//datalist.push(response[i].word);
   }
-  passstate.setState({dataSource:datalist});
+  passstate.setState({dataSource:dataSource3});
 }, function(error) {
   console.error("Failed!", error);
 });
 }
 
   handleUpdateInput = (value) => {
-    this.Typeahead(value,this);
+var self = this;
+    //this.Typeahead(value,self);
     this.setState({ searchText: value }) 
-   /* this.setState({
+
+  var datalist =[];
+  var search = value;
+    const dataSource3 = [
+  {textKey: 'Some Text', valueKey: 'someFirstValue'},
+  {textKey: 'Some Text', valueKey: 'someSecondValue'},
+];
+ self.setState({dataSource:dataSource3});
+  this.get(process.env.Svc+'/autocomplete/'+search).then(function(response) {
+  console.log("Success!", response);
+  for(var i=0;i<response.length; i++)
+
+  {
+    var product = {};
+    product.image=response[i].data[1][0];
+        product._id=response[i].data[0];
+         product.loc=response[i].data[2];
+    var input = {};
+    input["textKey"] = response[i].word;
+        input["valueKey"] =response[i].data[0];
+    input["product"] =product;
+   // input.valueKey = response[i].data[0];
+  //  input.product = response[i].data;
+datalist.push(input);
+//datalist.push(response[i].word);
+  }
+  self.setState({dataSource:datalist});
+}, function(error) {
+  console.error("Failed!", error);
+});
+}
+
+
+/*
+    self.setState({
       dataSource: [
-        value,
-        value + value,
-        value + value + value,
+        {textKey: 'Some Text', valueKey: 'someFirstValue'},
+  {textKey: 'Some Text', valueKey: 'someSecondValue'},
       ],
     });
-*/
+   
   };
+ */
    handleSelect (t) {
     this.setState( { searchText: t }) 
   }
 
   render() {
+    debugger;
     var floatinglabel =this.props.floatinglabel != ""?this.props.floatinglabel :"Enter place name";
     return (
       <div>
