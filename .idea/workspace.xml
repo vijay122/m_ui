@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/TypeAhead/TypeAhead.js" afterPath="$PROJECT_DIR$/src/components/TypeAhead/TypeAhead.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/index.ios.js" afterPath="$PROJECT_DIR$/ios/index.ios.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config.js" afterPath="$PROJECT_DIR$/src/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/App/App.js" afterPath="$PROJECT_DIR$/src/containers/App/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/PackageBuilder/PackageBuilder.js" afterPath="$PROJECT_DIR$/src/containers/PackageBuilder/PackageBuilder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Products/Products.js" afterPath="$PROJECT_DIR$/src/containers/Products/Products.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack-assets.json" afterPath="$PROJECT_DIR$/webpack-assets.json" />
     </list>
     <ignored path="react-redux-universal-hot-example.iws" />
@@ -35,43 +32,16 @@
               <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="143" selection-end-column="3" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
-                <marker date="1476612627000" expanded="true" signature="3352:8717" ph="{...}" />
-                <marker date="1476612627000" expanded="true" signature="4383:8715" ph="{...}" />
-                <marker date="1476612627000" expanded="true" signature="5346:8704" ph="&lt;MuiThemeProvider/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="5397:8677" ph="&lt;div/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="6544:8446" ph="&lt;div/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="6555:8433" ph="&lt;Row/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="6596:8421" ph="&lt;Col/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="6629:8408" ph="&lt;nav/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="6656:8401" ph="&lt;ul/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="7948:8393" ph="&lt;li/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="8110:8378" ph="{...}" />
-                <marker date="1476612627000" expanded="true" signature="8159:8352" ph="&lt;Badge/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="8260:8339" ph="&lt;IconButton/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="8500:8646" ph="&lt;div/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="8544:8631" ph="&lt;div/&gt;" />
-                <marker date="1476612627000" expanded="true" signature="8751:8837" ph="{...}" />
-                <marker date="1476612627000" expanded="true" signature="8877:8952" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/modules/auth.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
-              <caret line="127" column="8" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlaceUploader.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlaceUploader.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="347" column="35" lean-forward="true" selection-start-line="347" selection-start-column="35" selection-end-line="347" selection-end-column="35" />
+            <state relative-caret-position="240">
+              <caret line="109" column="3" lean-forward="true" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -79,14 +49,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PackageBuilder.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PackageBuilder.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/PackageBuilder/PackageBuilder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2925">
-              <caret line="394" column="31" lean-forward="false" selection-start-line="394" selection-start-column="31" selection-end-line="394" selection-end-column="31" />
+            <state relative-caret-position="90">
+              <caret line="362" column="19" lean-forward="true" selection-start-line="362" selection-start-column="19" selection-end-line="362" selection-end-column="19" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ios.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ios/index.ios.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#89#130#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tabbar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ios/component/tabbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="35" column="16" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="90" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,18 +101,6 @@
               <caret line="89" column="9" lean-forward="false" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <marker date="1476612998000" expanded="true" signature="5812:6693" ph="{...}" />
-                <marker date="1476612998000" expanded="true" signature="5871:6341" ph="{...}" />
-                <marker date="1476612998000" expanded="true" signature="5960:6333" ph="&lt;Carousel/&gt;" />
-                <marker date="1476612998000" expanded="true" signature="6021:6310" ph="{...}" />
-                <marker date="1476612998000" expanded="true" signature="6051:6300" ph="&lt;CarouselItem/&gt;" />
-                <marker date="1476612998000" expanded="true" signature="6141:6280" ph="&lt;div/&gt;" />
-                <marker date="1476612998000" expanded="true" signature="6377:6691" ph="{...}" />
-                <marker date="1476612998000" expanded="true" signature="6710:7122" ph="[...]" />
-                <marker date="1476612998000" expanded="true" signature="6714:6812" ph="{&quot;url&quot;: &quot;http://placehold.it/100x100&quot;...}" />
-                <marker date="1476612998000" expanded="true" signature="6816:6914" ph="{&quot;url&quot;: &quot;http://placehold.it/300x300&quot;...}" />
-                <marker date="1476612998000" expanded="true" signature="6919:7017" ph="{&quot;url&quot;: &quot;http://placehold.it/200x200&quot;...}" />
-                <marker date="1476612998000" expanded="true" signature="7022:7120" ph="{&quot;url&quot;: &quot;http://placehold.it/200x200&quot;...}" />
               </folding>
             </state>
           </provider>
@@ -140,22 +121,10 @@
       <file leaf-file-name="CardsContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CardsContainer/CardsContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="615">
               <caret line="45" column="1" lean-forward="false" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="12" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyProfile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/MyProfile/MyProfile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1410">
-              <caret line="107" column="19" lean-forward="false" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -226,6 +195,7 @@
         <option value="$PROJECT_DIR$/src/redux/modules/products.js" />
         <option value="$PROJECT_DIR$/src/components/CardsContainer/CardsContainer.js" />
         <option value="$PROJECT_DIR$/src/containers/PackageBuilder/PackageBuilder.js" />
+        <option value="$PROJECT_DIR$/ios/index.ios.js" />
       </list>
     </option>
   </component>
@@ -261,7 +231,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,7 +254,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="ios" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,145 +268,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="ios" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-redux-universal-hot-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="m_ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Products" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-redux-universal-hot-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="m_ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PackageBuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-redux-universal-hot-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="m_ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyProfile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-redux-universal-hot-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="m_ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-redux-universal-hot-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="m_ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-redux-universal-hot-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="m_ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CardsContainer" />
+              <option name="myItemId" value="component" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -555,11 +397,12 @@
       <workItem from="1475909080552" duration="10231000" />
       <workItem from="1476464290633" duration="1286000" />
       <workItem from="1476606128031" duration="523000" />
+      <workItem from="1476701950463" duration="1270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21616000" />
+    <option name="totallyTimeSpent" value="22886000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="807" extended-state="6" />
@@ -570,18 +413,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3986014" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39949432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,20 +464,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/helpers/ApiClient.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
@@ -856,7 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -886,7 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
           <caret line="65" column="1" lean-forward="false" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,7 +730,7 @@
         <state relative-caret-position="1410">
           <caret line="107" column="19" lean-forward="false" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -934,23 +761,6 @@
           <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="143" selection-end-column="3" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
-            <marker date="1476612627000" expanded="true" signature="3352:8717" ph="{...}" />
-            <marker date="1476612627000" expanded="true" signature="4383:8715" ph="{...}" />
-            <marker date="1476612627000" expanded="true" signature="5346:8704" ph="&lt;MuiThemeProvider/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="5397:8677" ph="&lt;div/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="6544:8446" ph="&lt;div/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="6555:8433" ph="&lt;Row/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="6596:8421" ph="&lt;Col/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="6629:8408" ph="&lt;nav/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="6656:8401" ph="&lt;ul/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="7948:8393" ph="&lt;li/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="8110:8378" ph="{...}" />
-            <marker date="1476612627000" expanded="true" signature="8159:8352" ph="&lt;Badge/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="8260:8339" ph="&lt;IconButton/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="8500:8646" ph="&lt;div/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="8544:8631" ph="&lt;div/&gt;" />
-            <marker date="1476612627000" expanded="true" signature="8751:8837" ph="{...}" />
-            <marker date="1476612627000" expanded="true" signature="8877:8952" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -969,25 +779,13 @@
           <caret line="89" column="9" lean-forward="false" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1476612998000" expanded="true" signature="5812:6693" ph="{...}" />
-            <marker date="1476612998000" expanded="true" signature="5871:6341" ph="{...}" />
-            <marker date="1476612998000" expanded="true" signature="5960:6333" ph="&lt;Carousel/&gt;" />
-            <marker date="1476612998000" expanded="true" signature="6021:6310" ph="{...}" />
-            <marker date="1476612998000" expanded="true" signature="6051:6300" ph="&lt;CarouselItem/&gt;" />
-            <marker date="1476612998000" expanded="true" signature="6141:6280" ph="&lt;div/&gt;" />
-            <marker date="1476612998000" expanded="true" signature="6377:6691" ph="{...}" />
-            <marker date="1476612998000" expanded="true" signature="6710:7122" ph="[...]" />
-            <marker date="1476612998000" expanded="true" signature="6714:6812" ph="{&quot;url&quot;: &quot;http://placehold.it/100x100&quot;...}" />
-            <marker date="1476612998000" expanded="true" signature="6816:6914" ph="{&quot;url&quot;: &quot;http://placehold.it/300x300&quot;...}" />
-            <marker date="1476612998000" expanded="true" signature="6919:7017" ph="{&quot;url&quot;: &quot;http://placehold.it/200x200&quot;...}" />
-            <marker date="1476612998000" expanded="true" signature="7022:7120" ph="{&quot;url&quot;: &quot;http://placehold.it/200x200&quot;...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CardsContainer/CardsContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="615">
           <caret line="45" column="1" lean-forward="false" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -995,20 +793,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js">
+    <entry file="file://$PROJECT_DIR$/ios/component/tabbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="347" column="35" lean-forward="true" selection-start-line="347" selection-start-column="35" selection-end-line="347" selection-end-column="35" />
+        <state relative-caret-position="297">
+          <caret line="35" column="16" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="90" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/index.ios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#89#130#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/PackageBuilder/PackageBuilder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2925">
-          <caret line="394" column="31" lean-forward="false" selection-start-line="394" selection-start-column="31" selection-end-line="394" selection-end-column="31" />
+        <state relative-caret-position="90">
+          <caret line="362" column="19" lean-forward="true" selection-start-line="362" selection-start-column="19" selection-end-line="362" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="109" column="3" lean-forward="true" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
