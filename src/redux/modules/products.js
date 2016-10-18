@@ -126,7 +126,7 @@ var Placesmap = Map(data.places.reduce(function(previous, current) {
 }, {}));
 var map={};
 map.places=Placesmap;
-map.offers=data.offers;
+map.offers=data.packages;
 map.useroffers=data.useroffers;
      dispatch({ type: 'SET_ENTRIES', result: map });
     dispatch(loadAllData("home"));
