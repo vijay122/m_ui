@@ -13,19 +13,25 @@ export default class FileUploader extends Component{
   }
 
   ajax(url,file) {
+    url="https://api.cloudinary.com/v1_1/www-livelytrips-com/image/upload";
+    debugger;
   return new Promise(function(resolve, reject) {
+    debugger;
   var data = new FormData();
-    data.append('SelectedFile', file);
+    data.append('file', file);
+    data.append('upload_preset','emjqxptl')
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         if(request.readyState == 4){
             try {
+              debugger;
                 var resp = JSON.parse(request.response);
             } catch (e){
                 var resp = {
                     status: 'error',
                     data: 'Unknown error occurred: [' + request.responseText + ']'
                 };
+
             }
             console.log(resp.status + ': ' + resp.data);
         }
