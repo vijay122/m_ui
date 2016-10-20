@@ -12,7 +12,8 @@ export default class SquareCard extends React.Component
   }
   resizeImage(url, height, width)
 {
-  var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/l_text:Doppio%20One_20:Vijay:%20Jonathan%20Doe,g_south_west,y_5,x_10,co_rgb:eee/';
+  //var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/l_text:Doppio%20One_20:Vijay:%20Jonathan%20Doe,g_south_west,y_5,x_10,co_rgb:eee/';
+var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
 
 
  var str = url;
@@ -29,8 +30,9 @@ viewDetails(data,fn,st)
 
   render()
   {
+    debugger;
     var ty= this;
-    var image = this.props.data.image[0];
+    var image = this.props.data.image[0]?this.props.data.image[0]:this.props.data.assets.display;
     var product = this.props.data;
     return(
           <Col xs={6} md={3}>

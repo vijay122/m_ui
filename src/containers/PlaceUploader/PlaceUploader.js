@@ -257,10 +257,22 @@ validateForm()
   }
   if(!this.isValid(this.state.latitude))
   {
+    var val = parseFloat(this.state.latitude);
+if (!isNaN(val) && val <= 90 && val >= -90)
+{
+
+}
+else
     errorlist.push("please enter valid latitude.");
   }
   if(!this.isValid(this.state.longitude))
   {
+    var val = parseFloat(this.state.longitude);
+    if (!isNaN(val) && val <= 90 && val >= -90)
+    {
+      
+    }
+else
     errorlist.push("please enter valid longitude.");
   }
    if(!this.isValid(this.state.city))

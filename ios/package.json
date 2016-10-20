@@ -1,5 +1,5 @@
 {
-  "name": "StarterKit",
+  "name": "products-ios-ui",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -26,5 +26,9 @@
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
     "mocha": "^3.1.2"
-  }
+  },
+  "description": "ios ui component",
+  "main": "index.ios.js",
+  "author": "",
+  "license": "ISC"
 }
