@@ -14,7 +14,8 @@ export default class CardsContainer extends React.Component {
   }
    resizeImage(url, height, width)
 {
-  var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/l_text:Doppio%20One_20:Vijay:%20Jonathan%20Doe,g_south_west,y_5,x_10,co_rgb:eee/';
+ // var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/l_text:Doppio%20One_20:Vijay:%20Jonathan%20Doe,g_south_west,y_5,x_10,co_rgb:eee/';
+var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
 
 
  var str = url;
@@ -67,6 +68,12 @@ return(
      <Slider {...settings}>
      {that && that.props && that.props.packagelist && that.props.packagelist.map(function(x)
       {
+        debugger;
+       if(x.image==undefined && x.assets.display)
+      {
+        x.image =[];
+        x.image[0] = x.assets.display;
+      }
         if(x.image==undefined)
         {
           x.image ="";
