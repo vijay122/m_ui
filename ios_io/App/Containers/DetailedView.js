@@ -44,29 +44,25 @@ var styles = StyleSheet.create({
 class DetailedView extends Component {
  
   render() {
-    var property = this.props.property;
-    var stats = property.bedroom_number + ' bed ' + property.property_type;
-    if (property.bathroom_number) {
-      stats += ', ' + property.bathroom_number + ' ' + (property.bathroom_number > 1
-        ? 'bathrooms' : 'bathroom');
-    }
- 
-    var price = property.price_formatted.split(' ')[0];
+    var product = this.props.product;
+   
+  var image = product.image[0].replace(/^http:\/\//i, 'https://');
+    var price = product.price_formatted!= undefined ? product.price_formatted.split(' ')[0]:product.city;
  
     return (
       <View style={styles.container}>
         <Image style={styles.image}
-            source={{uri: property.img_url}} />
+            source={{uri: image}} />
         <View style={styles.heading}>
           <Text style={styles.price}>{price}</Text>
-          <Text style={styles.title}>{property.title}</Text>
+          <Text style={styles.title}>{product.name}</Text>
           <View style={styles.separator}/>
         </View>
-        <Text style={styles.description}>{stats}</Text>
-        <Text style={styles.description}>{property.summary}</Text>
+        <Text style={styles.description}>{product.title}</Text>
+        <Text style={styles.description}>{product.description}</Text>
       </View>
     );
   }
 }
 
-module.exports = PropertyView;
+module.exports = DetailedView;

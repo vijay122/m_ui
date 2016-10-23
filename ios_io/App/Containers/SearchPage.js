@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as productActions from '../../Redux/Reducers/globalReducers/products';
+var SearchResults = require('./SearchResults');
 
 //export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
 
@@ -70,6 +71,7 @@ export default class  SearchPage extends Component {
   super(props);
     this.onSearchPressed = this.onSearchPressed.bind(this);
      this.onMessage = this.onMessage.bind(this);
+      this.onNavigate = this.onNavigate.bind(this);
   this.state = {
     searchString: 'london',
       isLoading: false
@@ -83,7 +85,11 @@ _executeQuery(query) {
  
 onSearchPressed() {
   debugger;
-  this.props.load();
+  var search ={};
+  search.sectionName="search";
+  search.searchby ="Place";
+  search.searchvalue ="courtrallam";
+  this.props.search(search);
   this.setState({isLoading:true});
 
  
@@ -96,6 +102,15 @@ onSearchPressed() {
   passProps: {listings: response.listings}
 });
 */
+}
+onNavigate()
+{
+  var results = this.props.searchResult.places;
+this.props.navigator.push({
+  title: 'Results',
+  component: SearchResults,
+  passProps: {listings: results}
+});
 }
  onMessage()
   {
@@ -134,9 +149,14 @@ onSearchTextChanged(event) {
 </View>
 <TouchableHighlight style={styles.button}
     underlayColor='#99d9f4'>
-  <Text style={styles.buttonText} onPress={this.onMessage.bind(this)}>Location</Text>
+  <Text style={styles.buttonText} onPress={ () => this.onMessage() }>Location</Text>
 </TouchableHighlight>
 {spinner}
+<TouchableHighlight style={styles.button}
+    underlayColor='#99d9f4'>
+<Text style={styles.buttonText} onPress={ () => this.onNavigate()}>View Results</Text>
+</TouchableHighlight>
+
       </View>
    
     );
@@ -145,8 +165,12 @@ onSearchTextChanged(event) {
 
 function mapStateToProps(state) {
   console.log('state '+state);
-
-  return { appstate: state }
+var obj ={};
+if(state!= undefined && state.products!= undefined && state.products.products!= undefined)
+{
+  obj = state.products.products;
+}
+return { searchResult: obj }
 }
 
 function mapDispatchToProps(dispatch) {

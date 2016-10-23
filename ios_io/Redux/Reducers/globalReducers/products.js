@@ -9,9 +9,8 @@ const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
 
 //import  'isomorphic-fetch';
-// import config from '../../config';
-var config ={};
-config.svc ="http://107.180.102.80:8000";
+ var config={};
+ config.svc = 'http://localhost:8000';
 const initialState = {
   count: 0
 };
@@ -20,7 +19,6 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
  switch (action.type) {
     case 'LOAD':
-    debugger;
       return {
         ...state,
         loading: true
@@ -59,7 +57,6 @@ export default function reducer(state = initialState, action = {}) {
         error: action.error
       };
       case 'SET_ENTRIES':
-      debugger;
       const newItems = action.result.places;
       return {
         ...state,
@@ -68,6 +65,14 @@ export default function reducer(state = initialState, action = {}) {
         products: newItems,
           offers: action.result.offers,
           seo:action.result.seo
+      }
+        case 'SET_SEARCH_RESULTS':
+      const results = action.result;
+      return {
+        ...state,
+         loading: false,
+        loaded: true,
+        products: results
       }
          case 'SET_ALL_ENTRIES':
          {
@@ -108,7 +113,6 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 export function load() {
-  debugger;
     return dispatch =>{
     fetch(config.svc+'/test', {
       method: 'get',
@@ -139,6 +143,33 @@ map.useroffers=data.useroffers;
   }).catch(function(error) {
     console.log('request failed', error);
        dispatch(loadAllData("home"));
+  })
+  }
+}
+
+export function search(searchcriteria) {
+  var payload={};
+  payload.sectionName=searchcriteria.sectionName;
+  payload.searchCategory = searchcriteria.searchby;
+  payload.criteria = searchcriteria.searchvalue;
+    return dispatch =>{
+    fetch(config.svc+'/getProducts', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+       body: JSON.stringify({
+        payload
+  })
+    }).then(checkStatus)
+  .then(parseJSON)
+  .then(function(data) {
+
+     dispatch({ type: 'SET_SEARCH_RESULTS', result: data });
+  //  console.log('request succeeded with JSON response', list)
+  }).catch(function(error) {
+    console.log('request failed', error)
   })
   }
 }

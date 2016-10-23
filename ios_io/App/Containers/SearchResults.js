@@ -44,35 +44,39 @@ class SearchResults extends Component {
  
   constructor(props) {
     super(props);
+    debugger;
+
     var dataSource = new ListView.DataSource(
-      {rowHasChanged: (r1, r2) => r1.lister_url !== r2.lister_url});
+      {rowHasChanged: (r1, r2) => r1._id !== r2._id});
     this.state = {
       dataSource: dataSource.cloneWithRows(this.props.listings)
     };
   }
   rowPressed(listerURL) {
-  var property = this.props.listings.filter(prop => prop.lister_url === listerURL)[0];
+  var product = this.props.listings.filter(prop => prop._id=== listerURL)[0];
  
   this.props.navigator.push({
     title: "Property",
     component: DetailedView,
-    passProps: {property: property}
+    passProps: {product: product}
   });
 }
  
   renderRow(rowData, sectionID, rowID) {
-  var price = rowData.price_formatted.split(' ')[0];
- 
+  var price = rowData.price_formatted!= undefined?rowData.price_formatted.split(' ')[0]: rowData.city;
+ var image = rowData.image[0].replace(/^http:\/\//i, 'https://');
+ //var image ='"'+rowData.image[0]+'"';
+ //console.log(image);
   return (
-    <TouchableHighlight onPress={() => this.rowPressed(rowData.lister_url)}
+    <TouchableHighlight onPress={() => this.rowPressed(rowData._id)}
         underlayColor='#dddddd'>
       <View>
         <View style={styles.rowContainer}>
-          <Image style={styles.thumb} source={{ uri: rowData.img_url }} />
+          <Image style={styles.thumb} source={{ uri: image }} />
           <View  style={styles.textContainer}>
             <Text style={styles.price}>{price}</Text>
             <Text style={styles.title}
-                  numberOfLines={1}>{rowData.title}</Text>
+                  numberOfLines={1}>{rowData.name}</Text>
           </View>
         </View>
         <View style={styles.separator}/>
