@@ -2,66 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/proguard-rules.pro" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/assets/fonts/Entypo.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/assets/fonts/EvilIcons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/assets/fonts/FontAwesome.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/assets/fonts/Foundation.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/assets/fonts/Ionicons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/assets/fonts/MaterialIcons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/assets/fonts/Octicons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/assets/fonts/Zocial.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/java/com/starterkit/MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/java/com/starterkit/MainApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/mipmap-ldpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/playstore-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/values/strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/app/src/main/res/values/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/gradle.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/gradle/wrapper/gradle-wrapper.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/gradlew" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/gradlew.bat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/keystores/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/keystores/debug.keystore.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/android/settings.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit.xcodeproj/project.pbxproj" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit.xcodeproj/xcshareddata/xcschemes/StarterKit.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/AppDelegate.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/AppDelegate.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Contents.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-60x60@1x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-76x76@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/Contents.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/Launch.imageset/Contents.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Images.xcassets/Launch.imageset/Launch.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/LaunchScreen.storyboard" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKit/main.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKitTests/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ios/StarterKitTests/StarterKitTests.m" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/package.json" afterPath="$PROJECT_DIR$/ios/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack-assets.json" afterPath="$PROJECT_DIR$/webpack-assets.json" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/.babelrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/.buckconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/.flowconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/.watchmanconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/actions/sidemenu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/components/alerts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/components/button.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/components/error.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/components/list.row.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/components/loading.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/components/menu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/components/navbar.elements.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/containers/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/containers/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/images/image.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/reducers/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/reducers/sidemenu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/screens/first.load.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/screens/forms.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/screens/listview.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/screens/soon.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/screens/style.guide.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/screens/tabs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/styles.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/ReactApp/util.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/index.android.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/index.ios.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/package.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios_io/App/Containers/SearchPage.js" afterPath="$PROJECT_DIR$/ios_io/App/Containers/SearchPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios_io/index.ios.js" afterPath="$PROJECT_DIR$/ios_io/index.ios.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios_io/package.json" afterPath="$PROJECT_DIR$/ios_io/package.json" />
     </list>
     <ignored path="react-redux-universal-hot-example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,39 +61,6 @@
               <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="143" selection-end-column="3" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
-                <marker date="1476985349000" expanded="true" signature="3352:8348" ph="{...}" />
-                <marker date="1476985349000" expanded="true" signature="4383:8346" ph="{...}" />
-                <marker date="1476985349000" expanded="true" signature="5346:8335" ph="&lt;MuiThemeProvider/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="5397:8308" ph="&lt;div/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="5501:6148" ph="&lt;Navbar/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="5896:6129" ph="&lt;Navbar.Collapse/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6150:6169" ph="&lt;div/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6175:8077" ph="&lt;div/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6186:8064" ph="&lt;Row/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6197:6221" ph="&lt;Col/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6227:8052" ph="&lt;Col/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6260:8039" ph="&lt;nav/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6287:8032" ph="&lt;ul/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6296:6375" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6380:7190" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6451:7180" ph="&lt;div/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6465:7167" ph="&lt;ul/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6480:6630" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6646:6750" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6766:6868" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="6884:6987" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="7002:7153" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="7275:7351" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="7357:7444" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="7451:7532" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="7579:8024" ph="&lt;li/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="7741:8009" ph="{...}" />
-                <marker date="1476985349000" expanded="true" signature="7790:7983" ph="&lt;Badge/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="7891:7970" ph="&lt;IconButton/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="8131:8277" ph="&lt;div/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="8175:8262" ph="&lt;div/&gt;" />
-                <marker date="1476985349000" expanded="true" signature="8382:8468" ph="{...}" />
-                <marker date="1476985349000" expanded="true" signature="8508:8583" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -129,8 +69,8 @@
       <file leaf-file-name="PlaceUploader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+            <state relative-caret-position="45">
+              <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -141,11 +81,9 @@
       <file leaf-file-name="index.ios.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ios_io/index.ios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-              <folding>
-                <element signature="e#901#946#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="690">
+              <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,7 +91,7 @@
       <file leaf-file-name="create.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/create.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="30">
               <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="35" />
               <folding>
                 <element signature="e#0#78#0" expanded="true" />
@@ -174,31 +112,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ios.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ios/index.ios.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="products.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="products.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/products.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="52" lean-forward="true" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+            <state relative-caret-position="-2355">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Products.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Products.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/Products/Products.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="89" column="9" lean-forward="false" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+            <state relative-caret-position="30">
+              <caret line="65" column="17" lean-forward="true" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -279,12 +207,12 @@
         <option value="$PROJECT_DIR$/src/containers/MyProfile/MyProfile.js" />
         <option value="$PROJECT_DIR$/src/containers/Login/Login.js" />
         <option value="$PROJECT_DIR$/src/containers/Products/Products.js" />
-        <option value="$PROJECT_DIR$/src/redux/modules/products.js" />
         <option value="$PROJECT_DIR$/src/components/CardsContainer/CardsContainer.js" />
         <option value="$PROJECT_DIR$/src/containers/PackageBuilder/PackageBuilder.js" />
         <option value="$PROJECT_DIR$/ios/index.ios.js" />
         <option value="$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js" />
         <option value="$PROJECT_DIR$/ios_io/index.ios.js" />
+        <option value="$PROJECT_DIR$/src/redux/modules/products.js" />
       </list>
     </option>
   </component>
@@ -297,7 +225,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
+    <handled-path value="$PROJECT_DIR$/ios_io/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
@@ -319,6 +247,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -380,7 +309,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -501,15 +429,16 @@
       <workItem from="1476606128031" duration="523000" />
       <workItem from="1476701950463" duration="1270000" />
       <workItem from="1477133131988" duration="834000" />
+      <workItem from="1477212332356" duration="60000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23720000" />
+    <option name="totallyTimeSpent" value="23780000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="805" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1440" height="805" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -829,65 +758,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Login/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="125" column="6" lean-forward="false" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/App/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1245">
           <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="143" selection-end-column="3" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
-            <marker date="1476985349000" expanded="true" signature="3352:8348" ph="{...}" />
-            <marker date="1476985349000" expanded="true" signature="4383:8346" ph="{...}" />
-            <marker date="1476985349000" expanded="true" signature="5346:8335" ph="&lt;MuiThemeProvider/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="5397:8308" ph="&lt;div/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="5501:6148" ph="&lt;Navbar/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="5896:6129" ph="&lt;Navbar.Collapse/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6150:6169" ph="&lt;div/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6175:8077" ph="&lt;div/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6186:8064" ph="&lt;Row/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6197:6221" ph="&lt;Col/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6227:8052" ph="&lt;Col/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6260:8039" ph="&lt;nav/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6287:8032" ph="&lt;ul/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6296:6375" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6380:7190" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6451:7180" ph="&lt;div/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6465:7167" ph="&lt;ul/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6480:6630" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6646:6750" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6766:6868" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="6884:6987" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="7002:7153" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="7275:7351" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="7357:7444" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="7451:7532" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="7579:8024" ph="&lt;li/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="7741:8009" ph="{...}" />
-            <marker date="1476985349000" expanded="true" signature="7790:7983" ph="&lt;Badge/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="7891:7970" ph="&lt;IconButton/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="8131:8277" ph="&lt;div/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="8175:8262" ph="&lt;div/&gt;" />
-            <marker date="1476985349000" expanded="true" signature="8382:8468" ph="{...}" />
-            <marker date="1476985349000" expanded="true" signature="8508:8583" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Products/Products.js">
+    <entry file="file://$PROJECT_DIR$/ios/component/tabbar.js" />
+    <entry file="file://$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="89" column="9" lean-forward="false" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+        <state relative-caret-position="45">
+          <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios_io/index.ios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/index.ios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Login/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="125" column="6" lean-forward="false" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -902,37 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ios/component/tabbar.js" />
-    <entry file="file://$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios_io/index.ios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding>
-            <element signature="e#901#946#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/create.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/PackageBuilder/PackageBuilder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -943,19 +835,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ios/index.ios.js">
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/products.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="-2355">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/products.js">
+    <entry file="file://$PROJECT_DIR$/src/containers/Products/Products.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="52" lean-forward="true" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="65" column="17" lean-forward="true" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

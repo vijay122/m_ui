@@ -6,7 +6,10 @@
 'use strict';
 var React = require('react');
 var ReactNative = require('react-native');
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+//import Routes from './config/routes'
+import configureStore from './Redux/Store';
+const store = configureStore();
 
 import {
   AppRegistry,
@@ -16,11 +19,13 @@ import {
 import {
   Component
 } from 'react';
+
+
+
 var SearchPage = require('./App/Containers/SearchPage');
 
 //var  createStore  = require('../../src/redux/create');
 
-console.log(createMiddleware);
 
 var styles = ReactNative.StyleSheet.create({
   text: {
@@ -45,22 +50,13 @@ var styles = ReactNative.StyleSheet.create({
       }
     }
   };
-//import { createStore } from 'redux'
-//import combineReducers from '../src/redux/modules/reducer';
-//const store = createStore(RootReducer)
 
- //import createStore from '../src/redux/create';
-
-//import * as configs from '../src/redux/actionCreators';
-//const store = createStore({}, {}, mockStore);
-// creates our Redux store (elsewhere)
-//const store = configureStore();
-
-export default class Root extends React.Component {
+export default class ios_io  extends React.Component {
   render () {
+    debugger;
     return (
       <Provider store={ store }>
-        <ios_io />
+        <Root />
       </Provider>
     )
   }
@@ -73,7 +69,7 @@ export class HelloWorld extends Component{
   }
 }
 
-export  class ios_io extends Component {
+export class Root extends Component {
     render() {
        return (
       <ReactNative.NavigatorIOS
@@ -83,8 +79,7 @@ export  class ios_io extends Component {
           component: SearchPage,
         }}/>
     );
-  // return React.createElement(ReactNative.Text, {style: styles.text}, "Hello World! again");
   }
 }
 
-AppRegistry.registerComponent('Root', () => Root);
+AppRegistry.registerComponent('ios_io', () => ios_io);

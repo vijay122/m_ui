@@ -10,6 +10,12 @@ import {
   ActivityIndicator,
   Image
 } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as productActions from '../../Redux/Reducers/globalReducers/products';
+
+//export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
 
 var styles = StyleSheet.create({
   description: {
@@ -58,14 +64,46 @@ searchInput: {
 }
 });
 
-class SearchPage extends Component {
+
+export default class  SearchPage extends Component {
 	constructor(props) {
   super(props);
+    this.onSearchPressed = this.onSearchPressed.bind(this);
+     this.onMessage = this.onMessage.bind(this);
   this.state = {
     searchString: 'london',
-      isLoading: true
+      isLoading: false
   };
 }
+
+_executeQuery(query) {
+  console.log(query);
+  this.setState({ isLoading: true });
+}
+ 
+onSearchPressed() {
+  debugger;
+  this.props.load();
+  this.setState({isLoading:true});
+
+ 
+ // var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
+ // this._executeQuery(query);
+/*
+ this.props.navigator.push({
+  title: 'Results',
+  component: SearchResults,
+  passProps: {listings: response.listings}
+});
+*/
+}
+ onMessage()
+  {
+      console.log("location clicked");
+    this.state ={
+      isLoading : true
+    };
+  }
 onSearchTextChanged(event) {
   console.log('onSearchTextChanged');
   this.setState({ searchString: event.nativeEvent.text });
@@ -91,12 +129,12 @@ onSearchTextChanged(event) {
     placeholder='Search via name or postcode'/>
   <TouchableHighlight style={styles.button}
       underlayColor='#99d9f4'>
-    <Text style={styles.buttonText}>Go</Text>
+    <Text style={styles.buttonText} onPress={ () => this.onSearchPressed() }>Go</Text>
   </TouchableHighlight>
 </View>
 <TouchableHighlight style={styles.button}
     underlayColor='#99d9f4'>
-  <Text style={styles.buttonText}>Location</Text>
+  <Text style={styles.buttonText} onPress={this.onMessage.bind(this)}>Location</Text>
 </TouchableHighlight>
 {spinner}
       </View>
@@ -105,4 +143,15 @@ onSearchTextChanged(event) {
   }
 }
 
-module.exports = SearchPage;
+function mapStateToProps(state) {
+  console.log('state '+state);
+
+  return { appstate: state }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Object.assign({}, productActions), dispatch)
+}
+
+//export  connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(SearchPage);
