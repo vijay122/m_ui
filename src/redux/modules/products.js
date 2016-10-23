@@ -65,6 +65,14 @@ export default function reducer(state = initialState, action = {}) {
           offers: action.result.offers,
           seo:action.result.seo
       }
+        case 'SET_SEARCH_RESULTS':
+      const newItems = action.result;
+      return {
+        ...state,
+         loading: false,
+        loaded: true,
+        products: newItems
+      }
          case 'SET_ALL_ENTRIES':
          {
       const newItems1 = action.result.offers;
@@ -134,6 +142,33 @@ map.useroffers=data.useroffers;
   }).catch(function(error) {
     console.log('request failed', error);
        dispatch(loadAllData("home"));
+  })
+  }
+}
+
+export function search(sectionName,searchcriteria) {
+  var payload={};
+  payload.sectionName=sectionName;
+  payload.searchCategory = searchcriteria.searchby;
+  payload.criteria = searchcriteria.searchvalue;
+    return dispatch =>{
+    fetch(config.svc+'/getProducts', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+       body: JSON.stringify({
+        payload
+  })
+    }).then(checkStatus)
+  .then(parseJSON)
+  .then(function(data) {
+
+     dispatch({ type: 'SET_SEARCH_RESULTS', result: data });
+  //  console.log('request succeeded with JSON response', list)
+  }).catch(function(error) {
+    console.log('request failed', error)
   })
   }
 }
