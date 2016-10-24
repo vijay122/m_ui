@@ -56,12 +56,12 @@ export default function reducer(state = initialState, action = {}) {
         error: action.error
       };
       case 'SET_ENTRIES':
-      const newItems = action.result.places;
+      const item = action.result.places;
       return {
         ...state,
          loading: false,
         loaded: true,
-        products: newItems,
+        products: item,
           offers: action.result.offers,
           seo:action.result.seo
       }
