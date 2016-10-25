@@ -24,6 +24,9 @@ import {
 
 var SearchPage = require('./App/Containers/SearchPage');
 
+var HomePage = require('./App/Containers/HomePage');
+
+
 //var  createStore  = require('../../src/redux/create');
 
 
@@ -76,7 +79,7 @@ export class Root extends Component {
         style={styles.container}
         initialRoute={{
           title: 'Property Finder',
-          component: SearchPage,
+          component: HomePage,
         }}/>
     );
   }

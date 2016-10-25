@@ -129,7 +129,7 @@ return (
       <div className={styles.home}>
         <Helmet title="Home"/>
         <label>Places near to {detail!=undefined&& detail.name} </label>
-          <Grid>
+          <Grid className={styles.noContainer}>
     <Row className="show-grid">
      <Col xs={12} md={2}>
       {

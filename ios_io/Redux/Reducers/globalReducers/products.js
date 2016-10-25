@@ -10,7 +10,7 @@ import {List, Map} from 'immutable';
 
 //import  'isomorphic-fetch';
  var config={};
- config.svc = 'http://localhost:8000';
+ config.svc = 'http://107.180.102.80/8000';
 const initialState = {
   count: 0
 };
