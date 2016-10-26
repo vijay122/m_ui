@@ -244,7 +244,7 @@ componentWillReceiveProps(newprops)
   var refprod = newprops.referenceproduct;
   var inMeters = geolib.getDistance(
     {latitude: input[0], longitude: input[1]},
-    {latitude: refprod.latitude, longitude: refprod.longitude}
+    {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]}
 );
   var kms = inMeters/1000;
   this.setState({distance:kms})
