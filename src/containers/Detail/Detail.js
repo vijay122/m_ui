@@ -237,9 +237,10 @@ componentDidMount()
 componentWillReceiveProps(newprops)
 {
 
-  var input = newprops.data.loc.coordinates;
-  if(input!= undefined)
+
+  if(newprops!= undefined &&  newprops.data!= undefined &&  newprops.data.loc!= undefined && newprops.data.loc.coordinates!= undefined)
   {
+      var input = newprops.data.loc.coordinates;
   var refprod = newprops.referenceproduct;
   var inMeters = geolib.getDistance(
     {latitude: input[0], longitude: input[1]},
