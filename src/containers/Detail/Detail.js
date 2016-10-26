@@ -237,17 +237,17 @@ componentDidMount()
 componentWillReceiveProps(newprops)
 {
 
-  var input = newprops.data;
+  var input = newprops.data.loc.coordinates;
+  if(input!= undefined)
+  {
   var refprod = newprops.referenceproduct;
   var inMeters = geolib.getDistance(
-    {latitude: input.lat, longitude: input.lon},
+    {latitude: input[0], longitude: input[1]},
     {latitude: refprod.latitude, longitude: refprod.longitude}
 );
   var kms = inMeters/1000;
   this.setState({distance:kms})
-  // if(newprops.detail.getProductsResult!= undefined)
- // this.setState({'dependencies':newprops.detail.getProductsResult});
-
+}
 }
   render() {
     var current = this.props.data;
