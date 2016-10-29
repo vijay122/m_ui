@@ -121,11 +121,12 @@ export function viewMore(product, type) {
   })
   }  
 }
-export function getProducts(productid) {
+export function getProducts(product) {
   var payload={};
-  payload.lat ='12.12';
-  payload.lon='12.14';
+debugger;
   payload.sectionName="detail";
+  payload.lat = product.loc.coordinates[0];
+    payload.lon = product.loc.coordinates[1];
   payload.max="100";
     return dispatch =>{
     fetch(config.svc+'/getProducts', {
@@ -140,32 +141,43 @@ payload
     }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
-      var Placemap = Map(data.places.reduce(function(previous, current) { 
+    var Packagesmap , Eventsmap , Hotelsmap , Placemap ={};
+    if(data.places!= undefined && data.places.length>0)
+    {
+
+       Placemap = Map(data.places.reduce(function(previous, current) { 
     previous[ current._id ] = current;
     return previous;
 }, {}));
+          }
+ if(data.packages!= undefined && data.packages.length>0)
+    {
 
-
-var Packagesmap = Map(data.packages.reduce(function(previous, current) { 
+ Packagesmap = Map(data.packages.reduce(function(previous, current) { 
     previous[ current._id ] = current;
     return previous;
 }, {}));
-
-var Eventsmap = Map(data.events.reduce(function(previous, current) { 
+}
+ if(data.events!= undefined && data.events.length>0)
+    {
+ Eventsmap = Map(data.events.reduce(function(previous, current) { 
     previous[ current._id ] = current;
     return previous;
 }, {}));
-
-var Hotelsmap = Map(data.hotels.reduce(function(previous, current) { 
+}
+ if(data.hotels!= undefined && data.hotels.length>0)
+    {
+ Hotelsmap = Map(data.hotels.reduce(function(previous, current) { 
     previous[ current._id ] = current;
     return previous;
 }, {}));
+}
 var map={};
 //map.place=data.place;
 map.packages=Packagesmap;
 map.events = Eventsmap;
 map.hotels = Hotelsmap;
-map.places =data.packages;
+map.places =data.places;
      dispatch({ type: 'SET_DEPENDANT', result: map });
   }).catch(function(error) {
     console.log('request failed', error)

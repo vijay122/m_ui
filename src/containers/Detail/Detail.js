@@ -34,6 +34,9 @@ import geolib  from 'geolib';
 
 import RaisedButton from 'material-ui/RaisedButton';
 
+var Slider = require('react-slick');
+  
+
 //import distance from 'google-distance'
 
 function mapStateToProps(state) {
@@ -62,13 +65,15 @@ export class Detail extends Component {
     super(props);
        this.state = {};
        this.state.detail=props.products.detail;
+       this.state.startIndex=0;
+this.state.endIndex=4;
   }
 componentWillMount(){
  
 }
 
 componentDidMount(){
-this.props.getProducts(this.props.products.current);
+this.props.getProducts(this.props.products.detail);
 }
 componentWillReceiveProps(newprops)
 {
@@ -79,6 +84,40 @@ componentWillReceiveProps(newprops)
 viewmore(data,fn)
 {
   data.viewMore(fn,"places");
+// data.dispatch({ type: 'VIEW_MORE', result: fn });
+}
+previousNearby()
+{
+  debugger;
+  this.state.endIndex=this.state.startIndex;
+   this.state.startIndex=this.state.startIndex -4;
+
+  var places =this.state.dependencies.places;
+  if(places[this.state.startIndex]!=undefined)
+  {
+      this.setState({"startIndex":this.state.startIndex,
+                     "endIndex":this.state.endIndex
+                   });
+  }
+
+ // data.viewMore(fn,"places");
+// data.dispatch({ type: 'VIEW_MORE', result: fn });
+}
+nextNearby()
+{
+  debugger;
+  this.state.startIndex=this.state.endIndex;
+   this.state.endIndex=this.state.endIndex +4;
+
+  var places =this.state.dependencies.places;
+  if(places[this.state.endIndex]!=undefined)
+  {
+      this.setState({"startIndex":this.state.startIndex,
+                     "endIndex":this.state.endIndex
+                   });
+  }
+
+ // data.viewMore(fn,"places");
 // data.dispatch({ type: 'VIEW_MORE', result: fn });
 }
   addToCart(data,fn,st) {
@@ -95,6 +134,13 @@ resizeImage(url, height, width)
   return rest;
 }
   render() {
+     var settings = {
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+    };
     var that = this.props;
     var detail ={};
     if(this.props.products.detail!= undefined )//&& this.state.dependencies== undefined)
@@ -111,15 +157,18 @@ var events =[];
 //(this.state.dependencies!= null && this.state.dependencies.events!= null):this.state.dependencies.events:[];
 var hotels =[];
 var places =[];
+var nearbyElements=[];
+var startIndex=this.state.startIndex;
+ var endIndex= this.state.endIndex;
 
 if(this.state!= null && this.state.dependencies!= null )
 {
 hotels = this.state.dependencies.hotels;
 packages = this.state.dependencies.packages;
 events = this.state.dependencies.events;
-places = this.state.dependencies.hotels;
+places = this.state.dependencies.places;
 }
-
+var nearbyElements = places.slice(startIndex, endIndex);
 const dummySentences = ['Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'Donec hendrerit tempor tellus.', 'Donec pretium posuere tellus.', 'Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'Nulla posuere.', 'Donec vitae dolor.', 'Nullam tristique diam non turpis.', 'Cras placerat accumsan nulla.', 'Nullam rutrum.', 'Nam vestibulum accumsan nisl.'];
 
     const styles = require('./Detail.scss');
@@ -132,10 +181,13 @@ return (
           <Grid className={styles.noContainer}>
     <Row className="show-grid">
      <Col xs={12} md={2}>
+      <a onClick={this.previousNearby.bind(this,that,detail)}>NextFour</a>
       {
-        detail!= undefined && places!= undefined && places.map(function (nearbyloc){
+
+        detail!= undefined && nearbyElements!= undefined && nearbyElements.map(function (nearbyloc){
             return <SidebarTiles data={nearbyloc} referenceproduct={detail} key={nearbyloc.id}></SidebarTiles>;
           })}
+          <a onClick={this.nextNearby.bind(this,that,detail)}>NextFour</a>
         <a onClick={this.viewmore.bind(this,that,detail)}>View More</a>
       </Col>
       <Col xs={12} md={6}>
@@ -156,8 +208,15 @@ return (
        <h3>Features</h3>
     </Row>
      <Row>
-      <Tabs defaultActiveKey={2}>
-    <Tab eventKey={1} title="Tab 1">
+      <Tabs defaultActiveKey={1}>
+    <Tab eventKey={1} title="About & Info">
+ <Row className="show-grid">
+   <Col sm={12} md={6}>About the place:<br/>{dummySentences.slice(0, 6).join(' ')}</Col>
+      <Col sm={12} md={6}>Landmarks:<br/>{dummySentences.slice(0, 4).join(' ')}</Col>
+
+     </Row>
+    </Tab>
+    <Tab eventKey={2} title="Location and visiting">
     <Row className="show-grid">
       <Col sm={6} md={3}>How to reach?<br/>{dummySentences.slice(0, 6).join(' ')}</Col>
       <Col sm={6} md={3}>What to eat?<br/>{dummySentences.slice(0, 4).join(' ')}</Col>
@@ -167,8 +226,7 @@ return (
       </Col>
     </Row>
     </Tab>
-    <Tab eventKey={2} title="Tab 2">Tab 2 content</Tab>
-    <Tab eventKey={3} title="Tab 3" disabled>Tab 3 content</Tab>
+    <Tab eventKey={3} title="Tab 3" >Tab 3 content</Tab>
   </Tabs>
     </Row>
     </Col>
@@ -244,7 +302,10 @@ componentWillReceiveProps(newprops)
   var refprod = newprops.referenceproduct;
   var inMeters = geolib.getDistance(
     {latitude: input[0], longitude: input[1]},
-    {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]}
+    {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]},function()
+    {
+      debugger;
+    }
 );
   var kms = inMeters/1000;
   this.setState({distance:kms})
