@@ -32,7 +32,17 @@ viewDetails(data,fn,st)
   {
     debugger;
     var ty= this;
-    var image = this.props.data.image[0]?this.props.data.image[0]:this.props.data.assets.display;
+    var image ='';
+
+      if(this.props.data.image[0]!= undefined)
+      {
+ image = this.props.data.image[0];
+    }
+    else if(this.props.data.assets!= undefined)
+    {
+      image = this.props.data.assets.display;
+    }
+    
     var product = this.props.data;
     return(
           <Col xs={6} md={3}>

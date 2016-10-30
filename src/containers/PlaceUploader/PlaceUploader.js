@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { FileUploader, TabsSection, GeoCoder } from '../../components';
+import { FileUploader, TabsSection, GeoCoder , TypeAhead} from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';
@@ -32,6 +32,21 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+
+import {connect} from 'react-redux';
+import * as loginActions from '../../redux/modules/auth';
+import * as productActions from '../../redux/modules/products';
+import { bindActionCreators } from 'redux';
+
+function mapStateToProps(state) {
+  console.log('state '+state);
+  return { products: (state.products!= undefined && state.products.searchresults!= undefined )?
+   state.products.searchresults.places[0]:{}, auth: state.auth }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Object.assign({}, loginActions,productActions), dispatch)
+}
 
 const styles = {
   headline: {
@@ -86,7 +101,7 @@ const InitialState =
   longitude:"",
 city:"",
 pincode:"",
-desc:"",
+description:"",
    landmark:"",
    type:"",
   state:"",
@@ -95,16 +110,21 @@ desc:"",
 
 
 
-export default class PlaceUploader extends Component {
+export class PlaceUploader extends Component {
 
    constructor(props) {
     super(props);
+
+
      this.state = {value1: 1};
+
      this._create = this._create.bind(this);
     this.submitform = this.submitform.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.validateForm = this.validateForm.bind(this);
     this.onChange = this.onChange.bind(this);
+     this.searchByID = this.searchByID.bind(this);
+    
 
       this.state = {type: null};
   }
@@ -115,7 +135,11 @@ export default class PlaceUploader extends Component {
 
    _create() {
     var that = this;
-    this.state.image =this.refs['UploadImages'].state.images;
+    if(this.state.image==undefined || this.state.image.length==0)
+    {
+          this.state.image =this.refs['UploadImages'].state.images;
+    }
+
      var payload = this.state;
        fetch(config.svc+'/Save',{
   method: 'post',
@@ -127,7 +151,6 @@ export default class PlaceUploader extends Component {
 payload
   })
 }).then((resp) => {
-  alert("then");
 });
 this.setState(InitialState);
 }
@@ -169,6 +192,22 @@ this.setState(InitialState);
     };
     request.send(data);
 });
+}
+searchByID()
+{
+  var id="";
+      if(this!= undefined && this.refs!= undefined && this.refs.searched_id!= undefined &&
+this.refs.searched_id.state!= undefined &&
+     this.refs.searched_id.state.searchText != undefined && this.refs.searched_id.state.searchText.valueKey!= undefined)
+    {
+      id = this.refs.searched_id.state.searchText.valueKey;
+    }
+  var searchcriteria ={};
+  searchcriteria.searchby="_id";
+    searchcriteria.findtable=this.state.searchtype;
+  searchcriteria.searchvalue=id;
+  this.props.search("search",searchcriteria);
+
 }
   onUploadProgress()
   {
@@ -223,9 +262,13 @@ this.setState(InitialState);
 }
 handleSelect = (event, index, value) =>
 {
-  ;
   this.setState({type:value})
   this.state.type = value;
+}
+handleSearchSelect = (event, index, value) =>
+{
+  this.setState({searchtype:value})
+  this.state.searchtype = value;
 }
 handleUpload()
 {
@@ -283,7 +326,7 @@ else
   {
     errorlist.push("please enter valid pincode.");
   }
-     if(!this.isValid(this.state.desc))
+     if(!this.isValid(this.state.description))
   {
     errorlist.push("please enter valid description.");
   }
@@ -353,6 +396,24 @@ getClassName()
   }
 
   render() {
+    var that = this;
+    debugger;
+    var img = this.props.products.image;
+    if(this.props.products!= undefined)
+{
+  this.state = this.props.products;  
+  if(this.props.products.loc!= undefined)
+  {
+    this.state.image = img;
+this.state.latitude = this.props.products.loc.coordinates[0];
+this.state.longitude = this.props.products.loc.coordinates[1];
+}
+}
+
+         if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user.phone_number)
+     {
+               this.state.created_by = this.props.auth.user.phone_number
+     }
     this.onChange = this.onChange.bind(this);
     const styles = require('./PlaceUploader.scss');
     // require the logo image both from client and server
@@ -363,7 +424,16 @@ getClassName()
 
           <Grid>
              <form validationState={this.getValidationState}>
-
+<Row>
+<label>Search</label>
+ <SelectField value={this.state.searchtype} data-ctrlid='searchtype' onChange={this.handleSearchSelect.bind(this)}>
+          <MenuItem value="Place" data-ctrlid='searchtype' primaryText="Place" />
+          <MenuItem value="Hotel" data-ctrlid='searchtype' primaryText="Hotel" />
+          <MenuItem value="Event" data-ctrlid='searchtype' primaryText="Event" />
+        </SelectField>
+<TypeAhead ref="searched_id"/>
+        <RaisedButton label="Find" onClick={this.searchByID} primary={true}/>
+</Row>
   <Row>
   {this.state.status != undefined && this.state.status.message!= undefined &&
     <Panel header={this.state!= undefined && this.state.status != undefined && this.state.status.text} bsStyle="primary">
@@ -441,7 +511,7 @@ getClassName()
       floatingLabelFixed={true}
        multiLine={true}
       rows={3}
-     data-ctrlid='desc' onChange={this.onChange.bind(this)} value={this.state.desc}/>
+     data-ctrlid='description' onChange={this.onChange.bind(this)} value={this.state.description}/>
 
  <TextField
  hintText="tell us abt the nearby landmarks...."
@@ -450,12 +520,43 @@ getClassName()
        multiLine={true}
       rows={3}
      data-ctrlid='landmark' onChange={this.onChange.bind(this)} value={this.state.landmark} />
+      <TextField
+ hintText="tell us abt the special foods...."
+      floatingLabelText="Special regional foods"
+      floatingLabelFixed={true}
+       multiLine={true}
+      rows={3}
+     data-ctrlid='whattoeat' onChange={this.onChange.bind(this)} value={this.state.whattoeat} />
+
+       <TextField
+ hintText="tell us abt the special events in the place...."
+      floatingLabelText="Events in the place"
+      floatingLabelFixed={true}
+       multiLine={true}
+      rows={3}
+     data-ctrlid='whattodo' onChange={this.onChange.bind(this)} value={this.state.whattodo} />
+
+      <TextField
+ hintText="tell us how to reach there from nearest city...."
+      floatingLabelText="How to reach this place"
+      floatingLabelFixed={true}
+       multiLine={true}
+      rows={3}
+     data-ctrlid='howtogo' onChange={this.onChange.bind(this)} value={this.state.howtogo} />
 
  <SelectField value={this.state.type} data-ctrlid='type' onChange={this.handleSelect.bind(this)}>
           <MenuItem value="standalone" data-ctrlid='type' primaryText="Place" />
           <MenuItem value="hotel" data-ctrlid='type' primaryText="Hotel" />
           <MenuItem value="event" data-ctrlid='type' primaryText="Event" />
         </SelectField>
+
+<TextField
+      hintText="Uploader name"
+      floatingLabelText="Place uploaded by:"
+      floatingLabelFixed={true}
+      errorText=""
+     data-ctrlid='created_by' onChange={this.onChange.bind(this)} value={this.state.created_by}/>
+
        <RaisedButton label="Submit Button" onClick={this.submitform} primary={true}/>
         <Row>
     <Col>
@@ -493,3 +594,5 @@ getClassName()
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceUploader);

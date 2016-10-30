@@ -126,11 +126,12 @@ var view = this.state!= null? this.state.view:"";
     <Row>
     <hr />
     </Row>
-    <CardsContainer packagelist={packagelist} type="Popular Hotels"  dispatch={that.props.dispatch}/>
-    <br />
-  <CardsContainer packagelist={eventlist}  type="Popular Packages" dispatch={that.props.dispatch} />
+   
+  <CardsContainer packagelist={packagelist}  type="Popular Packages" dispatch={that.props.dispatch} />
   <br />
-  <CardsContainer packagelist={hotellist}   type="Popular Events" dispatch={that.props.dispatch}/>
+   <CardsContainer packagelist={hotellist} type="Popular Hotels"  dispatch={that.props.dispatch}/>
+    <br />
+  <CardsContainer packagelist={eventlist}   type="Popular Events" dispatch={that.props.dispatch}/>
   <br />
         </div>
     );

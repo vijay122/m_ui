@@ -157,16 +157,24 @@ componentDidMount()
   cartcount = this.props.appstate.cart.items.length;
     const {user} = this.props;
     const styles = require('./App.scss');
+        var userdataloaded=[];
     var logintext ="Login";
     if(this!= undefined && this.props!= undefined && this.props.user!= null )
     {
       if(this.props.user.name!= null)
-      logintext = this.props.user.name;
+      {
+              logintext = this.props.user.name;
+            userdataloaded[0]=true;
+      }
+
       else if(this.props.user.phone_number!= null)
       {
         logintext = this.props.user.phone_number;
+                userdataloaded[0]=true;
       }
     }
+
+
    // =(this!= undefined && this.props!= undefined && this.props.user!= null && this.props.user.name!= null )? this.props.user.name: "Login";//this!= undefined && this.props!= undefined && this.props.user!= null && this.props.user.name!= null ?"Hello " this.props.user.name : "Login";
      var buttonStyle = {
     backgroundColor: 'transparent',
@@ -242,12 +250,28 @@ componentDidMount()
      <li>
      <Link to={'/cart'} activeClassName="active">Cart</Link>
      </li>
-     <li>
-       <Link to={'/myprofile/'} activeClassName="active">Profile</Link>
+{userdataloaded!= undefined&& userdataloaded.length>0 && userdataloaded.map(function(x)
+  {
+      return(
+            <li>
+     <a>Admin <span className="caret"></span></a>
+      <div>
+        <ul>
+                <li>
+       <Link to={'/admin/'} activeClassName="active">Manage users</Link>
      </li>
-      <li>
-       <Link to={'/admin/'} activeClassName="active">Admin</Link>
-     </li>
+               <li>
+              <Link to={'/upload'} activeClassName="active">Add place</Link>
+              </li>
+               <li>
+              <Link to={'/packagebuilder/'} activeClassName="active">Add package</Link>
+              </li>
+        </ul>
+      </div>
+       </li>
+     );
+  })
+}
     <li><a href="help.html">Help</a></li>
     <li>
     {this.cartcount!= null && this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items.map(function(x)

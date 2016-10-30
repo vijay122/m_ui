@@ -71,7 +71,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
          loading: false,
         loaded: true,
-        products: newItems
+        searchresults: newItems
       }
          case 'SET_ALL_ENTRIES':
          {
@@ -149,8 +149,9 @@ map.useroffers=data.useroffers;
 export function search(sectionName,searchcriteria) {
   var payload={};
   payload.sectionName=sectionName;
-  payload.searchCategory = searchcriteria.searchby;
-  payload.criteria = searchcriteria.searchvalue;
+   payload.findtable = searchcriteria.findtable;
+  payload.searchby = searchcriteria.searchby;
+  payload.searchvalue = searchcriteria.searchvalue;
     return dispatch =>{
     fetch(config.svc+'/getProducts', {
       method: 'post',
