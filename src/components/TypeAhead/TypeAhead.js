@@ -89,7 +89,7 @@ var self = this;
   {textKey: 'Some Text', valueKey: 'someSecondValue'},
 ];
  self.setState({dataSource:dataSource3});
-  this.get(process.env.Svc+'/autocomplete/'+search).then(function(response) {
+  this.get(config.svc+'/autocomplete/'+search).then(function(response) {
   console.log("Success!", response);
   for(var i=0;i<response.length; i++)
 
