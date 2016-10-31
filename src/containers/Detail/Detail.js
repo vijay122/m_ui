@@ -211,18 +211,23 @@ return (
       <Tabs defaultActiveKey={1}>
     <Tab eventKey={1} title="About & Info">
  <Row className="show-grid">
-   <Col sm={12} md={6}>About the place:<br/>{dummySentences.slice(0, 6).join(' ')}</Col>
-      <Col sm={12} md={6}>Landmarks:<br/>{dummySentences.slice(0, 4).join(' ')}</Col>
+   <Col sm={12} md={6}>About the place:<br/>{detail.description}</Col>
+      <Col sm={12} md={6}>Landmarks:<br/>{detail.landmark}</Col>
 
      </Row>
     </Tab>
     <Tab eventKey={2} title="Location and visiting">
     <Row className="show-grid">
-      <Col sm={6} md={3}>How to reach?<br/>{dummySentences.slice(0, 6).join(' ')}</Col>
-      <Col sm={6} md={3}>What to eat?<br/>{dummySentences.slice(0, 4).join(' ')}</Col>
-      <Col sm={6} md={3}>What to do?<br/>{dummySentences.slice(0, 6).join(' ')}</Col>
+      <Col sm={6} md={3}>How to reach?<br/>{detail.howtoreach}</Col>
+      <Col sm={6} md={3}>What to eat?<br/>{detail.whattoeat}</Col>
+      <Col sm={6} md={3}>What to do?<br/>{detail.whattodo}</Col>
       <Col sm={6} md={3}>
-<WeatherCard detail={detail}/>
+      {
+      //  eventKey!= undefined && eventKey.map(function(x)
+//{
+//return <WeatherCard detail={detail}/>
+//})
+      }
       </Col>
     </Row>
     </Tab>

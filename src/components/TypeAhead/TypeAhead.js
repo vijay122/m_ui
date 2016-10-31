@@ -1,5 +1,6 @@
 import React from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
+import config from '../../config';
 
  const dataSourceConfig = {
   text: 'textKey',
@@ -52,7 +53,7 @@ this.handleSelect= this.handleSelect.bind(this);
   var that = this;
   var datalist =[];
   var search = a;
-  passstate.get(process.env.Svc+'/autocomplete/'+search).then(function(response) {
+  passstate.get(config.svc+'/autocomplete/'+search).then(function(response) {
   console.log("Success!", response);
   for(var i=0;i<response.length; i++)
 
