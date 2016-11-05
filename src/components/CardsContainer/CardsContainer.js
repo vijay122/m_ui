@@ -64,12 +64,12 @@ var x = {};
 
     {canrender && canrender.length>0 && canrender.map(function(v)
       {
+        debugger;
 return(
      <Slider {...settings}>
      {that && that.props && that.props.packagelist && that.props.packagelist.map(function(x)
       {
-        debugger;
-       if(x.image==undefined && x.assets.display)
+       if(x.image==undefined && x.assets!= undefined && x.assets.display)
       {
         x.image =[];
         x.image[0] = x.assets.display;

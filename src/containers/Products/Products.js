@@ -98,7 +98,7 @@ var view = this.state!= null? this.state.view:"";
         <Helmet title="Home"/>
     <Row className="show-grid">
    <Col xs={12} md={8}>
-     <HomeSlider  data={offer}/>
+     <HomeSlider  data={packagelist}/>
  </Col>
   <Col xs={12} md={4}>
     <ReactRpg imagesArray={images} columns={[ 2, 2, 2 ]} padding={2} />
@@ -216,14 +216,21 @@ export class HomeSlider extends Component {
   render() {
     debugger;
       var that = this;
+      var image ="";
+ 
     var list = this.props.data;
     return (
      <Carousel>
     {list && list.map(function(scrolloffer)
       {
+        var img ="";
+             if(scrolloffer!= undefined && scrolloffer.assets!= undefined && scrolloffer.assets.display!= undefined)
+             {
+img = scrolloffer.assets.display;
+             }
         return(
             <CarouselItem>
-      <img src={that.resizeImage(scrolloffer.assets.display,450,900)}/>
+      <img src={that.resizeImage(img,450,900)}/>
       <div className="carousel-caption">
         <h2>{scrolloffer.city}</h2>
         <h3>{scrolloffer.title} {scrolloffer.type}</h3>

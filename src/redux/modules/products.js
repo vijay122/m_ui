@@ -82,7 +82,7 @@ export default function reducer(state = initialState, action = {}) {
         loaded: true,
         hotels: action.result.hotels,
         packages:action.result.packages,
-        events:action.result.events,
+      //  events:action.result.events,
       }
     }
        case 'ADD_TO_CART':

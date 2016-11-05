@@ -15,7 +15,6 @@ export default class ProductCard extends React.Component {
 }
     render() 
     {
-      debugger;
       var image;
        var ty= this;
       var name = this.props.data.name== undefined?"":this.props.data.name;
@@ -23,7 +22,7 @@ export default class ProductCard extends React.Component {
       {
         image = this.props.data.image[0];
       }
-      else if(this.props.data.assets.display)
+      else if(this.props.data!= undefined && this.props.data.assets!= undefined && this.props.data.assets.display)
       {
         image = this.props.data.assets.display;
       }

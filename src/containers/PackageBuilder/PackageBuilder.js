@@ -137,6 +137,10 @@ this.refs.newproduct.state!= undefined &&
     try
     {
     debugger;
+    if(this.state.assets==undefined)
+    {
+      this.state.assets={};
+    }
      this.state.assets.display =this.refs['scrollimage'].state.images[0];
      var payload = this.state;
        fetch(config.svc+'/Save', {

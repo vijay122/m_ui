@@ -123,7 +123,6 @@ export function viewMore(product, type) {
 }
 export function getProducts(product) {
   var payload={};
-debugger;
   payload.sectionName="detail";
   payload.lat = product.loc.coordinates[0];
     payload.lon = product.loc.coordinates[1];

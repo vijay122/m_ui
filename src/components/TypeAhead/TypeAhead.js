@@ -131,7 +131,6 @@ datalist.push(input);
   }
 
   render() {
-    debugger;
     var floatinglabel =this.props.floatinglabel != ""?this.props.floatinglabel :"Enter place name";
     return (
       <div>

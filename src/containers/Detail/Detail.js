@@ -173,7 +173,6 @@ const dummySentences = ['Lorem ipsum dolor sit amet, consectetuer adipiscing eli
 
     const styles = require('./Detail.scss');
     {
-      debugger;
 return (
       <div className={styles.home}>
         <Helmet title="Home"/>
@@ -309,7 +308,6 @@ componentWillReceiveProps(newprops)
     {latitude: input[0], longitude: input[1]},
     {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]},function()
     {
-      debugger;
     }
 );
   var kms = inMeters/1000;

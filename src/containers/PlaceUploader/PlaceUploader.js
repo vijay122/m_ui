@@ -400,7 +400,6 @@ getClassName()
 
   render() {
     var that = this;
-    debugger;
     var defaultPlaceType ="standalone";
     if(this.state.inputType!= undefined && this.state.inputType!="")
     {
