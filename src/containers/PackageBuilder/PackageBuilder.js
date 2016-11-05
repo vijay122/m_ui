@@ -134,6 +134,8 @@ this.refs.newproduct.state!= undefined &&
       }
 
    _create() {
+    try
+    {
     debugger;
      this.state.assets.display =this.refs['scrollimage'].state.images[0];
      var payload = this.state;
@@ -147,6 +149,11 @@ this.refs.newproduct.state!= undefined &&
 payload
   })
 })
+     }
+     catch(e)
+     {
+      console.log(e);
+     }
   }
    ajax(url,file) {
   return new Promise(function(resolve, reject) {
