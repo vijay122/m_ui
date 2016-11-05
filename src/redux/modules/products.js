@@ -174,6 +174,8 @@ export function search(sectionName,searchcriteria) {
   }
 }
 
+
+
 export function loadAllData(sectionName) {
   var payload={};
   payload.sectionName=sectionName;

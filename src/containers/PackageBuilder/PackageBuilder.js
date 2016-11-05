@@ -28,6 +28,11 @@ import TextField from 'material-ui/TextField';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import {connect} from 'react-redux';
+import * as loginActions from '../../redux/modules/auth';
+import * as productActions from '../../redux/modules/products';
+import { bindActionCreators } from 'redux';
+
 import {
   Step,
   Stepper,
@@ -36,7 +41,18 @@ import {
 import FlatButton from 'material-ui/FlatButton';
 import Checkbox from 'material-ui/Checkbox';
 
-export default class PackageBuilder extends Component {
+
+function mapStateToProps(state) {
+  console.log('state '+state);
+  return { products: (state.products!= undefined && state.products.searchresults!= undefined )?
+   state.products.searchresults.packages[0]:{}, auth: state.auth }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Object.assign({}, loginActions,productActions), dispatch)
+}
+
+export class PackageBuilder extends Component {
 
    constructor(props) {
     super(props);
@@ -96,6 +112,10 @@ displayoffer: (!!this.props.complete) || false
     // Make the request
     req.send();
   });
+}
+
+ isEmpty(obj) {
+    return Object.keys(obj).length === 0;
 }
 
 searchByID()
@@ -394,7 +414,34 @@ this._create();
   }
 
   render() {
+    var step = this.state.stepIndex;
       var defaultPlaceType ="Package";
+    if(this.state.type!= undefined && this.state.type!="")
+    {
+defaultPlaceType = this.state.type;
+    }
+    
+    var img = this.props.products.image;
+    if(this.props.products!= undefined && !this.isEmpty(this.props.products))
+{
+  this.state = this.props.products;  
+  if(this.props.products.loc!= undefined)
+  {
+    this.state.image = img;
+    this.state.stepIndex = step;
+      this.state.type='package';
+this.state.latitude = this.props.products.loc.coordinates[0];
+this.state.longitude = this.props.products.loc.coordinates[1];
+}
+}
+
+         if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user.phone_number)
+     {
+               this.state.created_by = this.props.auth.user.phone_number
+     }
+     
+    this.onChange = this.onChange.bind(this);
+
     const styles = require('./PackageBuilder.scss');
      const {finished, stepIndex} = this.state;
     const contentStyle = {margin: '0 16px'};
@@ -630,3 +677,5 @@ this._create();
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(PackageBuilder);
