@@ -421,13 +421,13 @@ this._create();
 defaultPlaceType = this.state.type;
     }
     
-    var img = this.props.products.image;
+    var img = this.props.products.assets;
     if(this.props.products!= undefined && !this.isEmpty(this.props.products))
 {
   this.state = this.props.products;  
   if(this.props.products.loc!= undefined)
   {
-    this.state.image = img;
+    this.state.assets = img;
     this.state.stepIndex = step;
       this.state.type='package';
 this.state.latitude = this.props.products.loc.coordinates[0];
