@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton, OrderSummary,Calendar } from '../../components';
+import { CounterButton, GithubButton, OrderSummary,Calendar , Maps} from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';
@@ -143,6 +143,9 @@ clicking()
   <Col md={4}>
   <OrderSummary />
   </Col>
+  </Row>
+  <Row>
+  <Maps markers={cartItems}/>
   </Row>
   <Row>
 <EventCalendar 

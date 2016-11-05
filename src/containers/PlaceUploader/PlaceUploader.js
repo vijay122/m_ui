@@ -121,6 +121,7 @@ export class PlaceUploader extends Component {
      this._create = this._create.bind(this);
     this.submitform = this.submitform.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+      this.handleSearchSelect = this.handleSearchSelect.bind(this);
     this.validateForm = this.validateForm.bind(this);
     this.onChange = this.onChange.bind(this);
      this.searchByID = this.searchByID.bind(this);
@@ -202,6 +203,7 @@ this.refs.searched_id.state!= undefined &&
     {
       id = this.refs.searched_id.state.searchText.valueKey;
     }
+
   var searchcriteria ={};
   searchcriteria.searchby="_id";
     searchcriteria.findtable=this.state.searchtype;
@@ -265,10 +267,11 @@ handleSelect = (event, index, value) =>
   this.setState({type:value})
   this.state.type = value;
 }
-handleSearchSelect = (event, index, value) =>
+handleSearchSelect = (event) =>
 {
-  this.setState({searchtype:value})
-  this.state.searchtype = value;
+  var st = event.target.value;
+  //this.setState({searchtype:st})
+  this.state.searchtype = st;
 }
 handleUpload()
 {
@@ -334,7 +337,7 @@ else
   {
     errorlist.push("please enter valid landmark.");
   }
-   if(!this.isValid(this.state.type))
+   if(!this.isValid(this.state.inputType))
   {
     errorlist.push("please enter valid placetype.");
   }
@@ -398,6 +401,11 @@ getClassName()
   render() {
     var that = this;
     debugger;
+    var defaultPlaceType ="standalone";
+    if(this.state.inputType!= undefined && this.state.inputType!="")
+    {
+defaultPlaceType = this.state.inputType;
+    }
     var img = this.props.products.image;
     if(this.props.products!= undefined)
 {
@@ -426,12 +434,12 @@ this.state.longitude = this.props.products.loc.coordinates[1];
              <form validationState={this.getValidationState}>
 <Row>
 <label>Search</label>
- <SelectField value={this.state.searchtype} data-ctrlid='searchtype' onChange={this.handleSearchSelect.bind(this)}>
-          <MenuItem value="Place" data-ctrlid='searchtype' primaryText="Place" />
-          <MenuItem value="Hotel" data-ctrlid='searchtype' primaryText="Hotel" />
-          <MenuItem value="Event" data-ctrlid='searchtype' primaryText="Event" />
-        </SelectField>
-<TypeAhead ref="searched_id"/>
+       <select value={this.state.searchtype} data-ctrlid='searchtype' defaultValue={defaultPlaceType} onChange={this.handleSearchSelect} required>
+    <option value="Place" data-ctrlid='searchtype'>Place</option>
+       <option value="Hotel" data-ctrlid='searchtype'>Hotel</option>
+          <option value="Event" data-ctrlid='searchtype'>Event</option>
+  </select>
+<TypeAhead ref="searched_id" searchTable="Place"/>
         <RaisedButton label="Find" onClick={this.searchByID} primary={true}/>
 </Row>
   <Row>
@@ -542,13 +550,13 @@ this.state.longitude = this.props.products.loc.coordinates[1];
       floatingLabelFixed={true}
        multiLine={true}
       rows={3}
-     data-ctrlid='howtogo' onChange={this.onChange.bind(this)} value={this.state.howtogo} />
+     data-ctrlid='howtoreach' onChange={this.onChange.bind(this)} value={this.state.howtoreach} />
 
- <SelectField value={this.state.type} data-ctrlid='type' onChange={this.handleSelect.bind(this)}>
-          <MenuItem value="standalone" data-ctrlid='type' primaryText="Place" />
-          <MenuItem value="hotel" data-ctrlid='type' primaryText="Hotel" />
-          <MenuItem value="event" data-ctrlid='type' primaryText="Event" />
-        </SelectField>
+        <select value={this.state.type} data-ctrlid='inputType' defaultValue={defaultPlaceType} onChange={this.handleSelect.bind(this)} required>
+    <option value="standalone" data-ctrlid='inputType'>Place</option>
+       <option value="hotel" data-ctrlid='inputType'>Hotel</option>
+          <option value="event" data-ctrlid='inputType'>Event</option>
+  </select>
 
 <TextField
       hintText="Uploader name"

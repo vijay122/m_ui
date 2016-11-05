@@ -46,7 +46,10 @@ export default class PackageBuilder extends Component {
     this.onChange = this.onChange.bind(this);
       this.addProduct = this.addProduct.bind(this);
       this.addAdditionalInfo = this.addAdditionalInfo.bind(this);
-
+     this.searchByID = this.searchByID.bind(this);
+           this.handleSearchSelect = this.handleSearchSelect.bind(this);
+              this.handleClassificationSelect = this.handleClassificationSelect.bind(this);
+           
       var emptyInfo={};
       emptyInfo.key="";
       emptyInfo.value="";
@@ -93,6 +96,24 @@ displayoffer: (!!this.props.complete) || false
     // Make the request
     req.send();
   });
+}
+
+searchByID()
+{
+  var id="";
+      if(this!= undefined && this.refs!= undefined && this.refs.searched_id!= undefined &&
+this.refs.searched_id.state!= undefined &&
+     this.refs.searched_id.state.searchText != undefined && this.refs.searched_id.state.searchText.valueKey!= undefined)
+    {
+      id = this.refs.searched_id.state.searchText.valueKey;
+    }
+
+  var searchcriteria ={};
+  searchcriteria.searchby="_id";
+    searchcriteria.findtable=this.state.searchtype;
+  searchcriteria.searchvalue=id;
+  this.props.search("search",searchcriteria);
+
 }
 
 
@@ -216,6 +237,17 @@ payload
 handleUpload()
 {
 
+}
+handleSearchSelect = (event) =>
+{
+  var st = event.target.value;
+  this.state.searchtype = st;
+}
+
+handleClassificationSelect =(event)=>
+{
+   var st = event.target.value;
+  this.state.classification = st;
 }
 isValid(input)
 {
@@ -351,6 +383,7 @@ this._create();
   }
 
   render() {
+      var defaultPlaceType ="Package";
     const styles = require('./PackageBuilder.scss');
      const {finished, stepIndex} = this.state;
     const contentStyle = {margin: '0 16px'};
@@ -372,6 +405,15 @@ this._create();
   })
 }
   </Row>
+  <Row>
+<label>Search</label>
+       <select value={this.state.searchtype} data-ctrlid='searchtype' defaultValue={defaultPlaceType} onChange={this.handleSearchSelect} required>
+    <option value="None" data-ctrlid='searchtype'>None</option>
+          <option value="Package" data-ctrlid='searchtype'>Package</option>
+  </select>
+<TypeAhead ref="searched_id" searchTable="Package"/>
+        <RaisedButton label="Find" onClick={this.searchByID} primary={true}/>
+</Row>
    <Stepper activeStep={stepIndex}>
           <Step>
             <StepLabel>Enter Package name & details</StepLabel>
@@ -394,6 +436,12 @@ this._create();
       floatingLabelFixed={true}
       data-ctrlid='name' onChange={this.onChange.bind(this)} value={this.state.name}/>
 
+      <TextField
+      hintText="Enter the duration of the package"
+      floatingLabelText="Enter the package duration"
+      floatingLabelFixed={true}
+      data-ctrlid='duration' onChange={this.onChange.bind(this)} value={this.state.duration}/>
+
 <TextField
       hintText="Suitable title for the place"
       floatingLabelText="Suggest a package title"
@@ -414,10 +462,15 @@ this._create();
       data-ctrlid='longitude' onChange={this.onChange.bind(this)} value={this.state.longitude}/>
 
  <TextField
-      hintText="Nearest city to the place"
-      floatingLabelText="Get me the city name"
+      hintText="Nearest city/town to the place"
+      floatingLabelText="Get me the city/town name"
       floatingLabelFixed={true}
       data-ctrlid='city' onChange={this.onChange.bind(this)} value={this.state.city}/>
+<TextField
+      hintText="district of the place"
+      floatingLabelText="Get me the district name"
+      floatingLabelFixed={true}
+      data-ctrlid='district' onChange={this.onChange.bind(this)} value={this.state.district}/>
 
 <TextField
       hintText="Nearest city to the state"
@@ -477,6 +530,11 @@ this._create();
       style={styles.checkbox}
       ref="complete"
        onChange={this.handleChange} />
+       <label>Package Type</label>
+              <select value={this.state.searchtype} data-ctrlid='classification' defaultValue={""} onChange={this.handleClassificationSelect} required>
+    <option value="none" data-ctrlid='classification'>None</option>
+          <option value="grouppackage" data-ctrlid='classification'>GroupPackage</option>
+  </select>
 
         <FileUploader ref='scrollimage' />
    <RaisedButton label="Submit" onClick={this.submitform} primary={true}/>
@@ -486,7 +544,7 @@ this._create();
 
 (
     <div>
-    <TypeAhead  ref="newproduct" floatinglabel="Place to add with package"/>
+    <TypeAhead  ref="newproduct" searchTable="Place" floatinglabel="Place to add with package"/>
              <Row className="show-grid">
       </Row>
        <RaisedButton label="Add Product" onClick={this.addProduct} primary={true}/>

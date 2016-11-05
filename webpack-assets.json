@@ -1,6 +1,6 @@
 {
   "javascript": {
-    "main": "http://localhost:7001/dist/main-7125b742b3f516652570.js"
+    "main": "http://localhost:7001/dist/main-6fb6f0a596c0bdb3857b.js"
   },
   "styles": {},
   "assets": {
@@ -45,6 +45,9 @@
       "buttonCol": "buttonCol___2Bobx",
       "saving": "saving___1S4NA",
       "_style": ".widgets___3Vbnr .refreshBtn___2YfHs {\n  margin-left: 20px;\n}\n\n.widgets___3Vbnr .idCol___3gXnt {\n  width: 5%;\n}\n\n.widgets___3Vbnr .colorCol___26SGu {\n  width: 20%;\n}\n\n.widgets___3Vbnr .sprocketsCol___WvE6B {\n  width: 20%;\n  text-align: right;\n}\n\n.widgets___3Vbnr .sprocketsCol___WvE6B input {\n  text-align: right;\n}\n\n.widgets___3Vbnr .ownerCol___1UhxO {\n  width: 30%;\n}\n\n.widgets___3Vbnr .buttonCol___2Bobx {\n  width: 25%;\n}\n\n.widgets___3Vbnr .buttonCol___2Bobx .btn {\n  margin: 0 5px;\n}\n\n.widgets___3Vbnr tr.saving___1S4NA {\n  opacity: 0.8;\n}\n\n.widgets___3Vbnr tr.saving___1S4NA .btn[disabled] {\n  opacity: 1;\n}\n"
+    },
+    "./src/components/SquareCard/SquareCard.scss": {
+      "_style": "span {\n  capitalize: capitalize;\n}\n"
     },
     "./src/components/SearchBar/SearchBar.scss": {
       "searchPanel": "searchPanel___1vJsU",

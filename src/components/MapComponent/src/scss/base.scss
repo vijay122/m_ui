@@ -1,0 +1,206 @@
+@import "reset";
+@import "icons";
+@import "variables";
+@import "header";
+@import "route-info";
+
+body {
+  background-color: #ECF0F1;
+  font: 1em "Open Sans", Sans-Serif;
+  color: #333333;
+}
+
+.app {
+
+}
+
+.app-name {
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #999999;
+}
+
+.author {
+  margin: $pad 0;
+  font-size: .8rem;
+  color: #aaaaaa;
+  text-align: center;
+
+  a {
+    &:link, &:hover, &:visited, &:active {
+      color: #aaaaaa;
+    }
+  }
+}
+
+.editable-text {
+
+  .text-input input {
+    width: 100%;
+    border: none;
+    font: 1rem "Open Sans", Sans-Serif;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .text-label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: margin-left .2s ease-in-out;
+
+    &:hover {
+      margin-left: 2 * $pad;
+    }
+  }
+
+}
+
+.routes .tabs {
+  margin-bottom: 20px;
+
+  li {
+    display: inline-block;
+    margin-right: $pad;
+  }
+}
+
+.route {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.route .route-name {
+  margin-bottom: $pad;
+}
+
+$textColor: #333333;
+
+ul.way-points {
+  margin: 2 * $pad;
+  position: relative;
+
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid #19B5FE;
+    &:link, &:hover, &:visited, &:active {
+      color: $textColor;
+    }
+  }
+
+  &.empty a {
+    margin-left: 15px;
+  }
+
+  li {
+    margin-bottom: 2 * $pad;
+    position: relative;
+    z-index: 10;
+
+    .way-point-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #19B5FE;
+      z-index: 10;
+    }
+
+    &:first-child .way-point-icon {
+      color: #2ECC71;
+    }
+
+    &:last-child .way-point-icon {
+      color: #CF000F;
+    }
+
+    &.add-place {
+      background-color: #ffffff;
+      margin-top: 4 * $pad;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8px;
+    height: 100%;
+    width: 1px;
+    border-left: 1px dashed #ddd;
+    z-index: 5;
+  }
+
+  &.empty:before {
+    content: none;
+  }
+
+  &.max-way-points {
+    .add-place,
+    .insert-way-point {
+      display: none;
+    }
+  }
+}
+
+.way-point-info {
+  margin-top: 2 * $pad;
+  margin-left: 4 * $pad;
+  font-size: .8rem;
+  color: #999999;
+
+  .distance {
+    margin-right: 2 * $pad;
+  }
+}
+
+.way-point {
+  position: relative;
+  padding-left: 30px;
+  background-color: #ffffff;
+
+  .way-point-name {
+    padding-right: 50px;
+    text-overflow: ellipsis;
+  }
+
+  .cta {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+
+    a {
+      text-align: center;
+      border-bottom: none;
+      margin-left: 2 * $pad;
+      display: inline-block;
+    }
+  }
+}
+
+.map {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .map {
+    position: absolute;
+    display: block;
+    width: 100vh;
+    height: 100vh;
+    left: 400px;
+    top: 0px;
+  }
+
+  header {
+    max-width: $widgetWidth;
+  }
+
+  .route {
+    width: $widgetWidth;
+  }
+}
