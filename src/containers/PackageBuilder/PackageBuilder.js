@@ -139,7 +139,7 @@ this.refs.newproduct.state!= undefined &&
     debugger;
      this.state.assets.display =this.refs['scrollimage'].state.images[0];
      var payload = this.state;
-       fetch(process.env.Svc+'/Save', {
+       fetch(config.svc++'/Save', {
   method: 'post',
   headers: {
     'Accept': 'application/json',
@@ -207,7 +207,7 @@ payload
     {
   var image = this.refs["file"].files[i];
     {
-      this.ajax(process.env.Svc+'/api/photo',image).then(function(result)
+      this.ajax(config.svc+'/api/photo',image).then(function(result)
         {
           console.log(result);
        var  responseObj = JSON.parse(result);
