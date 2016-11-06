@@ -41,7 +41,7 @@ export  class Login extends Component {
   }
 /*
   handleSubmit = (event) => {
-    debugger;
+    
      promise: ({store: {dispatch, getState}}) => {
     if (!isAuthLoaded(getState())) {
       return dispatch(loginUser());

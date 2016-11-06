@@ -214,7 +214,7 @@ export class HomeSlider extends Component {
 
   }
   render() {
-    debugger;
+    
       var that = this;
       var image ="";
  

@@ -97,13 +97,7 @@ const style = {
     />
 </Col>
 <Col md={2}>
-<TextField
-      hintText="City Name"
-      floatingLabelText="enter the city name for service"
-      floatingLabelFixed={true}
-      data-ctrlid="searchText" 
-      onChange={that.onChange.bind(that)} 
-      value={that.state.searchText} onChange={that.onChange.bind(that)} value={that.state.searchText}/>
+     <TypeAhead ref="searched_id" searchTable="Package"/>
 </Col>
 <Col md={2}>
 {this.state.key=="hotels" && this.state.tempprod.map(function(x)

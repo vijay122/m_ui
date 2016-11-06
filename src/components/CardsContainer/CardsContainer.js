@@ -64,7 +64,7 @@ var x = {};
 
     {canrender && canrender.length>0 && canrender.map(function(v)
       {
-        debugger;
+        
 return(
      <Slider {...settings}>
      {that && that.props && that.props.packagelist && that.props.packagelist.map(function(x)

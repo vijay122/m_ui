@@ -30,7 +30,7 @@ viewDetails(data,fn,st)
 
   render()
   {
-    debugger;
+    
         const styles = require('./SquareCard.scss');
     var ty= this;
     var image ='';

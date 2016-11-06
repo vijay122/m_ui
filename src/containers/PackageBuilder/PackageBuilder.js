@@ -139,7 +139,7 @@ this.refs.searched_id.state!= undefined &&
 
 addProduct(product)
   {
-    debugger;
+    
     var prod ={};
     if(this!= undefined && this.refs!= undefined && this.refs.newproduct!= undefined &&
 this.refs.newproduct.state!= undefined &&
@@ -156,7 +156,7 @@ this.refs.newproduct.state!= undefined &&
    _create() {
     try
     {
-    debugger;
+    
     if(this.state.assets==undefined)
     {
       this.state.assets={};

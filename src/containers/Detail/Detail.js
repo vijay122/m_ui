@@ -88,7 +88,7 @@ viewmore(data,fn)
 }
 previousNearby()
 {
-  debugger;
+  
   this.state.endIndex=this.state.startIndex;
    this.state.startIndex=this.state.startIndex -4;
 
@@ -105,7 +105,7 @@ previousNearby()
 }
 nextNearby()
 {
-  debugger;
+  
   this.state.startIndex=this.state.endIndex;
    this.state.endIndex=this.state.endIndex +4;
 
@@ -315,6 +315,7 @@ componentWillReceiveProps(newprops)
 }
 }
   render() {
+    debugger;
     var current = this.props.data;
     var distance =(this.state!=null && this.state.distance!= undefined) ?this.state.distance +" kms":"";
 return(
@@ -412,7 +413,7 @@ componentWillReceiveProps(newprops)
   render() {
     var product=this.state.product;
      var ty = this;
-     var prodimage = product.image!= undefined ? product.image[0]: product.scrollimage;
+     var prodimage = product.image!= undefined ? product.image[0]: product.assets.display;
      var imagesrc = this.resizeImage(prodimage,100,100)
 return(
 <div className="recommendedTile">
