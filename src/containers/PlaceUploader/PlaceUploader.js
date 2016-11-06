@@ -337,7 +337,7 @@ else
   {
     errorlist.push("please enter valid landmark.");
   }
-   if(!this.isValid(this.state.inputType))
+   if(!this.isValid(this.state.type))
   {
     errorlist.push("please enter valid placetype.");
   }
@@ -401,9 +401,9 @@ getClassName()
   render() {
     var that = this;
     var defaultPlaceType ="standalone";
-    if(this.state.inputType!= undefined && this.state.inputType!="")
+    if(this.state.type!= undefined && this.state.type!="")
     {
-defaultPlaceType = this.state.inputType;
+defaultPlaceType = this.state.type;
     }
     var img = this.props.products.image;
     if(this.props.products!= undefined)
@@ -551,10 +551,10 @@ this.state.longitude = this.props.products.loc.coordinates[1];
       rows={3}
      data-ctrlid='howtoreach' onChange={this.onChange.bind(this)} value={this.state.howtoreach} />
 
-        <select value={this.state.type} data-ctrlid='inputType' defaultValue={defaultPlaceType} onChange={this.handleSelect.bind(this)} required>
-    <option value="standalone" data-ctrlid='inputType'>Place</option>
-       <option value="hotel" data-ctrlid='inputType'>Hotel</option>
-          <option value="event" data-ctrlid='inputType'>Event</option>
+        <select value={this.state.type} data-ctrlid='type' defaultValue={defaultPlaceType} onChange={this.handleSelect.bind(this)} required>
+    <option value="standalone" data-ctrlid='type'>Place</option>
+       <option value="hotel" data-ctrlid='type'>Hotel</option>
+          <option value="event" data-ctrlid='type'>Event</option>
   </select>
 
 <TextField
