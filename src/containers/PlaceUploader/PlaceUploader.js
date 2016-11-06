@@ -264,8 +264,8 @@ this.refs.searched_id.state!= undefined &&
 }
 handleSelect = (event, index, value) =>
 {
-  this.setState({type:value})
-  this.state.type = value;
+  this.setState({type:event.currentTarget.value})
+  this.state.type = event.currentTarget.value;
 }
 handleSearchSelect = (event) =>
 {
