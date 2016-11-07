@@ -253,7 +253,7 @@ this.refs.searched_id.state!= undefined &&
   }
   onChange(e)
   {
-      e.preventDefault();
+     // e.preventDefault();
       var statename = e.target.attributes["data-ctrlid"].value;
       var newvalue = e.currentTarget.value;
       this.setState({statename : newvalue});
@@ -400,6 +400,7 @@ getClassName()
 
   render() {
     var that = this;
+    var stat = this.state.status;
     var defaultPlaceType ="standalone";
     if(this.state.type!= undefined && this.state.type!="")
     {
@@ -407,11 +408,12 @@ defaultPlaceType = this.state.type;
     }
     var img = this.props.products.image;
     if(this.props.products!= undefined)
-{
+  {
   this.state = this.props.products;  
   if(this.props.products.loc!= undefined)
   {
     this.state.image = img;
+    this.state.status = stat;
 this.state.latitude = this.props.products.loc.coordinates[0];
 this.state.longitude = this.props.products.loc.coordinates[1];
 }

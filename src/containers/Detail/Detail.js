@@ -180,14 +180,13 @@ return (
           <Grid className={styles.noContainer}>
     <Row className="show-grid">
      <Col xs={12} md={2}>
-      <a onClick={this.previousNearby.bind(this,that,detail)}>NextFour</a>
+      <a onClick={this.previousNearby.bind(this,that,detail)}>Previous</a>
       {
 
         detail!= undefined && nearbyElements!= undefined && nearbyElements.map(function (nearbyloc){
             return <SidebarTiles data={nearbyloc} referenceproduct={detail} key={nearbyloc.id}></SidebarTiles>;
           })}
-          <a onClick={this.nextNearby.bind(this,that,detail)}>NextFour</a>
-        <a onClick={this.viewmore.bind(this,that,detail)}>View More</a>
+          <a onClick={this.nextNearby.bind(this,that,detail)}>Next</a>
       </Col>
       <Col xs={12} md={6}>
       <Row>
@@ -245,13 +244,13 @@ return (
     </Row>
     <Row>
       <Col xs={12} md={4}>
-    <h2> Hotels in {detail.name} </h2>
+    <h2> Hotels near {detail.name} </h2>
     </Col>
         <Col xs={12} md={4}>
-      <h2> Packages in {detail.name} </h2>
+      <h2> Packages near {detail.name} </h2>
       </Col>
           <Col xs={12} md={4}>
-      <h2> Events in {detail.name} </h2>
+      <h2> Events near {detail.name} </h2>
       </Col>
     </Row>
     <Row>
@@ -295,6 +294,16 @@ export class SidebarTiles extends Component {
 }
 componentDidMount()
 {
+   var input = this.props.data.loc.coordinates;
+  var refprod = this.props.referenceproduct;
+  var inMeters = geolib.getDistance(
+    {latitude: input[0], longitude: input[1]},
+    {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]},function()
+    {
+    }
+    );
+     var kms = inMeters/1000;
+  this.setState({distance:kms})
 }
 componentWillReceiveProps(newprops)
 {
@@ -315,7 +324,6 @@ componentWillReceiveProps(newprops)
 }
 }
   render() {
-    debugger;
     var current = this.props.data;
     var distance =(this.state!=null && this.state.distance!= undefined) ?this.state.distance +" kms":"";
 return(
@@ -343,6 +351,7 @@ return(
 
 export class DetailRecommendationList extends Component {
   render() {
+    debugger;
     var rows = [];
     var that = this;
     {
