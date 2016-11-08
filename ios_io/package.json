@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "15.3.2",
     "react-native": "0.35.0",
+    "react-redux": "^4.4.5",
     "redux-thunk": "^2.1.0"
   },
   "jest": {
@@ -19,6 +20,8 @@
     "babel-preset-react-native": "1.9.0",
     "jest": "16.0.2",
     "jest-react-native": "16.0.0",
-    "react-test-renderer": "15.3.2"
+    "react-native-scrollable-tab-view": "^0.6.0",
+    "react-test-renderer": "15.3.2",
+    "redux": "^3.6.0"
   }
 }

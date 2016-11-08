@@ -10,7 +10,7 @@ import {List, Map} from 'immutable';
 
 //import  'isomorphic-fetch';
  var config={};
- config.svc = 'http://107.180.102.80/8000';
+ config.svc = 'http://107.180.102.80:8000';
 const initialState = {
   count: 0
 };
@@ -150,7 +150,9 @@ map.useroffers=data.useroffers;
 export function search(searchcriteria) {
   var payload={};
   payload.sectionName=searchcriteria.sectionName;
-  payload.searchCategory = searchcriteria.searchby;
+  payload.findtable = searchcriteria.searchby;
+  payload.lat = '12.12';
+  payload.lon = '12.12';
   payload.criteria = searchcriteria.searchvalue;
     return dispatch =>{
     fetch(config.svc+'/getProducts', {

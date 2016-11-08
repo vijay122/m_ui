@@ -56,9 +56,12 @@ class SearchResults extends Component {
   var product = this.props.listings.filter(prop => prop._id=== listerURL)[0];
  
   this.props.navigator.push({
+     id: 'DetailedView',
+      name: 'Details',
+    passProps: {
+      product: product
+    },
     title: "Property",
-    component: DetailedView,
-    passProps: {product: product}
   });
 }
  

@@ -106,11 +106,20 @@ onSearchPressed() {
 onNavigate()
 {
   var results = this.props.searchResult.places;
-this.props.navigator.push({
+/*this.props.navigator.push({
   title: 'Results',
   component: SearchResults,
   passProps: {listings: results}
 });
+*/
+
+this.props.navigator.push({
+      id: 'SearchResults',
+      name: 'Results',
+    passProps: {
+      listings: results
+    }
+    });
 }
  onMessage()
   {
