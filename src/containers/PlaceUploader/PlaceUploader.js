@@ -413,10 +413,11 @@ defaultPlaceType = this.state.type;
   if(this.props.products.loc!= undefined)
   {
     this.state.image = img;
-    this.state.status = stat;
+
 this.state.latitude = this.props.products.loc.coordinates[0];
 this.state.longitude = this.props.products.loc.coordinates[1];
 }
+    this.state.status = stat;
 }
 
          if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user.phone_number)
