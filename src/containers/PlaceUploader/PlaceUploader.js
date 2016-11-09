@@ -391,11 +391,15 @@ getClassName()
 }
   submitform()
   {
-   if(this.validateForm())
+var r = confirm("Please verify all the details were provided correctly like images, names and geo coordinates. If everything is correct, click 'ok' to proceed to save, else click cancel to edit.");
+if (r == true) {
+ if(this.validateForm())
    {
     this._create();
    }
-
+} 
+else {
+}
   }
 
   render() {
