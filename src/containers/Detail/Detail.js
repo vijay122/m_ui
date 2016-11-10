@@ -351,12 +351,12 @@ return(
 
 export class DetailRecommendationList extends Component {
   render() {
-    debugger;
+    var tab = this.props.data;
     var rows = [];
     var that = this;
     {
      this.props && this.props.recommendedList && this.props.recommendedList.map(function (place){
-     rows.push( <DetailRecommendations recommended={place} referenceproduct={that.props.referenceproduct} dispatch={that.props.dispatch}/>);
+     rows.push( <DetailRecommendations recommended={place} category={tab} referenceproduct={that.props.referenceproduct} dispatch={that.props.dispatch}/>);
     })}
 return(
          <Row style={{padding:"4px"}}>   
@@ -381,7 +381,8 @@ export class DetailRecommendations extends Component {
   }
    handleClick(data,fn,st) {
    var placeid= data.props.recommended._id;
-   data.props.dispatch(push('/detail/id:'+placeid));
+   var category = data.props.category;
+   data.props.dispatch(push('/detail/id:'+placeid+"/category:"+category));
 }
 resizeImage(url, height, width)
 {

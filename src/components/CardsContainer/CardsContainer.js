@@ -3,6 +3,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import { push } from 'react-router-redux';
 
 var Slider = require('react-slick');
 
@@ -26,8 +27,9 @@ var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
 viewDetails(data,fn,st)
 {
   var that =this;
-  var placeid= data.props.data._id;
-   data.props.dispatch(push('/detail/id:'+placeid));
+  var placeid= data._id;
+  var category = fn.props.category;
+   fn.props.dispatch(push('/detail/id:'+placeid+"/category:"+category));
 }
 
 render()
@@ -44,7 +46,8 @@ render()
 var packagelist = this.props.packagelist;
 var x = {};
   var canrender = new Array();
- if( this.props.packagelist!= undefined && this.props.packagelist.length>0)
+  var size = packagelist!= undefined?packagelist.size:0;
+ if( size!= undefined && size>0)
  {
   canrender[0]=1;
  }
@@ -80,7 +83,7 @@ return(
         }
         return(
             <Col xs={6} md={3}>
- <div onClick={that.viewDetails.bind(this,that)}>
+ <div onClick={that.viewDetails.bind(this,x,that)}>
   <Card>
     <CardMedia
       overlay={<CardTitle title={x.name} subtitle={x.title} />}>

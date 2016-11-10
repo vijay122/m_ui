@@ -24,13 +24,13 @@ var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
 viewDetails(data,fn,st)
 {
   var placeid= data.props.data._id;
-   data.props.dispatch(push('/detail/id:'+placeid));
+   data.props.dispatch(push('/detail/id:'+placeid+"/category:products"));
 }
 
 
   render()
   {
-    
+    var category = this.props.category;
         const styles = require('./SquareCard.scss');
     var ty= this;
     var image ='';
@@ -47,7 +47,7 @@ viewDetails(data,fn,st)
     var product = this.props.data;
     return(
           <Col xs={6} md={3}>
-          <div onClick={this.viewDetails.bind(this,ty)}>
+          <div onClick={this.viewDetails.bind(this,ty,category)}>
   <Card>
     <CardMedia
       overlay={<CardTitle title={product.name} subtitle={product.title} />}

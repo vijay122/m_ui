@@ -57,7 +57,8 @@ export default (store) => {
 
   function loadDetails(nextState, replace) {
      var prodid=qs('id');
-     store.dispatch({type:'DETAIL', result:{id:prodid}});
+     var category=qs('category');
+     store.dispatch({type:'DETAIL', result:{id:prodid,category:category}});
     replace();
  // }
 }
@@ -96,7 +97,7 @@ function loadCategories(nextState, replace)
       <Route path="/widgets" component={Home}/>
       <Route path="/products" component={Products}/>
       <Route path="/upload" component={PlaceUploader}/>
-      <Route path="/detail/id:productid" component={Detail}  onEnter={loadDetails} />
+      <Route path="/detail/id:productid/category:category" component={Detail}  onEnter={loadDetails} />
        <Route path="/cart" component={Cart}/>
         <Route path="/packagebuilder" component={PackageBuilder}/>
          <Route path="/admin" component={Admin}/>

@@ -23,12 +23,17 @@ export default function reducer(state = initialState, action = {}) {
         loading: true
       };
        case 'DETAIL':
+       var category = "products";
+       if(action.result.category!= undefined)
+       {
+        category = action.result.category;
+       }
       return {
         ...state,
         loading: true,
         loaded: true,
         current: action.result.id,
-        detail:typeof state.products== (null|| "undefined")?initialState: state.products.get(action.result.id),
+        detail:typeof state[category]== (null|| "undefined")?initialState: state[category].get(action.result.id),
         error: null
       };
        case 'CATEGORIES':
@@ -193,7 +198,26 @@ export function loadAllData(sectionName) {
   .then(parseJSON)
   .then(function(data) {
 
-     dispatch({ type: 'SET_ALL_ENTRIES', result: data });
+    var pkgmap = Map(data.packages.reduce(function(previous, current) {
+    previous[ current._id ] = current;
+    return previous;
+}, {}));
+    var hotelmap = Map(data.hotels.reduce(function(previous, current) {
+    previous[ current._id ] = current;
+    return previous;
+}, {}));
+
+        var eventsmap = Map(data.events.reduce(function(previous, current) {
+    previous[ current._id ] = current;
+    return previous;
+}, {}));
+
+var map={};
+map.packages=pkgmap;
+map.hotels=hotelmap;
+map.events=eventsmap;
+map.useroffers=data.useroffers;
+     dispatch({ type: 'SET_ALL_ENTRIES', result: map });
   //  console.log('request succeeded with JSON response', list)
   }).catch(function(error) {
     console.log('request failed', error)

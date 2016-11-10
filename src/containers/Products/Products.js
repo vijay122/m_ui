@@ -119,7 +119,7 @@ var view = this.state!= null? this.state.view:"";
     <Row className="show-grid">
      {
     productlist && productlist.map(function (product){
-    return <SquareCard data={product} key={product.id}  dispatch={that.props.dispatch}/>;
+    return <SquareCard data={product} key={product.id}  dispatch={that.props.dispatch} category="places"/>;
     })}
     </Row>
     </div>
@@ -127,11 +127,11 @@ var view = this.state!= null? this.state.view:"";
     <hr />
     </Row>
    
-  <CardsContainer packagelist={packagelist}  type="Popular Packages" dispatch={that.props.dispatch} />
+  <CardsContainer packagelist={packagelist}  type="Popular Packages" dispatch={that.props.dispatch} category="packages"/>
   <br />
-   <CardsContainer packagelist={hotellist} type="Popular Hotels"  dispatch={that.props.dispatch}/>
+   <CardsContainer packagelist={hotellist} type="Popular Hotels"  dispatch={that.props.dispatch} category="hotels"/>
     <br />
-  <CardsContainer packagelist={eventlist}   type="Popular Events" dispatch={that.props.dispatch}/>
+  <CardsContainer packagelist={eventlist}   type="Popular Events" dispatch={that.props.dispatch} category="events"/>
   <br />
         </div>
     );
