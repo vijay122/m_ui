@@ -115,7 +115,7 @@ var totalproducts = this.props.productsCount;
     </div>
     <div>
     <Row>
-    <h3>We are growing faster with more than {totalproducts} places for our travelers to visit</h3>
+    <h3>We are growing faster with more than {totalproducts} places. Below are recently added.</h3>
     </Row>
     <Row className="show-grid">
      {
