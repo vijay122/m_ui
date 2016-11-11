@@ -83,6 +83,7 @@ var placeid= data.props.data._id;
     var that = this;
 //  const { productList } = this.props.products.products;
 var view = this.state!= null? this.state.view:"";
+var totalproducts = this.props.productsCount;
   var offer = this.props.products.offers;
  var productlist =this.props.products.products;
  var eventlist = this.props.products.events;
@@ -114,7 +115,7 @@ var view = this.state!= null? this.state.view:"";
     </div>
     <div>
     <Row>
-    <label>Component Name</label>
+    <h3>We are growing faster with more than {totalproducts} places for our travelers to visit</h3>
     </Row>
     <Row className="show-grid">
      {
@@ -147,7 +148,9 @@ var view = this.state!= null? this.state.view:"";
 
 function mapStateToProps(state) {
   console.log('state '+state);
-  return { products: state.products }
+  var productsCount = state.products!=undefined?state.products.productsCount:0;
+   var packagesCount = state.products!=undefined?state.products.packagesCount:0;
+  return { products: state.products , productsCount:productsCount , packagesCount:packagesCount}
 }
 
 function mapDispatchToProps(dispatch) {

@@ -62,11 +62,15 @@ export default function reducer(state = initialState, action = {}) {
       };
       case 'SET_ENTRIES':
       const item = action.result.places;
+      const packagesCount = action.result.packagesCount;
+      const productsCount = action.result.placesCount;
       return {
         ...state,
          loading: false,
         loaded: true,
         products: item,
+        productsCount:productsCount,
+        packagesCount:packagesCount,
           offers: action.result.offers,
           seo:action.result.seo
       }
@@ -117,13 +121,18 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 export function load() {
+    var payload={};
+  payload.sectionName="promotion";
     return dispatch =>{
     fetch(config.svc+'/test', {
-      method: 'get',
+      method: 'post',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-      }
+      },
+      body: JSON.stringify({
+        payload
+  })
     }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
@@ -139,7 +148,9 @@ var Placesmap = Map(data.places.reduce(function(previous, current) {
 }, {}));
 var map={};
 map.places=Placesmap;
+map.placesCount=data.placesCount;
 map.offers=data.packages;
+map.packagesCount=data.packagesCount;
 map.useroffers=data.useroffers;
      dispatch({ type: 'SET_ENTRIES', result: map });
     dispatch(loadAllData("home"));
