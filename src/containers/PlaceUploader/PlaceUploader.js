@@ -40,8 +40,8 @@ import { bindActionCreators } from 'redux';
 
 function mapStateToProps(state) {
   console.log('state '+state);
-  return { products: (state.products!= undefined && state.products.searchresults!= undefined )?
-   state.products.searchresults.places[0]:{}, auth: state.auth }
+  return { products: (state.products!= undefined && state.products.searchresults!= undefined  && state.products.searchresults.searchOn!=undefined)?
+   state.products.searchresults[state.products.searchresults.searchOn][0]:{}, auth: state.auth }
 }
 
 function mapDispatchToProps(dispatch) {

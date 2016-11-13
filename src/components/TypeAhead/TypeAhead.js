@@ -103,13 +103,14 @@ datalist.push(input);
 
   handleUpdateInput = (value) => {
 var self = this;
+  var searchby = this.props.searchby;
   var searchon =this.props.searchTable;
   var resultkey = this.props.resultKey;
   //  this.Typeahead(value,self);
   var datalist =[];
   var payload={};
   payload.searchon=searchon;
-  payload.searchby=this.props.searchby;
+  payload.searchby=searchby;
   payload.search= value;
     payload.resultKey= resultkey;
     if(value.length>=2)
@@ -131,7 +132,7 @@ var self = this;
 
   {
     var input = {};
-    input["text"] = data[i].city;
+    input["text"] = data[i][searchby];
         input["value"] =data[i];
          input["resultKey"] =data[i][resultkey];
         datalist.push(input);
