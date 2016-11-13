@@ -27,7 +27,6 @@ import { bindActionCreators } from 'redux';
 
 function mapStateToProps(state) {
   console.log('state '+state);
- 
   return { products: state.category.getCategoryResult, detail: state.detail }
 }
 function qs(key) {
@@ -48,9 +47,11 @@ function mapDispatchToProps(dispatch) {
 @asyncConnect([{
   deferred: true,
   promise: ({store: {dispatch, getState}}) => {
-      var searchtable = qs('categories');
-      var searchtype= qs('searchtype');
-   var searchvalue = qs('search')
+    var currentState = getState();
+    var searchState = currentState.category.categorysearch;
+      var searchtable = searchState.searchon;
+      var searchtype= searchState.searchby;
+   var searchvalue = searchState.search;
     return  dispatch (categoryActions.getProducts(searchtable,searchtype,searchvalue));
     //if (!isLoaded(getState())) {
     //  return dispatch(load());

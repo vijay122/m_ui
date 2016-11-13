@@ -8,10 +8,12 @@ import { TypeAhead } from '../../components';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
+
 import areIntlLocalesSupported from 'intl-locales-supported';
 
 import { push } from 'react-router-redux';
 
+var querystring = require('querystring'); 
 
 
 export default class SearchBar extends React.Component
@@ -24,11 +26,20 @@ export default class SearchBar extends React.Component
         this.onChange = this.onChange.bind(this);
         var that = this;
          this.state={
-          key:"hotels",
+          key:"Hotel",
           tempprod:["products"],
         };
          // key= 1;
   }
+  serialize = function(obj) {
+   var str = [];
+   for(var p in obj){
+       if (obj.hasOwnProperty(p)) {
+           str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+       }
+   }
+   return str.join("&");
+}
     onChange(e)
   {
       e.preventDefault();
@@ -43,15 +54,16 @@ export default class SearchBar extends React.Component
   viewDetails(data,fn,st)
 {
   var searchtable = this.state.key;
-var searchtype ='city';
+var searchtype =this.refs["searched_id"].props.resultKey;
   var searchvalue ="";
-   searchvalue = this.state.searchText;
+  // searchvalue = this.serialize(this.refs["searched_id"].state.searchText.resultKey);
+   let result = querystring.stringify(this.refs["searched_id"].state.searchText.resultKey);
 //  if(this.refs!= undefined && this.refs.newproduct!= undefined && this.refs.newproduct.state)
   {
   //    searchvalue = this.state.searchText;
     }
   //var placeid= data.props.data._id;
-   data.props.dispatch(push('/categories:'+searchtable+ '/searchtype:'+searchtype+'/search:'+searchvalue));
+   data.props.dispatch(push('/categories:'+searchtable+ '/searchtype:'+searchtype+'/search:'+result));
 }
 
 
@@ -75,11 +87,11 @@ const style = {
       <Row>
         <Col md={12}>
       <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
-        <Tab eventKey="hotels" title="Stay">
+        <Tab eventKey="Hotel" title="Stay">
         </Tab>
-        <Tab eventKey="packages" title="Tours">
+        <Tab eventKey="Package" title="Tours">
         </Tab>
-        <Tab eventKey="events" title="Events">
+        <Tab eventKey="Event" title="Events">
         </Tab>
       </Tabs>
       <Row>
@@ -97,10 +109,10 @@ const style = {
     />
 </Col>
 <Col md={2}>
-     <TypeAhead ref="searched_id" searchTable="Package"/>
+     <TypeAhead ref="searched_id" searchTable={this.state.key} resultKey="loc"/>
 </Col>
 <Col md={2}>
-{this.state.key=="hotels" && this.state.tempprod.map(function(x)
+{this.state.key=="Hotel" && this.state.tempprod.map(function(x)
 {
   return(
 <TextField
@@ -115,7 +127,7 @@ const style = {
 }
 </Col>
 <Col md={2}>
-{this.state.key=="hotels" && this.state.tempprod.map(function(x)
+{this.state.key=="Hotel" && this.state.tempprod.map(function(x)
 {
   return(
 <TextField

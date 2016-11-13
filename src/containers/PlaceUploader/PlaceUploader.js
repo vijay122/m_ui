@@ -197,16 +197,21 @@ this.setState(InitialState);
 searchByID()
 {
   var id="";
+  var searchon ="standalone";
+  if(this.state.searchtype!=undefined)
+  {
+    searchon = this.state.searchtype;
+  }
       if(this!= undefined && this.refs!= undefined && this.refs.searched_id!= undefined &&
 this.refs.searched_id.state!= undefined &&
-     this.refs.searched_id.state.searchText != undefined && this.refs.searched_id.state.searchText.valueKey!= undefined)
+     this.refs.searched_id.state.searchText != undefined && this.refs.searched_id.state.searchText.resultKey!= undefined)
     {
-      id = this.refs.searched_id.state.searchText.valueKey;
+      id = this.refs.searched_id.state.searchText.resultKey;
     }
 
   var searchcriteria ={};
   searchcriteria.searchby="_id";
-    searchcriteria.findtable=this.state.searchtype;
+    searchcriteria.findtable=searchon;
   searchcriteria.searchvalue=id;
   this.props.search("search",searchcriteria);
 
@@ -270,8 +275,8 @@ handleSelect = (event, index, value) =>
 handleSearchSelect = (event) =>
 {
   var st = event.target.value;
-  //this.setState({searchtype:st})
-  this.state.searchtype = st;
+  this.setState({searchtype:st})
+  //this.state.searchtype = st;
 }
 handleUpload()
 {
@@ -406,6 +411,11 @@ else {
     var that = this;
     var stat = this.state.status;
     var defaultPlaceType ="standalone";
+    var searchtype = this.state.searchtype;
+    if(searchtype==undefined)
+    {
+     this.state.searchtype="standalone";
+    }
     if(this.state.type!= undefined && this.state.type!="")
     {
 defaultPlaceType = this.state.type;
@@ -420,8 +430,10 @@ defaultPlaceType = this.state.type;
 
 this.state.latitude = this.props.products.loc.coordinates[0];
 this.state.longitude = this.props.products.loc.coordinates[1];
+
 }
     this.state.status = stat;
+    this.state.searchtype = searchtype;
 }
 
          if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user.phone_number)
@@ -440,12 +452,12 @@ this.state.longitude = this.props.products.loc.coordinates[1];
              <form validationState={this.getValidationState}>
 <Row>
 <label>Search</label>
-       <select value={this.state.searchtype} data-ctrlid='searchtype' defaultValue={defaultPlaceType} onChange={this.handleSearchSelect} required>
+       <select value={this.state.searchtype} data-ctrlid='searchtype' default={defaultPlaceType} onChange={this.handleSearchSelect} required>
     <option value="Place" data-ctrlid='searchtype'>Place</option>
        <option value="Hotel" data-ctrlid='searchtype'>Hotel</option>
           <option value="Event" data-ctrlid='searchtype'>Event</option>
   </select>
-<TypeAhead ref="searched_id" searchTable="Place"/>
+<TypeAhead ref="searched_id" searchTable={this.state.searchtype} resultKey="_id"/>
         <RaisedButton label="Find" onClick={this.searchByID} primary={true}/>
 </Row>
   <Row>

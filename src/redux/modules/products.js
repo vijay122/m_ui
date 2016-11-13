@@ -36,14 +36,6 @@ export default function reducer(state = initialState, action = {}) {
         detail:typeof state[category]== (null|| "undefined")?initialState: state[category].get(action.result.id),
         error: null
       };
-       case 'CATEGORIES':
-      return {
-        ...state,
-        loading: true,
-        loaded: true,
-        categorysearch: action.result,
-         error: null
-      };
     case LOAD_SUCCESS:
       return {
         ...state,

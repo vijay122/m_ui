@@ -63,7 +63,6 @@ var styles = ReactNative.StyleSheet.create({
 
 export default class ios_io  extends React.Component {
   render () {
-    debugger;
     return (
       <Provider store={ store }>
         <Root />

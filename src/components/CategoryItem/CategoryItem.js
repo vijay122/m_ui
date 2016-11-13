@@ -34,7 +34,7 @@ var that = this;
      <Row>
      <div>
      <Col md={3}>
-     <img src={this.resizeImage(product.scrollimage,250,250)}></img>
+     <img src={this.resizeImage(product.image[0],250,250)}></img>
      </Col>
       <Col md={7}>
       <Row>
@@ -49,7 +49,7 @@ var that = this;
       <Row>
       <Col md={4}>
       <div>SightSeeing:</div>
-      {product && product.products.map(function(x)
+      {product && product.products && product.products.map(function(x)
         {
           return(<VisitIcons menu={x} dispatch={that.props.dispatch}/>);
         })}

@@ -23,6 +23,8 @@ import {
   Admin,
   } from './containers';
 
+  var querystring = require('querystring'); 
+
 export default (store) => {
   const requireLogin = (nextState, replace, cb) => {
     function checkAuth() {
@@ -68,9 +70,11 @@ function loadCategories(nextState, replace)
    var category=qs('categories');
    var searchtype = qs('searchtype');
    var value = qs('search');
+   var parsedresult = querystring.parse(value);
    store.dispatch({type:'CATEGORIES', result:{
-    SEARCHBY:category,
-    VALUE:value
+    searchon:category,
+    searchby:searchtype,
+    search:parsedresult
    }});
 }
 

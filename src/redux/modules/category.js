@@ -23,6 +23,14 @@ export default function reducer(state = initialState, action = {}) {
         loading: true,
          current: action.result.id,
       };
+      case 'CATEGORIES':
+      return {
+        ...state,
+        loading: true,
+        loaded: true,
+        categorysearch: action.result,
+         error: null
+      };
     case 'FETCH_CATEGORY':
       return {
         ...state,
@@ -79,6 +87,15 @@ export default function reducer(state = initialState, action = {}) {
 export function getProducts(searchtable,searchby,searchvalue) {
   try
   {
+    var latitude = searchvalue.coordinates[0];
+    var longitude = searchvalue.coordinates[1];
+    var payload ={};
+    payload.sectionName = "search";
+    payload.lat=latitude;
+ payload.lon=longitude;
+ payload.findtable=searchtable;
+ payload.searchby=searchby;
+ payload.searchvalue=searchvalue;
      return dispatch =>{
     fetch(config.svc+'/getProducts', {
       method: 'post',
@@ -87,16 +104,17 @@ export function getProducts(searchtable,searchby,searchvalue) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
- latitude:'12.12',
- longitude:'12.14',
- table:searchtable,
- searchtype:searchby,
- searchvalue:searchvalue
+ payload
     })
     }).then(checkStatus) 
   .then(parseJSON)
   .then(function(data) {
-   var response = data[searchtable];
+    var searchindex="";
+    if(searchtable== "Hotel")
+    {
+      searchindex = "hotels"
+    }
+   var response = data[searchindex];
   var CategoryList = Map(response.reduce(function(previous, current) { 
     previous[ current._id ] = current;
     return previous;

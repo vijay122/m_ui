@@ -44,7 +44,6 @@ class SearchResults extends Component {
  
   constructor(props) {
     super(props);
-    debugger;
 
     var dataSource = new ListView.DataSource(
       {rowHasChanged: (r1, r2) => r1._id !== r2._id});

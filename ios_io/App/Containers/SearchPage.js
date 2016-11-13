@@ -84,7 +84,6 @@ _executeQuery(query) {
 }
  
 onSearchPressed() {
-  debugger;
   var search ={};
   search.sectionName="search";
   search.searchby ="Place";

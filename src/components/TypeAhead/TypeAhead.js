@@ -3,9 +3,9 @@ import AutoComplete from 'material-ui/AutoComplete';
 import config from '../../config';
 
  const dataSourceConfig = {
-  text: 'textKey',
-  value: 'valueKey',
-  product:'product'
+  text: 'text',
+  value: 'value',
+  resultkey:"resultkey"
 };
 
 export default class AutoCompleteExampleSimple extends React.Component {
@@ -47,7 +47,30 @@ this.handleSelect= this.handleSelect.bind(this);
     req.send();
   });
 }
-  Typeahead(a,passstate)
+
+  Typeahead(a,passstate) {
+    var payload={};
+  payload.searchon="Place";
+  payload.searchby="city";
+  payload.search= a;
+    return dispatch =>{
+    fetch(config.svc+'/autocomplete', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        payload
+  })
+    }).then(checkStatus)
+  .then(parseJSON)
+  .then(function(data) {
+ 
+ })
+}
+}
+  autocomplete(a,passstate)
 {
   
   var that = this;
@@ -81,16 +104,40 @@ datalist.push(input);
   handleUpdateInput = (value) => {
 var self = this;
   var searchon =this.props.searchTable;
-    //this.Typeahead(value,self);
+  var resultkey = this.props.resultKey;
+  //  this.Typeahead(value,self);
+  var datalist =[];
+  var payload={};
+  payload.searchon=searchon;
+  payload.searchby="city";
+  payload.search= value;
+    payload.resultKey= resultkey;
+    fetch(config.svc+'/complete', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        payload
+  })
+    }).then(checkStatus)
+  .then(parseJSON)
+  .then(function(data) {
+    for(var i=0;i<data.length; i++)
+
+  {
+    var input = {};
+    input["text"] = data[i].city;
+        input["value"] =data[i];
+         input["resultKey"] =data[i][resultkey];
+        datalist.push(input);
+      }
+       self.setState({dataSource:datalist});
+ })
     this.setState({ searchText: value }) 
 
-  var datalist =[];
-  var search = value;
-    const dataSource3 = [
-  {textKey: 'Some Text', valueKey: 'someFirstValue'},
-  {textKey: 'Some Text', valueKey: 'someSecondValue'},
-];
- self.setState({dataSource:dataSource3});
+ /*
   this.get(config.svc+'/autocomplete/'+searchon+'/'+search).then(function(response) {
   console.log("Success!", response);
   for(var i=0;i<response.length; i++)
@@ -113,6 +160,7 @@ datalist.push(input);
 }, function(error) {
   console.error("Failed!", error);
 });
+  */
 }
 
 
@@ -129,7 +177,6 @@ datalist.push(input);
    handleSelect (t) {
     this.setState( { searchText: t }) 
   }
-
   render() {
     var floatinglabel =this.props.floatinglabel != ""?this.props.floatinglabel :"Enter place name";
     return (
@@ -147,3 +194,18 @@ datalist.push(input);
     );
   }
 }
+
+  function parseJSON(response) {
+  return response.json()
+}
+
+function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response
+  } else {
+    var error = new Error(response.statusText)
+    error.response = response
+    throw error
+  }
+}
+
