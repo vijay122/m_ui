@@ -457,7 +457,7 @@ this.state.longitude = this.props.products.loc.coordinates[1];
        <option value="Hotel" data-ctrlid='searchtype'>Hotel</option>
           <option value="Event" data-ctrlid='searchtype'>Event</option>
   </select>
-<TypeAhead ref="searched_id" searchTable={this.state.searchtype} resultKey="_id"/>
+<TypeAhead ref="searched_id" searchTable={this.state.searchtype} searchby="name" resultKey="_id"/>
         <RaisedButton label="Find" onClick={this.searchByID} primary={true}/>
 </Row>
   <Row>

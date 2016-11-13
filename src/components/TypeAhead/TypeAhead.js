@@ -109,9 +109,12 @@ var self = this;
   var datalist =[];
   var payload={};
   payload.searchon=searchon;
-  payload.searchby="city";
+  payload.searchby=this.props.searchby;
   payload.search= value;
     payload.resultKey= resultkey;
+    if(value.length>=2)
+    {
+
     fetch(config.svc+'/complete', {
       method: 'post',
       headers: {
@@ -135,32 +138,8 @@ var self = this;
       }
        self.setState({dataSource:datalist});
  })
-    this.setState({ searchText: value }) 
-
- /*
-  this.get(config.svc+'/autocomplete/'+searchon+'/'+search).then(function(response) {
-  console.log("Success!", response);
-  for(var i=0;i<response.length; i++)
-
-  {
-    var product = {};
-    product.image=response[i].data[1][0];
-        product._id=response[i].data[0];
-         product.loc=response[i].data[2];
-    var input = {};
-    input["textKey"] = response[i].word;
-        input["valueKey"] =response[i].data[0];
-    input["product"] =product;
-   // input.valueKey = response[i].data[0];
-  //  input.product = response[i].data;
-datalist.push(input);
-//datalist.push(response[i].word);
-  }
-  self.setState({dataSource:datalist});
-}, function(error) {
-  console.error("Failed!", error);
-});
-  */
+   // this.setState({ searchText: value }) 
+}
 }
 
 

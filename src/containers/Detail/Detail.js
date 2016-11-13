@@ -184,7 +184,8 @@ return (
       {
 
         detail!= undefined && nearbyElements!= undefined && nearbyElements.map(function (nearbyloc){
-            return <SidebarTiles data={nearbyloc} referenceproduct={detail} key={nearbyloc.id}></SidebarTiles>;
+          if(detail._id!=nearbyloc._id) 
+            return <SidebarTiles data={nearbyloc} key={nearbyloc._id+"detail"} referenceproduct={detail} key={nearbyloc.id}></SidebarTiles>;
           })}
           <a onClick={this.nextNearby.bind(this,that,detail)}>Next</a>
       </Col>
@@ -356,7 +357,7 @@ export class DetailRecommendationList extends Component {
     var that = this;
     {
      this.props && this.props.recommendedList && this.props.recommendedList.map(function (place){
-     rows.push( <DetailRecommendations recommended={place} category={tab} referenceproduct={that.props.referenceproduct} dispatch={that.props.dispatch}/>);
+     rows.push( <DetailRecommendations recommended={place} key={place._id+"detail"} category={tab} referenceproduct={that.props.referenceproduct} dispatch={that.props.dispatch}/>);
     })}
 return(
          <Row style={{padding:"4px"}}>   

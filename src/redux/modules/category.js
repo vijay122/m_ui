@@ -114,6 +114,10 @@ export function getProducts(searchtable,searchby,searchvalue) {
     {
       searchindex = "hotels"
     }
+    if(searchtable== "Package")
+    {
+      searchindex = "packages"
+    }
    var response = data[searchindex];
   var CategoryList = Map(response.reduce(function(previous, current) { 
     previous[ current._id ] = current;

@@ -109,7 +109,7 @@ const style = {
     />
 </Col>
 <Col md={2}>
-     <TypeAhead ref="searched_id" searchTable={this.state.key} resultKey="loc"/>
+     <TypeAhead ref="searched_id" searchTable={this.state.key} searchby="city" resultKey="loc"/>
 </Col>
 <Col md={2}>
 {this.state.key=="Hotel" && this.state.tempprod.map(function(x)

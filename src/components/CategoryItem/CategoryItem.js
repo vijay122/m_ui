@@ -30,11 +30,12 @@ var that = this;
    	  const styles = require('./CategoryItem.scss');
          var state = this.state;
          var product = this.props.products;
+         var img = product.image!= undefined && product.image[0]?product.image[0]:product.assets.display;
     return (
      <Row>
      <div>
      <Col md={3}>
-     <img src={this.resizeImage(product.image[0],250,250)}></img>
+     <img src={this.resizeImage(img,250,250)}></img>
      </Col>
       <Col md={7}>
       <Row>
