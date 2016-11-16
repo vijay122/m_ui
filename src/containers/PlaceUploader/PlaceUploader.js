@@ -309,20 +309,20 @@ validateForm()
   if(!this.isValid(this.state.latitude))
   {
     var val = parseFloat(this.state.latitude);
-if (!isNaN(val) && val <= 90 && val >= -90)
-{
-
-}
+var reg = new RegExp("^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}");
+if( reg.exec(val) ) {
+ //do nothing
+} 
 else
     errorlist.push("please enter valid latitude.");
   }
   if(!this.isValid(this.state.longitude))
   {
     var val = parseFloat(this.state.longitude);
-    if (!isNaN(val) && val <= 90 && val >= -90)
-    {
-      
-    }
+    var reg = new RegExp("^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}");
+if( reg.exec(val) ) {
+ //do nothing
+} 
 else
     errorlist.push("please enter valid longitude.");
   }
@@ -330,7 +330,7 @@ else
   {
     errorlist.push("please enter valid city.");
   }
-    if(!this.isValid(this.state.pincode))
+    if(!this.isValid(this.state.pincode) && this.state.pincode.length==6)
   {
     errorlist.push("please enter valid pincode.");
   }
@@ -498,12 +498,14 @@ this.state.longitude = this.props.products.loc.coordinates[1];
       floatingLabelText="Geo coordinates latitude"
       floatingLabelFixed={true}
       errorText=""
+      type="Number"
      data-ctrlid='latitude' onChange={this.onChange.bind(this)} value={this.state.latitude}/>
 
  <TextField
       hintText="Get me the longitude"
       floatingLabelText="Geo coordinates longitude"
       floatingLabelFixed={true}
+            type="Number"
      data-ctrlid='longitude' onChange={this.onChange.bind(this)} value={this.state.longitude}/>
 
 <TextField
@@ -520,7 +522,9 @@ this.state.longitude = this.props.products.loc.coordinates[1];
       hintText="Pin code details"
       floatingLabelText="Pincode"
       floatingLabelFixed={true}
-       data-ctrlid='pincode' onChange={this.onChange.bind(this)} value={this.state.pincode}/>
+      maxLength="6"
+      type="number"
+       data-ctrlid='pincode'  onChange={this.onChange.bind(this)} value={this.state.pincode}/>
 <TextField
       hintText="Country that the place belongs to"
       floatingLabelText="Get me the country name"
