@@ -306,31 +306,41 @@ validateForm()
   {
     errorlist.push("please enter valid title.");
   }
-  if(!this.isValid(this.state.latitude))
-  {
-    var val = parseFloat(this.state.latitude);
-var reg = new RegExp("^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}");
-if( reg.exec(val) ) {
+  
+  //if(this.isValid(this.state.latitude))
+  //{
+  //  var val = parseFloat(this.state.latitude);
+//var reg = new RegExp("^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}");
+//if( reg.exec(val) ) {
  //do nothing
-} 
-else
-    errorlist.push("please enter valid latitude.");
-  }
-  if(!this.isValid(this.state.longitude))
-  {
-    var val = parseFloat(this.state.longitude);
-    var reg = new RegExp("^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}");
-if( reg.exec(val) ) {
+//} 
+//else
+//    errorlist.push("please enter valid latitude.");
+//  }
+//  else
+//  {
+//     errorlist.push("please enter valid latitude.");
+//  }
+//  if(this.isValid(this.state.longitude))
+//  {
+//    var val = parseFloat(this.state.longitude);
+//    var reg = new RegExp("^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}");
+//if( reg.exec(val) ) {
  //do nothing
-} 
-else
-    errorlist.push("please enter valid longitude.");
-  }
+//} 
+//else
+//    errorlist.push("please enter valid longitude.");
+//  }
+//  else
+//  {
+//       errorlist.push("please enter valid longitude.");
+//  }
    if(!this.isValid(this.state.city))
+  
   {
     errorlist.push("please enter valid city.");
   }
-    if(!this.isValid(this.state.pincode) && this.state.pincode.length==6)
+    if(!this.isValid(this.state.pincode) && !this.state.pincode.length== 6)
   {
     errorlist.push("please enter valid pincode.");
   }
@@ -353,6 +363,17 @@ else
    if(!this.isValid(this.state.country))
   {
     errorlist.push("please enter valid country.");
+  }
+  if(!this.isValid(this.state.image))
+  {
+     if((this.state.image==undefined || this.state.image.length==0)&& (this.refs['UploadImages']!= undefined && this.refs['UploadImages'].state!= undefined && this.refs['UploadImages'].state.images!= undefined && this.refs['UploadImages'].state.images.length!= 0))
+    {
+          this.state.image =this.refs['UploadImages'].state.images;
+    }
+    else
+    {
+          errorlist.push("please add a photo.");
+        }
   }
   if(errorlist.length<=0)
   {
