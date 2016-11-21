@@ -88,7 +88,14 @@ export function load() {
   };
   */
 }
-export function register(mobno,supervisorno,name) {
+export function register(user) {
+  var payload={};
+  payload.phone_number = user.username;
+  payload.supervisor_id = user.supervisor_id;
+  payload.name = user.name;
+  payload.company = user.companyname;
+    payload.role = user.role;
+        payload.status = user.status;
   console.log("config: "+config.svc);
     return dispatch =>{
     fetch(config.svc+'/register', {
@@ -98,9 +105,7 @@ export function register(mobno,supervisorno,name) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-    phone_number: mobno,
-    supervisor_id:supervisorno,
-    name:name
+    payload
   })
     }).then(checkStatus)
   .then(parseJSON)

@@ -235,8 +235,8 @@ img = scrolloffer.assets.display;
             <CarouselItem>
       <img src={that.resizeImage(img,450,900)}/>
       <div className="carousel-caption">
-        <h2>{scrolloffer.city}</h2>
-        <h3>{scrolloffer.title} {scrolloffer.type}</h3>
+        <h1>{scrolloffer.city}</h1>
+        <h2>{scrolloffer.title} {scrolloffer.type}</h2>
       </div>
     </CarouselItem>
     )

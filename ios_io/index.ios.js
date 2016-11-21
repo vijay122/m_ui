@@ -4,11 +4,16 @@
  * @flow
  */
 'use strict';
-var React = require('react');
+//var React = require('react');
 var ReactNative = require('react-native');
 import { Provider } from 'react-redux';
 //import Routes from './config/routes'
 import configureStore from './Redux/Store';
+
+import React, { Component } from 'react';
+//import { View } from 'react-native';
+
+import { Container, Navbar } from 'navbar-native';
 
 const store = configureStore();
 
@@ -18,9 +23,7 @@ import {
   View,
   Navigator
 } from 'react-native';
-import {
-  Component
-} from 'react';
+
 
 
 
@@ -65,7 +68,7 @@ export default class ios_io  extends React.Component {
   render () {
     return (
       <Provider store={ store }>
-        <Root />
+        <ReactNativeProject />
       </Provider>
     )
   }
@@ -115,6 +118,33 @@ class YoDawgApp extends Component {
     />
   );
 }
+}
+
+
+
+class ReactNativeProject extends Component {
+    render() {
+        return (
+            <Container>
+                <Navbar
+                    title={"Navbar Native"}
+                    left={{
+                        icon: "ios-arrow-back",
+                        label: "Back",
+                        onPress: () => {alert('Go back!')}
+                    }}
+                    right={[{
+                        icon: "ios-search",
+                        onPress: () => {alert('Search!')}
+                    },{
+                        icon: "ios-menu",
+                        onPress: () => {alert('Toggle menu!')}
+                    }]}
+                />
+                <Root />
+            </Container>
+        );
+    }
 }
 
 

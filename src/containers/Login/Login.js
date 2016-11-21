@@ -62,7 +62,9 @@ export  class Login extends Component {
    handleRegister = (event) => {
     event.preventDefault();
      if(this.state.username != "")
-    this.props.register(this.state.username,"");
+      var user = {};
+    user.username= this.state.username;
+    this.props.register(user);
   }
   onChange(e)
   {

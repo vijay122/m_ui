@@ -50,7 +50,7 @@ viewDetails(data,fn,st)
           <div onClick={this.viewDetails.bind(this,ty,category)}>
   <Card>
     <CardMedia
-      overlay={<CardTitle title={product.name} subtitle={product.title} />}
+      overlay={<CardTitle title={product.name} className={styles.tiles} subtitle={product.title} />}
     >
       <img src={image!= undefined && this.resizeImage(image,250,250)}></img>
     </CardMedia>

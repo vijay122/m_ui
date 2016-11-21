@@ -37,10 +37,11 @@ export  class Admin extends Component {
   }
    constructor(props) {
     super(props);
-     this.state = {value1: 1};
-     if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user.phone_number)
+    this.handleChange = this.handleChange.bind(this);
+     this.state = {value1: 1,role:"user",status:"active"};
+     if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user._id)
      {
-           this.state.supervisor_id = this.props.auth.user.phone_number;
+           this.state.supervisor_id = this.props.auth.user._id;
      }
   }
        handleSubmit = (event) => {
@@ -50,7 +51,11 @@ export  class Admin extends Component {
    handleRegister = (event) => {
     event.preventDefault();
      if(this.state.username != "")
-    this.props.register(this.state.username, this.state.supervisor_id, this.state.name);
+    this.props.register(this.state);
+  }
+  handleChange(e){
+    debugger;
+    this.setState({role:e.target.value});
   }
   onChange(e)
   {
@@ -61,7 +66,7 @@ export  class Admin extends Component {
     const {user, logout} = this.props;
     const styles = require('./Admin.scss');
       var  mappedusers = {};
-      if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user.phone_number)
+      if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user._id)
      {
            mappedusers = this.props.auth.user.mapped_users;
      }
@@ -103,6 +108,17 @@ export  class Admin extends Component {
       floatingLabelFixed={true}
       data-ctrlid='companyname' onChange={this.onChange.bind(this)} value={this.state.companyname}/>
 </Row>
+<Row>
+<br/>
+<label>Role:</label>
+<select value={this.state.role} onChange={this.handleChange}>
+  <option value="user">User</option>
+  <option value="dataoperator">Data Operator</option>
+    <option value="admin">Admin</option>
+  <option value="editor">Editor</option>
+</select>
+</Row>
+<br/>
 <Row>
   <RaisedButton label="Create User" primary={true} onClick={this.handleRegister} />
 </Row>

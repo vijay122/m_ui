@@ -153,6 +153,13 @@ componentDidMount()
 
   render() {
      var cartcount ;
+     var isAdmin=false;
+          var isEditAllowed = false;
+          if (this.props.user != undefined) {
+            isAdmin = this.props.user.role=="admin";
+     isEditAllowed = this.props.user.role=="dataoperator";
+          }  
+     var isAdminTabAllowed = isAdmin || isEditAllowed;
     if(this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items!= null)
   cartcount = this.props.appstate.cart.items.length;
     const {user} = this.props;
@@ -167,9 +174,9 @@ componentDidMount()
             userdataloaded[0]=true;
       }
 
-      else if(this.props.user.phone_number!= null)
+      else if(this.props.user._id!= null)
       {
-        logintext = this.props.user.phone_number;
+        logintext = this.props.user._id;
                 userdataloaded[0]=true;
       }
     }
@@ -250,7 +257,7 @@ componentDidMount()
      <li>
      <Link to={'/cart'} activeClassName="active">Cart</Link>
      </li>
-{userdataloaded!= undefined&& userdataloaded.length>0 && userdataloaded.map(function(x)
+{userdataloaded!= undefined&& userdataloaded.length>0 && isAdminTabAllowed && userdataloaded.map(function(x)
   {
       return(
             <li>
