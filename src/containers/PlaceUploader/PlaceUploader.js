@@ -459,7 +459,7 @@ this.state.longitude = this.props.products.loc.coordinates[1];
 
          if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user.phone_number)
      {
-               this.state.created_by = this.props.auth.user.phone_number
+               this.state.created_by = this.props.auth.user._id
      }
     this.onChange = this.onChange.bind(this);
     const styles = require('./PlaceUploader.scss');

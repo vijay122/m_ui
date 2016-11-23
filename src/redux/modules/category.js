@@ -114,6 +114,10 @@ export function getProducts(searchtable,searchby,searchvalue) {
     {
       searchindex = "hotels"
     }
+     if(searchtable== "Place")
+    {
+      searchindex = "places"
+    }
     if(searchtable== "Package")
     {
       searchindex = "packages"
