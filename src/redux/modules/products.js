@@ -28,12 +28,17 @@ export default function reducer(state = initialState, action = {}) {
        {
         category = action.result.category;
        }
+       var detailproduct = state[category].get(action.result.id);
+       if(detailproduct==(undefined|| null))
+       {
+
+       }
       return {
         ...state,
         loading: true,
         loaded: true,
         current: action.result.id,
-        detail:typeof state[category]== (null|| "undefined")?initialState: state[category].get(action.result.id),
+        detail:typeof state[category]== (null|| "undefined")?initialState: detailproduct,
         error: null
       };
     case LOAD_SUCCESS:
@@ -85,6 +90,21 @@ export default function reducer(state = initialState, action = {}) {
         packages:action.result.packages,
         events:action.result.events,
       }
+    }
+     case 'SET_REFRESHED_ENTRIES':
+         {
+      var newdata = action.result.searchOn;
+      if(newdata=="places")
+      {
+        newdata ="products";
+      }
+      var st = {
+          ...state,
+         loading: false,
+        loaded: true,
+      }
+      st[newdata] = action.result.map;
+      return st;
     }
        case 'ADD_TO_CART':
         console.log("added ADD");
@@ -182,6 +202,40 @@ export function search(sectionName,searchcriteria) {
   }
 }
 
+export function refreshSection(id,category){// {
+  var payload={};
+  payload.sectionName="refresh";//sectionName;
+   payload.findtable ="Place"; //searchcriteria.findtable;
+  payload.searchby ="_id";// searchcriteria.searchby;
+  payload.searchvalue =id;// searchcriteria.searchvalue;
+    return dispatch =>{
+    fetch(config.svc+'/getProducts', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+       body: JSON.stringify({
+        payload
+  })
+    }).then(checkStatus)
+  .then(parseJSON)
+  .then(function(data) {
+ var resultsMap = Map(data[data.searchOn].reduce(function(previous, current) {
+    previous[ current._id ] = current;
+    return previous;
+}, {}));
+ var res ={};
+ res.map = resultsMap;
+ res.searchOn = data.searchOn;
+
+     dispatch({ type: 'SET_REFRESHED_ENTRIES', result:res});
+  //  console.log('request succeeded with JSON response', list)
+  }).catch(function(error) {
+    console.log('request failed', error)
+  })
+  }
+}
 
 
 export function loadAllData(sectionName) {
@@ -233,6 +287,10 @@ export function load1() {
     types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
     promise: (client) => client.get('/test') // params not used, just shown as demonstration
   };
+}
+export function isProductExistInStore(globalState,prodid,category)
+{
+return globalState.products[category].get(prodid);
 }
 export function isLoaded(globalState) {
    if(globalState!= undefined && globalState.products!= undefined && globalState.products.loaded)

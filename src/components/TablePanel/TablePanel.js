@@ -79,7 +79,6 @@ export default class TableExampleComplex extends React.Component {
 
   render() {
     var tableData = this.props.data;
-    debugger;
     return (
       <div>
         <Table

@@ -1,7 +1,7 @@
 import React from 'react';
 import {IndexRoute, Route} from 'react-router';
 import { isLoaded as isAuthLoaded, load as loadAuth } from './redux/modules/auth';
-import { viewdetail as detail} from './redux/modules/products';
+import { viewdetail as detail, refreshSection as refresh} from './redux/modules/products';
 import {
     App,
     Categories,
@@ -60,10 +60,29 @@ export default (store) => {
   function loadDetails(nextState, replace) {
      var prodid=qs('id');
      var category=qs('category');
-     store.dispatch({type:'DETAIL', result:{id:prodid,category:category}});
+     var Appstate = store.getState();
+      var detailproduct = Appstate.products[category].get(prodid);
+       if(detailproduct==(undefined|| null))
+       {
+
+       }
+       store.dispatch({type:'SET_DETAIL', result:detailproduct});
+    // if(isProductExistInStore(prodid,Appstate,category))
+     {
+      //  showDetailsPage(prodid,category);
+     }
+   //  refresh(prodid,category);
+    // store.dispatch({type:'DETAIL', result:{id:prodid,category:category}});
     replace();
  // }
 }
+
+function showDetailsPage(id,category)
+{    
+  store.dispatch({type:'SET_DETAIL', result:detailproduct});
+}
+
+
 
 function loadCategories(nextState, replace)
 {

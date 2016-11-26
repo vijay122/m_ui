@@ -22,7 +22,7 @@ import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import Panel from 'react-bootstrap/lib/Panel';
-import {isLoaded, load as load, viewdetail} from '../../redux/modules/products';
+import {isLoaded, load as load, viewdetail, isProductExistInStore, refreshSection} from '../../redux/modules/products';
 import * as detailActions from '../../redux/modules/detail';
 import { asyncConnect } from 'redux-async-connect';
 import {connect} from 'react-redux';
@@ -39,12 +39,44 @@ var Slider = require('react-slick');
 
 //import distance from 'google-distance'
 
+  function qs(key) {
+    var vars = [], hash;
+     var hashes; // = window.location.href.slice(window.location.href.indexOf('/') + 1).split('/');
+    if( typeof window!= "undefined")
+    {
+      hashes = window.location.href.slice(window.location.href.indexOf('/') + 1).split('/');
+
+    }
+    else
+    {
+      hashes = 'id:57413ffe7a1d3a001111b3ec';
+    }
+
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split(':');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars[key];
+}
+
 function mapStateToProps(state) {
   console.log('state '+state);
   if(state.detail!= undefined && state.detail.nearby!= null)
   {
      state.products.detail.nearbylocation = state.products.detail.nearbylocation.concat(state.detail.nearby).unique();
    }
+    var id = qs('id');
+      var cat = qs('category');
+    if (!isProductExistInStore(state,id,cat)) {
+
+      this.store.dispatch(refreshSection(id,cat));
+    }
+    else
+    {
+      state.detail.detail = isProductExistInStore(state,id,cat);
+    }
   return { products: state.products, detail: state.detail }
 }
 
@@ -57,14 +89,16 @@ function mapDispatchToProps(dispatch) {
   promise: ({store: {dispatch, getState}}) => {
    // if (!isLoaded(getState())) {
    //   return dispatch(load());
+   //   return dispatch(load());
    // }
   }
 }])
+
 export class Detail extends Component {
    constructor(props) {
     super(props);
        this.state = {};
-       this.state.detail=props.products.detail;
+       this.state.detail=props.detail.detail;
        this.state.startIndex=0;
 this.state.endIndex=4;
   }
@@ -73,7 +107,7 @@ componentWillMount(){
 }
 
 componentDidMount(){
-this.props.getProducts(this.props.products.detail);
+this.props.getProducts(this.props.detail.detail);
 }
 componentWillReceiveProps(newprops)
 {
@@ -143,11 +177,11 @@ resizeImage(url, height, width)
     };
     var that = this.props;
     var detail ={};
-    if(this.props.products.detail!= undefined )//&& this.state.dependencies== undefined)
+    if(this.props.detail.detail!= undefined )//&& this.state.dependencies== undefined)
     {
-      detail = this.props.products.detail;
+      detail = this.props.detail.detail;
     }
-   if( this.props.products.detail!= undefined && this.props.products.detail.count==0 && this.state.dependencies!= undefined && this.state.dependencies.place!= undefined)
+   if( this.props.detail.detail!= undefined && this.props.detail.detail.count==0 && this.state.dependencies!= undefined && this.state.dependencies.place!= undefined)
 {
   detail = this.state.dependencies.place;
 }
@@ -182,10 +216,9 @@ return (
      <Col xs={12} md={2}>
       <a onClick={this.previousNearby.bind(this,that,detail)}>Previous</a>
       {
-
         detail!= undefined && nearbyElements!= undefined && nearbyElements.map(function (nearbyloc){
           if(detail._id!=nearbyloc._id) 
-            return <SidebarTiles data={nearbyloc} key={nearbyloc._id+"detail"} referenceproduct={detail} key={nearbyloc.id}></SidebarTiles>;
+            return <SidebarTiles data={nearbyloc} key={nearbyloc._id+"detail"} referenceproduct={detail} key={nearbyloc.id} dispatch={that.dispatch}></SidebarTiles>;
           })}
           <a onClick={this.nextNearby.bind(this,that,detail)}>Next</a>
       </Col>
@@ -297,34 +330,46 @@ componentDidMount()
 {
    var input = this.props.data.loc.coordinates;
   var refprod = this.props.referenceproduct;
-  var inMeters = geolib.getDistance(
+  var inMeters ="";
+  if(refprod!= undefined && refprod.loc!= undefined && refprod.loc.coordinates[1])
+  {
+     inMeters = geolib.getDistance(
     {latitude: input[0], longitude: input[1]},
     {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]},function()
     {
     }
     );
+  }
+  
      var kms = inMeters/1000;
   this.setState({distance:kms})
 }
 componentWillReceiveProps(newprops)
 {
-
-
   if(newprops!= undefined &&  newprops.data!= undefined &&  newprops.data.loc!= undefined && newprops.data.loc.coordinates!= undefined)
   {
       var input = newprops.data.loc.coordinates;
   var refprod = newprops.referenceproduct;
-  var inMeters = geolib.getDistance(
+  var inMeters ="";
+  if(refprod!= undefined && refprod.loc != undefined && refprod.loc.coordinates[1] != undefined)
+  {
+    inMeters = geolib.getDistance(
     {latitude: input[0], longitude: input[1]},
     {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]},function()
-    {
-    }
+    {}
 );
+  }
   var kms = inMeters/1000;
   this.setState({distance:kms})
 }
 }
+handleClick(data,fn,st) {
+   var placeid= data.props.data._id; 
+   var category = "products";
+   data.props.dispatch(push('/detail/id:'+placeid+"/category:"+category));
+}
   render() {
+    var ty = this;
     var current = this.props.data;
     var distance =(this.state!=null && this.state.distance!= undefined) ?this.state.distance +" kms":"";
 return(
@@ -336,7 +381,7 @@ return(
       <Col xs={12} md={7} width={150} height={150}>
           
       <div>
-      <Image src={this.resizeImage(current.image[0],100,100)} alt="150x100">
+      <Image src={this.resizeImage(current.image[0],100,100)} alt="150x100" onClick={this.handleClick.bind(this,ty)}>
       </Image>
       </div>
 </Col>

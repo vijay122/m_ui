@@ -54,7 +54,6 @@ export  class Admin extends Component {
     this.props.register(this.state);
   }
   handleChange(e){
-    debugger;
     this.setState({role:e.target.value});
   }
   onChange(e)

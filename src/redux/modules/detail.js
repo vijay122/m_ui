@@ -23,6 +23,11 @@ export default function reducer(state = initialState, action = {}) {
         loading: true,
          current: action.result.id,
       };
+      case 'SET_DETAIL':
+      return{
+        ...state,
+        detail: action.result,
+      };
     case 'LOAD_DEPENDANT':
       return {
         ...state,
@@ -77,6 +82,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         nearby:action.result
       }
+
 
         // here is my problem
    // return setEntries(...state,action.result);
