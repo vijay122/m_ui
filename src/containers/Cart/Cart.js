@@ -26,6 +26,8 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as productActions from '../../redux/modules/products';
 
+import * as checkoutActions from '../../redux/modules/checkout';
+
 import IconButton from 'material-ui/IconButton';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import DeleteIcon from 'react-material-icons/icons/action/delete';
@@ -73,6 +75,10 @@ const events = [
 }])
 
 export class Cart extends Component {
+     constructor(props) {
+    super(props);
+    this.checkout = this.checkout.bind(this);
+  }
   addToCart(data,fn,st) {
 
      data.dispatch({type:'ADD_TO_CART', result:{prd:fn}});
@@ -88,6 +94,12 @@ removeCart(data,fn,st)
   //dispatch(push('/detail/:'+placeid));
  //  data.props.dispatch(push('/detail/:'+placeid));
   //    this.props.dispatch({ type: 'LOAD',result:data});
+}
+checkout()
+{
+  var cart =this.props.cartcontext;
+  debugger;
+  this.props.dispatch(checkoutActions.submitOrder(cart));
 }
 printit()
 {
@@ -143,6 +155,9 @@ clicking()
   <Col md={4}>
   <OrderSummary />
   </Col>
+  </Row>
+  <Row>
+    <RaisedButton label="checkout cart" primary={true} onClick={this.checkout}/>
   </Row>
   <Row>
   <Maps markers={cartItems}/>

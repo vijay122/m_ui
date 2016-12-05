@@ -12,6 +12,7 @@ import counter from './counter';
 import {reducer as form} from 'redux-form';
 import info from './info';
 import widgets from './widgets';
+import checkout from './checkout';
 
 export default combineReducers({
   routing: routerReducer ,
@@ -28,5 +29,6 @@ export default combineReducers({
     counter3: counter
   }),
   info,
-  widgets
+ // widgets,
+checkout
 });
