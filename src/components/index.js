@@ -25,6 +25,7 @@ export Booking from './Booking/Booking';
 export GeoCoder from './GeoCoder/GeoCoder';
 export WeatherCard from './WeatherCard/WeatherCard';
 export Maps from './Maps/Maps';
+export TravelMap from './TravelMap/TravelMap';
 export GoogleMaps from './GoogleMaps/GoogleMaps';
 export CardsContainer from './CardsContainer/CardsContainer';
 export Calendar from './Calendar/Calendar';

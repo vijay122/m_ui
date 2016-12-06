@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton, OrderSummary,Calendar , Maps} from '../../components';
+import { CounterButton, GithubButton, OrderSummary,Calendar , TravelMap} from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Button from 'react-bootstrap/lib/Button';
@@ -160,7 +160,7 @@ clicking()
     <RaisedButton label="checkout cart" primary={true} onClick={this.checkout}/>
   </Row>
   <Row>
-  <Maps markers={cartItems}/>
+  <TravelMap markers={cartItems}/>
   </Row>
   <Row>
 <EventCalendar 

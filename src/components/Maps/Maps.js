@@ -59,14 +59,11 @@ export default class Maps extends React.Component {
 import React from 'react';
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 
-const coords = {
-  lat: 51.5258541,
-  lng: -0.08040660000006028
-};
-
 export default class Maps extends React.Component {
    constructor(props) {
+    debugger;
     super(props);
+    
   }
   onMapCreated(map) {
     map.setOptions({
@@ -88,8 +85,13 @@ export default class Maps extends React.Component {
 
   render()
   {
+    debugger;
     var that = this;
     var markers = this.props.markers;
+   var  coords = {
+  lat: this.props.markers[0].loc.coordinates[0],
+  lng: this.props.markers[0].loc.coordinates[1]
+};
     return (
       <Gmaps
         width={'800px'}
@@ -102,11 +104,11 @@ export default class Maps extends React.Component {
         onMapCreated={this.onMapCreated}>
         {markers!= undefined && markers.length>0 && markers.map(function(point)
           {
-                    <Marker
+                 return(<Marker
           lat={point.loc.coordinates[0]}
           lng={point.loc.coordinates[1]}
           draggable={true}
-          onDragEnd={that.onDragEnd} />
+          onDragEnd={that.onDragEnd} />)
           }
           )
         }
@@ -125,49 +127,3 @@ export default class Maps extends React.Component {
   }
 
 }
-
-/*
-
-import { withGoogleMap } from "react-google-maps";
-
-// Wrap all `react-google-maps` components with `withGoogleMap` HOC
-// and name it GettingStartedGoogleMap
-const GettingStartedGoogleMap = withGoogleMap(props => (
-  <GoogleMap
-    ref={props.onMapLoad}
-    defaultZoom={3}
-    defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
-    onClick={props.onMapClick}
-  >
-    {props.markers.map((marker, index) => (
-      <Marker
-        {...marker}
-        onRightClick={() => props.onMarkerRightClick(index)}
-      />
-    ))}
-  </GoogleMap>
-));
-
-export default class Maps extends React.Component {
-   constructor(props) {
-    super(props);
-  }
-
-// Then, render it:
-  render()
-  {
- return <GettingStartedGoogleMap
-    containerElement={
-      <div style={{ height: `100%` }} />
-    }
-    mapElement={
-      <div style={{ height: `100%` }} />
-    }
-    onMapLoad={_.noop}
-    onMapClick={_.noop}
-    markers={markers}
-    onMarkerRightClick={_.noop}
-  />
-}
-}
- */
