@@ -289,13 +289,34 @@ export default class TravelMap extends Component {
 constructor(props)
 {
         super(props);
-        debugger;
         var doc = document.getElementById('destinations-count');
     google.maps.event.addDomListener(document, 'DOMContentLoaded', this.initializeMap);
 var self = this;
     setTimeout(function(x){
 self.initializeMap();
     },1000);
+}
+
+plotMarkers(markers)
+{
+    for(var i=0;i<markers.length;i++)
+    {
+        if(markers[i].loc!= undefined)
+        {
+             var myLatLng = {lat: markers[i].loc.coordinates[0], lng: markers[i].loc.coordinates[1]};
+             var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+              markers.push(marker);
+                      nodes.push(myLatLng);
+                      }
+      }
+      
+        // Store node's lat and lng
+
+
 }
 
 // Initialize google maps
@@ -311,6 +332,8 @@ self.initializeMap();
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), opts);
 var self = this;
+
+    this.plotMarkers(self.props.markers);
     // Create map click event
     google.maps.event.addListener(map, 'click', function(event) {
         // Add destination (max 9)
@@ -321,7 +344,7 @@ var self = this;
 
         // If there are directions being shown, clear them
         self.clearDirections();
-        
+        debugger;
         // Add a node to map
       var  marker = new google.maps.Marker({position: event.latLng, map: map});
         markers.push(marker);
