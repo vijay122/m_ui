@@ -86,7 +86,7 @@ var ga = {
         this.mutate = function() {
             var fittestIndex = this.getFittestIndex();
 
-            for (index in this.individuals) {
+            for (var index =0; index<this.individuals.length; index ++) {
                 // Don't mutate if this is the elite individual and elitism is enabled 
                 if (ga.elitism != true || index != fittestIndex) {
                     this.individuals[index].mutate();
@@ -102,7 +102,7 @@ var ga = {
             // Find fittest individual
             var fittestIndex = this.getFittestIndex();
 
-            for (index in this.individuals) {
+            for (var index =0; index< this.individuals.length; index ++) {
                 // Add unchanged into next generation if this is the elite individual and elitism is enabled
                 if (ga.elitism == true && index == fittestIndex) {
                     // Replicate individual
@@ -196,7 +196,7 @@ var ga = {
             this.fitness = null;
             
             // Loop over chromosome making random changes
-            for (index in this.chromosome) {
+            for (var index = 0 ; index< this.chromosome.length; index ++) {
                 if (ga.mutationRate > Math.random()) {
                     var randomIndex = Math.floor(Math.random() * this.chromosomeLength);
                     var tempNode = this.chromosome[randomIndex];
@@ -210,7 +210,19 @@ var ga = {
         this.getDistance = function() {
             var totalDistance = 0;
 
-            for (index in this.chromosome) {
+                for (var i=0; i<this.chromosome.length; i++)
+                {
+                var startNode = this.chromosome[i];
+                var endNode = this.chromosome[0];
+                if ((i+ 1) < this.chromosome.length) {
+                    endNode = this.chromosome[i + 1];
+                }
+
+                totalDistance += durations[startNode][endNode];
+                }
+/*
+            for (var index in this.chromosome) {
+                if(typeof this.chromosome[index] != "function")
                 var startNode = this.chromosome[index];
                 var endNode = this.chromosome[0];
                 if ((parseInt(index) + 1) < this.chromosome.length) {
@@ -219,6 +231,8 @@ var ga = {
 
                 totalDistance += durations[startNode][endNode];
             }
+
+            */
             
             totalDistance += durations[startNode][endNode];
             
@@ -256,11 +270,11 @@ var ga = {
             }
 
             // Add any remaining genetic information from individual's mate
-            for (parentIndex in individual.chromosome) {
+            for (var parentIndex =0; parentIndex< individual.chromosome.length; parentIndex++) {
                 var node = individual.chromosome[parentIndex];
 
                 var nodeFound = false;
-                for (offspringIndex in offspringChromosome) {
+                for (var offspringIndex =0;offspringIndex< offspringChromosome.length; offspringIndex++) {
                     if (offspringChromosome[offspringIndex] == node) {
                         nodeFound = true;
                         break;
@@ -344,7 +358,6 @@ var self = this;
 
         // If there are directions being shown, clear them
         self.clearDirections();
-        debugger;
         // Add a node to map
       var  marker = new google.maps.Marker({position: event.latLng, map: map});
         markers.push(marker);
@@ -396,15 +409,18 @@ getMyLocation(myLocationDiv, map)
     }, function(distanceData) {
         // Create duration data array
         var nodeDistanceData;
-        for (var originNodeIndex in distanceData.rows) {
+        for (var originNodeIndex =0 ;originNodeIndex< distanceData.rows.length; originNodeIndex ++) {
             nodeDistanceData = distanceData.rows[originNodeIndex].elements;
             durations[originNodeIndex] = [];
-            for (var destinationNodeIndex in nodeDistanceData) {
+            for (var destinationNodeIndex =0;destinationNodeIndex< nodeDistanceData.length; destinationNodeIndex ++) {
+                if(typeof nodeDistanceData[destinationNodeIndex] == "object")
+                {
                 if (durations[originNodeIndex][destinationNodeIndex] = nodeDistanceData[destinationNodeIndex].duration == undefined) {
                     alert('Error: couldn\'t get a trip duration from API');
                     return;
                 }
                 durations[originNodeIndex][destinationNodeIndex] = nodeDistanceData[destinationNodeIndex].duration.value;
+            }
             }
         }
 
@@ -416,7 +432,7 @@ getMyLocation(myLocationDiv, map)
 
 // Removes markers and temporary paths
  clearMapMarkers() {
-    for (index in markers) {
+    for (var index =0; index<markers.length; index ++) {
         markers[index].setMap(null);
     }
 
@@ -491,9 +507,15 @@ componentDidMount()
                 // Get route coordinates
                 var route = update.population.getFittest().chromosome;
                 var routeCoordinates = [];
+                for(var i=0; i<route.length;i++)
+                {
+                     routeCoordinates[i] = nodes[route[i]];
+                }
+                /*
                 for (index in route) {
                     routeCoordinates[index] = nodes[route[index]];
                 }
+                */
                 routeCoordinates[route.length] = nodes[route[0]];
 
                 // Display temp. route
@@ -536,7 +558,7 @@ componentDidMount()
                     if (status == google.maps.DirectionsStatus.OK) {
                         directionsDisplay.setDirections(response);
                     }
-                    clearMapMarkers();
+                    self.clearMapMarkers();
                 });
             });
         });
