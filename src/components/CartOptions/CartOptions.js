@@ -26,7 +26,7 @@ export default class CartOptions extends React.Component
     this.onChange = this.onChange.bind(this);
     var that = this;
     this.state={
-      key:"Hotel",
+      eventKey:"table",
       tempprod:["products"],
     };
   }
@@ -83,7 +83,7 @@ export default class CartOptions extends React.Component
               </Tab>
               <Tab eventKey="map" title="Maps & Routes">
               </Tab>
-              <Tab eventKey="Event" title="Calender Itenary">
+              <Tab eventKey="calender" title="Calender Itenary">
               </Tab>
             </Tabs>
             <Row>

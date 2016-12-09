@@ -52,7 +52,6 @@ export default class CartGrid extends Component {
   checkout()
   {
     var cart =this.props.cartcontext;
-    debugger;
     this.props.dispatch(checkoutActions.submitOrder(cart));
   }
   printit()
@@ -69,7 +68,6 @@ export default class CartGrid extends Component {
     var title ="Shopping Cart";
     const cartItems= this.props.items;
     const styles = require('./CartGrid.scss');
-    debugger;
     return (
       <div className={styles.home}>
         <Helmet title="Home"/>
@@ -79,7 +77,7 @@ export default class CartGrid extends Component {
                 <TableHeader>
                   <TableRow>
                     <TableHeaderColumn>Item#</TableHeaderColumn>
-                    <TableHeaderColumn>Product Name</TableHeaderColumn>
+                    <TableHeaderColumn>Name</TableHeaderColumn>
                     <TableHeaderColumn>Price</TableHeaderColumn>
                     <TableHeaderColumn>Quantity</TableHeaderColumn>
                     <TableHeaderColumn>Total</TableHeaderColumn>
@@ -88,7 +86,10 @@ export default class CartGrid extends Component {
                 <TableBody>
                   {cartItems && cartItems.map(function (place)
                   {
+                    if(place._id!= undefined)
+                  {
                     return <CartProduct place={place} removeItem={self.removeCart}/>
+                  }
                   })
                   }
                 </TableBody>
@@ -100,11 +101,14 @@ export default class CartGrid extends Component {
 }
 export class CartProduct extends Component {
   render() {
+        const styles = require('./CartGrid.scss');
+    var image  = this.props.place.image[0];
     return(
       <TableRow>
         <TableRowColumn>
           <DeleteIcon/>
         </TableRowColumn>
+          <TableRowColumn> <img className={styles.thumbnail} src={image} /></TableRowColumn>
         <TableRowColumn>{this.props.place.name}</TableRowColumn>
         <TableRowColumn>{this.props.place.city}</TableRowColumn>
         <TableRowColumn>{this.props.place._id}</TableRowColumn>

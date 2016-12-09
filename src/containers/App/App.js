@@ -152,14 +152,14 @@ componentDidMount()
   };
 
   render() {
-     var cartcount ;
+     var cartcount =0;
      var isAdmin=false;
           var isEditAllowed = false;
           if (this.props.user != undefined) {
             isAdmin = this.props.user.role=="admin";
      isEditAllowed = this.props.user.role=="dataoperator";
           }
-     var isAdminTabAllowed = isAdmin || isEditAllowed;
+     var isAdminTabAllowed = isAdmin || isEditAllowed; 
     if(this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items!= null)
   cartcount = this.props.appstate.cart.items.length;
     const {user} = this.props;
@@ -255,7 +255,8 @@ componentDidMount()
     </li>
     <li> <Link to={'/products/'} activeClassName="active">Bookings</Link></li>
      <li>
-     <Link to={'/cart'} activeClassName="active">Cart</Link>
+
+     <Link to={'/cart'} activeClassName="active">Cart<span className="new badge ltBadge">{cartcount}</span></Link>
      </li>
 {userdataloaded!= undefined&& userdataloaded.length>0 && isAdminTabAllowed && userdataloaded.map(function(x)
   {

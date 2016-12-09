@@ -88,7 +88,6 @@ removeCart(data,fn,st)
 checkout()
 {
   var cart =this.props.cartcontext;
-  debugger;
   this.props.dispatch(checkoutActions.submitOrder(cart));
 }
 printit()
@@ -109,7 +108,6 @@ clicking()
     var title ="Shopping Cart";
     const cartItems= this.props.cartcontext.items;
     const styles = require('./Detail.scss');
-    debugger;
     // require the logo image both from client and server
     return (
       <div className={styles.home}>

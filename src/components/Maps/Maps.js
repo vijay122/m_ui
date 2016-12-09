@@ -61,7 +61,6 @@ import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 
 export default class Maps extends React.Component {
    constructor(props) {
-    debugger;
     super(props);
     
   }
@@ -85,7 +84,6 @@ export default class Maps extends React.Component {
 
   render()
   {
-    debugger;
     var that = this;
     var markers = this.props.markers;
    var  coords = {

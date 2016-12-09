@@ -100,6 +100,22 @@ We are committed to establishing lasting relationships with our customers by exc
     </Row>
     
       </div>
+      <Row>
+      <Col>
+      Contact : 8473282821
+      Email : livelytrips@gmail.com
+      </Col>
+      </Row>
+      <Row>
+      <Col>
+      Terms of use
+      </Col>
+      </Row>
+      <Row>
+      <Col>
+      Sitemap
+      </Col>
+      </Row>
       <div className={styles.copyright}>
       <Row>
     <Col xs={12} md={6}>
