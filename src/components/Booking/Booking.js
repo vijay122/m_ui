@@ -68,7 +68,12 @@ if (areIntlLocalesSupported(['fr'])) {
         </SelectField>
 </Row>
 <Row>
-  <RaisedButton label="Continue Planning" primary={true} onClick={this.addToCart.bind(this,that,detail)}/>
+<label>If you like to add it to your visit list.</label>
+  <RaisedButton label="I want to visit" primary={true} onClick={this.addToCart.bind(this,that,detail)}/>
+</Row>
+<Row>
+<label>If you like to see packages that includes this place.</label>
+  <RaisedButton label="View packages" primary={true} onClick={this.addToCart.bind(this,that,detail)}/>
 </Row>
 </Col>
 </Row>

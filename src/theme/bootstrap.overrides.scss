@@ -3,6 +3,11 @@
  *
  */
 
+ a
+ {
+ text-transform : uppercase !important;
+ }
+
 .navbar-default .navbar-brand
 {
     color:white !important;
@@ -158,6 +163,7 @@ margin:0px !important;
 
   .minnav > ul > li > div ul > li {
     display: block;
+    border-top: 1px solid #F4F4F4;
   }
 
     .minnav > ul > li > div ul > li > a {
