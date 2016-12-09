@@ -335,8 +335,8 @@ plotMarkers(markers)
 
 // Initialize google maps
  initializeMap() {
-    var lat =this.props.markers[0].loc.coordinates[0];
-    var lon = this.props.markers[0].loc.coordinates[1];
+    var lat =this.props.items[0].loc.coordinates[0];
+    var lon = this.props.items[0].loc.coordinates[1];
     // Map options
     var opts = {
         center: new google.maps.LatLng(lat, lon),
@@ -347,7 +347,7 @@ plotMarkers(markers)
     map = new google.maps.Map(document.getElementById('map-canvas'), opts);
 var self = this;
 
-    this.plotMarkers(self.props.markers);
+    this.plotMarkers(self.props.items);
     // Create map click event
     google.maps.event.addListener(map, 'click', function(event) {
         // Add destination (max 9)

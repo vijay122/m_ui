@@ -154,11 +154,6 @@ nextNearby()
  // data.viewMore(fn,"places");
 // data.dispatch({ type: 'VIEW_MORE', result: fn });
 }
-  addToCart(data,fn,st) {
-   // data.dispatch({"ADD_TO_CART",fn});
-      data.dispatch({ type: 'ADD_TO_CART', result: fn });
-    // data.AddToCart(fn);
-}
 resizeImage(url, height, width)
 {
   var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
@@ -210,7 +205,16 @@ const dummySentences = ['Lorem ipsum dolor sit amet, consectetuer adipiscing eli
 return (
       <div className={styles.home}>
         <Helmet title="Home"/>
-        <label>Places near to {detail!=undefined&& detail.name} </label>
+        <Row className="show-grid">
+     <Col xs={12} md={2} className={styles.nearbyTitleDiv}>
+        <label>Nearby Places </label>
+        </Col>
+         <Col xs={12} md={8} className={styles.titleDiv}>
+        <label >{detail!=undefined&& detail.name} </label>
+        </Col>
+         <Col xs={12} md={2}>
+        </Col>
+        </Row>
           <Grid className={styles.noContainer}>
     <Row className="show-grid">
      <Col xs={12} md={2}>

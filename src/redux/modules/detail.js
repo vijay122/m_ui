@@ -53,18 +53,6 @@ export default function reducer(state = initialState, action = {}) {
         loaded: true,
         getProductsResult: newItems,
       }
-       case 'ADD_TO_CART':
-        console.log("added ADD");
-        var cart = state.cart;
-       if( cart == undefined)
-       {
-        cart=[]; 
-       }
-       cart.push(action.result);
-     // if (state.cart.indexOf(action.result._id) !== -1) {
-      //}
-      return {...state, 
-        cart :cart }
           case 'VIEW_MORE':
         console.log("View More");
        return {

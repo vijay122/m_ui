@@ -64,24 +64,24 @@ margin:0px !important;
 .mininav
 {
   top:70px;
-   
+
 }
 
 
 .minnav {
 
 
-   
 
-  background-color: #e1e3e4;
-  border: 1px solid #dedede;
+
+  background-color: #E7F3F7;
+  border: 1px solid #E7F3F7;
   border-radius: 4px;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
  // color: #888;
   display: block;
   margin: 8px 22px 8px 22px;
   overflow: hidden;
-  width: 90%; 
+  width: 90%;
 }
 
 .minnav ul {
@@ -92,14 +92,14 @@ margin:0px !important;
   .minnav ul li {
     display: inline-block;
     list-style-type: none;
-    
+
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
     -o-transition: all 0.2s;
-    transition: all 0.2s; 
+    transition: all 0.2s;
   }
-  
+
     .minnav > ul > li > a {
       color: #333;
       display: block;
@@ -107,7 +107,7 @@ margin:0px !important;
       padding: 0 24px;
       text-decoration: none;
     }
-  
+
   .minnav > ul > li > a > .caret {
   border-top: 4px solid #aaa;
   border-right: 4px solid transparent;
@@ -117,15 +117,15 @@ margin:0px !important;
   height: 0;
   width: 0;
   vertical-align: middle;
-  
+
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
-    transition: color 0.1s linear; 
+    transition: color 0.1s linear;
 }
 
 .minnav > ul > li:hover {
-          background-color: rgb( 40, 44, 47 );
+          background-color: #457DBB;
         }
 
         .minnav > ul > li:hover > a {
@@ -137,7 +137,7 @@ margin:0px !important;
         }
 
         .minnav > ul > li > div {
-  background-color: rgb( 40, 44, 47 );
+  background-color: #E7F3F7;
   border-top: 0;
   border-radius: 0 0 4px 4px;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
@@ -148,7 +148,7 @@ margin:0px !important;
   width: 165px;
   visibility: hidden;
   z-index: 100;
-  
+
   -webkit-transiton: opacity 0.2s;
   -moz-transition: opacity 0.2s;
   -ms-transition: opacity 0.2s;
@@ -159,18 +159,20 @@ margin:0px !important;
   .minnav > ul > li > div ul > li {
     display: block;
   }
-  
+
     .minnav > ul > li > div ul > li > a {
-      color: #fff;
+      color: black;
       display: block;
       padding: 12px 24px;
       text-decoration: none;
     }
-  
+
   .minnav > ul > li > div ul > li:hover > a {
-    background-color: rgba( 255, 255, 255, 0.1);
+   // background-color: rgba( 255, 255, 255, 0.1);
+    background-color: #457DBB;
+    color:#fff;
   }
-    
+
     .minnav > ul > li:hover > div {
   display: block;
   opacity: 1;
@@ -237,7 +239,7 @@ html {
     white-space: nowrap;
     text-indent: -10000px;
     cursor: pointer;
-} 
+}
 
 .day .event-slot .event-title {
     position: absolute;
@@ -260,12 +262,12 @@ html {
     margin-right: $margin;
     border-top-right-radius: $borderRadius;
     border-bottom-right-radius: $borderRadius;
-}  
+}
 
 .day .date {
     padding: $padding;
     text-align: right;
-}   
+}
 
 
 .slick-next:before {

@@ -29,6 +29,8 @@ export TravelMap from './TravelMap/TravelMap';
 export GoogleMaps from './GoogleMaps/GoogleMaps';
 export CardsContainer from './CardsContainer/CardsContainer';
 export Calendar from './Calendar/Calendar';
+export CartGrid from './CartGrid/CartGrid';
+export CartOptions from './CartOptions/CartOptions';
 export FullWidthSlider from './FullWidthSlider/FullWidthSlider';
 export Badge from './Badge/Badge';
 export TablePanel from './TablePanel/TablePanel';

@@ -62,7 +62,7 @@ injectTapEventPlugin();
 
 const AppbarStyles = () => getMuiTheme({
   palette: {
-    primary1Color: '#5CB8DB',
+    primary1Color: '#457DBB',
      textColor: '#313131',
    // primary2Color:"#2173B3",
    // primary3Color:"#A9D2EB",
@@ -158,7 +158,7 @@ componentDidMount()
           if (this.props.user != undefined) {
             isAdmin = this.props.user.role=="admin";
      isEditAllowed = this.props.user.role=="dataoperator";
-          }  
+          }
      var isAdminTabAllowed = isAdmin || isEditAllowed;
     if(this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items!= null)
   cartcount = this.props.appstate.cart.items.length;

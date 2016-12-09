@@ -23,6 +23,7 @@ export default class Booking extends React.Component {
 }
  addToCart(data,fn,st) {
    // data.dispatch({"ADD_TO_CART",fn});
+   debugger;
       data.dispatch({ type: 'ADD_TO_CART', result: fn });
     // data.AddToCart(fn);
 }

@@ -106,7 +106,7 @@ export default function reducer(state = initialState, action = {}) {
       st[newdata] = action.result.map;
       return st;
     }
-       case 'ADD_TO_CART':
+     /*  case 'ADD_TO_CART':
         console.log("added ADD");
        if( state.cart == undefined)
        {
@@ -127,7 +127,7 @@ export default function reducer(state = initialState, action = {}) {
       }
         // here is my problem
    // return setEntries(...state,action.result);
-
+*/
     default:
       return state;
   }

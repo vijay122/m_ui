@@ -56,8 +56,8 @@ export default function reducer(state = initialState, action = {}) {
         loaded: true,
         getCategoryResult: newItems,
       }
+      /*
        case 'ADD_TO_CART':
-       ;
         console.log("added ADD");
         var cart = state.cart;
        if( cart == undefined)
@@ -75,6 +75,7 @@ export default function reducer(state = initialState, action = {}) {
        // ...state.cart.pop()
        // ...state.cart.filter(product._id => action.result.prd._id !=== product._id)
       }
+      */
         default:
       return state;
         // here is my problem
