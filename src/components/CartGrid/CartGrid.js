@@ -73,7 +73,7 @@ export default class CartGrid extends Component {
     return (
       <div className={styles.home}>
         <Helmet title="Home"/>
-        <div className="container">
+        <div className="">
           <label>htr</label>
               <Table>
                 <TableHeader>
