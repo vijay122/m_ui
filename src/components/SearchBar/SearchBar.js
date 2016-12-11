@@ -13,7 +13,7 @@ import areIntlLocalesSupported from 'intl-locales-supported';
 
 import { push } from 'react-router-redux';
 
-var querystring = require('querystring'); 
+var querystring = require('querystring');
 
 
 export default class SearchBar extends React.Component
@@ -111,7 +111,7 @@ const style = {
     />
 </Col>
 <Col md={2}>
-     <TypeAhead ref="searched_id" searchTable={this.state.key} searchby="state" resultKey="loc"/>
+     <TypeAhead ref="searched_id" searchTable={this.state.key} floatinglabel="Search City" searchby="state" resultKey="loc"/>
 </Col>
 <Col md={2}>
 {this.state.key=="Hotel" && this.state.tempprod.map(function(x)
@@ -121,9 +121,9 @@ const style = {
       hintText="Number of people"
       floatingLabelText="Number of Adults"
       floatingLabelFixed={true}
-      data-ctrlid="name" 
+      data-ctrlid="name"
             key={x}
-      onChange={that.onChange.bind(this)} 
+      onChange={that.onChange.bind(this)}
       value={that.state.name} data-ctrlid='adults' onChange={that.onChange.bind(that)} value={that.state.adults}/>
 )})
 }
@@ -138,7 +138,7 @@ const style = {
       floatingLabelFixed={true}
       data-ctrlid="name"
       key={x}
-      onChange={that.onChange.bind(that)} 
+      onChange={that.onChange.bind(that)}
       value={that.state.name} data-ctrlid='rooms' onChange={that.onChange.bind(that)} value={that.state.rooms} />
 )})
 }

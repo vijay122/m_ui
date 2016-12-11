@@ -66,13 +66,13 @@ this.handleSelect= this.handleSelect.bind(this);
     }).then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
- 
+
  })
 }
 }
   autocomplete(a,passstate)
 {
-  
+
   var that = this;
   var datalist =[];
   var search = a;
@@ -139,7 +139,7 @@ var self = this;
       }
        self.setState({dataSource:datalist});
  })
-   // this.setState({ searchText: value }) 
+   // this.setState({ searchText: value })
 }
 }
 
@@ -151,14 +151,15 @@ var self = this;
   {textKey: 'Some Text', valueKey: 'someSecondValue'},
       ],
     });
-   
+
   };
  */
    handleSelect (t) {
-    this.setState( { searchText: t }) 
+    this.setState( { searchText: t })
   }
   render() {
     var floatinglabel =this.props.floatinglabel != ""?this.props.floatinglabel :"Enter place name";
+    debugger;
     return (
       <div>
         <AutoComplete
