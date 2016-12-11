@@ -1,6 +1,5 @@
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-import CarouselItem from 'react-bootstrap/lib/CarouselItem';
 import Divider from 'material-ui/Divider';
 import { push } from 'react-router-redux';
 
@@ -24,7 +23,7 @@ export default class CategoryItem extends Component{
   var rest=  str.substr(0, index) + filter + str.substr(index);
   return rest;
 }
-   render() 
+   render()
    {
 var that = this;
    	  const styles = require('./CategoryItem.scss');

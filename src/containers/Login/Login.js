@@ -1,18 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import Helmet from 'react-helmet';
-import { isLoaded as isAuthLoaded, load as loadAuth, logout, loginUser } from '../../redux/modules/auth';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import DatePicker from 'material-ui/DatePicker';
-import SelectField from 'material-ui/SelectField';
-import areIntlLocalesSupported from 'intl-locales-supported';
-import MenuItem from 'material-ui/MenuItem';
-
-import { asyncConnect } from 'redux-async-connect';
 import { bindActionCreators } from 'redux';
 
 import * as loginActions from '../../redux/modules/auth';
@@ -41,7 +32,7 @@ export  class Login extends Component {
   }
 /*
   handleSubmit = (event) => {
-    
+
      promise: ({store: {dispatch, getState}}) => {
     if (!isAuthLoaded(getState())) {
       return dispatch(loginUser());

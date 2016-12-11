@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-
-import FlatButton from 'material-ui/FlatButton';
-
 import config from '../../config';
 
 export default class FileUploader extends Component{
@@ -55,11 +52,11 @@ export default class FileUploader extends Component{
 }
 
  uploadImage(file)
-  {  
+  {
           var that = this;
           var images=this.state.images;
 
-      
+
     for(var i=0; i<file.target.files.length; i++)
     {
   var image = file.target.files[i];
@@ -72,9 +69,9 @@ export default class FileUploader extends Component{
        var  responseObj = JSON.parse(result);
          images.push(responseObj.url);
          that.setState({images:images});
-        
+
       });
-     
+
     }
         }
       }
@@ -89,7 +86,7 @@ export default class FileUploader extends Component{
 }
 </div>
    <input type='file' refs='file' onChange={this.uploadImage} />
-     
+
      </div>
     );
   }

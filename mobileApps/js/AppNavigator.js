@@ -106,7 +106,6 @@ class AppNavigator extends Component {
   }
 
   _renderScene(props,data) { // eslint-disable-line class-methods-use-this
-    debugger;
     switch (props.scene.route.key) {
       case 'splashscreen':
         return <SplashPage />;

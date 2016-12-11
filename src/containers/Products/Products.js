@@ -1,36 +1,18 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { CounterButton, GithubButton, ProductGrid,ProductCard,SquareCard, SearchBar, CardsContainer } from '../../components';
-import config from '../../config';
+import {SquareCard, SearchBar, CardsContainer } from '../../components';
 import Helmet from 'react-helmet';
-import Button from 'react-bootstrap/lib/Button';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
-import Grid from 'react-bootstrap/lib/Grid';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-
 import CarouselItem from 'react-bootstrap/lib/CarouselItem';
 import Carousel from 'react-bootstrap/lib/Carousel';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import Nav from 'react-bootstrap/lib/Nav';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-
 import * as productActions from '../../redux/modules/products';
 import {connect} from 'react-redux';
-import {isLoaded, load as load, viewdetail,loadAllData} from '../../redux/modules/products';
 import {initializeWithKey} from 'redux-form';
 import { asyncConnect } from 'redux-async-connect';
 import { bindActionCreators } from 'redux';
 import { push } from 'react-router-redux';
 import { ReactRpg } from 'react-rpg';
-
-
-import {Tabs, Tab} from 'material-ui/Tabs';
 
 @asyncConnect([{
   deferred: true,
@@ -127,7 +109,7 @@ var totalproducts = this.props.productsCount;
     <Row>
     <hr />
     </Row>
-   
+
   <CardsContainer packagelist={packagelist}  type="Popular Packages" dispatch={that.props.dispatch} category="packages"/>
   <br />
    <CardsContainer packagelist={hotellist} type="Popular Hotels"  dispatch={that.props.dispatch} category="hotels"/>
@@ -217,10 +199,10 @@ export class HomeSlider extends Component {
 
   }
   render() {
-    
+
       var that = this;
       var image ="";
- 
+
     var list = this.props.data;
     return (
      <Carousel>

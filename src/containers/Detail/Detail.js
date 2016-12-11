@@ -1,41 +1,23 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { CounterButton, GithubButton, Booking, WeatherCard } from '../../components';
-import config from '../../config';
+import { Booking } from '../../components';
 import Helmet from 'react-helmet';
-import Button from 'react-bootstrap/lib/Button';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import Grid from 'react-bootstrap/lib/Grid';
 import Image from 'react-bootstrap/lib/Image';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import CarouselItem from 'react-bootstrap/lib/CarouselItem';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import Nav from 'react-bootstrap/lib/Nav';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import Panel from 'react-bootstrap/lib/Panel';
-import {isLoaded, load as load, viewdetail, isProductExistInStore, refreshSection} from '../../redux/modules/products';
+import {isLoaded, load as load, isProductExistInStore, refreshSection} from '../../redux/modules/products';
 import * as detailActions from '../../redux/modules/detail';
 import { asyncConnect } from 'redux-async-connect';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as productActions from '../../redux/modules/products';
 import { push } from 'react-router-redux';
-
 import geolib  from 'geolib';
 
-import RaisedButton from 'material-ui/RaisedButton';
-
 var Slider = require('react-slick');
-  
+
 
 //import distance from 'google-distance'
 
@@ -103,7 +85,7 @@ export class Detail extends Component {
 this.state.endIndex=4;
   }
 componentWillMount(){
- 
+
 }
 
 componentDidMount(){
@@ -122,7 +104,7 @@ viewmore(data,fn)
 }
 previousNearby()
 {
-  
+
   this.state.endIndex=this.state.startIndex;
    this.state.startIndex=this.state.startIndex -4;
 
@@ -139,7 +121,7 @@ previousNearby()
 }
 nextNearby()
 {
-  
+
   this.state.startIndex=this.state.endIndex;
    this.state.endIndex=this.state.endIndex +4;
 
@@ -221,7 +203,7 @@ return (
       <a onClick={this.previousNearby.bind(this,that,detail)}>Previous</a>
       {
         detail!= undefined && nearbyElements!= undefined && nearbyElements.map(function (nearbyloc){
-          if(detail._id!=nearbyloc._id) 
+          if(detail._id!=nearbyloc._id)
             return <SidebarTiles data={nearbyloc} key={nearbyloc._id+"detail"} referenceproduct={detail} key={nearbyloc.id} dispatch={that.dispatch}></SidebarTiles>;
           })}
           <a onClick={this.nextNearby.bind(this,that,detail)}>Next</a>
@@ -306,7 +288,7 @@ return (
         </div>
     );
     }
-    
+
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);
@@ -344,7 +326,7 @@ componentDidMount()
     }
     );
   }
-  
+
      var kms = inMeters/1000;
   this.setState({distance:kms})
 }
@@ -368,7 +350,7 @@ componentWillReceiveProps(newprops)
 }
 }
 handleClick(data,fn,st) {
-   var placeid= data.props.data._id; 
+   var placeid= data.props.data._id;
    var category = "products";
    data.props.dispatch(push('/detail/id:'+placeid+"/category:"+category));
 }
@@ -381,9 +363,9 @@ return(
   <Row>
     <label>{current.name} </label>
   </Row>
-         <Row>   
+         <Row>
       <Col xs={12} md={7} width={150} height={150}>
-          
+
       <div>
       <Image src={this.resizeImage(current.image[0],100,100)} alt="150x100" onClick={this.handleClick.bind(this,ty)}>
       </Image>
@@ -409,7 +391,7 @@ export class DetailRecommendationList extends Component {
      rows.push( <DetailRecommendations recommended={place} key={place._id+"detail"} category={tab} referenceproduct={that.props.referenceproduct} dispatch={that.props.dispatch}/>);
     })}
 return(
-         <Row style={{padding:"4px"}}>   
+         <Row style={{padding:"4px"}}>
     {rows}
       </Row>
       );
@@ -477,7 +459,7 @@ componentWillReceiveProps(newprops)
      var imagesrc = this.resizeImage(prodimage,100,100)
 return(
 <div className="recommendedTile">
-      <Row style={{padding:'2px'}}  onClick={this.handleClick.bind(this,ty)}> 
+      <Row style={{padding:'2px'}}  onClick={this.handleClick.bind(this,ty)}>
       <Col xs={4} md={3}>
        <img src={imagesrc}></img>
 
@@ -487,14 +469,14 @@ return(
       <Row>
       <Col md={8}>
      <label>{product.name}</label>
-       
+
         <div>{product.city}</div>
         <div>{product.title}</div>
      </Col>
      <Col md={4}>
      <div>price</div>
      <div>stars</div>
-     <div>    
+     <div>
      <a>view</a>
      </div>
      </Col>

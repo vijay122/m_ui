@@ -1,37 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { CounterButton, GithubButton, ProductGrid,ProductCard,SquareCard, SearchBar } from '../../components';
-import config from '../../config';
-import Helmet from 'react-helmet';
-import Button from 'react-bootstrap/lib/Button';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
-import Grid from 'react-bootstrap/lib/Grid';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-
-import CarouselItem from 'react-bootstrap/lib/CarouselItem';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import Nav from 'react-bootstrap/lib/Nav';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-
-
 import {connect} from 'react-redux';
 
 import {initializeWithKey} from 'redux-form';
 import { bindActionCreators } from 'redux';
-import { push } from 'react-router-redux';
-
-import {Tabs, Tab} from 'material-ui/Tabs';
-
-
-import * as footerActions from '../../redux/modules/info';
-import {load, loadFooter} from '../../redux/modules/info';
+import {load} from '../../redux/modules/info';
 import { asyncConnect } from 'redux-async-connect';
 import  'isomorphic-fetch';
 
@@ -67,7 +41,7 @@ export class Footer extends Component {
         };
   }
 
- 
+
   render() {
   ;
     const {info, load} = this.props; // eslint-disable-line no-shadow
@@ -84,7 +58,7 @@ export class Footer extends Component {
 Make your trips lively
    </div>
    <p>
- Our Commitment 
+ Our Commitment
 We are committed to establishing lasting relationships with our customers by exceeding their expectations the first time and every time, through consistently delivering outstanding quality of service, experience and value.
    </p>
    <Row>
@@ -136,7 +110,7 @@ We are committed to establishing lasting relationships with our customers by exc
      </div>
    </Col>
     </Row>
-    
+
       </div>
       <div className={styles.copyright}>
       <Row>

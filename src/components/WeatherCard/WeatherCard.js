@@ -1,13 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import DatePicker from 'material-ui/DatePicker';
-import SelectField from 'material-ui/SelectField';
 import areIntlLocalesSupported from 'intl-locales-supported';
-import MenuItem from 'material-ui/MenuItem';
 
 export default class WeatherCard extends React.Component {
    constructor(props) {
@@ -28,7 +22,7 @@ this.setState({latlang:latlang});
   ;
  // var input = newprops.data;
  // var res = newprops.referenceproduct;
-  
+
   //var kms = inMeters/1000;
   //this.setState({distance:kms})
   // if(newprops.detail.getProductsResult!= undefined)
@@ -65,7 +59,7 @@ this.setState({latlang:latlang});
     req.send();
   });
 }
-    render() 
+    render()
     {
    var that = this.props.that;
    var detail = this.props.detail;

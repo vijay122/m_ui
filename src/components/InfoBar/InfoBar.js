@@ -1,9 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
 import * as footerActions from '../../redux/modules/info';
-import {load, loadFooter} from '../../redux/modules/info';
-import { asyncConnect } from 'redux-async-connect';
 import  'isomorphic-fetch';
 
 import Col from 'react-bootstrap/lib/Col';
@@ -21,23 +18,17 @@ const styles = {
   },
 };
 
-/*@connect(
-    state => ({info: state.info.data}),
-    dispatch => bindActionCreators({load}, dispatch))
-*/
-
-
 export default class InfoBar extends Component {
   static propTypes = {
     info: PropTypes.object,
    // load: PropTypes.func.isRequired
   }
   componentDidMount(){
-//this.props.loadFooter();
-//loadFooter();
 }
 
   render() {
+    var linkitems =[];
+    linkitems = this.props.linkItems;
     const {info, load} = this.props; // eslint-disable-line no-shadow
     const styles = require('./InfoBar.scss');
     return (
@@ -52,7 +43,7 @@ export default class InfoBar extends Component {
 Make your trips lively
    </div>
    <p>
- Our Commitment 
+ Our Commitment
 We are committed to establishing lasting relationships with our customers by exceeding their expectations the first time and every time, through consistently delivering outstanding quality of service, experience and value.
    </p>
    </Col>
@@ -71,11 +62,14 @@ We are committed to establishing lasting relationships with our customers by exc
      <div className={styles.blackColor}>
      <h3>Popular Categories</h3>
       <div style={styles.wrapper}>
-      <Chip
-          style={styles.chip}
-        >
-          Text Chip
-        </Chip>
+        {linkitems && linkitems.size>0 && linkitems.map(function(x) {
+          return (
+            <Chip
+              style={styles.chip}
+            >
+              <a href="" ref={x.city}>{x.name}</a>
+            </Chip>)
+        })}
         </div>
      </div>
      </Row>
@@ -98,7 +92,7 @@ We are committed to establishing lasting relationships with our customers by exc
      </div>
    </Col>
     </Row>
-    
+
       </div>
       <Row>
       <Col>

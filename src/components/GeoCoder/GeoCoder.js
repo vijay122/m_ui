@@ -4,7 +4,6 @@ import React from 'react';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
 
@@ -63,7 +62,7 @@ getValidationState()
   {
     if(this.state!=null)
     {
-      
+
     }
   }
 onChange(e)
@@ -71,9 +70,9 @@ onChange(e)
       e.preventDefault();
       this.state[e.target.attributes["data-ctrlid"].value] = e.currentTarget.value;
   }
-    render() 
+    render()
     {
-   
+
       return(
          <form validationState={this.getValidationState}>
         <Row>
@@ -85,43 +84,43 @@ onChange(e)
       hintText="House Number"
             floatingLabelFixed={true}
         floatingLabelText="enter the house number"
-         data-ctrlid="housenumber" 
-      onChange={this.onChange.bind(this)} 
+         data-ctrlid="housenumber"
+      onChange={this.onChange.bind(this)}
       value={this.state.housenumber}/>
          <TextField
       hintText="Street"
             floatingLabelFixed={true}
         floatingLabelText="enter the street name"
-         data-ctrlid="street" 
-      onChange={this.onChange.bind(this)} 
+         data-ctrlid="street"
+      onChange={this.onChange.bind(this)}
       value={this.state.street}/>
         <TextField
       hintText="City"
             floatingLabelFixed={true}
         floatingLabelText="the city it belongs to"
-         data-ctrlid="city" 
-      onChange={this.onChange.bind(this)} 
+         data-ctrlid="city"
+      onChange={this.onChange.bind(this)}
       value={this.state.city}/>
       <TextField
       hintText="Zipcode"
             floatingLabelFixed={true}
         floatingLabelText="the city it belongs to"
-         data-ctrlid="zipcode" 
-      onChange={this.onChange.bind(this)} 
+         data-ctrlid="zipcode"
+      onChange={this.onChange.bind(this)}
       value={this.state.zipcode}/>
           <TextField
       hintText="State"
             floatingLabelFixed={true}
         floatingLabelText="what is the state"
-         data-ctrlid="stateName" 
-      onChange={this.onChange.bind(this)} 
+         data-ctrlid="stateName"
+      onChange={this.onChange.bind(this)}
       value={this.state.stateName}/>
           <TextField
       hintText="Country"
             floatingLabelFixed={true}
         floatingLabelText="country name"
-         data-ctrlid="country" 
-      onChange={this.onChange.bind(this)} 
+         data-ctrlid="country"
+      onChange={this.onChange.bind(this)}
       value={this.state.country}/>
 
           <FlatButton label="Apply" primary={true} onClick={this.GeoCode.bind(this)}/>

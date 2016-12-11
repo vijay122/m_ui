@@ -7,56 +7,21 @@ import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
-import { isLoaded as isInfoLoaded, load as loadInfo , loadFooter } from '../../redux/modules/info';
+import { isLoaded as isInfoLoaded, load as loadInfo } from '../../redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from '../../redux/modules/auth';
-
 import { load as load, isLoaded } from '../../redux/modules/products';
 import { InfoBar, Badge } from '../../components';
-
 import * as detailActions from '../../redux/modules/detail';
-
-import Footer from '../../containers';
-
 import { routeActions, push } from 'react-router-redux';
 import config from '../../config';
-import AppBar from 'material-ui/AppBar';
 import { asyncConnect } from 'redux-async-connect';
-
-import Grid from 'react-bootstrap/lib/Grid';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import CarouselItem from 'react-bootstrap/lib/CarouselItem';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {cyan500} from 'material-ui/styles/colors';
-import LinearProgress from 'material-ui/LinearProgress';
-
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
-//import SnowStorm from 'react-snowstorm';
-
-import IconMenu from 'material-ui/IconMenu/IconMenu';
-import MenuItem from 'material-ui/MenuItem/MenuItem';
-
 import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-
-
 import DeleteIcon from 'react-material-icons/icons/action/shopping-cart';
-
-import FlatButton from 'material-ui/FlatButton';
-
-
 
 injectTapEventPlugin();
 
@@ -100,7 +65,7 @@ const AppbarStyles = () => getMuiTheme({
 @connect(
   state => ({user: state.auth.user}),
   {logout, pushState: push})
-export default class App extends Component {
+export class App extends Component {
 
  constructor(props) {
     super(props);
@@ -152,6 +117,7 @@ componentDidMount()
   };
 
   render() {
+    var seoitems ={};
      var cartcount =0;
      var isAdmin=false;
           var isEditAllowed = false;
@@ -159,7 +125,11 @@ componentDidMount()
             isAdmin = this.props.user.role=="admin";
      isEditAllowed = this.props.user.role=="dataoperator";
           }
-     var isAdminTabAllowed = isAdmin || isEditAllowed; 
+     var isAdminTabAllowed = isAdmin || isEditAllowed;
+    if(this.props.appstate!= null && this.props.appstate.products!= null && this.props.appstate.products.products!= null)
+    {
+      seoitems = this.props.appstate.products.products;
+    }
     if(this.props.appstate!= null && this.props.appstate.cart!= null && this.props.appstate.cart.items!= null)
   cartcount = this.props.appstate.cart.items.length;
     const {user} = this.props;
@@ -181,9 +151,7 @@ componentDidMount()
       }
     }
 
-
-   // =(this!= undefined && this.props!= undefined && this.props.user!= null && this.props.user.name!= null )? this.props.user.name: "Login";//this!= undefined && this.props!= undefined && this.props.user!= null && this.props.user.name!= null ?"Hello " this.props.user.name : "Login";
-     var buttonStyle = {
+    var buttonStyle = {
     backgroundColor: 'transparent',
     color: 'white'
   };
@@ -312,7 +280,7 @@ componentDidMount()
           {this.props.children}
           </div>
         </div>
-      <InfoBar />
+      <InfoBar linkItems ={seoitems}/>
       </div>
        </MuiThemeProvider>
     );
@@ -329,4 +297,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Object.assign({}, detailActions), dispatch)
 }
 
-//export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

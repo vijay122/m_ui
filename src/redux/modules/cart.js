@@ -34,7 +34,7 @@ function quantityById(state = initialState.quantityById, action) {
          var cart = state.cart;
        if( cart == undefined)
        {
-        cart=[]; 
+        cart=[];
        }
        cart.push(action.result);
       return {
@@ -50,15 +50,14 @@ export default function cart(state = initialState, action) {
   switch (action.type) {
     case 'ADD_TO_CART':
     {
-      debugger;
         const { productId } = action.result._id
       var cart = state.items;
        if( cart == undefined)
        {
-        cart=[]; 
+        cart=[];
        }
        cart.push(action.result);
-        return {...state, 
+        return {...state,
         items :cart }
     }
     case 'CHECKOUT_REQUEST':

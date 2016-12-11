@@ -1,6 +1,5 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardHeader, CardMedia, CardTitle} from 'material-ui/Card';
 import Col from 'react-bootstrap/lib/Col';
 import { push } from 'react-router-redux';
 
@@ -13,7 +12,7 @@ export default class ProductCard extends React.Component {
   var placeid= data.props.data._id;
    data.props.dispatch(push('/detail/id:'+placeid));
 }
-    render() 
+    render()
     {
       var image;
        var ty= this;

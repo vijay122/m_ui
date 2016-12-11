@@ -1,31 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { CounterButton, GithubButton } from '../../components';
 import { FileUploader, TypeAhead } from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
-import Button from 'react-bootstrap/lib/Button';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import Grid from 'react-bootstrap/lib/Grid';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import CarouselItem from 'react-bootstrap/lib/CarouselItem';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import Nav from 'react-bootstrap/lib/Nav';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-
-//import Input from 'react-bootstrap/lib/Input';
 import Panel from 'react-bootstrap/lib/Panel';
-//import ButtonInput from 'react-bootstrap/lib/ButtonInput';
 
 import TextField from 'material-ui/TextField';
-import {Tabs, Tab} from 'material-ui/Tabs';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import {connect} from 'react-redux';
@@ -65,7 +47,7 @@ export class PackageBuilder extends Component {
      this.searchByID = this.searchByID.bind(this);
            this.handleSearchSelect = this.handleSearchSelect.bind(this);
               this.handleClassificationSelect = this.handleClassificationSelect.bind(this);
-           
+
       var emptyInfo={};
       emptyInfo.key="";
       emptyInfo.value="";
@@ -139,7 +121,7 @@ this.refs.searched_id.state!= undefined &&
 
 addProduct(product)
   {
-    
+
     var prod ={};
     if(this!= undefined && this.refs!= undefined && this.refs.newproduct!= undefined &&
 this.refs.newproduct.state!= undefined &&
@@ -156,13 +138,13 @@ this.refs.newproduct.state!= undefined &&
    _create() {
     try
     {
-    
+
     if(this.state.assets==undefined)
     {
       this.state.assets={};
         this.state.assets.display =this.refs['scrollimage'].state.images[0];
     }
-   
+
      var payload = this.state;
        fetch(config.svc+'/Save', {
   method: 'post',
@@ -421,11 +403,11 @@ this._create();
     {
 defaultPlaceType = this.state.type;
     }
-    
+
     var img = this.props.products.assets;
     if(this.props.products!= undefined && !this.isEmpty(this.props.products))
 {
-  this.state = this.props.products;  
+  this.state = this.props.products;
   if(this.props.products.loc!= undefined)
   {
     this.state.assets = img;
@@ -440,7 +422,7 @@ this.state.longitude = this.props.products.loc.coordinates[1];
      {
                this.state.created_by = this.props.auth.user._id
      }
-     
+
     this.onChange = this.onChange.bind(this);
 
     const styles = require('./PackageBuilder.scss');

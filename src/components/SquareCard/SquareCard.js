@@ -1,6 +1,5 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import Col from 'react-bootstrap/lib/Col';
 import { push } from 'react-router-redux';
 
@@ -12,8 +11,7 @@ export default class SquareCard extends React.Component
   }
   resizeImage(url, height, width)
 {
-  //var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/l_text:Doppio%20One_20:Vijay:%20Jonathan%20Doe,g_south_west,y_5,x_10,co_rgb:eee/';
-var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
+  var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
 
 
  var str = url;
@@ -43,7 +41,7 @@ viewDetails(data,fn,st)
     {
       image = this.props.data.assets.display;
     }
-    
+
     var product = this.props.data;
     return(
           <Col xs={6} md={3}>
@@ -59,4 +57,4 @@ viewDetails(data,fn,st)
 </Col>
       )
   }
-} 
+}

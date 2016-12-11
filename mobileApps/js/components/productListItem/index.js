@@ -28,7 +28,6 @@ class NHListThumbnail extends Component {
 
   _navigateTo(route,data)
   {
-    debugger;
     this.props.navigateTo(route,data);
   }
 
@@ -38,7 +37,6 @@ class NHListThumbnail extends Component {
 
 
   render() {
-    debugger;
     var showdata={};
     showdata.name="vijay";
     showdata.about ="he rocks";

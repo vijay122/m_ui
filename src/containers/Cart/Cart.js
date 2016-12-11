@@ -1,26 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { CounterButton, GithubButton, OrderSummary,CartOptions , TravelMap} from '../../components';
-import config from '../../config';
+import { OrderSummary,CartOptions } from '../../components';
 import Helmet from 'react-helmet';
-import Button from 'react-bootstrap/lib/Button';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
-import Grid from 'react-bootstrap/lib/Grid';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import CarouselItem from 'react-bootstrap/lib/CarouselItem';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import Nav from 'react-bootstrap/lib/Nav';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-import Tabs from 'react-bootstrap/lib/Tabs';
-import Tab from 'react-bootstrap/lib/Tab';
-import {isLoaded, load as load, viewdetail} from '../../redux/modules/products';
+import {isLoaded, load as load} from '../../redux/modules/products';
 import { asyncConnect } from 'redux-async-connect';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -28,16 +11,9 @@ import * as productActions from '../../redux/modules/products';
 
 import * as checkoutActions from '../../redux/modules/checkout';
 
-import IconButton from 'material-ui/IconButton';
-import ActionGrade from 'material-ui/svg-icons/action/grade';
 import DeleteIcon from 'react-material-icons/icons/action/delete';
-import RaisedButton from 'material-ui/RaisedButton';
 
-import EventCalendar from 'react-event-calendar';
-
-
-
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import { TableRow, TableRowColumn} from 'material-ui/Table';
 
 function mapStateToProps(state) {
   console.log('state '+state);

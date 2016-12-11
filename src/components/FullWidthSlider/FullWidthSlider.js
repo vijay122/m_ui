@@ -1,14 +1,6 @@
 import React from 'react';
 var Slider = require('react-slick');
-
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-
-import { push } from 'react-router-redux';
-
-
 
 export default class FullWidthSlider extends React.Component {
    constructor(props) {

@@ -1,13 +1,10 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import { push } from 'react-router-redux';
 
 var Slider = require('react-slick');
-
-import { ProductCard} from '../../components';
 
 export default class CardsContainer extends React.Component {
    constructor(props) {
@@ -15,10 +12,7 @@ export default class CardsContainer extends React.Component {
   }
    resizeImage(url, height, width)
 {
- // var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/l_text:Doppio%20One_20:Vijay:%20Jonathan%20Doe,g_south_west,y_5,x_10,co_rgb:eee/';
-var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
-
-
+ var filter='c_fill,q_60,e_improve,'+ 'h_'+height+','+'w_'+width+'/';
  var str = url;
     var index = str.indexOf("upload/") + 7;
   var rest=  str.substr(0, index) + filter + str.substr(index);
@@ -67,7 +61,7 @@ var x = {};
 
     {canrender && canrender.length>0 && canrender.map(function(v)
       {
-        
+
 return(
      <Slider {...settings}>
      {that && that.props && that.props.packagelist && that.props.packagelist.map(function(x)

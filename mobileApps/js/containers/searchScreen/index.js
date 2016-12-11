@@ -23,12 +23,10 @@ class SearchScreen extends Component {  // eslint-disable-line
   }
 
   _navigateTo(route,data) {
-    debugger;
     this.props.navigateTo(route, 'home',data);
   }
 
   render() {
-    debugger;
     var title = this.props.title;
     return (
       <Container theme={myTheme}>

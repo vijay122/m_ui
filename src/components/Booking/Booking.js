@@ -15,7 +15,7 @@ export default class Booking extends React.Component {
        this.state = {type: null};
      this.handleSelect = this.handleSelect.bind(this);
   }
-  handleSelect = (event, index, value) => 
+  handleSelect = (event, index, value) =>
 {
   ;
   this.setState({type:value})
@@ -24,7 +24,7 @@ export default class Booking extends React.Component {
  addToCart(data,fn,st) {
       data.dispatch({ type: 'ADD_TO_CART', result: fn });
 }
-    render() 
+    render()
     {
    var that = this.props.that;
    var detail = this.props.detail;
@@ -41,7 +41,7 @@ if (areIntlLocalesSupported(['fr'])) {
         <Row>
         <Col md={12}>
         <Row>
-      <h6>We wound love to book this package for you</h6>
+      <h5>We wound love to book this package for you!!</h5>
          <DatePicker
  container="inline"
  floatingLabelText="Choose your travel date"

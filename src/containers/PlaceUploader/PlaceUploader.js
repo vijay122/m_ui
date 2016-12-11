@@ -1,38 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { FileUploader, TabsSection, GeoCoder , TypeAhead} from '../../components';
+import { FileUploader , TypeAhead} from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
-import Button from 'react-bootstrap/lib/Button';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import Grid from 'react-bootstrap/lib/Grid';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import CarouselItem from 'react-bootstrap/lib/CarouselItem';
-import Carousel from 'react-bootstrap/lib/Carousel';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import Nav from 'react-bootstrap/lib/Nav';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
-
-//import Input from 'react-bootstrap/lib/Input';
 import Panel from 'react-bootstrap/lib/Panel';
-//import ButtonInput from 'react-bootstrap/lib/ButtonInput';
-
-import DropDownMenu from 'material-ui/DropDownMenu';
-
-
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-
 import {Tabs, Tab} from 'material-ui/Tabs';
-import Slider from 'material-ui/Slider';
-import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-
 import {connect} from 'react-redux';
 import * as loginActions from '../../redux/modules/auth';
 import * as productActions from '../../redux/modules/products';
@@ -125,7 +102,7 @@ export class PlaceUploader extends Component {
     this.validateForm = this.validateForm.bind(this);
     this.onChange = this.onChange.bind(this);
      this.searchByID = this.searchByID.bind(this);
-    
+
 
       this.state = {type: null};
   }
@@ -306,14 +283,14 @@ validateForm()
   {
     errorlist.push("please enter valid title.");
   }
-  
+
   //if(this.isValid(this.state.latitude))
   //{
   //  var val = parseFloat(this.state.latitude);
 //var reg = new RegExp("^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}");
 //if( reg.exec(val) ) {
  //do nothing
-//} 
+//}
 //else
 //    errorlist.push("please enter valid latitude.");
 //  }
@@ -327,7 +304,7 @@ validateForm()
 //    var reg = new RegExp("^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}");
 //if( reg.exec(val) ) {
  //do nothing
-//} 
+//}
 //else
 //    errorlist.push("please enter valid longitude.");
 //  }
@@ -336,7 +313,7 @@ validateForm()
 //       errorlist.push("please enter valid longitude.");
 //  }
    if(!this.isValid(this.state.city))
-  
+
   {
     errorlist.push("please enter valid city.");
   }
@@ -423,7 +400,7 @@ if (r == true) {
    {
     this._create();
    }
-} 
+}
 else {
 }
   }
@@ -444,7 +421,7 @@ defaultPlaceType = this.state.type;
     var img = this.props.products.image;
     if(this.props.products!= undefined)
   {
-  this.state = this.props.products;  
+  this.state = this.props.products;
   if(this.props.products.loc!= undefined)
   {
     this.state.image = img;

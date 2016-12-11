@@ -10,7 +10,6 @@ const {
 
 export default function navigateTo(route, homeRoute,data) {
   return (dispatch, getState) => {
-    debugger;
     const navigation = getState().cardNavigation;
     const currentRouteKey = navigation.routes[navigation.routes.length - 1].key;
 

@@ -4,10 +4,7 @@ import Well from 'react-bootstrap/lib/Well';
 import React, { Component } from 'react';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import { TypeAhead,TravelMap ,CartGrid } from '../../components';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import DatePicker from 'material-ui/DatePicker';
+import {TravelMap ,CartGrid } from '../../components';
 
 import areIntlLocalesSupported from 'intl-locales-supported';
 

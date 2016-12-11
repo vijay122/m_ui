@@ -139,27 +139,13 @@ var self = this;
       }
        self.setState({dataSource:datalist});
  })
-   // this.setState({ searchText: value })
 }
 }
-
-
-/*
-    self.setState({
-      dataSource: [
-        {textKey: 'Some Text', valueKey: 'someFirstValue'},
-  {textKey: 'Some Text', valueKey: 'someSecondValue'},
-      ],
-    });
-
-  };
- */
    handleSelect (t) {
     this.setState( { searchText: t })
   }
   render() {
     var floatinglabel =this.props.floatinglabel != ""?this.props.floatinglabel :"Enter place name";
-    debugger;
     return (
       <div>
         <AutoComplete
