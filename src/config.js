@@ -18,6 +18,20 @@ module.exports = Object.assign({
   staticassets:"../../static/dist",
   app: {
     title: 'LivelyTrips',
+    description: 'trip planner,cheap travel packages,tours,sight seeing,honeymoon,trekkings and pilgrim trips, Livelytrips',
+    head: {
+      titleTemplate: '',
+    }
+  },
+  home: {
+    title: 'trip planner,cheap travel packages,tours,sight seeing,honeymoon,trekkings and pilgrim trips, Livelytrips',
+    description: 'All the modern best practices in one example.',
+    head: {
+      titleTemplate: '',
+    }
+  },
+  detail: {
+    title: 'LivelyTrips',
     description: 'All the modern best practices in one example.',
     head: {
       titleTemplate: '',

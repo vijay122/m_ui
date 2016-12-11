@@ -111,13 +111,59 @@ componentDidMount()
         console.log(e.target);
     }
 
+    getSeoContents()
+    {
+     var product = this.props.detail.detail;
+      debugger;
+            var seo ={};
+     if( product)
+     {
+
+seo.title =product.name +"trip deals "+ product.city+ " cheap trips " + product.state +" budget travels";
+seo.meta ={};
+var metaArray =[];
+var met = {};
+met.name ="description";
+met.content=product.description;
+metaArray.push(met);
+seo.meta  = metaArray;
+     }
+     else
+     {
+            //get State
+seo.title ="";
+seo.meta ={};
+var metaArray =[];
+var met = {};
+met.name ="";
+met.content="";
+metaArray.push(met);
+seo.meta  = metaArray;
+     }
+      return seo;
+    }
+
   handleLogout = (event) => {
     event.preventDefault();
     this.props.logout();
   };
 
   render() {
-    var seoitems ={};
+    var pageContents = this.getSeoContents();
+    if(pageContents == undefined )
+    {
+        pageContents ={};
+        pageContents.title ="Livelytrips";
+       var meta ={};
+        
+        meta.name ="Localtrips";
+        meta.content ="joo";
+        var st =[];
+        st.push(meta);
+      pageContents.meta=st;
+
+    }
+    var seoitems = {};
      var cartcount =0;
      var isAdmin=false;
           var isEditAllowed = false;
@@ -159,7 +205,10 @@ componentDidMount()
     return (
       <MuiThemeProvider muiTheme={AppbarStyles()}>
       <div className={styles.app}>
-        <Helmet {...config.app.head}/>
+        <Helmet
+          title={pageContents.title}
+          meta={pageContents.meta}
+        />
  <div>
 
 

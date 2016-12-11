@@ -242,19 +242,19 @@ img = scrolloffer.assets.display;
 
 const images = [
   {
-    url: "http://placehold.it/100x100",
+    url: "http://tripconnoisseurs.com/wp-content/uploads/2016/08/Honeymoon.jpg",
     clickHandler: (url, obj) => { console.log(url) }
   },
   {
-    url: "http://placehold.it/300x300",
+    url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
     clickHandler: (url, obj) => { console.log(obj) }
   },
    {
-    url: "http://placehold.it/200x200",
+    url: "https://static2.tripoto.com/media/filter/t/img/101328/TripDocument/1474279330_1474279325380.jpg",
     clickHandler: (url, obj) => { console.log(obj) }
   },
    {
-    url: "http://placehold.it/200x200",
+    url: "http://travelsourceindia.in/wp-content/uploads/2016/06/family-ties-300x300.jpg",
     clickHandler: (url, obj) => { console.log(obj) }
   }
 ];

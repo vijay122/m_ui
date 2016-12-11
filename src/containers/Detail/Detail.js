@@ -186,7 +186,6 @@ const dummySentences = ['Lorem ipsum dolor sit amet, consectetuer adipiscing eli
     {
 return (
       <div className={styles.home}>
-        <Helmet title="Home"/>
         <Row className="show-grid">
      <Col xs={12} md={2} className={styles.nearbyTitleDiv}>
         <label>Nearby Places </label>
