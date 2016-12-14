@@ -36,7 +36,7 @@ export default class InfoBar extends Component {
       <div className={styles.centerWidth}>
          <Row>
     <Col xs={12} md={3}>
-   <div className={styles.blackColor}>
+   <div className={styles.violetTextColor}>
 <h3>LivelyTrips</h3>
    </div>
    <div>
@@ -59,16 +59,14 @@ We are committed to establishing lasting relationships with our customers by exc
     <Col xs={12} md={3}>
      <div>
      <Row>
-     <div className={styles.blackColor}>
+     <div className={styles.violetTextColor}>
      <h3>Popular Categories</h3>
       <div style={styles.wrapper}>
         {linkitems && linkitems.size>0 && linkitems.map(function(x) {
           return (
-            <Chip
-              style={styles.chip}
-            >
-              <a href="" ref={x.city}>{x.name}</a>
-            </Chip>)
+            <div>
+              <a href="">{x.name}, {x.city}</a>
+            </div>)
         })}
         </div>
      </div>
@@ -78,7 +76,7 @@ We are committed to establishing lasting relationships with our customers by exc
      <Col xs={12} md={3}>
      <div>
      <Row>
-     <div className={styles.blackColor}>
+     <div className={styles.violetTextColor}>
      <h3>Lets be Friends..</h3>
       <div style={styles.wrapper}>
       <Chip

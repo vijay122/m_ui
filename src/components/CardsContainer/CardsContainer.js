@@ -3,6 +3,7 @@ import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import { push } from 'react-router-redux';
+import * as browserUtils from '../../utils/HtmlUtils';
 
 var Slider = require('react-slick');
 
@@ -28,6 +29,7 @@ viewDetails(data,fn,st)
 
 render()
 {
+  var isMobile = browserUtils.isMobile();
    var settings = {
       dots: false,
       infinite: true,
@@ -35,6 +37,16 @@ render()
       slidesToShow: 4,
       slidesToScroll: 4,
     };
+    if(isMobile)
+    {
+      settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+    };
+    }
   var that = this;
   const styles = require('./CardsContainer.scss');
 var packagelist = this.props.packagelist;
@@ -82,7 +94,7 @@ return(
     <CardMedia
       overlay={<CardTitle title={x.name} subtitle={x.title} />}>
     <div><h2>{x.name} </h2></div>
-    <label>{x.title}</label>
+    <label className={styles.tileTitle}>{x.title}</label>
       <img src={x.image[0]!= undefined && that.resizeImage(x.image[0],250,250)}></img>
     </CardMedia>
   </Card>

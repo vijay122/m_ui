@@ -16,6 +16,7 @@
 .navbar-default .navbar-nav > li > a
 {
   color:white !important;
+  cursor:pointer;
 }
 
 .navbar-brand {
@@ -74,10 +75,6 @@ margin:0px !important;
 
 
 .minnav {
-
-
-
-
   background-color: #E7F3F7;
   border: 1px solid #E7F3F7;
   border-radius: 4px;
@@ -95,6 +92,7 @@ margin:0px !important;
 }
 
   .minnav ul li {
+    cursor:pointer;
     display: inline-block;
     list-style-type: none;
 
@@ -162,8 +160,9 @@ margin:0px !important;
 }
 
   .minnav > ul > li > div ul > li {
+    cursor:pointer;
     display: block;
-    border-top: 1px solid #F4F4F4;
+    border-top: 1px solid #E1E3E4;
   }
 
     .minnav > ul > li > div ul > li > a {

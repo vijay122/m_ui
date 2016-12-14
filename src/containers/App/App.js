@@ -31,7 +31,7 @@ const AppbarStyles = () => getMuiTheme({
      textColor: '#313131',
    // primary2Color:"#2173B3",
    // primary3Color:"#A9D2EB",
-    accent1Color:"#F44336",
+    accent1Color:"#ED2B2B",
    // accent2Color:"#ED2B2B",
    // accent3Color:"#F58C8C"
   }
@@ -95,7 +95,7 @@ export class App extends Component {
 
 componentDidMount()
 {
- //  this.setState({'document':[1]});//to enable snowing
+  this.setState({'document':[1]});//to enable snowing
 }
 
   componentWillReceiveProps(nextProps) {
@@ -119,7 +119,7 @@ componentDidMount()
      if( product)
      {
 
-seo.title =product.name +"trip deals "+ product.city+ " cheap trips " + product.state +" budget travels";
+seo.title =product.name+" tourism "+ product.name+" resorts "+product.name+" hotels "+ product.name +" trip deals "+ product.city+ " cheap travels " + product.state +" budget tours";
 seo.meta ={};
 var metaArray =[];
 var met = {};
@@ -155,7 +155,7 @@ seo.meta  = metaArray;
         pageContents ={};
         pageContents.title ="Livelytrips";
        var meta ={};
-        
+
         meta.name ="Localtrips";
         meta.content ="joo";
         var st =[];
