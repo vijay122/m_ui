@@ -45,3 +45,15 @@
 {
     color:#5CB8DB;
 }
+
+@media (max-width:480px)
+{
+	.tiles span
+	{
+	font-size:1em !important;
+	}
+	.tiles
+	{
+	padding:4px !important;
+	}
+}
