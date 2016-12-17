@@ -114,7 +114,6 @@ componentDidMount()
     getSeoContents()
     {
      var product = this.props.detail.detail;
-      debugger;
             var seo ={};
      if( product)
      {
