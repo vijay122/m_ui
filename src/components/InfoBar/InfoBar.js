@@ -50,7 +50,7 @@ We are committed to establishing lasting relationships with our customers by exc
     <Col xs={12} md={3}>
 <div>
 <Row>
-<div className={styles.blackColor}>
+<div className={styles.violetTextColor}>
 <h3>Popular Posts</h3>
 </div>
 </Row>
@@ -113,7 +113,7 @@ We are committed to establishing lasting relationships with our customers by exc
     <Col xs={12} md={6}>
     @2016 livelytrips copyrighted
     </Col>
-    <Col xs={12} md={6}>
+    <Col xs={12} md={6} className={styles.blackBackgroundColor}>
 <Row className={styles.footerlinks}>
 <Col xs={12} md={2}>
 About

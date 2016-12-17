@@ -105,4 +105,15 @@ filter: alpha(opacity=0);
     transition: .3s top ease-in, .3s opacity ease-in;
 }
 
+@media (min-width:480px)
+{
+  .pageContainer
+{
+  width:100%;
+}
+.insightsBar{
+position:relative !important;
+}
+}
+
 

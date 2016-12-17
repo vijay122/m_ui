@@ -209,7 +209,7 @@ return (
       </Col>
       <Col xs={12} md={6}>
       <Row>
-              <Image src={detail!= undefined && detail.image!= undefined && this.resizeImage(detail.image[0],400,550)} />
+              <Image className={styles.imageContainer} src={detail!= undefined && detail.image!= undefined && this.resizeImage(detail.image[0],400,550)} />
               </Row>
               <Row>
               this is the small images
