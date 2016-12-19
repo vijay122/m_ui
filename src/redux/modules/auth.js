@@ -1,8 +1,8 @@
 const LOAD = 'redux-example/auth/LOAD';
-const LOAD_SUCCESS = 'redux-example/auth/LOAD_SUCCESS';
+const LOAD_SUCCESS = 'LOAD_SUCCESS';
+const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOAD_FAIL = 'redux-example/auth/LOAD_FAIL';
 const LOGIN = 'redux-example/auth/LOGIN';
-const LOGIN_SUCCESS = 'redux-example/auth/LOGIN_SUCCESS';
 const LOGIN_FAIL = 'redux-example/auth/LOGIN_FAIL';
 const LOGOUT = 'redux-example/auth/LOGOUT';
 const LOGOUT_SUCCESS = 'redux-example/auth/LOGOUT_SUCCESS';
@@ -21,7 +21,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: true
       };
-    case 'LOAD_SUCCESS':
+    case LOAD_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -40,7 +40,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loggingIn: true
       };
-    case 'LOGIN_SUCCESS':
+    case LOGIN_SUCCESS:
       return {
         ...state,
         loggingIn: false,
@@ -82,50 +82,23 @@ export function isLoaded(globalState) {
 export function load() {
   return true;
   /*
-  return {
-    types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
-    promise: (client) => client.get('/loadAuth')
-  };
-  */
+   return {
+   types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
+   promise: (client) => client.get('/loadAuth')
+   };
+   */
 }
 export function register(user) {
-  var payload={};
+  const payload = {};
   payload.phone_number = user.username;
   payload.supervisor_id = user.supervisor_id;
   payload.name = user.name;
   payload.company = user.companyname;
-    payload.role = user.role;
-        payload.status = user.status;
-  console.log("config: "+config.svc);
-    return dispatch =>{
-    fetch(config.svc+'/register', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-    payload
-  })
-    }).then(checkStatus)
-  .then(parseJSON)
-  .then(function(data) {
-    // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
-  //  console.log('request succeeded with JSON response', list)
-  }).catch(function(error) {
-    console.log('request failed', error)
-  })
-  }
-
-}
-
-export function loginUser(phonenumber,password) {
-  var payload = {};
-  payload.phone_number =phonenumber;
-  payload.password =password;
-   console.log("config: "+config.svc);
-   return dispatch =>{
-    fetch(config.svc+'/login', {
+  payload.role = user.role;
+  payload.status = user.status;
+  console.log('config: ' + config.svc);
+  return dispatch => {
+    fetch(config.svc + '/register', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -133,15 +106,67 @@ export function loginUser(phonenumber,password) {
       },
       body: JSON.stringify({
         payload
-  })
+      })
     }).then(checkStatus)
-  .then(parseJSON)
-  .then(function(data) {
-     dispatch({ type: 'LOGIN_SUCCESS', result: data });
-  //  console.log('request succeeded with JSON response', list)
-  }).catch(function(error) {
-    console.log('request failed', error)
-  })
+      .then(parseJSON)
+      .then(function (data) {
+        // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
+        //  console.log('request succeeded with JSON response', list)
+      }).catch(function (error) {
+      console.log('request failed', error)
+    })
+  }
+
+}
+
+export function loginUser(phonenumber, password) {
+  var payload = {};
+  payload.phone_number = phonenumber;
+  payload.password = password;
+  console.log("config: " + config.svc);
+  return dispatch => {
+    fetch(config.svc + '/login', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        payload
+      })
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(function (data) {
+        dispatch({type: 'LOGIN_SUCCESS', result: data});
+        //  console.log('request succeeded with JSON response', list)
+      }).catch(function (error) {
+      console.log('request failed', error)
+    })
+  }
+}
+
+export function disableUser(disableUserId) {
+  var payload = {};
+  payload.disableUserId = disableUserId;
+  console.log("config: " + config.svc);
+  return dispatch => {
+    fetch(config.svc + '/disableUser', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        payload
+      })
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(function (data) {
+        dispatch({type: 'DISABLE_SUCCESS', result: data});
+        //  console.log('request succeeded with JSON response', list)
+      }).catch(function (error) {
+      console.log('request failed', error)
+    })
   }
 }
 

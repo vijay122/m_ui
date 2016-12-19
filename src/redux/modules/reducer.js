@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import multireducer from 'multireducer';
-import { routerReducer  } from 'react-router-redux';
+import { routerReducer } from 'react-router-redux';
 import {reducer as reduxAsyncConnect} from 'redux-async-connect';
 
 import auth from './auth';
@@ -11,11 +11,11 @@ import category from './category';
 import counter from './counter';
 import {reducer as form} from 'redux-form';
 import info from './info';
-import widgets from './widgets';
+// import widgets from './widgets';
 import checkout from './checkout';
 
 export default combineReducers({
-  routing: routerReducer ,
+  routing: routerReducer,
   reduxAsyncConnect,
   auth,
   products,
@@ -30,5 +30,5 @@ export default combineReducers({
   }),
   info,
  // widgets,
-checkout
+  checkout
 });

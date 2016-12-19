@@ -29,6 +29,7 @@ export  class Admin extends Component {
    constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+      this.handleDisableUser = this.handleDisableUser.bind(this);
      this.state = {value1: 1,role:"user",status:"active"};
      if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user._id)
      {
@@ -46,6 +47,11 @@ export  class Admin extends Component {
   }
   handleChange(e){
     this.setState({role:e.target.value});
+  }
+  handleDisableUser()
+  {
+     var disablingId =this.refs['SelectedUser'].state._id;
+        this.props.disableUser(disablingId);
   }
   onChange(e)
   {
@@ -120,7 +126,10 @@ export  class Admin extends Component {
 <h4>Your Reporters:</h4>
 </Row>
 <Row>
-<TablePanel data={mappedusers}/>
+  <RaisedButton label="Disable User" primary={true} onClick={this.handleDisableUser} />
+</Row>
+<Row>
+<TablePanel data={mappedusers} ref='SelectedUser'/>
 </Row>
 <Row>
 <h4>Your Packages:</h4>

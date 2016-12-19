@@ -67,3 +67,22 @@ export function createValidator(rules) {
     return errors;
   };
 }
+
+export function qs(key) {
+  var vars = [], hash;
+  var hashes; // = window.location.href.slice(window.location.href.indexOf('/') + 1).split('/');
+  if (typeof window != "undefined") {
+    hashes = window.location.href.slice(window.location.href.indexOf('/') + 1).split('/');
+
+  }
+  else {
+    hashes = 'id:57413ffe7a1d3a001111b3ec';
+  }
+
+  for (var i = 0; i < hashes.length; i++) {
+    hash = hashes[i].split(':');
+    vars.push(hash[0]);
+    vars[hash[0]] = hash[1];
+  }
+  return vars[key];
+}

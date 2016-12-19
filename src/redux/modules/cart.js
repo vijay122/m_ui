@@ -9,7 +9,6 @@ const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
 
 
-
 const initialState = {
   addedIds: [],
   quantityById: {}
@@ -21,7 +20,7 @@ function addedIds(state = initialState.addedIds, action) {
       if (state.indexOf(action.result._id) !== -1) {
         return state
       }
-      return [ ...state,action.result._id ]
+      return [...state, action.result._id]
     default:
       return state
   }
@@ -30,13 +29,12 @@ function addedIds(state = initialState.addedIds, action) {
 function quantityById(state = initialState.quantityById, action) {
   switch (action.type) {
     case 'ADD_TO_CART':
-      const { productId } = action.result._id;
-         var cart = state.cart;
-       if( cart == undefined)
-       {
-        cart=[];
-       }
-       cart.push(action.result);
+      const {productId} = action.result._id;
+      var cart = state.cart;
+      if (cart == undefined) {
+        cart = [];
+      }
+      cart.push(action.result);
       return {
         ...state,
         cart
@@ -48,26 +46,25 @@ function quantityById(state = initialState.quantityById, action) {
 
 export default function cart(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_TO_CART':
-    {
-        const { productId } = action.result._id
+    case 'ADD_TO_CART': {
+      const {productId} = action.result._id
       var cart = state.items;
-       if( cart == undefined)
-       {
-        cart=[];
-       }
-       cart.push(action.result);
-        return {...state,
-        items :cart }
+      if (cart == undefined) {
+        cart = [];
+      }
+      cart.push(action.result);
+      return {
+        ...state,
+        items: cart
+      }
     }
     case 'CHECKOUT_REQUEST':
       return initialState
     case 'CHECKOUT_FAILURE':
       return action.cart
-      default:
-      {
-        return state;
-      }
+    default: {
+      return state;
+    }
   }
 }
 
@@ -78,7 +75,6 @@ export function getQuantity(state, productId) {
 export function getAddedIds(state) {
   return state.addedIds
 }
-
 
 
 export function getTotal(state) {

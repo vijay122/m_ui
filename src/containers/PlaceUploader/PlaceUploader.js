@@ -433,8 +433,7 @@ this.state.longitude = this.props.products.loc.coordinates[1];
     this.state.status = stat;
     this.state.searchtype = searchtype;
 }
-
-         if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user.phone_number)
+         if(this.props.auth!= undefined && this.props.auth.user!= undefined && this.props.auth.user._id)
      {
                this.state.created_by = this.props.auth.user._id
      }
