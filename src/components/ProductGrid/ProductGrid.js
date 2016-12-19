@@ -24,27 +24,27 @@ const tilesData = [
     author: 'bjl',
   },
   {
-     img: 'http://placehold.it/250x200',
+    img: 'http://placehold.it/250x200',
     title: 'Tasty burger',
     author: 'pashminu',
   },
   {
-     img: 'http://placehold.it/250x200',
+    img: 'http://placehold.it/250x200',
     title: 'Camera',
     author: 'Danson67',
   },
   {
-     img: 'http://placehold.it/250x200',
+    img: 'http://placehold.it/250x200',
     title: 'Morning',
     author: 'fancycrave1',
   },
   {
-     img: 'http://placehold.it/250x200',
+    img: 'http://placehold.it/250x200',
     title: 'Hats',
     author: 'Hans',
   },
   {
-      img: 'http://placehold.it/250x200',
+    img: 'http://placehold.it/250x200',
     title: 'Honey',
     author: 'fancycravel',
   },
@@ -54,7 +54,7 @@ const tilesData = [
     author: 'jill111',
   },
   {
-     img: 'http://placehold.it/250x200',
+    img: 'http://placehold.it/250x200',
     title: 'Water plant',
     author: 'BkrmadtyaKarki',
   },
@@ -72,9 +72,9 @@ const GridListExampleSimple = () => (
           key={tile.author}
           title={tile.title}
           subtitle={<span>by <b>{tile.author}</b></span>}
-          actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+          actionIcon={<IconButton><StarBorder color="white"/></IconButton>}
         >
-          <img src={tile.img} />
+          <img src={tile.img}/>
         </GridTile>
       ))}
     </GridList>

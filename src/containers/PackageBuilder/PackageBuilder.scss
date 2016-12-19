@@ -5,6 +5,7 @@
     margin-bottom: 15px;
   }
 }
+
 .masthead {
   background: #2d2d2d;
   padding: 40px 20px;
@@ -58,20 +59,22 @@
   text-align: center;
   margin: 20px;
 }
-.validInput{
-   border:2px solid green;
+
+.validInput {
+  border: 2px solid green;
 }
-.invalidInput{
-   border:2px solid red;
+
+.invalidInput {
+  border: 2px solid red;
 }
 
 .largetext {
-    font-weight: bold;
-    font-size: 18px; /* or larger */
-    height: 2em; /* or larger */
-    width: 400px; /* or larger */
+  font-weight: bold;
+  font-size: 18px; /* or larger */
+  height: 2em; /* or larger */
+  width: 400px; /* or larger */
 }
-.suggestionElement
-{
-  height:100px;
+
+.suggestionElement {
+  height: 100px;
 }

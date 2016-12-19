@@ -21,127 +21,130 @@ const styles = {
 export default class InfoBar extends Component {
   static propTypes = {
     info: PropTypes.object,
-   // load: PropTypes.func.isRequired
+    // load: PropTypes.func.isRequired
   }
-  componentDidMount(){
-}
+
+  componentDidMount() {
+  }
 
   render() {
-    var linkitems =[];
+    var linkitems = [];
     linkitems = this.props.linkItems;
     const {info, load} = this.props; // eslint-disable-line no-shadow
     const styles = require('./InfoBar.scss');
     return (
       <div className={styles.footer}>
-      <div className={styles.centerWidth}>
-         <Row>
-    <Col xs={12} md={3}>
-   <div className={styles.violetTextColor}>
-<h3>LivelyTrips</h3>
-   </div>
-   <div>
-Make your trips lively
-   </div>
-   <p>
- Our Commitment
-We are committed to establishing lasting relationships with our customers by exceeding their expectations the first time and every time, through consistently delivering outstanding quality of service, experience and value.
-   </p>
-   </Col>
-    <Col xs={12} md={3}>
-<div>
-<Row>
-<div className={styles.violetTextColor}>
-<h3>Popular Posts</h3>
-</div>
-</Row>
-</div>
-  </Col>
-    <Col xs={12} md={3}>
-     <div>
-     <Row>
-     <div className={styles.violetTextColor}>
-     <h3>Popular Categories</h3>
-      <div style={styles.wrapper}>
-        {linkitems && linkitems.size>0 && linkitems.map(function(x) {
-          return (
-            <div>
-              <a href="">{x.name}, {x.city}</a>
-            </div>)
-        })}
-        </div>
-     </div>
-     </Row>
-     </div>
-   </Col>
-     <Col xs={12} md={3}>
-     <div>
-     <Row>
-     <div className={styles.violetTextColor}>
-     <h3>Lets be Friends..</h3>
-      <div style={styles.wrapper}>
-      <Chip
-          style={styles.chip}
-        >
-          Text Chip
-        </Chip>
-        </div>
-     </div>
-     </Row>
-     </div>
-   </Col>
-    </Row>
+        <div className={styles.centerWidth}>
+          <Row>
+            <Col xs={12} md={3}>
+              <div className={styles.violetTextColor}>
+                <h3>LivelyTrips</h3>
+              </div>
+              <div>
+                Make your trips lively
+              </div>
+              <p>
+                Our Commitment
+                We are committed to establishing lasting relationships with our customers by exceeding their
+                expectations the first time and every time, through consistently delivering outstanding quality of
+                service, experience and value.
+              </p>
+            </Col>
+            <Col xs={12} md={3}>
+              <div>
+                <Row>
+                  <div className={styles.violetTextColor}>
+                    <h3>Popular Posts</h3>
+                  </div>
+                </Row>
+              </div>
+            </Col>
+            <Col xs={12} md={3}>
+              <div>
+                <Row>
+                  <div className={styles.violetTextColor}>
+                    <h3>Popular Categories</h3>
+                    <div style={styles.wrapper}>
+                      {linkitems && linkitems.size > 0 && linkitems.map(function (x) {
+                        return (
+                          <div>
+                            <a href="">{x.name}, {x.city}</a>
+                          </div>)
+                      })}
+                    </div>
+                  </div>
+                </Row>
+              </div>
+            </Col>
+            <Col xs={12} md={3}>
+              <div>
+                <Row>
+                  <div className={styles.violetTextColor}>
+                    <h3>Lets be Friends..</h3>
+                    <div style={styles.wrapper}>
+                      <Chip
+                        style={styles.chip}
+                      >
+                        Text Chip
+                      </Chip>
+                    </div>
+                  </div>
+                </Row>
+              </div>
+            </Col>
+          </Row>
 
-      </div>
-      <Row>
-      <Col>
-      Contact : 8473282821
-      Email : livelytrips@gmail.com
-      </Col>
-      </Row>
-      <Row>
-      <Col>
-      Terms of use
-      </Col>
-      </Row>
-      <Row>
-      <Col>
-      Sitemap
-      </Col>
-      </Row>
-      <div className={styles.copyright}>
-      <Row>
-    <Col xs={12} md={6}>
-    @2016 livelytrips copyrighted
-    </Col>
-    <Col xs={12} md={6} className={styles.blackBackgroundColor}>
-<Row className={styles.footerlinks}>
-<Col xs={12} md={2}>
-About
-</Col>
-<Col xs={12} md={2}>
-Livelytrips
-</Col>
-<Col xs={12} md={2}>
-Contact
-</Col>
-<Col xs={12} md={2}>
-Survey
-</Col>
-<Col xs={12} md={2}>
-Help
-</Col>
-</Row>
-    </Col>
-    </Row>
-      </div>
+        </div>
+        <Row>
+          <Col>
+            Contact : 8473282821
+            Email : livelytrips@gmail.com
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            Terms of use
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            Sitemap
+          </Col>
+        </Row>
+        <div className={styles.copyright}>
+          <Row>
+            <Col xs={12} md={6}>
+              @2016 livelytrips copyrighted
+            </Col>
+            <Col xs={12} md={6} className={styles.blackBackgroundColor}>
+              <Row className={styles.footerlinks}>
+                <Col xs={12} md={2}>
+                  About
+                </Col>
+                <Col xs={12} md={2}>
+                  Livelytrips
+                </Col>
+                <Col xs={12} md={2}>
+                  Contact
+                </Col>
+                <Col xs={12} md={2}>
+                  Survey
+                </Col>
+                <Col xs={12} md={2}>
+                  Help
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  console.log('state '+state);
-  return { AppState: state.products }
+  console.log('state ' + state);
+  return {AppState: state.products}
 }
 
 function mapDispatchToProps(dispatch) {

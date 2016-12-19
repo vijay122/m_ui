@@ -1,9 +1,8 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Container, Header, Title, Content, Button, Icon, Spinner} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Button, Icon, Spinner } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 class NHSpinner extends Component { // eslint-disable-line
@@ -19,15 +18,15 @@ class NHSpinner extends Component { // eslint-disable-line
           <Title>Spinner</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
         <Content>
           <Spinner />
-          <Spinner color="red" />
-          <Spinner color="green" />
-          <Spinner color="blue" />
+          <Spinner color="red"/>
+          <Spinner color="green"/>
+          <Spinner color="blue"/>
         </Content>
       </Container>
     );

@@ -1,9 +1,8 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Container, Header, Title, Content, Button, Icon, List, ListItem, CheckBox, Text} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Button, Icon, List, ListItem, CheckBox, Text } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 class NHCheckbox extends Component {
@@ -53,26 +52,26 @@ class NHCheckbox extends Component {
           <Title>Check Box</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
         <Content>
           <List>
             <ListItem button onPress={() => this.toggleSwitch1()}>
-              <CheckBox checked={this.state.checkbox1} onPress={() => this.toggleSwitch1()} />
+              <CheckBox checked={this.state.checkbox1} onPress={() => this.toggleSwitch1()}/>
               <Text>Lunch Break</Text>
             </ListItem>
             <ListItem button onPress={() => this.toggleSwitch2()}>
-              <CheckBox checked={this.state.checkbox2} onPress={() => this.toggleSwitch2()} />
+              <CheckBox checked={this.state.checkbox2} onPress={() => this.toggleSwitch2()}/>
               <Text>Daily Stand Up</Text>
             </ListItem>
             <ListItem button onPress={() => this.toggleSwitch3()}>
-              <CheckBox checked={this.state.checkbox3} onPress={() => this.toggleSwitch3()} />
+              <CheckBox checked={this.state.checkbox3} onPress={() => this.toggleSwitch3()}/>
               <Text>Finish list Screen</Text>
             </ListItem>
             <ListItem button onPress={() => this.toggleSwitch4()}>
-              <CheckBox checked={this.state.checkbox4} onPress={() => this.toggleSwitch4()} />
+              <CheckBox checked={this.state.checkbox4} onPress={() => this.toggleSwitch4()}/>
               <Text>Discussion with Client</Text>
             </ListItem>
           </List>

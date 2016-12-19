@@ -1,15 +1,15 @@
 import color from 'color';
 
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 
 export default {
 
-    // Badge
+  // Badge
   badgeBg: '#ED1727',
   badgeColor: '#fff',
 
 
-    // Button
+  // Button
   btnFontFamily: (Platform.OS === 'ios') ? 'HelveticaNeue' : 'Roboto_medium',
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
@@ -46,7 +46,7 @@ export default {
   },
   get btnTextSize() {
     return (Platform.OS === 'ios') ? this.fontSizeBase * 1.1 :
-        this.fontSizeBase - 1;
+    this.fontSizeBase - 1;
   },
   get btnTextSizeLarge() {
     return this.fontSizeBase * 1.5;
@@ -68,7 +68,7 @@ export default {
   },
 
 
-    // Card
+  // Card
   cardDefaultBg: '#fff',
 
 

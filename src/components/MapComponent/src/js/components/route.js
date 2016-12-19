@@ -5,36 +5,36 @@ var WayPoints = require('../containers/way-points');
 
 class Route extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    handleRouteNameChange(newName) {
-        this.props.onNameChange(this.props.route.id, newName);
-    }
+  handleRouteNameChange(newName) {
+    this.props.onNameChange(this.props.route.id, newName);
+  }
 
 
-    renderRouteName() {
-        var route = this.props.route;
-        return (
-            <div className="route-name">
-                <EditableText
-                    onSave={this.handleRouteNameChange.bind(this)}
-                    value={route.name}/>
-            </div>
-        )
-    }
+  renderRouteName() {
+    var route = this.props.route;
+    return (
+      <div className="route-name">
+        <EditableText
+          onSave={this.handleRouteNameChange.bind(this)}
+          value={route.name}/>
+      </div>
+    )
+  }
 
-    render() {
-        var route = this.props.route;
-        return (
-            <div className={'route'}>
-                <RouteInfo route={route}/>
-                <WayPoints route={route} mapService={this.props.mapService}/>
-            </div>
-        )
+  render() {
+    var route = this.props.route;
+    return (
+      <div className={'route'}>
+        <RouteInfo route={route}/>
+        <WayPoints route={route} mapService={this.props.mapService}/>
+      </div>
+    )
 
-    }
+  }
 }
 
 module.exports = Route;

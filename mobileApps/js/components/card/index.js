@@ -1,10 +1,9 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 const {
@@ -22,7 +21,7 @@ class NHCard extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('card', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('card', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -32,7 +31,7 @@ class NHCard extends Component {
           <Title>Card</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
@@ -40,7 +39,8 @@ class NHCard extends Component {
           <Button block style={styles.mb} onPress={() => this.replaceAt('cardList')}>Card List</Button>
           <Button block style={styles.mb} onPress={() => this.replaceAt('cardImage')}>Card Image</Button>
           <Button block style={styles.mb} onPress={() => this.replaceAt('cardShowcase')}>Card Showcase</Button>
-          <Button block style={styles.mb} onPress={() => this.replaceAt('cardHeaderAndFooter')}>Card Header & Footer</Button>
+          <Button block style={styles.mb} onPress={() => this.replaceAt('cardHeaderAndFooter')}>Card Header &
+            Footer</Button>
         </Content>
       </Container>
     );

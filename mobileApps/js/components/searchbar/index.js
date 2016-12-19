@@ -1,9 +1,8 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Container, Header, Button, Icon, InputGroup, Input, Content} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Header, Button, Icon, InputGroup, Input, Content } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 class NHSearchbar extends Component { // eslint-disable-line
@@ -17,9 +16,9 @@ class NHSearchbar extends Component { // eslint-disable-line
       <Container style={styles.container}>
         <Header searchBar rounded>
           <InputGroup>
-            <Icon name="ios-search" />
-            <Input placeholder="Search" />
-            <Icon name="ios-people" />
+            <Icon name="ios-search"/>
+            <Input placeholder="Search"/>
+            <Icon name="ios-people"/>
           </InputGroup>
           <Button transparent>
             Search

@@ -1,23 +1,18 @@
-span
-{
-	capitalize:capitalize;
-}
-.tiles
-{
-	span
-	{
-	font-size:2em;
-	}
+span {
+  capitalize: capitalize;
 }
 
-@media (max-width:480px)
-{
-	.tiles span
-	{
-	font-size:1em !important;
-	}
-	.tiles
-	{
-	padding:4px !important;
-	}
+.tiles {
+  span {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .tiles span {
+    font-size: 1em !important;
+  }
+  .tiles {
+    padding: 4px !important;
+  }
 }

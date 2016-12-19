@@ -1,9 +1,8 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Container, Header, Title, Content, Button, Icon, Badge} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Button, Icon, Badge } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 class NHBadge extends Component { //eslint-disable-line
@@ -19,7 +18,7 @@ class NHBadge extends Component { //eslint-disable-line
           <Title>Badge</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
@@ -34,11 +33,11 @@ class NHBadge extends Component { //eslint-disable-line
             primary
             style={styles.mb}
           >
-            <Icon name="ios-star" style={{ fontSize: 12, color: '#fff', lineHeight: 14 }} />
+            <Icon name="ios-star" style={{fontSize: 12, color: '#fff', lineHeight: 14}}/>
           </Badge>
           <Badge
-            style={{ backgroundColor: 'black' }}
-            textStyle={{ color: 'white' }}
+            style={{backgroundColor: 'black'}}
+            textStyle={{color: 'white'}}
           >
             1866
           </Badge>

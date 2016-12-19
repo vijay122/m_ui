@@ -1,10 +1,9 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 const {
@@ -22,7 +21,7 @@ class NHList extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('list', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('list', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -32,7 +31,7 @@ class NHList extends Component {
           <Title>List</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 

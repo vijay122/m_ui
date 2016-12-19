@@ -1,8 +1,7 @@
-
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail } from 'native-base';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail} from 'native-base';
 
 import styles from './styles';
 
@@ -27,7 +26,7 @@ class NHListAvatar extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('listAvatar', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('listAvatar', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -35,7 +34,7 @@ class NHListAvatar extends Component {
       <Container style={styles.container}>
         <Header>
           <Button transparent onPress={() => this.replaceAt('list')}>
-            <Icon name="ios-arrow-back" />
+            <Icon name="ios-arrow-back"/>
           </Button>
 
           <Title>List Avatar</Title>
@@ -44,32 +43,32 @@ class NHListAvatar extends Component {
         <Content>
           <List>
             <ListItem>
-              <Thumbnail source={pratik} />
+              <Thumbnail source={pratik}/>
               <Text>Kumar Pratik</Text>
               <Text note>Doing what you like will always keep you happy . .</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail source={sanket} />
+              <Thumbnail source={sanket}/>
               <Text>Kumar Sanket</Text>
               <Text note>Life is one time offer! Use it well</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail source={megha} />
+              <Thumbnail source={megha}/>
               <Text>Megha</Text>
               <Text note>Problems follow you, only because you have the ability to solve them</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail source={atul} />
+              <Thumbnail source={atul}/>
               <Text>Atul Ranjan</Text>
               <Text note>Difficult road always lead to a beautiful destination</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail source={saurabh} />
+              <Thumbnail source={saurabh}/>
               <Text>Saurabh</Text>
               <Text note>Failure is the stepping stone for success</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail source={varun} />
+              <Thumbnail source={varun}/>
               <Text>Varun</Text>
               <Text note>Wish I had a Time machine . .</Text>
             </ListItem>

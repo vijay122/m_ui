@@ -1,8 +1,7 @@
-
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text } from 'native-base';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon, Card, CardItem, Text} from 'native-base';
 
 import styles from './styles';
 
@@ -20,7 +19,7 @@ class NHCardList extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('cardList', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('cardList', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -28,36 +27,36 @@ class NHCardList extends Component {
       <Container style={styles.container}>
         <Header>
           <Button transparent onPress={() => this.replaceAt('card')}>
-            <Icon name="ios-arrow-back" />
+            <Icon name="ios-arrow-back"/>
           </Button>
 
           <Title>Card List</Title>
         </Header>
 
         <Content padder>
-          <Card style={[styles.mb, { flex: 0 }]}>
+          <Card style={[styles.mb, {flex: 0}]}>
             <CardItem>
-              <Icon name="logo-googleplus" style={{ color: '#DD5044' }} />
+              <Icon name="logo-googleplus" style={{color: '#DD5044'}}/>
               <Text>Google Plus</Text>
             </CardItem>
             <CardItem>
-              <Icon name="logo-facebook" style={{ color: '#3B579D' }} />
+              <Icon name="logo-facebook" style={{color: '#3B579D'}}/>
               <Text>Facebook</Text>
             </CardItem>
             <CardItem>
-              <Icon name="logo-twitter" style={{ color: '#55ACEE' }} />
+              <Icon name="logo-twitter" style={{color: '#55ACEE'}}/>
               <Text>Twitter</Text>
             </CardItem>
             <CardItem>
-              <Icon name="logo-reddit" style={{ color: '#FF4500' }} />
+              <Icon name="logo-reddit" style={{color: '#FF4500'}}/>
               <Text>Reddit</Text>
             </CardItem>
             <CardItem>
-              <Icon name="logo-linkedin" style={{ color: '#007BB6' }} />
+              <Icon name="logo-linkedin" style={{color: '#007BB6'}}/>
               <Text>LinkedIn</Text>
             </CardItem>
             <CardItem>
-              <Icon name="logo-youtube" style={{ color: '#D62727' }} />
+              <Icon name="logo-youtube" style={{color: '#D62727'}}/>
               <Text>YouTube</Text>
             </CardItem>
           </Card>

@@ -1,10 +1,9 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Image} from 'react-native';
+import {Container, Header, Title, Button, Icon, View, DeckSwiper, Card, CardItem, Thumbnail, Text} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Image } from 'react-native';
-import { Container, Header, Title, Button, Icon, View, DeckSwiper, Card, CardItem, Thumbnail, Text } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 const cardOne = require('../../../img/swiper-1.png');
@@ -48,25 +47,25 @@ class NHDeckSwiper extends Component {  // eslint-disable-line
           <Title>Deck Swiper</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
-        <View padder >
+        <View padder>
           <DeckSwiper
             dataSource={cards}
             renderItem={item =>
-              <Card style={{ elevation: 3 }}>
+              <Card style={{elevation: 3}}>
                 <CardItem>
-                  <Thumbnail source={item.image} />
+                  <Thumbnail source={item.image}/>
                   <Text>{item.text}</Text>
                   <Text note>NativeBase</Text>
                 </CardItem>
                 <CardItem>
-                  <Image style={{ resizeMode: 'cover', width: null }} source={item.image} />
+                  <Image style={{resizeMode: 'cover', width: null}} source={item.image}/>
                 </CardItem>
                 <CardItem>
-                  <Icon name={'ios-heart'} style={{ color: '#ED4A6A' }} />
+                  <Icon name={'ios-heart'} style={{color: '#ED4A6A'}}/>
                   <Text>{item.name}</Text>
                 </CardItem>
               </Card>

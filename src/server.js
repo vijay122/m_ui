@@ -12,9 +12,9 @@ import Html from './helpers/Html';
 import PrettyError from 'pretty-error';
 import http from 'http';
 
-import { match } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
+import {match} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
+import {ReduxAsyncConnect, loadOnServer} from 'redux-async-connect';
 import createHistory from 'react-router/lib/createMemoryHistory';
 import {Provider} from 'react-redux';
 import getRoutes from './routes';
@@ -82,7 +82,11 @@ app.use((req, res) => {
     return;
   }
 
-  match({ syncedHistory, routes: getRoutes(store), location: req.originalUrl }, (error, redirectLocation, renderProps) => {
+  match({
+    syncedHistory,
+    routes: getRoutes(store),
+    location: req.originalUrl
+  }, (error, redirectLocation, renderProps) => {
     if (redirectLocation) {
       res.redirect(redirectLocation.pathname + redirectLocation.search);
     } else if (error) {
@@ -102,7 +106,8 @@ app.use((req, res) => {
         global.navigator = {userAgent: req.headers['user-agent']};
 
         res.send('<!doctype html>\n' +
-          ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} component={component} store={store}/>));
+          ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} component={component}
+                                        store={store}/>));
       });
     } else {
       res.status(404).send('Not found');
@@ -111,14 +116,14 @@ app.use((req, res) => {
 });
 
 if (config.port) {
-  server.listen(process.env.PORT||config.port, (err) => {
+  server.listen(process.env.PORT || config.port, (err) => {
     if (err) {
       console.error(err);
     }
-    console.info("node env : "+process.env.NODE_ENV);
+    console.info("node env : " + process.env.NODE_ENV);
     console.info('----\n==> ✅  %s is running, talking to API server on %s.', config.app.title, config.apiPort);
     console.info('==> 💻  Open http://%s:%s in a browser to view the app.', config.host, config.port);
-      console.info('==> 💻 Po service targetUrl.', config.host, process.env.Svc);
+    console.info('==> 💻 Po service targetUrl.', config.host, process.env.Svc);
   });
 } else {
   console.error('==>     ERROR: No PORT server.js environment variable has been specified');

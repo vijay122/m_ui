@@ -6,7 +6,7 @@
     top: 5px;
     left: 5px;
     display: inline-block;
-   // background: #2d2d2d url('../Home/logo.png') no-repeat center center;
+    // background: #2d2d2d url('../Home/logo.png') no-repeat center center;
     width: $size;
     height: $size;
     background-size: 80%;
@@ -18,102 +18,97 @@
     line-height: 20px;
   }
 }
-.insightsBar{
-border-top:5px solid #457DBB;
-  background-color:#5CB8DB;
-// background-color:#36b8e9;
-  color:white !important;
-  height:60px;
-  border-bottom:2px solid #457DBB;
+
+.insightsBar {
+  border-top: 5px solid #457DBB;
+  background-color: #5CB8DB;
+  // background-color:#36b8e9;
+  color: white !important;
+  height: 60px;
+  border-bottom: 2px solid #457DBB;
 }
 
-.insightsBar___xoTIV > container
-{
-  background-color:#5CB8DB;
+.insightsBar___xoTIV > container {
+  background-color: #5CB8DB;
 }
+
 .appContent {
-top:100px;
+  top: 100px;
   margin: 50px 0; // for fixed navbar
 
-  align:center;
-
+  align: center;
 
 }
-.pageContainer
-{
-  margin:auto;
-  width:90%;
+
+.pageContainer {
+  margin: auto;
+  width: 90%;
 }
-.gradient{
+
+.gradient {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-     color: white;
-    opacity: 0.95;
-}
-.ltBadge
-{
-    background-color: cornflowerblue;
-    font-size: larger;
+  color: white;
+  opacity: 0.95;
 }
 
+.ltBadge {
+  background-color: cornflowerblue;
+  font-size: larger;
+}
 
 .pink {
-    background-image: -webkit-linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
-    background-image: -moz-linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
-    background-image: -o-linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
-    background-image: -ms-linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
-    background-image: linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f78297', EndColorStr='#f46677');
- 
-    border:1px solid #ce4f5e;
+  background-image: -webkit-linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
+  background-image: -moz-linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
+  background-image: -o-linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
+  background-image: -ms-linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
+  background-image: linear-gradient(top, rgb(247, 130, 151), rgb(244, 102, 119));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f78297', EndColorStr='#f46677');
 
-    position:absolute;
-    top:-2em;
-    right: 0.5em;
- 
-    width: 1.5em;
-    height: 1.5em;
- 
-    line-height:1.5em;
-    text-align:center;
- 
-    ont-family:'Helvetica Neue', Helvetica, sans-serif;
-    font-weight:bold;
-    color:#fff;
-    text-shadow:0px 1px 0px rgba(0,0,0,.15);
- 
-    -webkit-box-shadow:
-        inset 0px 1px 0px rgba(255,255,255,35),
-        0px 1px 1px rgba(0,0,0,.2);
-    -moz-box-shadow:
-        inset 0px 1px 0px rgba(255,255,255,.35),
-        0px 1px 1px rgba(0,0,0,.2);
-    box-shadow:
-        inset 0px 1px 0px rgba(255,255,255,.35),
-        0px 1px 1px rgba(0,0,0,.2);
- 
-    -webkit-border-radius:4em;
-    -moz-border-radius:4em;
-    border-radius:4em;
- 
-    opacity:0;
-filter: alpha(opacity=0);
- 
-    -webkit-transition: .3s top ease-in, .3s opacity ease-in;
-    -moz-transition: .3s top ease-in, .3s opacity ease-in;
-    -o-transition: .3s top ease-in, .3s opacity ease-in;
-    -ms-transition: .3s top ease-in, .3s opacity ease-in;
-    transition: .3s top ease-in, .3s opacity ease-in;
+  border: 1px solid #ce4f5e;
+
+  position: absolute;
+  top: -2em;
+  right: 0.5em;
+
+  width: 1.5em;
+  height: 1.5em;
+
+  line-height: 1.5em;
+  text-align: center;
+
+  ont-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, .15);
+
+  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 35),
+  0px 1px 1px rgba(0, 0, 0, .2);
+  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, .35),
+  0px 1px 1px rgba(0, 0, 0, .2);
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, .35),
+  0px 1px 1px rgba(0, 0, 0, .2);
+
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+
+  opacity: 0;
+  filter: alpha(opacity=0);
+
+  -webkit-transition: .3s top ease-in, .3s opacity ease-in;
+  -moz-transition: .3s top ease-in, .3s opacity ease-in;
+  -o-transition: .3s top ease-in, .3s opacity ease-in;
+  -ms-transition: .3s top ease-in, .3s opacity ease-in;
+  transition: .3s top ease-in, .3s opacity ease-in;
 }
 
-@media (max-width:480px)
-{
-  .pageContainer
-{
-  width:100%;
-}
-.insightsBar{
-position:relative !important;
-}
+@media (max-width: 480px) {
+  .pageContainer {
+    width: 100%;
+  }
+  .insightsBar {
+    position: relative !important;
+  }
 }
 
 

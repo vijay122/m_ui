@@ -1,8 +1,7 @@
-
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, List, ListItem, Text } from 'native-base';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon, List, ListItem, Text} from 'native-base';
 
 import styles from './styles';
 
@@ -20,7 +19,7 @@ class NHListDivider extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('listDivider', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('listDivider', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -28,7 +27,7 @@ class NHListDivider extends Component {
       <Container style={styles.container}>
         <Header>
           <Button transparent onPress={() => this.replaceAt('list')}>
-            <Icon name="ios-arrow-back" />
+            <Icon name="ios-arrow-back"/>
           </Button>
 
           <Title>List Divider</Title>

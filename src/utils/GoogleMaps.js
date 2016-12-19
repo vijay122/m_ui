@@ -31,7 +31,7 @@ export default {
     const script = document.createElement('script');
     script.setAttribute('src', src);
     document.head.appendChild(script);
-   // this.appended = true;
+    // this.appended = true;
   },
 
   mapsCallback() {

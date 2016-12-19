@@ -1,10 +1,9 @@
+import React, {Component} from 'react';
+import {Platform} from 'react-native';
+import {connect} from 'react-redux';
+import {Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, View} from 'native-base';
 
-import React, { Component } from 'react';
-import { Platform } from 'react-native';
-import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, View } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
@@ -24,7 +23,7 @@ class NHButton extends Component {  //eslint-disable-line
           <Title>Button</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
@@ -73,7 +72,7 @@ class NHButton extends Component {  //eslint-disable-line
             </CardItem>
           </Card>
 
-          <Card style={[styles.mb20, { flex: 0 }]}>
+          <Card style={[styles.mb20, {flex: 0}]}>
             <CardItem header>
               <Text>Outline Button</Text>
             </CardItem>
@@ -86,7 +85,7 @@ class NHButton extends Component {  //eslint-disable-line
             </CardItem>
           </Card>
 
-          <Card style={[styles.mb20, { flex: 0 }]}>
+          <Card style={[styles.mb20, {flex: 0}]}>
             <CardItem header>
               <Text>Button Size</Text>
             </CardItem>
@@ -97,89 +96,89 @@ class NHButton extends Component {  //eslint-disable-line
             </CardItem>
           </Card>
 
-          <Card style={[styles.mb20, { flex: 0 }]}>
+          <Card style={[styles.mb20, {flex: 0}]}>
             <CardItem header>
               <Text>Icon Button</Text>
             </CardItem>
             <CardItem>
               <View style={styles.buttonContainer}>
                 <Button transparent>
-                  <Icon name="ios-arrow-back" style={styles.iconButton} />
+                  <Icon name="ios-arrow-back" style={styles.iconButton}/>
                 </Button>
                 <Button transparent>
-                  <Icon name="ios-arrow-down" style={styles.iconButton} />
+                  <Icon name="ios-arrow-down" style={styles.iconButton}/>
                 </Button>
                 <Button transparent>
-                  <Icon name="ios-arrow-up" style={styles.iconButton} />
+                  <Icon name="ios-arrow-up" style={styles.iconButton}/>
                 </Button>
                 <Button transparent>
-                  <Icon name="ios-arrow-forward" style={styles.iconButton} />
+                  <Icon name="ios-arrow-forward" style={styles.iconButton}/>
                 </Button>
               </View>
               <View style={styles.buttonContainer}>
                 <Button transparent style={styles.margin}>
-                  <Icon name="ios-undo-outline" style={styles.iconButton} />
+                  <Icon name="ios-undo-outline" style={styles.iconButton}/>
                 </Button>
                 <Button transparent style={styles.margin}>
-                  <Icon name="ios-refresh-circle-outline" style={styles.iconButton} />
+                  <Icon name="ios-refresh-circle-outline" style={styles.iconButton}/>
                 </Button>
                 <Button transparent style={styles.margin}>
-                  <Icon name="ios-share-outline" style={styles.iconButton} />
+                  <Icon name="ios-share-outline" style={styles.iconButton}/>
                 </Button>
                 <Button transparent style={styles.margin}>
-                  <Icon name="ios-close-circle-outline" style={styles.iconButton} />
+                  <Icon name="ios-close-circle-outline" style={styles.iconButton}/>
                 </Button>
               </View>
               <View style={styles.buttonContainer}>
                 <Button transparent style={styles.margin}>
-                  <Icon name="ios-fastforward-outline" style={styles.iconButton} />
+                  <Icon name="ios-fastforward-outline" style={styles.iconButton}/>
                 </Button>
                 <Button transparent style={styles.margin}>
-                  <Icon name="ios-play" style={styles.iconButton} />
+                  <Icon name="ios-play" style={styles.iconButton}/>
                 </Button>
                 <Button transparent style={styles.margin}>
-                  <Icon name="ios-pause" style={styles.iconButton} />
+                  <Icon name="ios-pause" style={styles.iconButton}/>
                 </Button>
                 <Button transparent style={styles.margin}>
-                  <Icon name="ios-rewind-outline" style={styles.iconButton} />
+                  <Icon name="ios-rewind-outline" style={styles.iconButton}/>
                 </Button>
               </View>
               <View style={styles.buttonContainer}>
                 <Button style={styles.margin}>
-                  <Icon name="ios-bluetooth" />
+                  <Icon name="ios-bluetooth"/>
                 </Button>
                 <Button style={styles.margin}>
-                  <Icon name="ios-wifi" />
+                  <Icon name="ios-wifi"/>
                 </Button>
                 <Button style={styles.margin}>
-                  <Icon name="md-plane" />
+                  <Icon name="md-plane"/>
                 </Button>
               </View>
-              <View style={[styles.buttonContainer, { marginTop: 20 }]}>
-                <Button bordered style={[styles.margin, { borderColor: '#fff' }]}>
-                  <Icon name="ios-thumbs-up" />
+              <View style={[styles.buttonContainer, {marginTop: 20}]}>
+                <Button bordered style={[styles.margin, {borderColor: '#fff'}]}>
+                  <Icon name="ios-thumbs-up"/>
                   Like
                 </Button>
-                <Button bordered style={[styles.margin, { borderColor: '#fff' }]}>
-                  <Icon name="ios-chatboxes" />
+                <Button bordered style={[styles.margin, {borderColor: '#fff'}]}>
+                  <Icon name="ios-chatboxes"/>
                   Comment
                 </Button>
-                <Button bordered style={[styles.margin, { borderColor: '#fff' }]}>
-                  <Icon name="ios-share-alt" />
+                <Button bordered style={[styles.margin, {borderColor: '#fff'}]}>
+                  <Icon name="ios-share-alt"/>
                   Share
                 </Button>
               </View>
               <View style={styles.buttonContainer}>
-                <Button bordered style={[styles.margin, { borderColor: '#fff' }]}>
-                  <Icon name="ios-create-outline" />
+                <Button bordered style={[styles.margin, {borderColor: '#fff'}]}>
+                  <Icon name="ios-create-outline"/>
                   Status
                 </Button>
-                <Button bordered style={[styles.margin, { borderColor: '#fff' }]}>
-                  <Icon name="ios-camera" />
+                <Button bordered style={[styles.margin, {borderColor: '#fff'}]}>
+                  <Icon name="ios-camera"/>
                   Photo
                 </Button>
-                <Button bordered style={[styles.margin, { borderColor: '#fff' }]}>
-                  <Icon name="ios-pin" />
+                <Button bordered style={[styles.margin, {borderColor: '#fff'}]}>
+                  <Icon name="ios-pin"/>
                   Check In
                 </Button>
               </View>

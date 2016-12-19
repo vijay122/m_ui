@@ -1,9 +1,8 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Container, Header, Title, View, Button, Icon, Tabs} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Header, Title, View, Button, Icon, Tabs } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import myTheme from '../../themes/base-theme';
 
 import TabOne from './tabOne';
@@ -18,18 +17,18 @@ class NHTabs extends Component {  // eslint-disable-line
   render() {
     return (
       <Container theme={myTheme}>
-        <Header style={{ elevation: 0 }}>
+        <Header style={{elevation: 0}}>
           <Title>LivelyTrips</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
         <View>
           <Tabs locked>
-            <TabOne tabLabel="Features" />
-            <TabTwo tabLabel="About" />
+            <TabOne tabLabel="Features"/>
+            <TabTwo tabLabel="About"/>
           </Tabs>
         </View>
       </Container>

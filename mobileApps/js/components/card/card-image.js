@@ -1,9 +1,8 @@
-
-import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail, View } from 'native-base';
+import React, {Component} from 'react';
+import {Image} from 'react-native';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail, View} from 'native-base';
 
 import styles from './styles';
 
@@ -24,7 +23,7 @@ class NHCardImage extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('cardImage', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('cardImage', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -32,36 +31,36 @@ class NHCardImage extends Component {
       <Container style={styles.container}>
         <Header>
           <Button transparent onPress={() => this.replaceAt('card')}>
-            <Icon name="ios-arrow-back" />
+            <Icon name="ios-arrow-back"/>
           </Button>
 
           <Title>Card Image</Title>
         </Header>
 
         <Content padder>
-          <Card style={[styles.mb, { flex: 0 }]}>
+          <Card style={[styles.mb, {flex: 0}]}>
             <CardItem>
-              <Thumbnail source={logo} />
+              <Thumbnail source={logo}/>
               <Text>NativeBase</Text>
               <Text note>GeekyAnts</Text>
             </CardItem>
 
             <CardItem>
-              <Image style={{ resizeMode: 'cover', width: null }} source={cardImage} />
+              <Image style={{resizeMode: 'cover', width: null}} source={cardImage}/>
             </CardItem>
 
             <CardItem>
-              <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+              <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Button transparent>
-                  <Icon name="logo-github" />
+                  <Icon name="logo-github"/>
                   1,926
                 </Button>
                 <Button transparent>
-                  <Icon name="ios-git-network" />
+                  <Icon name="ios-git-network"/>
                   132
                 </Button>
                 <Button transparent>
-                  <Icon name="logo-twitter" />
+                  <Icon name="logo-twitter"/>
                   197
                 </Button>
               </View>

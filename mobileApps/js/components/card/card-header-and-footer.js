@@ -1,8 +1,7 @@
-
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text } from 'native-base';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon, Card, CardItem, Text} from 'native-base';
 
 import styles from './styles';
 
@@ -20,7 +19,7 @@ class NHCardHeaderAndFooter extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('cardHeaderAndFooter', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('cardHeaderAndFooter', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -28,7 +27,7 @@ class NHCardHeaderAndFooter extends Component {
       <Container style={styles.container}>
         <Header>
           <Button transparent onPress={() => this.replaceAt('card')}>
-            <Icon name="ios-arrow-back" />
+            <Icon name="ios-arrow-back"/>
           </Button>
 
           <Title>Card Header & Footer</Title>

@@ -1,9 +1,8 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Container, Header, Title, Content, Button, Icon, Thumbnail, Text, View} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Button, Icon, Thumbnail, Text, View } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 const imgOne = require('../../../img/swiper-1.png');
@@ -22,19 +21,19 @@ class NHThumbnail extends Component { // eslint-disable-line
           <Title>Thumbnail</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
         <Content padder>
-          <View style={{ flex: 1, alignItems: 'center' }}>
+          <View style={{flex: 1, alignItems: 'center'}}>
             <Text style={styles.mb10}>Square Thumbnail</Text>
-            <Thumbnail square source={imgOne} style={styles.mb10} />
-            <Thumbnail square size={80} source={imgOne} style={styles.mb35} />
+            <Thumbnail square source={imgOne} style={styles.mb10}/>
+            <Thumbnail square size={80} source={imgOne} style={styles.mb35}/>
 
             <Text style={styles.mb10}>Circular Thumbnail</Text>
-            <Thumbnail source={imgTwo} style={{ marginBottom: 8 }} />
-            <Thumbnail size={80} source={imgTwo} />
+            <Thumbnail source={imgTwo} style={{marginBottom: 8}}/>
+            <Thumbnail size={80} source={imgTwo}/>
           </View>
         </Content>
       </Container>

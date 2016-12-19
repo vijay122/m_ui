@@ -1,8 +1,7 @@
-
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail } from 'native-base';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail} from 'native-base';
 
 import styles from './styles';
 
@@ -26,7 +25,7 @@ class NHListThumbnail extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('listThumbnail', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('listThumbnail', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -34,7 +33,7 @@ class NHListThumbnail extends Component {
       <Container style={styles.container}>
         <Header>
           <Button transparent onPress={() => this.replaceAt('list')}>
-            <Icon name="ios-arrow-back" />
+            <Icon name="ios-arrow-back"/>
           </Button>
 
           <Title>List Thumbnail</Title>
@@ -43,52 +42,52 @@ class NHListThumbnail extends Component {
         <Content>
           <List>
             <ListItem>
-              <Thumbnail square size={80} source={sankhadeep} />
+              <Thumbnail square size={80} source={sankhadeep}/>
               <Text>Sankhadeep</Text>
               <Text note>Its time to build a difference . .</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={supriya} />
+              <Thumbnail square size={80} source={supriya}/>
               <Text>Supriya</Text>
               <Text note>One needs courage to be happy and smiling all time . . </Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={himanshu} />
+              <Thumbnail square size={80} source={himanshu}/>
               <Text>Himanshu</Text>
               <Text note>Live a life style that matchs your vision</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shweta} />
+              <Thumbnail square size={80} source={shweta}/>
               <Text>Shweta</Text>
               <Text note>Failure is temporary, giving up makes it permanent</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shruti} />
+              <Thumbnail square size={80} source={shruti}/>
               <Text>Shruti</Text>
               <Text note>The biggest risk is a missed opportunity !!</Text>
             </ListItem>
-             <ListItem>
-              <Thumbnail square size={80} source={sankhadeep} />
+            <ListItem>
+              <Thumbnail square size={80} source={sankhadeep}/>
               <Text>Sankhadeep</Text>
               <Text note>Its time to build a difference . .</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={supriya} />
+              <Thumbnail square size={80} source={supriya}/>
               <Text>Supriya</Text>
               <Text note>One needs courage to be happy and smiling all time . . </Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={himanshu} />
+              <Thumbnail square size={80} source={himanshu}/>
               <Text>Himanshu</Text>
               <Text note>Live a life style that matchs your vision</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shweta} />
+              <Thumbnail square size={80} source={shweta}/>
               <Text>Shweta</Text>
               <Text note>Failure is temporary, giving up makes it permanent</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shruti} />
+              <Thumbnail square size={80} source={shruti}/>
               <Text>Shruti</Text>
               <Text note>The biggest risk is a missed opportunity !!</Text>
             </ListItem>

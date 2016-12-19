@@ -16,29 +16,29 @@ let APIService = require('./services/api');
 
 class App extends React.Component {
 
-    componentWillMount() {
-        APIService.initMapService(this.props.mapService);
-    }
+  componentWillMount() {
+    APIService.initMapService(this.props.mapService);
+  }
 
-    render() {
-        return (
+  render() {
+    return (
 
-                <div className="route-planner">
-                    <header>
-                        <h1>Route Planner</h1>
-                        <ul>
-                            <li>
-                                <a href="https://github.com/vraa/route-planner">Source</a>
-                            </li>
-                            <li>
-                                Built by  <a href="http://veerasundar.com">Veera</a>
-                            </li>
-                        </ul>
-                    </header>
-                    <Routes mapService={this.props.mapService}/>
-                </div>
-        )
-    }
+      <div className="route-planner">
+        <header>
+          <h1>Route Planner</h1>
+          <ul>
+            <li>
+              <a href="https://github.com/vraa/route-planner">Source</a>
+            </li>
+            <li>
+              Built by <a href="http://veerasundar.com">Veera</a>
+            </li>
+          </ul>
+        </header>
+        <Routes mapService={this.props.mapService}/>
+      </div>
+    )
+  }
 }
 
 module.exports = App;

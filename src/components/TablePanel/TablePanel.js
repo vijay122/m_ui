@@ -1,5 +1,7 @@
 import React from 'react';
-import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn}
+import {
+  Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn
+}
   from 'material-ui/Table';
 
 const styles = {
@@ -99,7 +101,7 @@ export default class TableExampleComplex extends React.Component {
               <TableHeaderColumn tooltip="The ID">ID</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
-                <TableHeaderColumn tooltip="roles">Roles</TableHeaderColumn>
+              <TableHeaderColumn tooltip="roles">Roles</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -107,15 +109,15 @@ export default class TableExampleComplex extends React.Component {
             deselectOnClickaway={this.state.deselectOnClickaway}
             showRowHover={this.state.showRowHover}
             stripedRows={this.state.stripedRows}>
-            {tableData!= undefined && tableData.length>0 && tableData.map( (row, index) => (
+            {tableData != undefined && tableData.length > 0 && tableData.map((row, index) => (
               <TableRow key={index} selected={row.selected}>
                 <TableRowColumn>{index}</TableRowColumn>
                 <TableRowColumn>{row.name}</TableRowColumn>
                 <TableRowColumn>{row.status}</TableRowColumn>
-                 <TableRowColumn>{row.role}</TableRowColumn>
-                   <TableRowColumn>{row.company}</TableRowColumn>
+                <TableRowColumn>{row.role}</TableRowColumn>
+                <TableRowColumn>{row.company}</TableRowColumn>
               </TableRow>
-              ))}
+            ))}
           </TableBody>
         </Table>
       </div>

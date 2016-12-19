@@ -1,9 +1,8 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Container, Header, Title, Content, Button, Icon, H1, H2, H3, Text} from 'native-base';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Button, Icon, H1, H2, H3, Text } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 class NHTypography extends Component {  // eslint-disable-line
@@ -19,7 +18,7 @@ class NHTypography extends Component {  // eslint-disable-line
           <Title>Typography</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 

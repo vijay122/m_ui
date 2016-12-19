@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
@@ -10,7 +8,7 @@ const styles = {
     paddingTop: 16,
     marginBottom: 12,
     fontWeight: 400,
-    
+
   },
 };
 
@@ -20,7 +18,7 @@ function handleActive(tab) {
 
 const TabsExampleSimple = () => (
   <Tabs>
-    <Tab label="Item One" >
+    <Tab label="Item One">
       <div>
         <h2 style={styles.headline}>Tab One</h2>
         <p>
@@ -29,10 +27,10 @@ const TabsExampleSimple = () => (
         <p>
           You can put any sort of HTML or react component in here. It even keeps the component state!
         </p>
-        <Slider name="slider0" defaultValue={0.5} />
+        <Slider name="slider0" defaultValue={0.5}/>
       </div>
     </Tab>
-    <Tab label="Item Two" >
+    <Tab label="Item Two">
       <div>
         <h2 style={styles.headline}>Tab Two</h2>
         <p>

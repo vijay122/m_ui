@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ProgressBar from 'ProgressBarAndroid';
 import NativeBaseComponent from 'native-base/Components/Base/NativeBaseComponent';
@@ -36,7 +35,7 @@ export default class SpinnerNB extends NativeBaseComponent {
         styleAttr={this.props.size ? this.props.size : 'Large'}
         color={getColor()}
       />
-        );
+    );
   }
 
 }

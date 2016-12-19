@@ -3,9 +3,10 @@ var Slider = require('react-slick');
 import Row from 'react-bootstrap/lib/Row';
 
 export default class FullWidthSlider extends React.Component {
-   constructor(props) {
+  constructor(props) {
     super(props);
   }
+
   render() {
     ;
     var that = this;
@@ -17,19 +18,17 @@ export default class FullWidthSlider extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-   // var settings = this.props.settings;
+    // var settings = this.props.settings;
     return (
       <Slider {...settings}>
-      <Row>
-      {packagelist && packagelist.map(function(x)
-        {
-                  return(
-               <div />
-                    )
-        }
-
-        )}
-      </Row>
+        <Row>
+          {packagelist && packagelist.map(function (x) {
+              return (
+                <div />
+              )
+            }
+          )}
+        </Row>
       </Slider>
     );
   }

@@ -8,7 +8,7 @@ const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
 const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
 
- import config from '../../config';
+import config from '../../config';
 
 const initialState = {
   count: 0
@@ -16,20 +16,20 @@ const initialState = {
 
 
 export default function reducer(state = initialState, action = {}) {
- switch (action.type) {
+  switch (action.type) {
     case 'LOAD':
       return {
         ...state,
         loading: true,
-         current: action.result.id,
+        current: action.result.id,
       };
-      case 'CATEGORIES':
+    case 'CATEGORIES':
       return {
         ...state,
         loading: true,
         loaded: true,
         categorysearch: action.result,
-         error: null
+        error: null
       };
     case 'FETCH_CATEGORY':
       return {
@@ -47,99 +47,94 @@ export default function reducer(state = initialState, action = {}) {
         data: null,
         error: action.error
       };
-      case 'SET_CATEGORY_RESULTS':
+    case 'SET_CATEGORY_RESULTS':
       ;
       const newItems = action.result;
       return {
         ...state,
-         loading: false,
+        loading: false,
         loaded: true,
         getCategoryResult: newItems,
       }
-      /*
-       case 'ADD_TO_CART':
-        console.log("added ADD");
-        var cart = state.cart;
-       if( cart == undefined)
-       {
-        cart=[]; 
-       }
-       cart.push(action.result);
+    /*
+     case 'ADD_TO_CART':
+     console.log("added ADD");
+     var cart = state.cart;
+     if( cart == undefined)
+     {
+     cart=[];
+     }
+     cart.push(action.result);
      // if (state.cart.indexOf(action.result._id) !== -1) {
-      //}
-      return {...state, 
-        cart :cart }
-    case 'REMOVE_TO_CART':
-        console.log("removed ADD");
-       return {
-       // ...state.cart.pop()
-       // ...state.cart.filter(product._id => action.result.prd._id !=== product._id)
-      }
-      */
-        default:
+     //}
+     return {...state,
+     cart :cart }
+     case 'REMOVE_TO_CART':
+     console.log("removed ADD");
+     return {
+     // ...state.cart.pop()
+     // ...state.cart.filter(product._id => action.result.prd._id !=== product._id)
+     }
+     */
+    default:
       return state;
-        // here is my problem
-   // return setEntries(...state,action.result);
-    
-  //  default:
+    // here is my problem
+    // return setEntries(...state,action.result);
+
+    //  default:
     //  return state;
   }
 }
-export function getProducts(searchtable,searchby,searchvalue) {
-  try
-  {
+export function getProducts(searchtable, searchby, searchvalue) {
+  try {
     var latitude = searchvalue.coordinates[0];
     var longitude = searchvalue.coordinates[1];
-    var payload ={};
+    var payload = {};
     payload.sectionName = "search";
-    payload.lat=latitude;
- payload.lon=longitude;
- payload.findtable=searchtable;
- payload.searchby=searchby;
- payload.searchvalue=searchvalue;
-     return dispatch =>{
-    fetch(config.svc+'/getProducts', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
- payload
-    })
-    }).then(checkStatus) 
-  .then(parseJSON)
-  .then(function(data) {
-    var searchindex="";
-    if(searchtable== "Hotel")
-    {
-      searchindex = "hotels"
-    }
-     if(searchtable== "Place")
-    {
-      searchindex = "places"
-    }
-    if(searchtable== "Package")
-    {
-      searchindex = "packages"
-    }
-   var response = data[searchindex];
-  var CategoryList = Map(response.reduce(function(previous, current) { 
-    previous[ current._id ] = current;
-    return previous;
-}, {}));
+    payload.lat = latitude;
+    payload.lon = longitude;
+    payload.findtable = searchtable;
+    payload.searchby = searchby;
+    payload.searchvalue = searchvalue;
+    return dispatch => {
+      fetch(config.svc + '/getProducts', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          payload
+        })
+      }).then(checkStatus)
+        .then(parseJSON)
+        .then(function (data) {
+          var searchindex = "";
+          if (searchtable == "Hotel") {
+            searchindex = "hotels"
+          }
+          if (searchtable == "Place") {
+            searchindex = "places"
+          }
+          if (searchtable == "Package") {
+            searchindex = "packages"
+          }
+          var response = data[searchindex];
+          var CategoryList = Map(response.reduce(function (previous, current) {
+            previous[current._id] = current;
+            return previous;
+          }, {}));
 
-  dispatch({ type: 'SET_CATEGORY_RESULTS', result: CategoryList });
-   //  dispatch({ type: 'SET_DEPENDANT', result: map });
-  }).catch(function(error) {
-    console.log('request failed', error)
-  })
+          dispatch({type: 'SET_CATEGORY_RESULTS', result: CategoryList});
+          //  dispatch({ type: 'SET_DEPENDANT', result: map });
+        }).catch(function (error) {
+        console.log('request failed', error)
+      })
+    }
   }
-}
-  catch(ex)
-  {
+  catch (ex) {
   }
-   
+
 }
 
 export function load1() {
@@ -149,14 +144,13 @@ export function load1() {
   };
 }
 export function isLoaded(globalState) {
-    promise: ({store: {dispatch, getState}}) => {
+  promise: ({store: {dispatch, getState}}) => {
     if (!globalState.products.loaded) {
-      dispatch({ type: 'LOAD'});
+      dispatch({type: 'LOAD'});
       return false;
     }
-    else
-    {
- return true;
+    else {
+      return true;
     }
   }
 }
@@ -167,15 +161,14 @@ export function setEntries(state, entries) {
 }
 
 function qs(key) {
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('/') + 1).split('/');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split(':');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars[key];
+  var vars = [], hash;
+  var hashes = window.location.href.slice(window.location.href.indexOf('/') + 1).split('/');
+  for (var i = 0; i < hashes.length; i++) {
+    hash = hashes[i].split(':');
+    vars.push(hash[0]);
+    vars[hash[0]] = hash[1];
+  }
+  return vars[key];
 }
 
 function byId(state = {}, action) {
@@ -189,7 +182,7 @@ function byId(state = {}, action) {
         }, {})
       )
     default:
-      const { productId } = action
+      const {productId} = action
       if (productId) {
         return Object.assign({}, state, {
           [productId]: products(state[productId], action)
@@ -199,7 +192,7 @@ function byId(state = {}, action) {
   }
 }
 
- function getProduct(state, id) {
+function getProduct(state, id) {
   return state.byId[id]
 }
 

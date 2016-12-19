@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Grid from 'react-bootstrap/lib/Grid';
@@ -9,9 +9,9 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {bindActionCreators} from 'redux';
 import * as loginActions from '../../redux/modules/auth';
-import { TablePanel } from '../../components';
+import {TablePanel} from '../../components';
 
 const styles = {
   headline: {
@@ -22,9 +22,9 @@ const styles = {
   },
 };
 const items = [
-  <MenuItem key={1} value="standalone" primaryText="Place" />,
-  <MenuItem key={2} value="hotel" primaryText="Hotel" />,
-  <MenuItem key={3} value="event" primaryText="Event" />
+  <MenuItem key={1} value="standalone" primaryText="Place"/>,
+  <MenuItem key={2} value="hotel" primaryText="Hotel"/>,
+  <MenuItem key={3} value="event" primaryText="Event"/>
 ];
 
 function handleActive(tab) {
@@ -32,23 +32,18 @@ function handleActive(tab) {
 }
 
 
-
-
-
-export class AdditionalInfoComponent extends Component
-{
-  constructor(props)
-  {
+export class AdditionalInfoComponent extends Component {
+  constructor(props) {
     super(props);
   }
-  addNew()
-  {
+
+  addNew() {
 
   }
-  render()
-  {
-    return(<div>
-      <input type="button" onClick={this.addNew} value="Additional Field" />
+
+  render() {
+    return (<div>
+      <input type="button" onClick={this.addNew} value="Additional Field"/>
       <label>AdditionalInfo:</label>
       <textbox />
       <label>Value</label>
@@ -58,21 +53,20 @@ export class AdditionalInfoComponent extends Component
 }
 
 const InitialState =
-{
-  image:"",
-  name:"",
-  title:"",
-  latitude:"",
-  longitude:"",
-  city:"",
-  pincode:"",
-  desc:"",
-  landmark:"",
-  type:"",
-  state:"",
-  country:"",
-}
-
+  {
+    image: "",
+    name: "",
+    title: "",
+    latitude: "",
+    longitude: "",
+    city: "",
+    pincode: "",
+    desc: "",
+    landmark: "",
+    type: "",
+    state: "",
+    country: "",
+  }
 
 
 export class MyProfile extends Component {
@@ -81,13 +75,14 @@ export class MyProfile extends Component {
     super(props);
     this.state = {
       value1: 1,
-      name : this.props.auth.user.name,
-    password: this.props.auth.user.password,
-    email:this.props.auth.user.email,
-      phonenumber:this.props.auth.user.phone_number};
+      name: this.props.auth.user.name,
+      password: this.props.auth.user.password,
+      email: this.props.auth.user.email,
+      phonenumber: this.props.auth.user.phone_number
+    };
     this._create = this._create.bind(this);
     this.submitform = this.submitform.bind(this);
-   // this.handleSelect = this.handleSelect.bind(this);
+    // this.handleSelect = this.handleSelect.bind(this);
     this.validateForm = this.validateForm.bind(this);
     this.onChange = this.onChange.bind(this);
   }
@@ -96,7 +91,7 @@ export class MyProfile extends Component {
     var that = this;
     //this.state.image =this.refs['UploadImages'].state.images;
     var payload = this.state;
-    fetch(config.svc+'/updateuser',{
+    fetch(config.svc + '/updateuser', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -111,16 +106,16 @@ export class MyProfile extends Component {
     //this.setState(InitialState);
   }
 
-  ajax(url,file) {
-    return new Promise(function(resolve, reject) {
+  ajax(url, file) {
+    return new Promise(function (resolve, reject) {
       var data = new FormData();
       data.append('SelectedFile', file);
       var request = new XMLHttpRequest();
-      request.onreadystatechange = function(){
-        if(request.readyState == 4){
+      request.onreadystatechange = function () {
+        if (request.readyState == 4) {
           try {
             var resp = JSON.parse(request.response);
-          } catch (e){
+          } catch (e) {
             var resp = {
               status: 'error',
               data: 'Unknown error occurred: [' + request.responseText + ']'
@@ -149,24 +144,22 @@ export class MyProfile extends Component {
       request.send(data);
     });
   }
-  onUploadProgress()
-  {
+
+  onUploadProgress() {
 
   }
-  uploadImage(file)
-  {
+
+  uploadImage(file) {
     var that = this;
-    var images=[];
+    var images = [];
 
 
-    for(var i=0; i<this.refs["file"].files.length; i++)
-    {
+    for (var i = 0; i < this.refs["file"].files.length; i++) {
       var image = this.refs["file"].files[i];
       {
-        this.ajax(process.env.Svc+'/api/photo',image).then(function(result)
-        {
+        this.ajax(process.env.Svc + '/api/photo', image).then(function (result) {
           console.log(result);
-          var  responseObj = JSON.parse(result);
+          var responseObj = JSON.parse(result);
           images.push(responseObj.url);
 
         });
@@ -174,71 +167,64 @@ export class MyProfile extends Component {
       }
     }
   }
-  onUploadError()
-  {
+
+  onUploadError() {
 
   }
-  onUploadFinish()
-  {
+
+  onUploadFinish() {
 
   }
-  getValidationState()
-  {
-    if(this.state!=null)
-    {
+
+  getValidationState() {
+    if (this.state != null) {
 
     }
   }
-  onChange(e)
-  {
+
+  onChange(e) {
     e.preventDefault();
     var statename = e.target.attributes["data-ctrlid"].value;
     var newvalue = e.currentTarget.value;
-    this.setState({statename : newvalue});
+    this.setState({statename: newvalue});
     this.state[e.target.attributes["data-ctrlid"].value] = e.currentTarget.value;
   }
+
   componentWillReceiveProps(nextProps) {
   }
-  handleUpload()
-  {
+
+  handleUpload() {
 
   }
-  isValid(input)
-  {
-    if(input== undefined || input=="")
-    {
+
+  isValid(input) {
+    if (input == undefined || input == "") {
       return false;
     }
-    else
-    {
+    else {
       return true;
     }
   }
-  validateForm()
-  {
+
+  validateForm() {
     return true;
   }
 
-  addAdditionalInfo()
-  {
+  addAdditionalInfo() {
 
   }
 
-  getClassName()
-  {
-    if(this.text)
-    {
+  getClassName() {
+    if (this.text) {
       return 'validInput';
     }
-    else
-    {
+    else {
       return 'invalidInput';
     }
   }
-  submitform()
-  {
-    if(this.validateForm())
-    {
+
+  submitform() {
+    if (this.validateForm()) {
       this._create();
     }
 
@@ -256,7 +242,7 @@ export class MyProfile extends Component {
           <Grid>
             <form validationState={this.getValidationState}>
               <Tabs>
-                <Tab label="Item One" >
+                <Tab label="Item One">
                   <div>
                     <Row className="show-grid">
                       <Col xs={12} md={6}>
@@ -300,7 +286,7 @@ export class MyProfile extends Component {
                     </Row>
                   </div>
                 </Tab>
-                <Tab label="Item Two" >
+                <Tab label="Item Two">
                   <div>
                     <h2 style={styles.headline}>Tab Two</h2>
                     <p>
@@ -318,7 +304,7 @@ export class MyProfile extends Component {
                 </Tab>
               </Tabs>
               <Row>
-<TablePanel />
+                <TablePanel />
               </Row>
               <RaisedButton label="Submit Button" onClick={this.submitform} primary={true}/>
 
@@ -331,8 +317,8 @@ export class MyProfile extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('state '+state);
-  return { auth: state.auth }
+  console.log('state ' + state);
+  return {auth: state.auth}
 }
 
 function mapDispatchToProps(dispatch) {

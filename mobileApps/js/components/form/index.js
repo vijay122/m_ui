@@ -1,10 +1,23 @@
+import React, {Component} from 'react';
+import {TouchableOpacity} from 'react-native';
+import {connect} from 'react-redux';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Button,
+  Icon,
+  List,
+  ListItem,
+  InputGroup,
+  Input,
+  Picker,
+  Text,
+  Thumbnail
+} from 'native-base';
 
-import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Button, Icon, List, ListItem, InputGroup, Input, Picker, Text, Thumbnail } from 'native-base';
-
-import { openDrawer } from '../../actions/drawer';
+import {openDrawer} from '../../actions/drawer';
 import styles from './styles';
 
 const Item = Picker.Item;
@@ -26,6 +39,7 @@ class NHForm extends Component {
       },
     };
   }
+
   onValueChange(value: string) {
     this.setState({
       selected1: value,
@@ -39,41 +53,41 @@ class NHForm extends Component {
           <Title>Form</Title>
 
           <Button transparent onPress={this.props.openDrawer}>
-            <Icon name="ios-menu" />
+            <Icon name="ios-menu"/>
           </Button>
         </Header>
 
         <Content>
           <TouchableOpacity>
-            <Thumbnail size={80} source={camera} style={{ alignSelf: 'center', marginTop: 20, marginBottom: 10 }} />
+            <Thumbnail size={80} source={camera} style={{alignSelf: 'center', marginTop: 20, marginBottom: 10}}/>
           </TouchableOpacity>
           <List>
             <ListItem>
               <InputGroup>
-                <Input inlineLabel label="First Name" placeholder="John" />
+                <Input inlineLabel label="First Name" placeholder="John"/>
               </InputGroup>
             </ListItem>
             <ListItem>
               <InputGroup>
-                <Input inlineLabel label="Last Name" placeholder="Doe" />
+                <Input inlineLabel label="Last Name" placeholder="Doe"/>
               </InputGroup>
             </ListItem>
 
             <ListItem>
               <InputGroup>
-                <Icon name="ios-person" style={{ color: '#0A69FE' }} />
-                <Input placeholder="EMAIL" />
+                <Icon name="ios-person" style={{color: '#0A69FE'}}/>
+                <Input placeholder="EMAIL"/>
               </InputGroup>
             </ListItem>
             <ListItem>
               <InputGroup>
-                <Icon name="ios-unlock" style={{ color: '#0A69FE' }} />
-                <Input placeholder="PASSWORD" secureTextEntry />
+                <Icon name="ios-unlock" style={{color: '#0A69FE'}}/>
+                <Input placeholder="PASSWORD" secureTextEntry/>
               </InputGroup>
             </ListItem>
             <ListItem>
               <InputGroup>
-                <Icon name="ios-call" style={{ color: '#0A69FE' }} />
+                <Icon name="ios-call" style={{color: '#0A69FE'}}/>
                 <Input
                   placeholder="PHONE"
                   keyboardType="numeric"
@@ -81,7 +95,7 @@ class NHForm extends Component {
               </InputGroup>
             </ListItem>
             <ListItem iconLeft>
-              <Icon name="ios-transgender" style={{ color: '#0A69FE' }} />
+              <Icon name="ios-transgender" style={{color: '#0A69FE'}}/>
               <Text>GENDER</Text>
               <Picker
                 iosHeader="Select one"
@@ -89,19 +103,19 @@ class NHForm extends Component {
                 selectedValue={this.state.selected1}
                 onValueChange={this.onValueChange.bind(this)} // eslint-disable-line
               >
-                <Item label="Male" value="key0" />
-                <Item label="Female" value="key1" />
-                <Item label="Other" value="key2" />
+                <Item label="Male" value="key0"/>
+                <Item label="Female" value="key1"/>
+                <Item label="Other" value="key2"/>
               </Picker>
             </ListItem>
 
             <ListItem>
               <InputGroup >
-                <Input stackedLabel label="Permanent Address" placeholder="Address" />
+                <Input stackedLabel label="Permanent Address" placeholder="Address"/>
               </InputGroup>
             </ListItem>
           </List>
-          <Button style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>Sign Up</Button>
+          <Button style={{alignSelf: 'center', marginTop: 20, marginBottom: 20}}>Sign Up</Button>
         </Content>
       </Container>
     );

@@ -5,6 +5,7 @@
     margin-bottom: 15px;
   }
 }
+
 .masthead {
   background: #2d2d2d;
   padding: 40px 20px;
@@ -59,40 +60,35 @@
   margin: 20px;
 }
 
-.thumbNoBorder
-{
-  border:0px;
-  padding:0px;
+.thumbNoBorder {
+  border: 0px;
+  padding: 0px;
 }
 
-.menuitem
-{
- height:60px;
- 
-}
-.menulist
-{
-height:50px;
-padding:13px;
-border: solid 1px black;
-  text-align:center;
-}
-
-.sectionHeader
-{
-  text-align:center;
-}
-
-.muiTabs
-{
+.menuitem {
+  height: 60px;
 
 }
-.tabInfo
-{
+
+.menulist {
+  height: 50px;
+  padding: 13px;
+  border: solid 1px black;
+  text-align: center;
+}
+
+.sectionHeader {
+  text-align: center;
+}
+
+.muiTabs {
+
+}
+
+.tabInfo {
   background-color: #ffffff;
-  color:white;
+  color: white;
 }
 
-.searchbar
-{
+.searchbar {
 }

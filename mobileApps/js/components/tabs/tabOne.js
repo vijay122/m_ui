@@ -1,7 +1,6 @@
+import React, {Component} from 'react';
 
-import React, { Component } from 'react';
-
-import { Container, Content, Card, CardItem, Text, View } from 'native-base';
+import {Container, Content, Card, CardItem, Text, View} from 'native-base';
 
 import styles from './styles';
 

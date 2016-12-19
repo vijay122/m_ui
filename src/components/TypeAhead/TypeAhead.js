@@ -2,159 +2,157 @@ import React from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 import config from '../../config';
 
- const dataSourceConfig = {
+const dataSourceConfig = {
   text: 'text',
   value: 'value',
-  resultkey:"resultkey"
+  resultkey: "resultkey"
 };
 
 export default class AutoCompleteExampleSimple extends React.Component {
 
   constructor(props) {
     super(props);
-this.handleSelect= this.handleSelect.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
     this.state = {
       dataSource: [],
     };
   }
-  get= function(url) {
-  // Return a new promise.
-  return new Promise(function(resolve, reject) {
-    // Do the usual XHR stuff
-    var req = new XMLHttpRequest();
-    req.open('GET', url);
 
-    req.onload = function() {
-      // This is called even on 404 etc
-      // so check the status
-      if (req.status == 200) {
-        // Resolve the promise with the response text
-        resolve(JSON.parse(req.response));
-      }
-      else {
-        // Otherwise reject with the status text
-        // which will hopefully be a meaningful error
-        reject(Error(req.statusText));
-      }
-    };
+  get = function (url) {
+    // Return a new promise.
+    return new Promise(function (resolve, reject) {
+      // Do the usual XHR stuff
+      var req = new XMLHttpRequest();
+      req.open('GET', url);
 
-    // Handle network errors
-    req.onerror = function() {
-      reject(Error("Network Error"));
-    };
+      req.onload = function () {
+        // This is called even on 404 etc
+        // so check the status
+        if (req.status == 200) {
+          // Resolve the promise with the response text
+          resolve(JSON.parse(req.response));
+        }
+        else {
+          // Otherwise reject with the status text
+          // which will hopefully be a meaningful error
+          reject(Error(req.statusText));
+        }
+      };
 
-    // Make the request
-    req.send();
-  });
-}
+      // Handle network errors
+      req.onerror = function () {
+        reject(Error("Network Error"));
+      };
 
-  Typeahead(a,passstate) {
-    var payload={};
-  payload.searchon="Place";
-  payload.searchby="city";
-  payload.search= a;
-    return dispatch =>{
-    fetch(config.svc+'/autocomplete', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        payload
-  })
-    }).then(checkStatus)
-  .then(parseJSON)
-  .then(function(data) {
-
- })
-}
-}
-  autocomplete(a,passstate)
-{
-
-  var that = this;
-  var datalist =[];
-  var search = a;
-  var searchon =this.props.searchTable;
-  passstate.get(config.svc+'/autocomplete/'+searchon+'/'+search).then(function(response) {
-  console.log("Success!", response);
-  for(var i=0;i<response.length; i++)
-
-  {
-    var input = {};
-    input["text"] = response[i].word;
-        input["value"] =response[i].data[0];
-   // input.textKey =response[i].word;
-   // input.valueKey = response[i].data[0];
-  //  input.product = response[i].data;
-  const dataSource3 = [
-  {textKey: 'Some Text', valueKey: 'someFirstValue'},
-  {textKey: 'Some Text', valueKey: 'someSecondValue'},
-];
-datalist.push(input);
-//datalist.push(response[i].word);
+      // Make the request
+      req.send();
+    });
   }
-  passstate.setState({dataSource:dataSource3});
-}, function(error) {
-  console.error("Failed!", error);
-});
-}
+
+  Typeahead(a, passstate) {
+    var payload = {};
+    payload.searchon = "Place";
+    payload.searchby = "city";
+    payload.search = a;
+    return dispatch => {
+      fetch(config.svc + '/autocomplete', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          payload
+        })
+      }).then(checkStatus)
+        .then(parseJSON)
+        .then(function (data) {
+
+        })
+    }
+  }
+
+  autocomplete(a, passstate) {
+
+    var that = this;
+    var datalist = [];
+    var search = a;
+    var searchon = this.props.searchTable;
+    passstate.get(config.svc + '/autocomplete/' + searchon + '/' + search).then(function (response) {
+      console.log("Success!", response);
+      for (var i = 0; i < response.length; i++) {
+        var input = {};
+        input["text"] = response[i].word;
+        input["value"] = response[i].data[0];
+        // input.textKey =response[i].word;
+        // input.valueKey = response[i].data[0];
+        //  input.product = response[i].data;
+        const dataSource3 = [
+          {textKey: 'Some Text', valueKey: 'someFirstValue'},
+          {textKey: 'Some Text', valueKey: 'someSecondValue'},
+        ];
+        datalist.push(input);
+//datalist.push(response[i].word);
+      }
+      passstate.setState({dataSource: dataSource3});
+    }, function (error) {
+      console.error("Failed!", error);
+    });
+  }
 
   handleUpdateInput = (value) => {
-var self = this;
-  var searchby = this.props.searchby;
-  var searchon =this.props.searchTable;
-  var resultkey = this.props.resultKey;
-  //  this.Typeahead(value,self);
-  var datalist =[];
-  var payload={};
-  payload.searchon=searchon;
-  payload.searchby=searchby;
-  payload.search= value;
-    payload.resultKey= resultkey;
-    if(value.length>=2)
-    {
+    var self = this;
+    var searchby = this.props.searchby;
+    var searchon = this.props.searchTable;
+    var resultkey = this.props.resultKey;
+    //  this.Typeahead(value,self);
+    var datalist = [];
+    var payload = {};
+    payload.searchon = searchon;
+    payload.searchby = searchby;
+    payload.search = value;
+    payload.resultKey = resultkey;
+    if (value.length >= 2) {
 
-    fetch(config.svc+'/complete', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        payload
-  })
-    }).then(checkStatus)
-  .then(parseJSON)
-  .then(function(data) {
-    for(var i=0;i<data.length; i++)
-
-  {
-    var input = {};
-    input["text"] = data[i][searchby];
-        input["value"] =data[i];
-         input["resultKey"] =data[i][resultkey];
-        datalist.push(input);
-      }
-       self.setState({dataSource:datalist});
- })
-}
-}
-   handleSelect (t) {
-    this.setState( { searchText: t })
+      fetch(config.svc + '/complete', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          payload
+        })
+      }).then(checkStatus)
+        .then(parseJSON)
+        .then(function (data) {
+          for (var i = 0; i < data.length; i++) {
+            var input = {};
+            input["text"] = data[i][searchby];
+            input["value"] = data[i];
+            input["resultKey"] = data[i][resultkey];
+            datalist.push(input);
+          }
+          self.setState({dataSource: datalist});
+        })
+    }
   }
+
+  handleSelect(t) {
+    this.setState({searchText: t})
+  }
+
   render() {
-    var floatinglabel =this.props.floatinglabel != ""?this.props.floatinglabel :"Enter place name";
+    var floatinglabel = this.props.floatinglabel != "" ? this.props.floatinglabel : "Enter place name";
     return (
       <div>
         <AutoComplete
-         floatingLabelText={floatinglabel}
-         floatingLabelFixed={true}
-         hintText="Type anything"
-         dataSource={this.state.dataSource}
+          floatingLabelText={floatinglabel}
+          floatingLabelFixed={true}
+          hintText="Type anything"
+          dataSource={this.state.dataSource}
           dataSourceConfig={dataSourceConfig}
-         onUpdateInput={this.handleUpdateInput}
+          onUpdateInput={this.handleUpdateInput}
           searchText={this.state.searchText}
           onNewRequest={this.handleSelect.bind(this)}/>
       </div>
@@ -162,7 +160,7 @@ var self = this;
   }
 }
 
-  function parseJSON(response) {
+function parseJSON(response) {
   return response.json()
 }
 

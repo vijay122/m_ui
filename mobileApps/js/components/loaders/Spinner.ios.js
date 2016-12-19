@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ActivityIndicatorIOS } from 'react-native';
+import {ActivityIndicatorIOS} from 'react-native';
 import NativeBaseComponent from 'native-base/Components/Base/NativeBaseComponent';
 import computeProps from 'native-base/Utils/computeProps';
 
@@ -37,7 +36,7 @@ export default class SpinnerNB extends NativeBaseComponent {
         color={getColor()}
         size={this.props.size ? this.props.size : 'large'}
       />
-        );
+    );
   }
 
 }

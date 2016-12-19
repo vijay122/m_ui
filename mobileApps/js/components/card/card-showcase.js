@@ -1,9 +1,8 @@
-
-import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail } from 'native-base';
+import React, {Component} from 'react';
+import {Image} from 'react-native';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail} from 'native-base';
 
 import styles from './styles';
 
@@ -24,7 +23,7 @@ class NHCardShowcase extends Component {
   }
 
   replaceAt(route) {
-    this.props.replaceAt('cardShowcase', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('cardShowcase', {key: route}, this.props.navigation.key);
   }
 
   render() {
@@ -32,22 +31,22 @@ class NHCardShowcase extends Component {
       <Container style={styles.container}>
         <Header>
           <Button transparent onPress={() => this.replaceAt('card')}>
-            <Icon name="ios-arrow-back" />
+            <Icon name="ios-arrow-back"/>
           </Button>
 
           <Title>Card Showcase</Title>
         </Header>
 
         <Content padder>
-          <Card style={[styles.mb, { flex: 0 }]}>
+          <Card style={[styles.mb, {flex: 0}]}>
             <CardItem>
-              <Thumbnail source={logo} />
+              <Thumbnail source={logo}/>
               <Text>NativeBase</Text>
               <Text note>April 15, 2016</Text>
             </CardItem>
 
             <CardItem cardBody>
-              <Image style={{ resizeMode: 'cover', width: null }} source={cardImage} />
+              <Image style={{resizeMode: 'cover', width: null}} source={cardImage}/>
               <Text>
                 NativeBase is a free and open source framework that enables developers
                 to build high-quality mobile apps using React Native iOS and Android apps
@@ -55,8 +54,8 @@ class NHCardShowcase extends Component {
                 NativeBase builds a layer on top of React Native that provides you with
                 basic set of components for mobile application development.
               </Text>
-              <Button transparent style={{ marginLeft: -7 }} textStyle={{ color: '#87838B' }}>
-                <Icon name="logo-github" />
+              <Button transparent style={{marginLeft: -7}} textStyle={{color: '#87838B'}}>
+                <Icon name="logo-github"/>
                 <Text>1,926 stars</Text>
               </Button>
             </CardItem>

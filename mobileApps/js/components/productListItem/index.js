@@ -1,8 +1,7 @@
-
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail } from 'native-base';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {actions} from 'react-native-navigation-redux-helpers';
+import {Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail} from 'native-base';
 
 import styles from './styles';
 
@@ -20,107 +19,106 @@ const {
 class NHListThumbnail extends Component {
   static propTypes = {
     replaceAt: React.PropTypes.func,
-    navigateTo:React.PropTypes.func,
+    navigateTo: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
   }
 
-  _navigateTo(route,data)
-  {
-    this.props.navigateTo(route,data);
+  _navigateTo(route, data) {
+    this.props.navigateTo(route, data);
   }
 
   replaceAt(route) {
-    this.props.replaceAt('listThumbnail', { key: route }, this.props.navigation.key);
+    this.props.replaceAt('listThumbnail', {key: route}, this.props.navigation.key);
   }
 
 
   render() {
-    var showdata={};
-    showdata.name="vijay";
-    showdata.about ="he rocks";
+    var showdata = {};
+    showdata.name = "vijay";
+    showdata.about = "he rocks";
     return (
       <Container style={styles.container}>
         <Content>
           <List>
-            <ListItem button onPress={()=>this._navigateTo('detail',showdata)} >
-              <Thumbnail square size={80} source={sankhadeep} />
+            <ListItem button onPress={() => this._navigateTo('detail', showdata)}>
+              <Thumbnail square size={80} source={sankhadeep}/>
               <Text>Sankhadeep</Text>
               <Text note>Its time to build a difference . .</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={supriya} />
+              <Thumbnail square size={80} source={supriya}/>
               <Text>Supriya</Text>
               <Text note>One needs courage to be happy and smiling all time . . </Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={himanshu} />
+              <Thumbnail square size={80} source={himanshu}/>
               <Text>Himanshu</Text>
               <Text note>Live a life style that matchs your vision</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shweta} />
+              <Thumbnail square size={80} source={shweta}/>
               <Text>Shweta</Text>
               <Text note>Failure is temporary, giving up makes it permanent</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shruti} />
+              <Thumbnail square size={80} source={shruti}/>
               <Text>Shruti</Text>
               <Text note>The biggest risk is a missed opportunity !!</Text>
             </ListItem>
-             <ListItem>
-              <Thumbnail square size={80} source={sankhadeep} />
+            <ListItem>
+              <Thumbnail square size={80} source={sankhadeep}/>
               <Text>Sankhadeep</Text>
               <Text note>Its time to build a difference . .</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={supriya} />
+              <Thumbnail square size={80} source={supriya}/>
               <Text>Supriya</Text>
               <Text note>One needs courage to be happy and smiling all time . . </Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={himanshu} />
+              <Thumbnail square size={80} source={himanshu}/>
               <Text>Himanshu</Text>
               <Text note>Live a life style that matchs your vision</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shweta} />
+              <Thumbnail square size={80} source={shweta}/>
               <Text>Shweta</Text>
               <Text note>Failure is temporary, giving up makes it permanent</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shruti} />
+              <Thumbnail square size={80} source={shruti}/>
               <Text>Shruti</Text>
               <Text note>The biggest risk is a missed opportunity !!</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shruti} />
+              <Thumbnail square size={80} source={shruti}/>
               <Text>Shruti</Text>
               <Text note>The biggest risk is a missed opportunity !!</Text>
             </ListItem>
-             <ListItem>
-              <Thumbnail square size={80} source={sankhadeep} />
+            <ListItem>
+              <Thumbnail square size={80} source={sankhadeep}/>
               <Text>Sankhadeep</Text>
               <Text note>Its time to build a difference . .</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={supriya} />
+              <Thumbnail square size={80} source={supriya}/>
               <Text>Supriya</Text>
               <Text note>One needs courage to be happy and smiling all time . . </Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={himanshu} />
+              <Thumbnail square size={80} source={himanshu}/>
               <Text>Himanshu</Text>
               <Text note>Live a life style that matchs your vision</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shweta} />
+              <Thumbnail square size={80} source={shweta}/>
               <Text>Shweta</Text>
               <Text note>Failure is temporary, giving up makes it permanent</Text>
             </ListItem>
             <ListItem>
-              <Thumbnail square size={80} source={shruti} />
+              <Thumbnail square size={80} source={shruti}/>
               <Text>Shruti</Text>
               <Text note>The biggest risk is a missed opportunity !!</Text>
             </ListItem>

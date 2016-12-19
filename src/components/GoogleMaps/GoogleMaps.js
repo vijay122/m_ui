@@ -1,9 +1,9 @@
-import { default as React, Component } from "react";
-import { default as update } from "react-addons-update";
-import { default as FaSpinner } from "react-icons/lib/fa/spinner";
+import {default as React, Component} from "react";
+import {default as update} from "react-addons-update";
+import {default as FaSpinner} from "react-icons/lib/fa/spinner";
 
-import { default as ScriptjsLoader } from "react-google-maps/lib/async/ScriptjsLoader";
-import { GoogleMap, Marker } from "react-google-maps";
+import {default as ScriptjsLoader} from "react-google-maps/lib/async/ScriptjsLoader";
+import {GoogleMap, Marker} from "react-google-maps";
 
 /*
  * This is the modify version of:
@@ -31,7 +31,7 @@ export default class AsyncGettingStarted extends Component {
    * Go and try click now.
    */
   handleMapClick(event) {
-    let { markers } = this.state;
+    let {markers} = this.state;
     markers = update(markers, {
       $push: [
         {
@@ -41,7 +41,7 @@ export default class AsyncGettingStarted extends Component {
         },
       ],
     });
-    this.setState({ markers });
+    this.setState({markers});
 
     if (markers.length === 3) {
       this.props.toast(
@@ -57,13 +57,13 @@ export default class AsyncGettingStarted extends Component {
      * This is so called data-driven-development. (And yes, it's now in
      * web front end and even with google maps API.)
      */
-    let { markers } = this.state;
+    let {markers} = this.state;
     markers = update(markers, {
       $splice: [
         [index, 1],
       ],
     });
-    this.setState({ markers });
+    this.setState({markers});
   }
 
   renderDeprecatedBehavior() {// Remove when reach 5.0.0
@@ -71,7 +71,7 @@ export default class AsyncGettingStarted extends Component {
       <ScriptjsLoader
         hostname={"maps.googleapis.com"}
         pathname={"/maps/api/js"}
-        query={{ v: '3.${ AsyncGettingStarted.version }', libraries: 'geometry,drawing,places' }}
+        query={{v: '3.${ AsyncGettingStarted.version }', libraries: 'geometry,drawing,places'}}
         loadingElement={
           <div
             {...this.props}
@@ -108,7 +108,7 @@ export default class AsyncGettingStarted extends Component {
               }, 50);
             }}
             defaultZoom={3}
-            defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+            defaultCenter={{lat: -25.363882, lng: 131.044922}}
             onClick={::this.handleMapClick}
           >
             {this.state.markers.map((marker, index) => {
@@ -128,9 +128,9 @@ export default class AsyncGettingStarted extends Component {
       <ScriptjsLoader
         hostname={"maps.googleapis.com"}
         pathname={"/maps/api/js"}
-        query={{ v:'3.24', key: 'AIzaSyDYayLKcbk8dlcwZfcwvX5ZhR523ilPBYg', libraries: 'geometry,drawing,places' }}
+        query={{v: '3.24', key: 'AIzaSyDYayLKcbk8dlcwZfcwvX5ZhR523ilPBYg', libraries: 'geometry,drawing,places'}}
         loadingElement={
-          <div {...this.props} style={{ height: '100%' }}>
+          <div {...this.props} style={{height: '100%'}}>
             <FaSpinner
               style={{
                 display: 'block',
@@ -142,7 +142,7 @@ export default class AsyncGettingStarted extends Component {
           </div>
         }
         containerElement={
-          <div {...this.props} style={{ height: '100%' }} />
+          <div {...this.props} style={{height: '100%'}}/>
         }
         googleMapElement={
           <GoogleMap
@@ -155,7 +155,7 @@ export default class AsyncGettingStarted extends Component {
               console.log('Center: ${ googleMap.getCenter() }');
             }}
             defaultZoom={3}
-            defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+            defaultCenter={{lat: -25.363882, lng: 131.044922}}
             onClick={::this.handleMapClick}
           >
             {this.state.markers.map((marker, index) => {

@@ -1,11 +1,10 @@
+import React, {Component} from 'react';
+import {BackAndroid, StatusBar, NavigationExperimental} from 'react-native';
+import {connect} from 'react-redux';
+import {Drawer} from 'native-base';
+import {actions} from 'react-native-navigation-redux-helpers';
 
-import React, { Component } from 'react';
-import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
-import { connect } from 'react-redux';
-import { Drawer } from 'native-base';
-import { actions } from 'react-native-navigation-redux-helpers';
-
-import { closeDrawer } from './actions/drawer';
+import {closeDrawer} from './actions/drawer';
 
 import Home from './components/home/';
 import Anatomy from './components/anatomy/';
@@ -105,7 +104,7 @@ class AppNavigator extends Component {
     }
   }
 
-  _renderScene(props,data) { // eslint-disable-line class-methods-use-this
+  _renderScene(props, data) { // eslint-disable-line class-methods-use-this
     switch (props.scene.route.key) {
       case 'splashscreen':
         return <SplashPage />;
@@ -167,17 +166,17 @@ class AppNavigator extends Component {
         return <NHTypography />;
 
 
-        //App routes
-        case 'login':
+      //App routes
+      case 'login':
         return <LoginComponent />;
-        case 'packages':
+      case 'packages':
         return <SearchScreen title="packages"/>;
-         case 'hotels':
+      case 'hotels':
         return <SearchScreen title="hotels"/>;
-         case 'places':
+      case 'places':
         return <SearchScreen title="places"/>;
-        case 'detail':
-        return<DetailScreen title="Details"/>
+      case 'detail':
+        return <DetailScreen title="Details"/>
       default :
         return <Home />;
     }
@@ -186,10 +185,12 @@ class AppNavigator extends Component {
   render() {
     return (
       <Drawer
-        ref={(ref) => { this._drawer = ref; }}
+        ref={(ref) => {
+          this._drawer = ref;
+        }}
         type="overlay"
         tweenDuration={150}
-        content={<SideBar navigator={this._navigator} />}
+        content={<SideBar navigator={this._navigator}/>}
         tapToClose
         acceptPan={false}
         onClose={() => this.closeDrawer()}
@@ -204,7 +205,7 @@ class AppNavigator extends Component {
         }}
         tweenHandler={(ratio) => {  // eslint-disable-line
           return {
-            drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
+            drawer: {shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5},
             main: {
               opacity: (2 - ratio) / 2,
             },
