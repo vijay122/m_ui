@@ -28,6 +28,7 @@ export default class Booking extends React.Component {
 
   renderButtons(that,detail,cart){
     var cartItems =[];
+    var styles = require('./Booking.scss');
     if(this.props.cartContext && this.props.cartContext.items)
     {
 cartItems = this.props.cartContext.items;
@@ -42,7 +43,7 @@ cartItems = this.props.cartContext.items;
       );
     } else {
       return (
-        <label>Item is already added to cart</label>
+        <label className={styles.successText}>Item is already added to cart</label>
       );
     }
   }

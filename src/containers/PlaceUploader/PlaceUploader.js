@@ -405,6 +405,9 @@ export class PlaceUploader extends Component {
     return (
       <div className={styles.home}>
         <Helmet title="Home"/>
+         <div className={styles.scriptStyles}>
+            Fill your pockets now with livelytrips credit points program. Earn Rs 6/- for every place you upload. We want you to grow with Us. refer leads and get Rs 100 extra.
+          </div>
         <div className="">
 
           <Grid>
