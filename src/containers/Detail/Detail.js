@@ -54,7 +54,7 @@ function mapStateToProps(state) {
   else {
     state.detail.detail = isProductExistInStore(state, id, cat);
   }
-  return {products: state.products, detail: state.detail}
+  return {products: state.products, detail: state.detail, cart: state.cart}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -150,6 +150,7 @@ export class Detail extends Component {
       slidesToScroll: 4,
     };
     var that = this.props;
+    var cart = this.props.cart;
     var detail = {};
     if (this.props.detail.detail != undefined)//&& this.state.dependencies== undefined)
     {
@@ -176,7 +177,6 @@ export class Detail extends Component {
     }
     var nearbyElements = places.slice(startIndex, endIndex);
     const dummySentences = ['Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'Donec hendrerit tempor tellus.', 'Donec pretium posuere tellus.', 'Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'Nulla posuere.', 'Donec vitae dolor.', 'Nullam tristique diam non turpis.', 'Cras placerat accumsan nulla.', 'Nullam rutrum.', 'Nam vestibulum accumsan nisl.'];
-
     const styles = require('./Detail.scss');
     {
       return (
@@ -213,7 +213,7 @@ export class Detail extends Component {
                 </Row>
               </Col>
               <Col xs={12} md={3}>
-                <Booking that={that} detail={detail}/>
+                <Booking that={that} detail={detail} cartContext={cart}/>
               </Col>
             </Row>
             <Row style={{minHeight: "300px"}}>

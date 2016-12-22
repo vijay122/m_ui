@@ -86,3 +86,37 @@ export function qs(key) {
   }
   return vars[key];
 }
+
+export function isProductExistsInCart(cartItems,item)
+{
+  if(cartItems== undefined || cartItems.length==0)
+  {
+    return false;
+  }
+  else
+  {
+var result = cartItems.reduce(function(map, obj) {
+    map[obj._id] = obj;
+    return map;
+}, {});
+var found = result[item._id];
+if(found==undefined)
+{
+  return false;
+}
+else
+{
+  return true;
+}
+console.log(result);
+  }
+}
+
+function filterByID(prd,s) {
+  if (item._id==item._id) {
+    return true;
+  }
+  return false;
+}
+
+

@@ -15,6 +15,8 @@ import DeleteIcon from 'react-material-icons/icons/action/delete';
 
 import {TableRow, TableRowColumn} from 'material-ui/Table';
 
+import RaisedButton from 'material-ui/RaisedButton';
+
 function mapStateToProps(state) {
   console.log('state ' + state);
   return {cartcontext: state.cart}
@@ -50,11 +52,22 @@ const events = [
   }
 }])
 
+
+
 export class Cart extends Component {
   constructor(props) {
     super(props);
     this.checkout = this.checkout.bind(this);
     this.removeCart = this.removeCart.bind(this);
+    this.state={
+      cartcontext:{
+tripInfo:{
+  fromdate:this.getEvents(),
+  todate:this.getEvents(),
+},
+      }
+    }
+    this.state.cartcontext = this.props.cartcontext;
   }
 
   removeCart(data, fn, st) {
@@ -62,7 +75,38 @@ export class Cart extends Component {
     data.dispatch({type: 'REMOVE_TO_CART', result: {prd: fn}});
   }
 
-  checkout() {
+  getEvents()
+{
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+
+  var yyyy = today.getFullYear();
+    if(dd<10){
+    dd='0'+dd;
+    } 
+    if(mm<10){
+    mm='0'+mm;
+    } 
+    var today = dd+'/'+mm+'/'+yyyy;
+    return today;
+    }
+
+  setDate()
+  {
+    this.state.cartcontext.tripInfo={
+  fromdate:this.getEvents(),
+  todate:this.getEvents(),
+}
+  }
+
+  checkout(data, fn, st) {
+    this.setDate();
+    var cart =    this.state.cartcontext;
+    this.props.dispatch(checkoutActions.validateOrder(cart));
+   }
+
+  checkout1() {
     var cart = this.props.cartcontext;
     this.props.dispatch(checkoutActions.submitOrder(cart));
   }
@@ -99,6 +143,9 @@ export class Cart extends Component {
               <OrderSummary />
             </Col>
           </Row>
+        </div>
+        <div>
+          <RaisedButton label="validate cart" primary={true} onClick={this.checkout}/>
         </div>
       </div>
     );

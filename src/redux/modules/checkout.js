@@ -35,6 +35,35 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
+export function validateOrder(cart) {
+  var payload = {};
+  payload.tripInfo = cart.tripInfo;
+  payload.products = cart.items;
+  return dispatch =>
+    fetch(config.svc + '/prepareCart', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        payload
+      })
+    })
+      .then(response => {
+        if (response.status >= 200 && response.status < 300) {
+          console.log(response);
+        } else {
+          const error = new Error(response.statusText);
+          error.response = response;
+          throw error;
+        }
+      })
+      .catch(error => {
+        console.log('request failed', error);
+      });
+}
+
 export function submitOrder(cart) {
   var payload = {};
   payload.products = cart;

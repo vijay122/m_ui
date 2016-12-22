@@ -8,6 +8,7 @@ import DatePicker from 'material-ui/DatePicker';
 import SelectField from 'material-ui/SelectField';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import MenuItem from 'material-ui/MenuItem';
+import {isProductExistsInCart} from '../../utils/validation';
 
 export default class Booking extends React.Component {
   constructor(props) {
@@ -17,7 +18,6 @@ export default class Booking extends React.Component {
   }
 
   handleSelect = (event, index, value) => {
-    ;
     this.setState({type: value})
     this.state.type = value;
   }
@@ -26,9 +26,31 @@ export default class Booking extends React.Component {
     data.dispatch({type: 'ADD_TO_CART', result: fn});
   }
 
+  renderButtons(that,detail,cart){
+    var cartItems =[];
+    if(this.props.cartContext && this.props.cartContext.items)
+    {
+cartItems = this.props.cartContext.items;
+    }
+
+    if (!isProductExistsInCart(cartItems,detail)) {
+      return (
+        <div>
+      <label>If you like to add it to your visit list.</label>
+      <RaisedButton label="I want to visit" primary={true} onClick={this.addToCart.bind(this, that, detail)} />
+        </div>
+      );
+    } else {
+      return (
+        <label>Item is already added to cart</label>
+      );
+    }
+  }
+
   render() {
     var that = this.props.that;
     var detail = this.props.detail;
+    var cart = this.props.cartContext;
     let DateTimeFormat;
 
     if (areIntlLocalesSupported(['fr'])) {
@@ -66,8 +88,7 @@ export default class Booking extends React.Component {
             </SelectField>
           </Row>
           <Row>
-            <label>If you like to add it to your visit list.</label>
-            <RaisedButton label="I want to visit" primary={true} onClick={this.addToCart.bind(this, that, detail)}/>
+            { this.renderButtons(that,detail,cart) }
           </Row>
           <Row>
             <label>If you like to see packages that includes this place.</label>
