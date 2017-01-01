@@ -311,12 +311,12 @@ export default class TravelMap extends Component {
     for (var i = 0; i < markers.length; i++) {
       if (markers[i].loc != undefined) {
         var myLatLng = {lat: markers[i].loc.coordinates[0], lng: markers[i].loc.coordinates[1]};
-        var marker = new google.maps.Marker({
+        var Nmarker = new google.maps.Marker({
           position: myLatLng,
           map: map,
           title: 'Hello World!'
         });
-        markers.push(marker);
+      //  markers.push(Nmarker); //Code commented for duplications on cart
         nodes.push(myLatLng);
       }
     }
@@ -339,7 +339,6 @@ export default class TravelMap extends Component {
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), opts);
     var self = this;
-
     this.plotMarkers(self.props.items);
     // Create map click event
     google.maps.event.addListener(map, 'click', function (event) {
