@@ -193,7 +193,7 @@ export class Detail extends Component {
           </Row>
           <Grid className={styles.noContainer}>
             <Row className="show-grid">
-              <Col xs={12} md={2}>
+              <Col xs={0} md={2}>
                 <a onClick={this.previousNearby.bind(this, that, detail)}>Previous</a>
                 {
                   detail != undefined && nearbyElements != undefined && nearbyElements.map(function (nearbyloc) {
@@ -358,7 +358,7 @@ export class SidebarTiles extends Component {
           <label>{current.name} </label>
         </Row>
         <Row>
-          <Col xs={12} md={7} width={150} height={150}>
+          <Col xs={12} md={7}>
 
             <div>
               <Image src={this.resizeImage(current.image[0], 100, 100)} alt="150x100"
