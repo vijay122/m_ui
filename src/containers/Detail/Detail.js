@@ -15,6 +15,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {push} from 'react-router-redux';
 import geolib  from 'geolib';
+import * as browserUtils from '../../utils/HtmlUtils';
 
 var Slider = require('react-slick');
 
@@ -149,6 +150,8 @@ export class Detail extends Component {
       slidesToShow: 4,
       slidesToScroll: 4,
     };
+        var isMobile = browserUtils.isMobile();
+        var hideClassForMobile = isMobile?"hide":"block";
     var that = this.props;
     var cart = this.props.cart;
     var detail = {};
@@ -193,7 +196,7 @@ export class Detail extends Component {
           </Row>
           <Grid className={styles.noContainer}>
             <Row className="show-grid">
-              <Col xs={0} md={2}>
+              <Col className={hideClassForMobile} md={2}>
                 <a onClick={this.previousNearby.bind(this, that, detail)}>Previous</a>
                 {
                   detail != undefined && nearbyElements != undefined && nearbyElements.map(function (nearbyloc) {
@@ -359,7 +362,6 @@ export class SidebarTiles extends Component {
         </Row>
         <Row>
           <Col xs={12} md={7}>
-
             <div>
               <Image src={this.resizeImage(current.image[0], 100, 100)} alt="150x100"
                      onClick={this.handleClick.bind(this, ty)}>
