@@ -64,3 +64,11 @@
   text-align: center;
   margin: 20px;
 }
+.tableClass
+{
+td {
+    overflow: visible !important;
+    white-space: initial !important;
+    text-overflow: inherit !important;
+}
+}

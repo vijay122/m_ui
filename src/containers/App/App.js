@@ -144,6 +144,9 @@ export class App extends Component {
   };
 
   render() {
+    var tempArr =[];
+    tempArr.push("hi");
+    debugger;
     var pageContents = this.getSeoContents();
     if (pageContents == undefined) {
       pageContents = {};
@@ -264,9 +267,13 @@ export class App extends Component {
                     </li>
                     <li><Link to={'/products/'} activeClassName="active">Bookings</Link></li>
                     <li>
-
-                      <Link to={'/cart'} activeClassName="active">Cart<span
+                      {cartcount != null && this.props.appstate != null && this.props.appstate.cart != null && this.props.appstate.cart.items && tempArr.map(function (x) {
+                          return (
+                             <Link to={'/cart'} activeClassName="active">Cart<span
                         className="new badge ltBadge">{cartcount}</span></Link>
+                          );
+                        }
+                      )}
                     </li>
                     {userdataloaded != undefined && userdataloaded.length > 0 && isAdminTabAllowed && userdataloaded.map(function (x) {
                       return (
@@ -290,21 +297,7 @@ export class App extends Component {
                     })
                     }
                     <li><a href="help.html">Help</a></li>
-                    <li>
-                      {this.cartcount != null && this.props.appstate != null && this.props.appstate.cart != null && this.props.appstate.cart.items.map(function (x) {
-                          return (
-                            <Badge
-                              badgeContent={10}
-                              secondary={true}
-                              badgeStyle={{top: 12, right: 12}}>
-                              <IconButton tooltip="Notifications">
-                                <DeleteIcon />
-                              </IconButton>
-                            </Badge>
-                          );
-                        }
-                      )}
-                    </li>
+                    
                   </ul>
                 </nav>
 

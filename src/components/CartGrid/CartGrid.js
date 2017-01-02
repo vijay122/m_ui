@@ -43,16 +43,15 @@ export default class CartGrid extends Component {
         <Helmet title="Home"/>
         <div className="">
           <label>htr</label>
-          <Table>
+          <Table className={styles.tableClass}>
             <TableHeader>
               <TableRow>
                 <TableHeaderColumn>Item#</TableHeaderColumn>
                 <TableHeaderColumn>Name</TableHeaderColumn>
-                <TableHeaderColumn>Price</TableHeaderColumn>
-                <TableHeaderColumn>Quantity</TableHeaderColumn>
                 <TableHeaderColumn>Total</TableHeaderColumn>
               </TableRow>
             </TableHeader>
+            
             <TableBody>
               {cartItems && cartItems.map(function (place) {
                 if (place._id != undefined) {
@@ -77,9 +76,7 @@ export class CartProduct extends Component {
           <DeleteIcon/>
         </TableRowColumn>
         <TableRowColumn> <img className={styles.thumbnail} src={image}/></TableRowColumn>
-        <TableRowColumn>{this.props.place.name}</TableRowColumn>
-        <TableRowColumn>{this.props.place.city}</TableRowColumn>
-        <TableRowColumn>{this.props.place._id}</TableRowColumn>
+        <TableRowColumn>{this.props.place.name},{this.props.place.city}</TableRowColumn>
         <TableRowColumn>0</TableRowColumn>
       </TableRow>
     );
