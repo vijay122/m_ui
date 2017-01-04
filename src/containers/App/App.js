@@ -146,7 +146,6 @@ export class App extends Component {
   render() {
     var tempArr =[];
     tempArr.push("hi");
-    debugger;
     var pageContents = this.getSeoContents();
     if (pageContents == undefined) {
       pageContents = {};

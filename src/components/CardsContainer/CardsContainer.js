@@ -82,6 +82,11 @@ export default class CardsContainer extends React.Component {
                   return (
                     <Col xs={6} md={3}>
                       <div onClick={that.viewDetails.bind(this, x, that)}>
+                      <div className={styles.ribbonWrapperGreen}>
+                      <div className={styles.ribbonGreen}>
+                      NEWS
+                      </div>
+                      </div>
                         <Card className={styles.overrideStyles}>
                           <CardMedia
                             overlay={<CardTitle title={x.name} subtitle={x.title}/>}>
