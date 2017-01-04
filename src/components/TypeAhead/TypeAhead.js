@@ -105,6 +105,7 @@ export default class AutoCompleteExampleSimple extends React.Component {
     var searchby = this.props.searchby;
     var searchon = this.props.searchTable;
     var resultkey = this.props.resultKey;
+    var nofilter = this.props.nofilter;
     //  this.Typeahead(value,self);
     var datalist = [];
     var payload = {};
@@ -112,6 +113,7 @@ export default class AutoCompleteExampleSimple extends React.Component {
     payload.searchby = searchby;
     payload.search = value;
     payload.resultKey = resultkey;
+    payload.nofilter = nofilter;
     if (value.length >= 2) {
 
       fetch(config.svc + '/complete', {

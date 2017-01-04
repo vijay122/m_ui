@@ -120,12 +120,11 @@ export class PackageBuilder extends Component {
 
 
   addProduct(product) {
-
     var prod = {};
     if (this != undefined && this.refs != undefined && this.refs.newproduct != undefined &&
       this.refs.newproduct.state != undefined &&
-      this.refs.newproduct.state.searchText != undefined && this.refs.newproduct.state.searchText.valueKey != undefined) {
-      prod = this.refs.newproduct.state.searchText.product
+      this.refs.newproduct.state.searchText != undefined && this.refs.newproduct.state.searchText.resultKey != undefined) {
+      prod = this.refs.newproduct.state.searchText.value
     }
     var prdlist = this.state.products;
     if (prod != {})
@@ -559,14 +558,14 @@ export class PackageBuilder extends Component {
 
               (
                 <div>
-                  <TypeAhead ref="newproduct" searchTable="Place" floatinglabel="Place to add with package"/>
+                  <TypeAhead ref="newproduct" searchTable="Place" searchby="name" resultKey="_id" nofilter="true" floatinglabel="Place to add with package"/>
                   <Row className="show-grid">
                   </Row>
                   <RaisedButton label="Add Product" onClick={this.addProduct} primary={true}/>
                   <Row>
                     <div>
                       {this.state && this.state.products.length > 0 && this.state.products.map(function (product) {
-                        return ( <img src={product.image} style={{height: 100 + 'px', width: 100 + 'px'}}></img>);
+                        return ( <img src={product.image[0]} style={{height: 100 + 'px', width: 100 + 'px'}}></img>);
                       })
                       }
                     </div>
