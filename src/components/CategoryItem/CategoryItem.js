@@ -15,9 +15,7 @@ export default class CategoryItem extends Component {
   }
 
   resizeImage(url, height, width) {
-    var filter = 'c_fill,q_60,e_improve,' + 'h_' + height + ',' + 'w_' + width + '/l_text:Doppio%20One_20:Vijay:%20Jonathan%20Doe,g_south_west,y_5,x_10,co_rgb:eee/';
-
-
+ var filter = 'c_fill,q_60,e_improve,' + 'h_' + height + ',' + 'w_' + width + '/';
     var str = url;
     var index = str.indexOf("upload/") + 7;
     var rest = str.substr(0, index) + filter + str.substr(index);
