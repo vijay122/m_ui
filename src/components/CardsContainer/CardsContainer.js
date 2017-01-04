@@ -84,7 +84,7 @@ export default class CardsContainer extends React.Component {
                       <div onClick={that.viewDetails.bind(this, x, that)}>
                       <div className={styles.ribbonWrapperGreen}>
                       <div className={styles.ribbonGreen}>
-                      NEWS
+                      NEW
                       </div>
                       </div>
                         <Card className={styles.overrideStyles}>

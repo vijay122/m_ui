@@ -76,6 +76,47 @@
   width: 100% !important;
 }
 
+.ribbon{
+  background: red;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    padding-right: 40px;
+    left: -11px;
+    padding-left: 20px;
+    top: 10px;
+    color: #fff;
+    width: 10%;
+    z-index: 1;
+
+
+  
+  &:before{
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 100%;
+  left: 0px;
+  border-top: 7px solid #7f0000;
+  border-left: 7px solid transparent;
+}
+  &:after {
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 20px;
+  border-color: red;
+  border-right-color: transparent;
+  position: absolute;
+  left: 100%;
+  top: 0;
+ }
+}
+
+
 
 
 

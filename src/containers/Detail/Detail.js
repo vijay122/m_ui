@@ -456,10 +456,12 @@ export class DetailRecommendations extends Component {
   render() {
     var product = this.state.product;
     var ty = this;
+        const styles = require('./Detail.scss');
     var prodimage = product.image != undefined ? product.image[0] : product.assets.display;
     var imagesrc = this.resizeImage(prodimage, 100, 100)
     return (
       <div className="recommendedTile">
+      <div className={styles.ribbon}>Ribbon</div>
         <Row style={{padding: '2px'}} onClick={this.handleClick.bind(this, ty)}>
           <Col xs={4} md={3}>
             <img src={imagesrc}></img>
