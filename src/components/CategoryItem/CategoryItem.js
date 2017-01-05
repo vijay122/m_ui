@@ -15,7 +15,6 @@ export default class CategoryItem extends Component {
   }
 
   resizeImage(url, height, width) {
-    debugger;
  var filter = 'c_fill,q_60,e_improve,' + 'h_' + height + ',' + 'w_' + width + '/';
     var str = url;
     var index = str.indexOf("upload/") + 7;
@@ -97,7 +96,6 @@ export class VisitIcons extends Component {
   }
 
   resizeImage(url, height, width) {
-    debugger;
     var filter = 'h_' + height + ',w_' + width + '/';
     var str = url;
    if(Array.isArray(url))

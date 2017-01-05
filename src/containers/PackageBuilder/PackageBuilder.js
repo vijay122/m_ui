@@ -106,8 +106,8 @@ export class PackageBuilder extends Component {
     var id = "";
     if (this != undefined && this.refs != undefined && this.refs.searched_id != undefined &&
       this.refs.searched_id.state != undefined &&
-      this.refs.searched_id.state.searchText != undefined && this.refs.searched_id.state.searchText.valueKey != undefined) {
-      id = this.refs.searched_id.state.searchText.valueKey;
+      this.refs.searched_id.state.searchText != undefined && this.refs.searched_id.state.searchText.resultKey != undefined) {
+      id = this.refs.searched_id.state.searchText.resultKey;
     }
 
     var searchcriteria = {};
@@ -424,8 +424,8 @@ export class PackageBuilder extends Component {
                   <option value="None" data-ctrlid='searchtype'>None</option>
                   <option value="Package" data-ctrlid='searchtype'>Package</option>
                 </select>
-                <TypeAhead ref="searched_id" searchTable="Package"/>
-                <RaisedButton label="Find" onClick={this.searchByID} primary={true}/>
+                <TypeAhead ref="searched_id" searchTable="Package" searchby="name" resultKey="_id"/>
+                <RaisedButton label="Find" onClick={this.searchByID}  primary={true}/>
               </Row>
               <Stepper activeStep={stepIndex}>
                 <Step>
@@ -435,7 +435,7 @@ export class PackageBuilder extends Component {
                   <StepLabel>Add Places</StepLabel>
                 </Step>
                 <Step>
-                  <StepLabel>Includes & Excludes</StepLabel>
+                  <StepLabel>Includes & Excludes</StepLabel> 
                 </Step>
               </Stepper>
               {stepIndex == 0 &&
