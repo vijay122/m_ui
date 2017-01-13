@@ -257,6 +257,9 @@ export class App extends Component {
                           <li>
                             <Link to={'/products/'} activeClassName="active">Trekking</Link>
                           </li>
+                           <li>
+                            <Link to={'/products/'} activeClassName="active">Group Trips</Link>
+                          </li>
                           <li>
                             <Link to={'/categories:packages/searchtype:category/search:Honeymoon'}
                                   activeClassName="active">Honeymoon</Link>

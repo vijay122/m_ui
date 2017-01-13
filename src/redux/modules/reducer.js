@@ -23,11 +23,11 @@ export default combineReducers({
   category,
   cart,
   form,
-  multireducer: multireducer({
-    counter1: counter,
-    counter2: counter,
-    counter3: counter
-  }),
+ // multireducer: multireducer({
+ //   counter1: counter,
+ //   counter2: counter,
+ //   counter3: counter
+ // }),
   info,
   // widgets,
   checkout

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {OrderSummary, CartOptions} from '../../components';
+import {OrderSummary, CartOptions, PaymentOptions} from '../../components';
 import Helmet from 'react-helmet';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
@@ -16,6 +16,7 @@ import DeleteIcon from 'react-material-icons/icons/action/delete';
 import {TableRow, TableRowColumn} from 'material-ui/Table';
 
 import RaisedButton from 'material-ui/RaisedButton';
+
 
 function mapStateToProps(state) {
   console.log('state ' + state);
@@ -146,6 +147,9 @@ tripInfo:{
         </div>
         <div>
           <RaisedButton label="validate cart" primary={true} onClick={this.checkout}/>
+        </div>
+        <div>
+        <PaymentOptions />
         </div>
       </div>
     );

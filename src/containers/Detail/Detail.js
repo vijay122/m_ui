@@ -49,8 +49,15 @@ function mapStateToProps(state) {
   var id = qs('id');
   var cat = qs('category');
   if (!isProductExistInStore(state, id, cat)) {
+    if(this!= undefined)
+    {
+          this.store.dispatch(refreshSection(id, cat));
+    }
+    else
+    {
 
-    this.store.dispatch(refreshSection(id, cat));
+  
+    }
   }
   else {
     state.detail.detail = isProductExistInStore(state, id, cat);

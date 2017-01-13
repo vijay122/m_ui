@@ -47,9 +47,10 @@ export default (store) => {
     const prodid = qs('id');
     const category = qs('category');
     const Appstate = store.getState();
-    const detailproduct = Appstate.products[category].get(prodid);
-    if (detailproduct == (undefined || null)) {
-
+    let detailproduct = {};
+    if(Appstate!= undefined && Appstate.products!= undefined && Appstate.products[category]!= undefined)
+    {
+        detailproduct = Appstate.products[category].get(prodid);
     }
     store.dispatch({type: 'SET_DETAIL', result: detailproduct});
     // if(isProductExistInStore(prodid,Appstate,category))

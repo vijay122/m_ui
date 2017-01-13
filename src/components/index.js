@@ -35,3 +35,4 @@ export FullWidthSlider from './FullWidthSlider/FullWidthSlider';
 export Badge from './Badge/Badge';
 export TablePanel from './TablePanel/TablePanel';
 export AutoComplete from './AutoComplete/MaterialUIAutocomplete';
+export PaymentOptions from './PaymentOptions/PaymentOptions';

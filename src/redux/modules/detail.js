@@ -118,8 +118,8 @@ export function viewMore(product, type) {
 export function getProducts(product) {
   var payload = {};
   payload.sectionName = "detail";
-  payload.lat = product.loc.coordinates[0];
-  payload.lon = product.loc.coordinates[1];
+  payload.lat = product.loc!= undefined ?product.loc.coordinates[0]:'';
+  payload.lon = product.loc!= undefined ?product.loc.coordinates[1]:'';
   payload.max = "100";
   return dispatch => {
     fetch(config.svc + '/getProducts', {

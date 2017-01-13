@@ -197,6 +197,8 @@ export function search(sectionName, searchcriteria) {
   }
 }
 
+
+
 export function refreshSection(id, category) {// {
   var payload = {};
   payload.sectionName = "refresh";//sectionName;
@@ -284,7 +286,15 @@ export function load1() {
   };
 }
 export function isProductExistInStore(globalState, prodid, category) {
-  return globalState.products[category].get(prodid);
+  if(globalState!= undefined && globalState.products!= undefined && globalState.products[category] != undefined)
+  {
+     return globalState.products[category].get(prodid);
+  }
+  else
+  {
+    return undefined;
+  }
+
 }
 export function isLoaded(globalState) {
   if (globalState != undefined && globalState.products != undefined && globalState.products.loaded) {
