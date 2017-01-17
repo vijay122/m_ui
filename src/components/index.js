@@ -36,3 +36,4 @@ export Badge from './Badge/Badge';
 export TablePanel from './TablePanel/TablePanel';
 export AutoComplete from './AutoComplete/MaterialUIAutocomplete';
 export PaymentOptions from './PaymentOptions/PaymentOptions';
+export CategoryGallery from './CategoryGallery/CategoryGallery';

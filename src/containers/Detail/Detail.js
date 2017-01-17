@@ -16,6 +16,7 @@ import {bindActionCreators} from 'redux';
 import {push} from 'react-router-redux';
 import geolib  from 'geolib';
 import * as browserUtils from '../../utils/HtmlUtils';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group' 
 
 var Slider = require('react-slick');
 
@@ -364,6 +365,10 @@ export class SidebarTiles extends Component {
     var distance = (this.state != null && this.state.distance != undefined) ? this.state.distance + " kms" : "";
     return (
       <div>
+      <ReactCSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={900}
+          transitionLeaveTimeout={900}>
         <Row>
           <label>{current.name} </label>
         </Row>
@@ -380,6 +385,7 @@ export class SidebarTiles extends Component {
             <h5>{distance}</h5>
           </Col>
         </Row>
+        </ReactCSSTransitionGroup>
       </div>
     );
   }

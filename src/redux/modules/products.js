@@ -154,7 +154,9 @@ export function load() {
           return previous;
         }, {}));
         var map = {};
+        debugger;
         map.places = Placesmap;
+        map.appscripts = data.appscripts;
         map.placesCount = data.placesCount;
         map.offers = data.packages;
         map.packagesCount = data.packagesCount;

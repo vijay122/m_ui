@@ -149,8 +149,11 @@ export default class AutoCompleteExampleSimple extends React.Component {
     return (
       <div>
         <AutoComplete
+          animated={true}
           floatingLabelText={floatinglabel}
           floatingLabelFixed={true}
+          filter={AutoComplete.caseInsensitiveFilter}
+          maxSearchResults={10}
           hintText="Type anything"
           dataSource={this.state.dataSource}
           dataSourceConfig={dataSourceConfig}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SquareCard, SearchBar, CardsContainer} from '../../components';
+import {SquareCard, SearchBar, CardsContainer,CategoryGallery} from '../../components';
 import Helmet from 'react-helmet';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
@@ -70,6 +70,7 @@ export class Products extends Component {
       // offer = this.props.products.products[0];
       const styles = require('./Home.scss');
       // require the logo image both from client and server
+                  //  <CategoryGallery galleryitems={images} columns={[2, 2, 2]} padding={2}/>
       const logoImage = require('./logo.png');
       return (
         <div className={styles.home}>
@@ -79,6 +80,7 @@ export class Products extends Component {
               <HomeSlider data={packagelist}/>
             </Col>
             <Col xs={12} md={4}>
+
               <ReactRpg imagesArray={images} columns={[2, 2, 2]} padding={2}/>
             </Col>
           </Row>
@@ -237,23 +239,27 @@ export class HomeSlider extends Component {
 const images = [
   {
     url: "http://tripconnoisseurs.com/wp-content/uploads/2016/08/Honeymoon.jpg",
+    text:"honeymoon",
     clickHandler: (url, obj) => {
       console.log(url)
     }
   },
   {
     url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
+    text:"treks",
     clickHandler: (url, obj) => {
       console.log(obj)
     }
   },
   {
+    text:"grouptrips",
     url: "https://static2.tripoto.com/media/filter/t/img/101328/TripDocument/1474279330_1474279325380.jpg",
     clickHandler: (url, obj) => {
       console.log(obj)
     }
   },
   {
+    text:"solotrips",
     url: "http://travelsourceindia.in/wp-content/uploads/2016/06/family-ties-300x300.jpg",
     clickHandler: (url, obj) => {
       console.log(obj)
