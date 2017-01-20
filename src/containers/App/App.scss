@@ -21,15 +21,25 @@
 
 .insightsBar {
   border-top: 5px solid #457DBB;
-  background-color: #5CB8DB;
+ // background-color: #5CB8DB;
   // background-color:#36b8e9;
+  background: rgba(92, 184, 219, 0.3);
   color: white !important;
   height: 60px;
   border-bottom: 2px solid #457DBB;
 }
+#fxd >.container
+{
+  width:100% !important;
+}
 
-.insightsBar___xoTIV > container {
+.navbar-fixed-top > .container {
+    width: 100% !important;
+}
+
+.insightsBar___xoTIV > .container {
   background-color: #5CB8DB;
+  width:100% !important;
 }
 
 .appContent {

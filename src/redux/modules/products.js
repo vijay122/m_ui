@@ -153,12 +153,16 @@ export function load() {
           previous[current._id] = current;
           return previous;
         }, {}));
+        var pkgmap = Map(data.packages.reduce(function (previous, current) {
+          previous[current._id] = current;
+          return previous;
+        }, {}));
         var map = {};
-        debugger;
         map.places = Placesmap;
         map.appscripts = data.appscripts;
         map.placesCount = data.placesCount;
         map.offers = data.packages;
+        map.packages = pkgmap;
         map.packagesCount = data.packagesCount;
         map.useroffers = data.useroffers;
         dispatch({type: 'SET_ENTRIES', result: map});

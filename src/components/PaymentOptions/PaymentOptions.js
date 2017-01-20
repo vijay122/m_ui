@@ -43,7 +43,6 @@ export default class PaymentOptions extends React.Component {
   }
 
   handleSelect = function (key) {
-  	debugger;
     this.setState({key});
   }
 

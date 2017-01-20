@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {IndexLink, Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 import Navbar from 'react-bootstrap/lib/Navbar';
+import {Form, FormGroup, Button, FormControl} from 'react-bootstrap'
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
@@ -202,8 +203,6 @@ export class App extends Component {
             meta={pageContents.meta}
           />
           <div>
-
-
           </div>
           <Navbar fixedTop className={styles.insightsBar} id="fxd">
             <Navbar.Header>
@@ -217,6 +216,13 @@ export class App extends Component {
             </Navbar.Header>
 
             <Navbar.Collapse>
+            <Navbar.Form pullLeft>
+           <FormGroup>
+              <FormControl type="text" placeholder="Search" />
+          </FormGroup>
+             {' '}
+          <Button type="submit">Submit</Button>
+        </Navbar.Form>
               <Nav navbar pullRight>
 
                 <LinkContainer to="/login">
