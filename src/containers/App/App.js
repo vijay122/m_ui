@@ -205,45 +205,27 @@ export class App extends Component {
           <div>
           </div>
           <Navbar fixedTop className={styles.insightsBar} id="fxd">
-            <Navbar.Header>
-              <Navbar.Brand>
-                <IndexLink to="/" activeStyle={{color: '#343434'}}>
-                  <div className={styles.brand}/>
-                  <span>{config.app.title}</span>
-                </IndexLink>
-              </Navbar.Brand>
-              <Navbar.Toggle/>
-            </Navbar.Header>
-
-            <Navbar.Collapse>
-            <div className="dropdown">
-    <button>Navigate</button>
-    <ul className="dropdown-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</div>
-            <Navbar.Form pullLeft>
-           <FormGroup>
-              <FormControl type="text" placeholder="Search" />
-          </FormGroup>
-             {' '}
-          <Button type="submit">Submit</Button>
-        </Navbar.Form>
-              <Nav navbar pullRight>
-
-                <LinkContainer to="/login">
-                  <NavItem eventKey={5}>{logintext}</NavItem>
-                </LinkContainer>
-              </Nav>
-            </Navbar.Collapse>
+        <Row>
+              <Col md={3}>left
+              </Col>
+              <Col md={6}>
+              <div className={styles.searchContainer}>
+              <div className="dropdown">
+                    <button className="dropbtn">Dropdown</button>
+                    <input type="text" />
+                    <div className="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+              </div>
+              </div>
+              </Col>
+              <Col md={3}>right 
+              </Col>
+              </Row>
 
           </Navbar>
-
-          <div>
-
-          </div>
           <div>
             <Row>
               <Col md={3}>
