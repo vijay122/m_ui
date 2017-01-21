@@ -216,6 +216,14 @@ export class App extends Component {
             </Navbar.Header>
 
             <Navbar.Collapse>
+            <div className="dropdown">
+    <button>Navigate</button>
+    <ul className="dropdown-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
             <Navbar.Form pullLeft>
            <FormGroup>
               <FormControl type="text" placeholder="Search" />
