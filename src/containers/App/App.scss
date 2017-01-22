@@ -19,14 +19,16 @@
   }
 }
 
+
 .insightsBar {
-  border-top: 5px solid #457DBB;
+ // border-top: 5px solid #457DBB;
  // background-color: #5CB8DB;
   // background-color:#36b8e9;
+  border-color:rgba(92, 184, 219, 0.3);
   background: rgba(92, 184, 219, 0.3);
   color: white !important;
-  height: 60px;
-  border-bottom: 2px solid #457DBB;
+ // height: 60px;
+ // border-bottom: 2px solid #457DBB;
 }
 #fxd >.container
 {
@@ -40,6 +42,11 @@
 .insightsBar___xoTIV > .container {
   background-color: #5CB8DB;
   width:100% !important;
+}
+
+.insightsBar___xoTIV > .navbar-default
+{
+  border-color:red;
 }
 
 .appContent {
@@ -125,6 +132,22 @@
 {
   padding-top:10px;
   padding-bottom:10px;
+}
+
+.fullWidth
+{
+  width:100%;
+}
+
+.noPadding
+{
+ padding:0;
+}
+
+.height54
+{
+  height:54px;
+  width:100%;
 }
 
 

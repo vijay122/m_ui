@@ -206,22 +206,28 @@ export class App extends Component {
           </div>
           <Navbar fixedTop className={styles.insightsBar} id="fxd">
         <Row>
-              <Col md={3}>left
+              <Col md={3}>Livelytrips
               </Col>
               <Col md={6}>
               <div className={styles.searchContainer}>
+               <Row>
+              <Col md={3} className={styles.fullWidth} className={styles.noPadding}>
               <div className="dropdown">
                     <button className="dropbtn">Dropdown</button>
-                    <input type="text" />
                     <div className="dropdown-content">
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
                         <a href="#">Link 3</a>
                     </div>
               </div>
+              </Col>
+               <Col md={9} className={styles.noPadding}> 
+               <input className={styles.height54} type="text" /> 
+              </Col>
+              </Row>
               </div>
               </Col>
-              <Col md={3}>right 
+              <Col md={3}>Login 
               </Col>
               </Row>
 
