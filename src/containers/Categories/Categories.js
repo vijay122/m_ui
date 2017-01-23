@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 
 function mapStateToProps(state) {
   console.log('state ' + state);
-  return {products: state.category.getCategoryResult, detail: state.detail}
+  return {products: state.category.getCategoryResult, searchoptions: state.category.categorysearch}
 }
 function qs(key) {
   var vars = [], hash;
@@ -43,6 +43,20 @@ export class Categories extends Component {
   }
 
   render() {
+   let searchtable;
+      if(this.props.searchoptions!= null)
+      {
+      if(this.props.searchoptions.searchon=="Hotel")
+       searchtable =   "hotels";
+        if(this.props.searchoptions.searchon=="Package")
+       searchtable =   "packages";
+      
+       if(this.props.searchoptions.searchon=="Event")
+       searchtable =   "events";
+      
+       if(this.props.searchoptions.searchon=="Place")
+       searchtable =   "products";
+      }
     var that = this;
     var results;
     if (this.props != null && this.props.products != null)
@@ -52,7 +66,7 @@ export class Categories extends Component {
         <FilterToolbox />
         {results != undefined && results.map(function (item) {
           return (<div>
-            <CategoryItem products={item} dispatch={that.props.dispatch}/>
+            <CategoryItem products={item} category={searchtable} dispatch={that.props.dispatch}/>
             <hr />
           </div>)
 

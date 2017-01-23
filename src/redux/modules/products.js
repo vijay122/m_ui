@@ -109,7 +109,6 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 export function load() {
-  debugger;
   var payload = {};
   payload.sectionName = "promotion";
   return dispatch => {

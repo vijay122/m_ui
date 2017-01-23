@@ -22,7 +22,15 @@ export default class CategoryItem extends Component {
     return rest;
   }
 
+
+  viewDetail(data, category, st)
+  {
+    var placeid = data.props.products._id;
+    data.props.dispatch(push('/detail/id:' + placeid + "/category:"+category));
+  }
+
   render() {
+      var category = this.props.category;
     var that = this;
     const styles = require('./CategoryItem.scss');
     var state = this.state;
@@ -32,7 +40,7 @@ export default class CategoryItem extends Component {
       <Row>
         <div>
           <Col md={3}>
-            <img src={this.resizeImage(img, 250, 250)}></img>
+            <img src={this.resizeImage(img, 250, 250)} onClick={this.viewDetail.bind(this, that, category)}></img>
           </Col>
           <Col md={7}>
             <Row>
@@ -92,7 +100,7 @@ export class VisitIcons extends Component {
 
   handleClick(data, fn, st) {
     var placeid = data.props.menu.value;
-    data.props.dispatch(push('/detail/id:' + placeid));
+    data.props.dispatch(push('/detail/id:' + placeid + "/category:products"));
   }
 
   resizeImage(url, height, width) {
