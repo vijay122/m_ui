@@ -57,6 +57,7 @@ export default function reducer(state = initialState, action = {}) {
       };
     case 'SET_ENTRIES':
       const item = action.result.places;
+      const packages = action.result.packages;
       const packagesCount = action.result.packagesCount;
       const productsCount = action.result.placesCount;
       return {
@@ -64,6 +65,7 @@ export default function reducer(state = initialState, action = {}) {
         loading: false,
         loaded: true,
         products: item,
+        packages: packages,
         productsCount: productsCount,
         packagesCount: packagesCount,
         offers: action.result.offers,
@@ -101,33 +103,12 @@ export default function reducer(state = initialState, action = {}) {
       st[newdata] = action.result.map;
       return st;
     }
-    /*  case 'ADD_TO_CART':
-     console.log("added ADD");
-     if( state.cart == undefined)
-     {
-     state.cart=[];
-     }
-     state.cart.push(action.result.prd);
-     return {...state,
-     loading: false,
-     loaded: true
-     }
-     //  }
-     //   return {...state, action.result };
-     case 'REMOVE_TO_CART':
-     console.log("removed ADD");
-     return {
-     // ...state.cart.pop()
-     // ...state.cart.filter(product._id => action.result.prd._id !=== product._id)
-     }
-     // here is my problem
-     // return setEntries(...state,action.result);
-     */
     default:
       return state;
   }
 }
 export function load() {
+  debugger;
   var payload = {};
   payload.sectionName = "promotion";
   return dispatch => {
@@ -143,12 +124,6 @@ export function load() {
     }).then(checkStatus)
       .then(parseJSON)
       .then(function (data) {
-        /*   var Offersmap = Map(data.offers.reduce(function(previous, current) {
-         previous[ current._id ] = current;
-         return previous;
-         }, {}));
-         */
-
         var Placesmap = Map(data.places.reduce(function (previous, current) {
           previous[current._id] = current;
           return previous;
@@ -166,7 +141,7 @@ export function load() {
         map.packagesCount = data.packagesCount;
         map.useroffers = data.useroffers;
         dispatch({type: 'SET_ENTRIES', result: map});
-        dispatch(loadAllData("home"));
+      //  dispatch(loadAllData("home"));
         //  console.log('request succeeded with JSON response', list)
       }).catch(function (error) {
       console.log('request failed', error);
@@ -283,13 +258,6 @@ export function loadAllData(sectionName) {
       console.log('request failed', error)
     })
   }
-}
-
-export function load1() {
-  return {
-    types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
-    promise: (client) => client.get('/test') // params not used, just shown as demonstration
-  };
 }
 export function isProductExistInStore(globalState, prodid, category) {
   if(globalState!= undefined && globalState.products!= undefined && globalState.products[category] != undefined)

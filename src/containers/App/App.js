@@ -53,12 +53,12 @@ const AppbarStyles = () => getMuiTheme({
   promise: ({store: {dispatch, getState}}) => {
     const promises = [];
 
-    if (!isInfoLoaded(getState())) {
+ //   if (!isInfoLoaded(getState())) {
 //      promises.push(dispatch(loadFooter()));
-    }
-    if (!isAuthLoaded(getState())) {
+ //   }
+ //   if (!isAuthLoaded(getState())) {
       //  promises.push(dispatch(loadAuth()));
-    }
+ //   }
 
     return Promise.all(promises);
   }
