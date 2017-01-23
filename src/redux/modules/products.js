@@ -85,6 +85,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: false,
         loaded: true,
+         products: action.result.places,
         hotels: action.result.hotels,
         packages: action.result.packages,
         events: action.result.events,
@@ -212,7 +213,6 @@ export function refreshSection(id, category) {// {
         var res = {};
         res.map = resultsMap;
         res.searchOn = data.searchOn;
-
         dispatch({type: 'SET_REFRESHED_ENTRIES', result: res});
         //  console.log('request succeeded with JSON response', list)
       }).catch(function (error) {
@@ -239,6 +239,14 @@ export function loadAllData(sectionName) {
       .then(parseJSON)
       .then(function (data) {
 
+         let Placesmap;
+
+        if(data.places!= undefined)
+        Placesmap = Map(data.places.reduce(function (previous, current) {
+          previous[current._id] = current;
+          return previous;
+        }, {}));
+
         var pkgmap = Map(data.packages.reduce(function (previous, current) {
           previous[current._id] = current;
           return previous;
@@ -254,6 +262,7 @@ export function loadAllData(sectionName) {
         }, {}));
 
         var map = {};
+        map.places = Placesmap;
         map.packages = pkgmap;
         map.hotels = hotelmap;
         map.events = eventsmap;

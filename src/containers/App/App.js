@@ -213,11 +213,11 @@ export class App extends Component {
                <Row>
               <Col md={3} className={styles.fullWidth} className={styles.noPadding}>
               <div className="dropdown">
-                    <button className="dropbtn">Dropdown</button>
+                    <button className="dropbtn">Stays</button>
                     <div className="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">Tours</a>
+                        <a href="#">Hotels</a>
+                        <a href="#">Events</a>
                     </div>
               </div>
               </Col>
