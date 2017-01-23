@@ -124,11 +124,17 @@ export function load() {
     }).then(checkStatus)
       .then(parseJSON)
       .then(function (data) {
-        var Placesmap = Map(data.places.reduce(function (previous, current) {
+        let Placesmap;
+
+        if(data.places!= undefined)
+        Placesmap = Map(data.places.reduce(function (previous, current) {
           previous[current._id] = current;
           return previous;
         }, {}));
-        var pkgmap = Map(data.packages.reduce(function (previous, current) {
+
+       let pkgmap;
+      if(data.packages!= undefined)
+     pkgmap  = Map(data.packages.reduce(function (previous, current) {
           previous[current._id] = current;
           return previous;
         }, {}));
@@ -141,7 +147,7 @@ export function load() {
         map.packagesCount = data.packagesCount;
         map.useroffers = data.useroffers;
         dispatch({type: 'SET_ENTRIES', result: map});
-      //  dispatch(loadAllData("home"));
+        dispatch(loadAllData("home"));
         //  console.log('request succeeded with JSON response', list)
       }).catch(function (error) {
       console.log('request failed', error);
