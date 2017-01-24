@@ -72,6 +72,7 @@ export class App extends Component {
     super(props);
     this.state = {
       value: 3,
+      searchItem:'stays'
     };
   }
 
@@ -144,6 +145,12 @@ export class App extends Component {
     this.props.logout();
   };
 
+  handleSearchSelection(searchItem,data,x)
+  {
+    debugger;
+    this.setState({searchItem});
+  }
+
   render() {
     var tempArr =[];
     tempArr.push("hi");
@@ -215,9 +222,9 @@ export class App extends Component {
               <div className="dropdown">
                     <button className="dropbtn">Stays</button>
                     <div className="dropdown-content">
-                        <a href="#">Tours</a>
-                        <a href="#">Hotels</a>
-                        <a href="#">Events</a>
+                        <a onClick={this.handleSearchSelection.bind('packages',this)}>Tours</a>
+                        <a onClick={this.handleSearchSelection.bind('hotels',this)}>Hotels</a>
+                        <a onClick={this.handleSearchSelection.bind('events',this)}>Events</a>
                     </div>
               </div>
               </Col>
@@ -227,7 +234,10 @@ export class App extends Component {
               </Row>
               </div>
               </Col>
-              <Col md={3}>Login 
+              <Col md={3}>
+               <LinkContainer to="/login">
+                  <NavItem eventKey={5}>{logintext}</NavItem>
+                </LinkContainer> 
               </Col>
               </Row>
 
