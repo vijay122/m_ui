@@ -56,6 +56,9 @@ export class Products extends Component {
   }
 
   render() {
+
+
+
     if (this.props.products.loaded) {
       var that = this;
 //  const { productList } = this.props.products.products;
@@ -63,6 +66,12 @@ export class Products extends Component {
       var totalproducts = this.props.productsCount;
       var offer = this.props.products.offers;
       var productlist = this.props.products.products;
+          var appscripts = this.props.products.appscripts;
+          debugger;
+          if(appscripts!= undefined)
+          {
+            appscripts = appscripts[0];
+          }
       var eventlist = this.props.products.events;
       var hotellist = this.props.products.hotels;
       var packagelist = this.props.products.packages;
@@ -72,6 +81,38 @@ export class Products extends Component {
       // require the logo image both from client and server
                   //  <CategoryGallery galleryitems={images} columns={[2, 2, 2]} padding={2}/>
       const logoImage = require('./logo.png');
+
+const images = [
+  {
+    url: "http://tripconnoisseurs.com/wp-content/uploads/2016/08/Honeymoon.jpg",
+    text:"honeymoon",
+    clickHandler: (url, obj) => {
+      console.log(url)
+    }
+  },
+  {
+    url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
+    text:"treks",
+    clickHandler: (url, obj) => {
+      console.log(obj)
+    }
+  },
+  {
+    text:"grouptrips",
+    url: "https://static2.tripoto.com/media/filter/t/img/101328/TripDocument/1474279330_1474279325380.jpg",
+    clickHandler: (url, obj) => {
+      console.log(obj)
+    }
+  },
+  {
+    text:"solotrips",
+    url: "http://travelsourceindia.in/wp-content/uploads/2016/06/family-ties-300x300.jpg",
+    clickHandler: (url, obj) => {
+      console.log(obj)
+    }
+  }
+];
+
       return (
         <div className={styles.home}>
           <Helmet title="Home"/>
@@ -236,35 +277,6 @@ export class HomeSlider extends Component {
   }
 }
 
-const images = [
-  {
-    url: "http://tripconnoisseurs.com/wp-content/uploads/2016/08/Honeymoon.jpg",
-    text:"honeymoon",
-    clickHandler: (url, obj) => {
-      console.log(url)
-    }
-  },
-  {
-    url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
-    text:"treks",
-    clickHandler: (url, obj) => {
-      console.log(obj)
-    }
-  },
-  {
-    text:"grouptrips",
-    url: "https://static2.tripoto.com/media/filter/t/img/101328/TripDocument/1474279330_1474279325380.jpg",
-    clickHandler: (url, obj) => {
-      console.log(obj)
-    }
-  },
-  {
-    text:"solotrips",
-    url: "http://travelsourceindia.in/wp-content/uploads/2016/06/family-ties-300x300.jpg",
-    clickHandler: (url, obj) => {
-      console.log(obj)
-    }
-  }
-];
+
 
 

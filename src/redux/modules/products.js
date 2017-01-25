@@ -60,12 +60,14 @@ export default function reducer(state = initialState, action = {}) {
       const packages = action.result.packages;
       const packagesCount = action.result.packagesCount;
       const productsCount = action.result.placesCount;
+      const appScripts = action.result.appscripts;
       return {
         ...state,
         loading: false,
         loaded: true,
         products: item,
         packages: packages,
+        appscripts:appScripts,
         productsCount: productsCount,
         packagesCount: packagesCount,
         offers: action.result.offers,
@@ -88,7 +90,7 @@ export default function reducer(state = initialState, action = {}) {
          products: action.result.places,
         hotels: action.result.hotels,
         packages: action.result.packages,
-        events: action.result.events,
+        events: action.result.events
       }
     }
     case 'SET_REFRESHED_ENTRIES': {
