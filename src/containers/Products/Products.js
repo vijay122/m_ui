@@ -12,7 +12,7 @@ import {initializeWithKey} from 'redux-form';
 import {asyncConnect} from 'redux-async-connect';
 import {bindActionCreators} from 'redux';
 import {push} from 'react-router-redux';
-import {ReactRpg} from 'react-rpg';
+import {ReactRpg} from '@vijay122/react-tiles';
 
 @asyncConnect([{
   deferred: true,
