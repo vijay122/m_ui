@@ -23,6 +23,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'react-material-icons/icons/action/shopping-cart';
+import * as browserUtils from '../../utils/HtmlUtils';
 
 injectTapEventPlugin();
 
@@ -147,11 +148,12 @@ export class App extends Component {
 
   handleSearchSelection(searchItem,data,x)
   {
-    debugger;
     this.setState({searchItem});
   }
 
   render() {
+           var isMobile = browserUtils.isMobile();
+        var hideClassForMobile = isMobile?"hide":"block";
     var tempArr =[];
     tempArr.push("hi");
     var pageContents = this.getSeoContents();
@@ -215,7 +217,7 @@ export class App extends Component {
         <Row>
               <Col md={3}>Livelytrips
               </Col>
-              <Col md={6}>
+              <Col className={hideClassForMobile} md={6}>
               <div className={styles.searchContainer}>
                <Row>
               <Col md={3} className={styles.fullWidth} className={styles.noPadding}>

@@ -1,12 +1,15 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import * as footerActions from '../../redux/modules/info';
+import {connect} from 'react-redux';
 import  'isomorphic-fetch';
 
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 
 import Chip from 'material-ui/Chip';
+
+import {push} from 'react-router-redux';
 
 const styles = {
   chip: {
@@ -24,11 +27,22 @@ export default class InfoBar extends Component {
     // load: PropTypes.func.isRequired
   }
 
+  viewDetails(data, fn, st,x)
+  {
+        x.preventDefault();
+        return false;
+   // var placeid = fn._id;
+   // data.props.dispatch(push('/detail/id:' + placeid + "/category:products"));
+
+  }
+
   componentDidMount() {
   }
 
   render() {
     var linkitems = [];
+      var ty = this;
+          var category = 'products';
     linkitems = this.props.linkItems;
     const {info, load} = this.props; // eslint-disable-line no-shadow
     const styles = require('./InfoBar.scss');
@@ -66,9 +80,11 @@ export default class InfoBar extends Component {
                     <h3>Popular Categories</h3>
                     <div style={styles.wrapper}>
                       {linkitems && linkitems.size > 0 && linkitems.map(function (x) {
+                       var href ="http://localhost:7000/detail/id:"+x._id+"/category:products";
+                       var st = x;
                         return (
                           <div>
-                            <a href="">{x.name}, {x.city}</a>
+                            <a href={href} onClick={ty.viewDetails.bind(x, ty, st)}>{x.name}, {x.city}</a>
                           </div>)
                       })}
                     </div>
@@ -141,6 +157,8 @@ export default class InfoBar extends Component {
     );
   }
 }
+
+//export default connect(mapStateToProps, mapDispatchToProps)(InfoBar);
 
 function mapStateToProps(state) {
   console.log('state ' + state);

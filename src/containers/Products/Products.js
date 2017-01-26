@@ -67,7 +67,6 @@ export class Products extends Component {
       var offer = this.props.products.offers;
       var productlist = this.props.products.products;
           var appscripts = this.props.products.appscripts;
-          debugger;
           if(appscripts!= undefined)
           {
             appscripts = appscripts[0];
