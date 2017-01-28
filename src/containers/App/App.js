@@ -147,7 +147,6 @@ export class App extends Component {
 
   handleSearchSelection(searchItem,data,x)
   {
-    debugger;
     this.setState({searchItem});
   }
 

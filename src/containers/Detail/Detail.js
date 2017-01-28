@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Booking} from '../../components';
+import {Booking,SidebarList} from '../../components';
 import Helmet from 'react-helmet';
 import Grid from 'react-bootstrap/lib/Grid';
 import Image from 'react-bootstrap/lib/Image';
@@ -16,7 +16,8 @@ import {bindActionCreators} from 'redux';
 import {push} from 'react-router-redux';
 import geolib  from 'geolib';
 import * as browserUtils from '../../utils/HtmlUtils';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group' 
+
+import {TransitionMotion, spring, Motion} from 'react-motion'
 
 var Slider = require('react-slick');
 
@@ -126,7 +127,6 @@ export class Detail extends Component {
   }
 
   nextNearby() {
-
     this.state.startIndex = this.state.endIndex;
     this.state.endIndex = this.state.endIndex + 4;
 
@@ -134,7 +134,8 @@ export class Detail extends Component {
     if (places[this.state.endIndex] != undefined) {
       this.setState({
         "startIndex": this.state.startIndex,
-        "endIndex": this.state.endIndex
+        "endIndex": this.state.endIndex,
+        "springValue":"155%"
       });
     }
 
@@ -160,6 +161,7 @@ export class Detail extends Component {
     };
         var isMobile = browserUtils.isMobile();
         var hideClassForMobile = isMobile?"hide":"block";
+        var self = this;
     var that = this.props;
     var cart = this.props.cart;
     var detail = {};
@@ -206,12 +208,14 @@ export class Detail extends Component {
             <Row className="show-grid">
               <Col className={hideClassForMobile} md={2}>
                 <a onClick={this.previousNearby.bind(this, that, detail)}>Previous</a>
-                {
+                <SidebarList videos={nearbyElements} referenceproduct={detail} springValue={self.state.springValue} dispatch={that.dispatch}/>
+                {/*
                   detail != undefined && nearbyElements != undefined && nearbyElements.map(function (nearbyloc) {
                     if (detail._id != nearbyloc._id)
                       return <SidebarTiles data={nearbyloc} key={nearbyloc._id + "detail"} referenceproduct={detail}
                                            key={nearbyloc.id} dispatch={that.dispatch}></SidebarTiles>;
-                  })}
+                  })
+                */}
                 <a onClick={this.nextNearby.bind(this, that, detail)}>Next</a>
               </Col>
               <Col xs={12} md={6}>
@@ -365,10 +369,6 @@ export class SidebarTiles extends Component {
     var distance = (this.state != null && this.state.distance != undefined) ? this.state.distance + " kms" : "";
     return (
       <div>
-      <ReactCSSTransitionGroup
-          transitionName="example"
-          transitionEnterTimeout={900}
-          transitionLeaveTimeout={900}>
         <Row>
           <label>{current.name} </label>
         </Row>
@@ -385,7 +385,6 @@ export class SidebarTiles extends Component {
             <h5>{distance}</h5>
           </Col>
         </Row>
-        </ReactCSSTransitionGroup>
       </div>
     );
   }
