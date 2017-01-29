@@ -23,7 +23,12 @@ export default class Booking extends React.Component {
   }
 
   addToCart(data, fn, st) {
+    debugger;
+    if(this.state.controlledDate != undefined)
+    {
     data.dispatch({type: 'ADD_TO_CART', result: fn});
+    }
+
   }
 
   renderButtons(that,detail,cart){
@@ -47,6 +52,11 @@ cartItems = this.props.cartContext.items;
       );
     }
   }
+  _handleChange = (event, date) => {
+    this.setState({
+      controlledDate: date,
+    });
+  };
 
   render() {
     var that = this.props.that;
@@ -71,6 +81,8 @@ cartItems = this.props.cartContext.items;
               floatingLabelText="Choose your travel date"
               hintText="Custom date format"
               firstDayOfWeek={0}
+              value={this.state.controlledDate}
+               onChange={this._handleChange}
               formatDate={new DateTimeFormat('en-US', {
                 day: 'numeric',
                 month: 'long',

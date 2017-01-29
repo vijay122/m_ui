@@ -43,7 +43,7 @@ export default class SidebarList extends React.Component {
          key: video._id,
         data: video,
         style: {
-          height: spring(springs, presets.mySpring),
+          height: spring(155, presets.mySpring),
           opacity: spring(1, presets.mySpring),
           marginTop: 10,
         }
