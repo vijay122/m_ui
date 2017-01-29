@@ -85,6 +85,7 @@ export class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.state.error="";
     this.state.detail = props.detail.detail;
     this.state.startIndex = 0;
     this.state.endIndex = 4;
@@ -151,6 +152,16 @@ export class Detail extends Component {
     return rest;
   }
 
+  validateAdd(date)
+  {
+    var error ="";
+    if(date!= undefined)
+    {
+error = "please select the date of your travel.";
+    }
+    this.setState({error:error});
+  }
+
   render() {
     var settings = {
       dots: false,
@@ -194,6 +205,17 @@ export class Detail extends Component {
     {
       return (
         <div className={styles.home}>
+        {this.props!= undefined && this.props.cart!= undefined && this.props.cart.error!= undefined?
+          <div className={styles.scriptStyles}>
+                  {this.props.cart.error.map(function(x)
+                          {
+                              return( <div>{x}</div>)
+                            })
+                          }
+                      </div>:
+                <div/>
+}
+         
           <Row className="show-grid">
             <Col xs={12} md={2} className={styles.nearbyTitleDiv}>
               <label>Nearby Places </label>
@@ -208,14 +230,15 @@ export class Detail extends Component {
             <Row className="show-grid">
               <Col className={hideClassForMobile} md={2}>
                 <a onClick={this.previousNearby.bind(this, that, detail)}>Previous</a>
-                <SidebarList videos={nearbyElements} referenceproduct={detail} springValue={self.state.springValue} dispatch={that.dispatch}/>
-                {/*
+               
+               {/* <SidebarList videos={nearbyElements} referenceproduct={detail} springValue={self.state.springValue} dispatch={that.dispatch}/> */}
+                {
                   detail != undefined && nearbyElements != undefined && nearbyElements.map(function (nearbyloc) {
                     if (detail._id != nearbyloc._id)
                       return <SidebarTiles data={nearbyloc} key={nearbyloc._id + "detail"} referenceproduct={detail}
                                            key={nearbyloc.id} dispatch={that.dispatch}></SidebarTiles>;
                   })
-                */}
+                }
                 <a onClick={this.nextNearby.bind(this, that, detail)}>Next</a>
               </Col>
               <Col xs={12} md={6}>
@@ -228,7 +251,7 @@ export class Detail extends Component {
                 </Row>
               </Col>
               <Col xs={12} md={3}>
-                <Booking that={that} detail={detail} cartContext={cart}/>
+                <Booking that={that} detail={detail} cartContext={cart} validate={this.validateAdd}/>
               </Col>
             </Row>
             <Row style={{minHeight: "300px"}}>

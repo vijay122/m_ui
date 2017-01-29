@@ -101,13 +101,13 @@ tripInfo:{
 }
   }
 
-  checkout(data, fn, st) {
+  checkout1(data, fn, st) {
     this.setDate();
     var cart =    this.state.cartcontext;
     this.props.dispatch(checkoutActions.validateOrder(cart));
    }
 
-  checkout1() {
+  checkout() {
     var cart = this.props.cartcontext;
     this.props.dispatch(checkoutActions.submitOrder(cart));
   }

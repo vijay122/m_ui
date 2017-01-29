@@ -55,11 +55,17 @@ export default function cart(state = initialState, action) {
       cart.push(action.result);
       return {
         ...state,
-        items: cart
+        items: cart,
+        error:null
       }
     }
     case 'CHECKOUT_REQUEST':
       return initialState
+
+       case 'ERROR':
+      return {...state,
+        error:action.result
+      }
     case 'CHECKOUT_FAILURE':
       return action.cart
     default: {

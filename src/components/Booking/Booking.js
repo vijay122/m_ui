@@ -22,11 +22,28 @@ export default class Booking extends React.Component {
     this.state.type = value;
   }
 
-  addToCart(data, fn, st) {
-    debugger;
+  validateAdd()
+  {
+    var errorlist=[];
     if(this.state.controlledDate != undefined)
     {
+
+    }
+    else
+    {
+      errorlist.push("Please select your travel dates.");
+    }
+    return errorlist;
+  }
+  addToCart(data, fn, st) {
+   var st = this.validateAdd();
+    if(st.length<=0)
+    {
     data.dispatch({type: 'ADD_TO_CART', result: fn});
+    }
+    else
+    {
+          data.dispatch({type: 'ERROR', result: st});
     }
 
   }
@@ -57,6 +74,7 @@ cartItems = this.props.cartContext.items;
       controlledDate: date,
     });
   };
+
 
   render() {
     var that = this.props.that;
