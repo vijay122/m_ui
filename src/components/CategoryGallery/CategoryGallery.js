@@ -29,7 +29,7 @@ export default class CategoryGallery extends Component {
   }
 
   clicking() {
-console.log("you clicked");
+
   }
 
   render() {
