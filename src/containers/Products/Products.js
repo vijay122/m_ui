@@ -57,7 +57,7 @@ export class Products extends Component {
 
   render() {
 
-
+alert("hi");
 
     if (this.props.products.loaded) {
       var that = this;
