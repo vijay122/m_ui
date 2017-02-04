@@ -29,7 +29,7 @@ injectTapEventPlugin();
 
 const AppbarStyles = () => getMuiTheme({
   palette: {
-    primary1Color: '#457DBB',
+    primary1Color: '#25C5CD',
     textColor: '#313131',
     // primary2Color:"#2173B3",
     // primary3Color:"#A9D2EB",

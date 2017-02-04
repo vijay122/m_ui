@@ -298,25 +298,28 @@ error = "please select the date of your travel.";
             </Row>
             <Row>
               <Col xs={12} md={4}>
-                <h2> Hotels near {detail.name} </h2>
+
               </Col>
               <Col xs={12} md={4}>
-                <h2> Packages near {detail.name} </h2>
+
               </Col>
               <Col xs={12} md={4}>
-                <h2> Events near {detail.name} </h2>
+
               </Col>
             </Row>
             <Row>
               <Col xs={12} md={4}>
+                              <h2> Hotels near {detail.name} </h2>
                 <DetailRecommendationList data="hotels" recommendedList={hotels} referenceproduct={detail}
                                           dispatch={this.props.dispatch}/>
               </Col>
               <Col xs={12} md={4}>
+                              <h2> Packages near {detail.name} </h2>
                 <DetailRecommendationList data="packages" recommendedList={packages} referenceproduct={detail}
                                           dispatch={this.props.dispatch}/>
               </Col>
               <Col xs={12} md={4}>
+                              <h2> Events near {detail.name} </h2>
                 <DetailRecommendationList data="events" recommendedList={events} referenceproduct={detail}
                                           dispatch={this.props.dispatch}/>
               </Col>

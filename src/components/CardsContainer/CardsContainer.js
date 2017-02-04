@@ -88,8 +88,8 @@ export default class CardsContainer extends React.Component {
                       </div>
                       </div>
                         <Card className={styles.overrideStyles}>
-                          <CardMedia
-                            overlay={<CardTitle title={x.name} subtitle={x.title}/>}>
+                          <CardMedia className={styles.titleContent}
+                            overlay={<CardTitle  title={x.name} subtitle={x.title}/>}>
                             <div><h2>{x.name} </h2></div>
                             <h3 className={styles.tileTitle}>{x.title}</h3>
                             <img src={x.image[0] != undefined && that.resizeImage(x.image[0], 250, 250)}></img>

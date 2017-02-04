@@ -57,8 +57,6 @@ export class Products extends Component {
 
   render() {
 
-alert("hi");
-
     if (this.props.products.loaded) {
       var that = this;
 //  const { productList } = this.props.products.products;
@@ -126,7 +124,7 @@ const images = [
           </Row>
           <div>
             <Row>
-              <h4> Find the best livelytrips stays and tours around the world</h4>
+              <h3> Find the best livelytrips stays and tours around the world</h3>
             </Row>
             <Row className="show-grid">
               <SearchBar dispatch={that.props.dispatch}/>

@@ -81,12 +81,10 @@ export function isLoaded(globalState) {
 
 export function load() {
   return true;
-  /*
    return {
    types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
    promise: (client) => client.get('/loadAuth')
    };
-   */
 }
 export function register(user) {
   const payload = {};
