@@ -64,7 +64,7 @@ export default class CardsContainer extends React.Component {
             <label className={styles.subhead}>{this.props.type}</label>
           </div>
           <div className={styles.scriptStyles}>
-            Hello this is the script container pls have a look at it for the basic onfo
+           {this && this.props!=undefined && this.props.promotionMessage?this.props.promotionMessage:""}
           </div>
 
           {canrender && canrender.length > 0 && canrender.map(function (v) {

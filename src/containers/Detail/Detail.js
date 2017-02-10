@@ -309,17 +309,23 @@ error = "please select the date of your travel.";
             </Row>
             <Row>
               <Col xs={12} md={4}>
+               <Row className={styles.hotelsHeader}>
                               <h2> Hotels near {detail.name} </h2>
+                              </Row>
                 <DetailRecommendationList data="hotels" recommendedList={hotels} referenceproduct={detail}
                                           dispatch={this.props.dispatch}/>
               </Col>
               <Col xs={12} md={4}>
+               <Row className={styles.packagesHeader}>
                               <h2> Packages near {detail.name} </h2>
+                              </Row>
                 <DetailRecommendationList data="packages" recommendedList={packages} referenceproduct={detail}
                                           dispatch={this.props.dispatch}/>
               </Col>
               <Col xs={12} md={4}>
+               <Row className={styles.eventsHeader}>
                               <h2> Events near {detail.name} </h2>
+                              </Row>
                 <DetailRecommendationList data="events" recommendedList={events} referenceproduct={detail}
                                           dispatch={this.props.dispatch}/>
               </Col>

@@ -55,6 +55,23 @@ export class Products extends Component {
     }
   }
 
+  mapAppScripts(cateroryArray)
+  {
+    var rry=[];
+    for(var i=0;i<cateroryArray.CategoryCount.length;i++)
+    {
+      rry.push(this.mapCategory(cateroryArray.CategoryCount[i]));
+    }
+    return rry;
+  }
+  mapCategory(obj)
+  {
+return {
+    url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
+    text:obj._id+'('+ obj.count+')'
+  }
+  }
+
   render() {
 
     if (this.props.products.loaded) {
@@ -65,21 +82,26 @@ export class Products extends Component {
       var offer = this.props.products.offers;
       var productlist = this.props.products.products;
           var appscripts = this.props.products.appscripts;
+          var sectionscript={};
           if(appscripts!= undefined)
           {
             appscripts = appscripts[0];
+            sectionscript = appscripts.SectionScripts;
           }
       var eventlist = this.props.products.events;
       var hotellist = this.props.products.hotels;
       var packagelist = this.props.products.packages;
       var hotels = this.props.products.hotels;
+      var packagescript =sectionscript? sectionscript.packages:"";
+      var hotelscript = sectionscript? sectionscript.hotels:"";
+      var eventscript = sectionscript? sectionscript.events:"";
       // offer = this.props.products.products[0];
       const styles = require('./Home.scss');
       // require the logo image both from client and server
                   //  <CategoryGallery galleryitems={images} columns={[2, 2, 2]} padding={2}/>
       const logoImage = require('./logo.png');
 
-const images = [
+var images = [
   {
     url: "http://tripconnoisseurs.com/wp-content/uploads/2016/08/Honeymoon.jpg",
     text:"honeymoon",
@@ -109,6 +131,9 @@ const images = [
     }
   }
 ];
+
+images =this.mapAppScripts(appscripts);
+
 
       return (
         <div className={styles.home}>
@@ -146,13 +171,13 @@ const images = [
           </Row>
 
           <CardsContainer packagelist={packagelist} type="Popular Packages" dispatch={that.props.dispatch}
-                          category="packages"/>
+                        promotionMessage={packagescript}  category="packages"/>
           <br />
           <CardsContainer packagelist={hotellist} type="Popular Hotels" dispatch={that.props.dispatch}
-                          category="hotels"/>
+                         promotionMessage={hotelscript}   category="hotels"/>
           <br />
           <CardsContainer packagelist={eventlist} type="Popular Events" dispatch={that.props.dispatch}
-                          category="events"/>
+                         promotionMessage={eventscript}   category="events"/>
           <br />
         </div>
       );
