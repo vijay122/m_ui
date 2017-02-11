@@ -262,9 +262,10 @@ export class HomeSlider extends Component {
   }
 
   render() {
-
+      const styles = require('./Home.scss');
     var that = this;
     var image = "";
+
 
     var list = this.props.data;
     return (
@@ -274,8 +275,17 @@ export class HomeSlider extends Component {
             if (scrolloffer != undefined && scrolloffer.assets != undefined && scrolloffer.assets.display != undefined) {
               img = scrolloffer.assets.display;
             }
+            var priceper ="only";
+            if(scrolloffer.category =="honeymoon")
+            {
+              priceper = "only";
+            }
             return (
               <CarouselItem>
+              <div className={styles.infomessage}>
+              <p> Rs:{scrolloffer.price} <sub>{priceper}</sub></p>
+              <p>{scrolloffer.duration}</p>
+              </div>
                 <img src={that.resizeImage(img, 450, 900)}/>
                 <div className="carousel-caption">
                   <h1>{scrolloffer.city}</h1>
