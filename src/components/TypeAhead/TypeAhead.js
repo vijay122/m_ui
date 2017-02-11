@@ -146,6 +146,7 @@ export default class AutoCompleteExampleSimple extends React.Component {
 
   render() {
     var floatinglabel = this.props.floatinglabel != "" ? this.props.floatinglabel : "Enter place name";
+    var searchincase = (this.state && this.state.searchText!= undefined) ? this.state.searchText.text:"";
     return (
       <div>
         <AutoComplete
@@ -158,7 +159,7 @@ export default class AutoCompleteExampleSimple extends React.Component {
           dataSource={this.state.dataSource}
           dataSourceConfig={dataSourceConfig}
           onUpdateInput={this.handleUpdateInput}
-          searchText={this.state.searchText}
+          searchText={searchincase}
           onNewRequest={this.handleSelect.bind(this)}/>
       </div>
     );
