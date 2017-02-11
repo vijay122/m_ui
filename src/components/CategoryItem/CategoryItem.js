@@ -53,15 +53,11 @@ export default class CategoryItem extends Component {
               <Divider />
             </Row>
             <Row>
-              <Col md={4}>
+              <Col md={12}>
                 <div>SightSeeing:</div>
                 {product && product.products && product.products.map(function (x) {
                   return (<VisitIcons menu={x} dispatch={that.props.dispatch}/>);
                 })}
-              </Col>
-              <Col md={4}>
-              </Col>
-              <Col md={4}>
               </Col>
             </Row>
           </Col>
