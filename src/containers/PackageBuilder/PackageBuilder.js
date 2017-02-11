@@ -135,7 +135,7 @@ export class PackageBuilder extends Component {
   _create() {
     try {
 
-      if (this.state.assets == undefined) {
+      if (this.state.assets == undefined || ( this.state.assets!= undefined && this.state.assets.display!= undefined && this.state.assets.display=="" )) {
         this.state.assets = {};
         this.state.assets.display = this.refs['scrollimage'].state.images[0];
       }
