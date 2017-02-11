@@ -284,7 +284,9 @@ export class HomeSlider extends Component {
               <CarouselItem>
               <div className={styles.infomessage}>
               <p> Rs:{scrolloffer.price} <sub>{priceper}</sub></p>
+              <p>per couple</p>
               <p>{scrolloffer.duration}</p>
+              <p>{scrolloffer.state}</p>
               </div>
                 <img src={that.resizeImage(img, 450, 900)}/>
                 <div className="carousel-caption">
