@@ -95,7 +95,8 @@ export class VisitIcons extends Component {
   }
 
   handleClick(data, fn, st) {
-    var placeid = data.props.menu.value;
+
+    var placeid = data.props.menu._id;
     data.props.dispatch(push('/detail/id:' + placeid + "/category:products"));
   }
 
@@ -112,13 +113,16 @@ export class VisitIcons extends Component {
   }
 
   render() {
-
+const styles = require('./CategoryItem.scss');
     var product = this.state.product;
     var ty = this;
     var prodimage = product.image != undefined ? product.image : product.scrollimage;
     var imagesrc = this.resizeImage(prodimage, 80, 80)
     return (
-      <img src={imagesrc} onClick={this.handleClick.bind(product, ty)}/>
+      <div className={styles.tooltip}>
+      <img src={imagesrc} onClick={this.handleClick.bind(product, ty)} />
+            <span className={styles.tooltiptext}>{product.name}</span>
+            </div>
     );
   }
 }

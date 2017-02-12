@@ -138,6 +138,22 @@
     text-align: center;
 }
 
+.parentWidth
+{
+  width:inherit;
+}
+.extraWidth
+{
+  width:110%;
+}
+
+@media (max-width: 480px) {
+.extraWidth
+{
+  width:100%;
+}
+  }
+
 
 
 

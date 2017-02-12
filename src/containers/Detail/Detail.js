@@ -50,6 +50,8 @@ function mapStateToProps(state) {
   }
   var id = qs('id');
   var cat = qs('category');
+  debugger;
+  var st = isProductExistInStore(state, id, cat);
   if (!isProductExistInStore(state, id, cat)) {
     if(this!= undefined)
     {
@@ -96,7 +98,16 @@ export class Detail extends Component {
   }
 
   componentDidMount() {
-    this.props.getProducts(this.props.detail.detail);
+      var id = qs('id');
+  var cat = qs('category');
+    if(this.props.detail!= undefined && this.props.detail.detail!= undefined)
+    {
+          this.props.getProducts(this.props.detail.detail);
+    }
+    else
+    {
+          this.props.dispatch(refreshSection(id, cat));
+        }
   }
 
   componentWillReceiveProps(newprops) {
@@ -398,6 +409,7 @@ export class SidebarTiles extends Component {
   render() {
     var ty = this;
     var current = this.props.data;
+        const styles = require('./Detail.scss');
     var distance = (this.state != null && this.state.distance != undefined) ? this.state.distance + " kms" : "";
     return (
       <div>
@@ -406,8 +418,8 @@ export class SidebarTiles extends Component {
         </Row>
         <Row>
           <Col xs={12} md={7}>
-            <div>
-              <Image src={this.resizeImage(current.image[0], 100, 100)} alt="150x100"
+            <div className={styles.extraWidth}>
+              <Image className={styles.parentWidth} src={current.image[0]} alt="150x100"
                      onClick={this.handleClick.bind(this, ty)}>
               </Image>
             </div>
@@ -502,21 +514,21 @@ export class DetailRecommendations extends Component {
     var ty = this;
         const styles = require('./Detail.scss');
     var prodimage = product.image != undefined ? product.image[0] : product.assets.display;
-    var imagesrc = this.resizeImage(prodimage, 100, 100)
+    var imagesrc = this.resizeImage(prodimage, 100, 100);
     return (
       <div className="recommendedTile">
       <div className={styles.ribbon}>-50%</div>
         <Row style={{padding: '2px'}} onClick={this.handleClick.bind(this, ty)}>
           <Col xs={4} md={3}>
-            <img src={imagesrc}></img>
-
+          <div className={styles.extraWidth}>
+            <img className={styles.parentWidth} src={imagesrc}></img>
+          </div>
           </Col>
           <Col xs={8} md={9}>
             <div>
               <Row>
                 <Col md={8}>
                   <label>{product.name}</label>
-
                   <div>{product.city}</div>
                   <div>{product.title}</div>
                 </Col>

@@ -278,6 +278,10 @@ export class App extends Component {
                             <Link to={'/categories:packages/searchtype:category/search:Honeymoon'}
                                   activeClassName="active">Honeymoon</Link>
                           </li>
+                           <li>
+                      <Link to={'/products/'} activeClassName="active">Offer Zone</Link>
+                       <Link to={'/products/'} activeClassName="active">FAQ</Link>
+                    </li>
                         </ul>
                       </div>
                     </li>

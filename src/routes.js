@@ -106,7 +106,7 @@ export default (store) => {
       <Route path="/products" component={Products}/>
       <Route path="/upload" component={PlaceUploader}/>
       <Route path="/detail/id:productid/category:category" component={Detail} onEnter={loadDetails}/>
-      <Route path="/cart" component={Cart} onEnter={requireLogin}/>
+      <Route path="/cart" component={Cart}/>
       <Route path="/packagebuilder" component={PackageBuilder}/>
       <Route path="/admin" component={Admin}/>
       <Route path="/myprofile" component={MyProfile}/>
