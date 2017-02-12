@@ -92,6 +92,8 @@ export default class CardsContainer extends React.Component {
                             overlay={<CardTitle  title={x.name} subtitle={x.title}/>}>
                             <div><h2>{x.name} </h2></div>
                             <h3 className={styles.tileTitle}>{x.title}</h3>
+                            <div className={styles.burst12}>
+                            </div>
                             <img src={x.image[0] != undefined && that.resizeImage(x.image[0], 250, 250)}></img>
                           </CardMedia>
                         </Card>

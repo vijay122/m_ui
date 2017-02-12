@@ -107,3 +107,34 @@
 {
   padding:5px 0px 5px 0px !important;
 }
+
+.burst12 {
+    background: red;
+    width: 40px !important;
+    height: 40px;
+    min-width: 40px !important;
+    position: absolute;
+    text-align: center;
+}
+.burst12:before, .burst12:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px !important;
+    min-width: 40px !important;
+    background: red;
+}
+.burst12:before {
+    -webkit-transform: rotate(30deg);
+       -moz-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+         -o-transform: rotate(30deg);
+}
+.burst12:after {
+    -webkit-transform: rotate(60deg);
+       -moz-transform: rotate(60deg);
+        -ms-transform: rotate(60deg);
+         -o-transform: rotate(60deg);
+}
