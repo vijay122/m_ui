@@ -149,5 +149,16 @@
   height:54px;
   width:100%;
 }
+.fullOverlay
+{
+  opacity: 1;
+    background: #37B9E9;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
 
 

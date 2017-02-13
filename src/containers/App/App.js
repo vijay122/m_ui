@@ -334,6 +334,8 @@ export class App extends Component {
             </div>
           </div>
           <InfoBar linkItems={seoitems}/>
+{this.props &&  this.props.appstate!= undefined && this.props.appstate.products!= undefined && this.props.appstate.products.loaded == true?<div />:<div className={styles.fullOverlay}></div>}
+          
         </div>
       </MuiThemeProvider>
     );
@@ -342,7 +344,7 @@ export class App extends Component {
 
 function mapStateToProps(state) {
   console.log('state ' + state);
-
+debugger;
   return {appstate: state, detail: state.detail}
 }
 
