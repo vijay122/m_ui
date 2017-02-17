@@ -28,6 +28,16 @@ export default function reducer(state = initialState, action = {}) {
         data: null,
         error: action.error
       };
+
+       case "VALIDATION_RESPONSE":
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+        data: null,
+        error: action.error,
+        validationresponse:action
+      };
     // return setEntries(...state,action.result);
 
     default:
@@ -49,17 +59,19 @@ export function validateOrder(cart) {
       body: JSON.stringify({
         payload
       })
-    })
-      .then(response => {
-        if (response.status >= 200 && response.status < 300) {
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(function (response) {
+        dispatch({type: 'VALIDATION_RESPONSE', result: response});
+       // if (response.status >= 200 && response.status < 300) {
           console.log(response);
-        } else {
-          const error = new Error(response.statusText);
-          error.response = response;
-          throw error;
-        }
+       // } else {
+       //   const error = new Error(response.statusText);
+       //   error.response = response;
+       //   throw error;
+       // }
       })
-      .catch(error => {
+      .catch(function (error) {
         console.log('request failed', error);
       });
 }

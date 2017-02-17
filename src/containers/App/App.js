@@ -344,7 +344,6 @@ export class App extends Component {
 
 function mapStateToProps(state) {
   console.log('state ' + state);
-debugger;
   return {appstate: state, detail: state.detail}
 }
 

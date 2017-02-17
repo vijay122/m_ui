@@ -20,7 +20,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 function mapStateToProps(state) {
   console.log('state ' + state);
-  return {cartcontext: state.cart}
+  var validation ;
+  if(state.checkout!= undefined && state.checkout.validationresponse!= undefined &&  state.checkout.validationresponse.result)
+  {
+    validation = state.checkout.validationresponse.result;
+  }
+  return {cartcontext: state.cart , validationresponse: validation}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -75,6 +80,11 @@ tripInfo:{
 
     data.dispatch({type: 'REMOVE_TO_CART', result: {prd: fn}});
   }
+   componentDidMount() {
+    this.setDate();
+    var cart =    this.state.cartcontext;
+    this.props.dispatch(checkoutActions.validateOrder(cart));
+  }
 
   getEvents()
 {
@@ -101,13 +111,13 @@ tripInfo:{
 }
   }
 
-  checkout1(data, fn, st) {
+  checkout(data, fn, st) {
     this.setDate();
     var cart =    this.state.cartcontext;
     this.props.dispatch(checkoutActions.validateOrder(cart));
    }
 
-  checkout() {
+  checkout1() {
     var cart = this.props.cartcontext;
     this.props.dispatch(checkoutActions.submitOrder(cart));
   }
@@ -127,7 +137,13 @@ tripInfo:{
   render() {
     var self = this;
     var that = this.props;
-    var title = "Shopping Cart";
+    var mon ="";
+    var validationresponse = this.props.validationresponse;
+    if(validationresponse!= undefined && validationresponse.mon != undefined)
+    {
+mon = validationresponse.mon;
+    }
+    var title = "Master Order Number :"+ mon;
     const cartItems = this.props.cartcontext.items;
     const styles = require('./Detail.scss');
     // require the logo image both from client and server
@@ -135,10 +151,10 @@ tripInfo:{
       <div className={styles.home}>
         <Helmet title="Home"/>
         <div className="container">
-          <label>Shopping Cart</label>
+          <label>{title}</label>
           <Row>
             <Col md={8}>
-              <CartOptions items={cartItems}/>
+              <CartOptions items={cartItems} validationresponse={validationresponse}/>
             </Col>
             <Col md={4}>
               <OrderSummary />

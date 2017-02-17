@@ -33,9 +33,11 @@ export default class CartGrid extends Component {
   }
 
   render() {
+    debugger;
     var self = this;
     var that = this.props;
-    var title = "Shopping Cart";
+    var mon = this.props.validationresponse && this.props.validationresponse.mon!= undefined?this.props.validationresponse.mon:"";
+    var title = "MON:"+ mon ;
     const cartItems = this.props.items;
     const styles = require('./CartGrid.scss');
     return (

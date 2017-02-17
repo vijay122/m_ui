@@ -84,7 +84,7 @@ export default class CartOptions extends React.Component {
             </Tabs>
             <Row>
               {this.state.key == "table" && this.state.tempprod.map(function (x) {
-                return ( <CartGrid items={cartItems}/>)
+                return ( <CartGrid items={cartItems} validationresponse={that.props.validationresponse}/>)
               })
               }
             </Row>
