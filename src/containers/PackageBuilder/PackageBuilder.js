@@ -118,6 +118,17 @@ export class PackageBuilder extends Component {
 
   }
 
+  handleDaysSelect = (event) => {
+    debugger;
+    var st = event.target.value;
+    this.state.noofdays = st;
+  }
+
+  handleNightsSelect = (event) => {
+    debugger;
+    var st = event.target.value;
+    this.state.noofnights = st;
+  }
 
   addProduct(product) {
     var prod = {};
@@ -454,6 +465,28 @@ export class PackageBuilder extends Component {
                     floatingLabelText="Enter the package duration"
                     floatingLabelFixed={true}
                     data-ctrlid='duration' onChange={this.onChange.bind(this)} value={this.state.duration}/>
+
+                     <label>No of Days:</label>
+                  <select value={this.state.noofdays} data-ctrlid='noofdays' defaultValue={""}
+                          onChange={this.handleDaysSelect} required>
+                    <option value="1" data-ctrlid='noofdays'>1</option>
+                    <option value="2" data-ctrlid='noofdays'>2</option>
+                     <option value="3" data-ctrlid='noofdays'>3</option>
+                    <option value="4" data-ctrlid='noofdays'>4</option>
+                    <option value="5" data-ctrlid='noofdays'>5</option>
+                    <option value="6" data-ctrlid='noofdays'>6</option>
+                  </select>
+
+                   <label>No of Nights:</label>
+                  <select value={this.state.noofnights} data-ctrlid='noofnights' defaultValue={""}
+                          onChange={this.handleNightsSelect} required>
+                     <option value="1" data-ctrlid='noofnights'>1</option>
+                    <option value="2" data-ctrlid='noofnights'>2</option>
+                     <option value="3" data-ctrlid='noofnights'>3</option>
+                    <option value="4" data-ctrlid='noofnights'>4</option>
+                    <option value="5" data-ctrlid='noofnights'>5</option>
+                    <option value="6" data-ctrlid='noofnights'>6</option>
+                  </select>
 
                   <TextField
                     hintText="Suitable title for the place"

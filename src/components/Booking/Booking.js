@@ -93,7 +93,7 @@ cartItems = this.props.cartContext.items;
       <Row>
         <Col md={12}>
           <Row>
-            <h5>We wound love to book this package for you!!</h5>
+            <h5>I wound love to book this package for you!!</h5>
             <DatePicker
               container="inline"
               floatingLabelText="Choose your travel date"
