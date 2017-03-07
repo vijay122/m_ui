@@ -9,6 +9,7 @@ const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
 
 import config from '../../config';
+var querystring = require('querystring');
 
 const initialState = {
   count: 0
@@ -87,8 +88,17 @@ export default function reducer(state = initialState, action = {}) {
 }
 export function getProducts(searchtable, searchby, searchvalue) {
   try {
-    var latitude = searchvalue.coordinates[0];
-    var longitude = searchvalue.coordinates[1];
+    var latitude;
+    var longitude;
+    var parsed = querystring.parse(searchvalue);
+    if(parsed!= undefined && parsed!="" && parsed.coordinates!=undefined)
+    {
+      searchvalue = parsed;
+      latitude = searchvalue.coordinates[0];
+      longitude = searchvalue.coordinates[1];
+    }
+
+    
     var payload = {};
     payload.sectionName = "search";
     payload.lat = latitude;

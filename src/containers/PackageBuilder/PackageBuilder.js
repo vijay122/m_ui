@@ -119,13 +119,11 @@ export class PackageBuilder extends Component {
   }
 
   handleDaysSelect = (event) => {
-    debugger;
     var st = event.target.value;
     this.state.noofdays = st;
   }
 
   handleNightsSelect = (event) => {
-    debugger;
     var st = event.target.value;
     this.state.noofnights = st;
   }

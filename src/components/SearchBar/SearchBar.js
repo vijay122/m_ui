@@ -59,11 +59,14 @@ export default class SearchBar extends React.Component {
     // searchvalue = this.serialize(this.refs["searched_id"].state.searchText.resultKey);
     if(this.refs["searched_id"]!= undefined && this.refs["searched_id"].state!= undefined && this.refs["searched_id"].state.searchText!= undefined && this.refs["searched_id"].state.searchText.resultKey != undefined)
     {
-     result = querystring.stringify(this.refs["searched_id"].state.searchText.resultKey);
+     //result = querystring.stringify(this.refs["searched_id"].state.searchText.resultKey);
+          result = this.refs["searched_id"].state.searchText.resultKey;
     }
     else if(this.refs["searched_id_city"]!= undefined && this.refs["searched_id_city"].state!= undefined)
     {
-      result = querystring.stringify(this.refs["searched_id_city"].state.searchText.resultKey);
+      //result = querystring.stringify(this.refs["searched_id_city"].state.searchText.resultKey);
+      result = this.refs["searched_id_city"].state.searchText.resultKey;
+      searchtype = this.refs["searched_id_city"].props.resultKey;
     }
 //  if(this.refs!= undefined && this.refs.newproduct!= undefined && this.refs.newproduct.state)
     {
@@ -119,11 +122,11 @@ export default class SearchBar extends React.Component {
               </Col>
                <Col md={2}>
                 <TypeAhead ref="searched_id_city" searchTable={this.state.key} floatinglabel="Search City" searchby="city"
-                           resultKey="loc"/>
+                           resultKey="city"/>
               </Col>
               <Col md={2}>
                 <TypeAhead ref="searched_id" searchTable={this.state.key} floatinglabel="Search State" searchby="state"
-                           resultKey="loc"/>
+                           resultKey="state"/>
               </Col>
               <Col md={2}>
                 {this.state.key == "Hotel" && this.state.tempprod.map(function (x) {

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {CategoryItem, FilterToolbox} from '../../components';
 import * as categoryActions from '../../redux/modules/category';
+import * as productActions from '../../redux/modules/products';
 import {asyncConnect} from 'redux-async-connect';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -19,10 +20,7 @@ function qs(key) {
   }
   return vars[key];
 }
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Object.assign({}, categoryActions), dispatch)
-}
-
+/*
 @asyncConnect([{
   deferred: true,
   promise: ({store: {dispatch, getState}}) => {
@@ -37,9 +35,26 @@ function mapDispatchToProps(dispatch) {
     // }
   }
 }])
-
+*/
 export class Categories extends Component {
-  componentDidMount() {
+   componentWillMount() {
+    if(this!= undefined)
+    {
+         // this.store.dispatch(refreshSection(id, cat));
+    }
+      var searchtype = qs('searchtype');
+  var searchtable = qs('categories');
+    var searchvalue = qs('search');
+    try
+
+    {
+       this.props.dispatch(categoryActions.getProducts(searchtable, searchtype, searchvalue));
+
+    }
+    catch(ex)
+    {
+    }
+       
   }
 
   render() {
@@ -79,4 +94,4 @@ export class Categories extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Categories);
+export default connect(mapStateToProps)(Categories);

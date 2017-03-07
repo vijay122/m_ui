@@ -50,7 +50,6 @@ function mapStateToProps(state) {
   }
   var id = qs('id');
   var cat = qs('category');
-  debugger;
   var st = isProductExistInStore(state, id, cat);
   if (!isProductExistInStore(state, id, cat)) {
     if(this!= undefined)
