@@ -154,12 +154,18 @@ images =this.mapAppScripts(appscripts);
       return (
         <div className={styles.home}>
           <Helmet title="Home"/>
+          <Row>
+          <Col xs={12} md={8}>
+          </Col>
+           <Col xs={12} md={4} className={styles.centerText}>
+          <h3>Active Trips</h3>
+          </Col>
+          </Row>
           <Row className="show-grid">
             <Col xs={12} md={8}>
               <HomeSlider data={packagelist}/>
             </Col>
             <Col xs={12} md={4}>
-
               <ReactRpg imagesArray={images} columns={[2, 2, 2]} padding={2}/>
             </Col>
           </Row>
