@@ -66,8 +66,24 @@ export class Products extends Component {
   }
   mapCategory(obj)
   {
+    if(obj._id =="honeymoon")
 return {
-    url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
+    url: "http://www.easyweddings.com.au/articles/wp-content/uploads/sites/5/2014/01/178561859-400x400.jpg",
+    text:obj._id+'('+ obj.count+')'
+  }
+  if(obj._id =="sightseeing")
+return {
+    url: "http://www.norgimatravels.com/wp-content/uploads/2014/06/sightseeing-nepal-400x400.jpg",
+    text:obj._id+'('+ obj.count+')'
+  }
+   if(obj._id =="grouptrips")
+return {
+    url: "https://marutistoragenew.blob.core.windows.net/nexaexperience/rp/img/footer1-1march.png",
+    text:obj._id+'('+ obj.count+')'
+  }
+  if(obj._id =="party")
+return {
+    url: "http://i1.wp.com/discovercorps.com/wp-content/uploads/2013/11/cuba-our-trips-400x400.jpg?fit=400%2C400",
     text:obj._id+'('+ obj.count+')'
   }
   }
