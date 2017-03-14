@@ -67,7 +67,7 @@ export default (store) => {
     store.dispatch({type: 'SET_DETAIL', result: detailproduct});
   }
 
-
+/*
   function loadCategories(nextState, replace) {
     const category = qs('categories');
     const searchtype = qs('searchtype');
@@ -78,6 +78,20 @@ export default (store) => {
         searchon: category,
         searchby: searchtype,
         search: parsedresult
+      }
+    });
+  }
+  */
+
+   function loadCategories(nextState, replace) {
+    const category = qs('categories');
+    const searchtype = qs('searchtype');
+    const value = qs('searchOptions');
+    const parsedresult = querystring.parse(value);
+    store.dispatch({
+      type: 'CATEGORIES', result: {
+        searchon: category,
+        searchOptions: value,
       }
     });
   }
@@ -99,6 +113,7 @@ export default (store) => {
       { /* Routes */ }
       <Route path="/about" component={About}/>
       <Route path="/categories:id/searchtype:id/search:id" component={Categories} onEnter={loadCategories}/>
+       <Route path="/categories:id/search:searchOptions" component={Categories} onEnter={loadCategories}/>
       <Route path="/login" component={Login}/>
       <Route path="/survey" component={Survey}/>
       <Route path="/contests" component={Votings}/>

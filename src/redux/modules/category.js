@@ -86,10 +86,11 @@ export default function reducer(state = initialState, action = {}) {
     //  return state;
   }
 }
-export function getProducts(searchtable, searchby, searchvalue) {
+export function getProducts(searchtable, searchOptions) {
   try {
     var latitude;
     var longitude;
+    var searchvalue = "";
     var parsed = querystring.parse(searchvalue);
     if(parsed!= undefined && parsed!="" && parsed.coordinates!=undefined)
     {
@@ -104,8 +105,7 @@ export function getProducts(searchtable, searchby, searchvalue) {
     payload.lat = latitude;
     payload.lon = longitude;
     payload.findtable = searchtable;
-    payload.searchby = searchby;
-    payload.searchvalue = searchvalue;
+    payload.searchOptions = searchOptions;
     return dispatch => {
       fetch(config.svc + '/getProducts', {
         method: 'post',

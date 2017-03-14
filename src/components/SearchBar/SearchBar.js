@@ -15,6 +15,8 @@ import {push} from 'react-router-redux';
 
 var querystring = require('querystring');
 
+var qss = require('querystrings')
+
 
 export default class SearchBar extends React.Component {
 
@@ -52,28 +54,48 @@ export default class SearchBar extends React.Component {
   }
 
   viewDetails(data, fn, st) {
+    debugger;
+        var searchArray =[];
+        var keyvaluearr=[];
+         var searchTabelArray =[];
     var searchtable = this.state.key;
-    var searchtype = this.refs["searched_id"].props.resultKey;
+    var searchtype ;
     var searchvalue = "";
     let result ;
-    // searchvalue = this.serialize(this.refs["searched_id"].state.searchText.resultKey);
     if(this.refs["searched_id"]!= undefined && this.refs["searched_id"].state!= undefined && this.refs["searched_id"].state.searchText!= undefined && this.refs["searched_id"].state.searchText.resultKey != undefined)
     {
+      searchtype= this.refs["searched_id"].props.resultKey;
+      result = this.refs["searched_id"].state.searchText.resultKey;
+        var ip = [];
+        ip.push(searchtype);
+         ip.push(result);
+          keyvaluearr.push(ip);
+         // searchArray.push(keyvaluearr);
      //result = querystring.stringify(this.refs["searched_id"].state.searchText.resultKey);
-          result = this.refs["searched_id"].state.searchText.resultKey;
+
     }
-    else if(this.refs["searched_id_city"]!= undefined && this.refs["searched_id_city"].state!= undefined)
+   if(this.refs["searched_id_city"]!= undefined && this.refs["searched_id_city"].state!= undefined && this.refs["searched_id_city"].state.searchText)
     {
-      //result = querystring.stringify(this.refs["searched_id_city"].state.searchText.resultKey);
-      result = this.refs["searched_id_city"].state.searchText.resultKey;
-      searchtype = this.refs["searched_id_city"].props.resultKey;
+     searchtype = this.refs["searched_id_city"].props.resultKey;
+           result = this.refs["searched_id_city"].state.searchText.resultKey;
+            var ip = [];
+        ip.push(searchtype);
+         ip.push(result);
+          keyvaluearr.push(ip);
+
     }
-//  if(this.refs!= undefined && this.refs.newproduct!= undefined && this.refs.newproduct.state)
-    {
-      //    searchvalue = this.state.searchText;
-    }
+      searchArray.push(keyvaluearr);
+
+    var searchOptions={};
+    searchOptions.searchOn = searchtable;
+    searchOptions.search = searchArray;
+     let params = querystring.stringify(searchOptions);
+      params = qss.stringify({
+    searchOptions: keyvaluearr
+})
+     data.props.dispatch(push('/categories:' + searchtable + '/searchOptions:' + params));
     //var placeid= data.props.data._id;
-    data.props.dispatch(push('/categories:' + searchtable + '/searchtype:' + searchtype + '/search:' + result));
+    // data.props.dispatch(push('/categories:' + searchtable + '/searchtype:' + searchtype + '/search:' + result));
   }
 
 

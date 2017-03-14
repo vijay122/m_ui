@@ -5,6 +5,9 @@ import * as productActions from '../../redux/modules/products';
 import {asyncConnect} from 'redux-async-connect';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+var querystring = require('querystring');
+
+var qss = require('querystrings')
 
 function mapStateToProps(state) {
   console.log('state ' + state);
@@ -44,11 +47,16 @@ export class Categories extends Component {
     }
       var searchtype = qs('searchtype');
   var searchtable = qs('categories');
-    var searchvalue = qs('search');
+    var searchvalue = qs('searchOptions');
+
+
+debugger;
+var sr = qss.parse(searchvalue);
+     const parsedresult = querystring.parse(searchvalue);
     try
 
     {
-       this.props.dispatch(categoryActions.getProducts(searchtable, searchtype, searchvalue));
+       this.props.dispatch(categoryActions.getProducts(searchtable, parsedresult));
 
     }
     catch(ex)

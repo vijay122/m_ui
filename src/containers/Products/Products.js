@@ -55,6 +55,11 @@ export class Products extends Component {
     }
   }
 
+  categorySearch()
+  {
+    alert("searched");
+  }
+
   mapAppScripts(cateroryArray)
   {
     var rry=[];
@@ -69,22 +74,34 @@ export class Products extends Component {
     if(obj._id =="honeymoon")
 return {
     url: "http://www.easyweddings.com.au/articles/wp-content/uploads/sites/5/2014/01/178561859-400x400.jpg",
-    text:obj._id+'('+ obj.count+')'
+    text:obj._id+'('+ obj.count+')',
+    clickHandler: (url, obj) => {
+      console.log("inside category click "+obj)
+    }
   }
   if(obj._id =="sightseeing")
 return {
     url: "http://www.norgimatravels.com/wp-content/uploads/2014/06/sightseeing-nepal-400x400.jpg",
-    text:obj._id+'('+ obj.count+')'
+    text:obj._id+'('+ obj.count+')',
+    clickHandler: (url, obj) => {
+      console.log("inside category click "+obj)
+    }
   }
    if(obj._id =="grouptrips")
 return {
     url: "https://marutistoragenew.blob.core.windows.net/nexaexperience/rp/img/footer1-1march.png",
-    text:obj._id+'('+ obj.count+')'
+    text:obj._id+'('+ obj.count+')',
+    clickHandler: (url, obj) => {
+      console.log("inside category click "+obj)
+    }
   }
   if(obj._id =="party")
 return {
     url: "http://i1.wp.com/discovercorps.com/wp-content/uploads/2013/11/cuba-our-trips-400x400.jpg?fit=400%2C400",
-    text:obj._id+'('+ obj.count+')'
+    text:obj._id+'('+ obj.count+')',
+    clickHandler: (url, obj) => {
+      console.log("inside category click "+obj)
+    }
   }
   }
 
@@ -122,28 +139,28 @@ var images = [
     url: "http://tripconnoisseurs.com/wp-content/uploads/2016/08/Honeymoon.jpg",
     text:"honeymoon",
     clickHandler: (url, obj) => {
-      console.log(url)
+      console.log("inside category click "+obj)
     }
   },
   {
     url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
     text:"treks",
     clickHandler: (url, obj) => {
-      console.log(obj)
+      console.log("inside category click "+obj)
     }
   },
   {
     text:"grouptrips",
     url: "https://static2.tripoto.com/media/filter/t/img/101328/TripDocument/1474279330_1474279325380.jpg",
     clickHandler: (url, obj) => {
-      console.log(obj)
+      console.log("inside category click "+obj)
     }
   },
   {
     text:"solotrips",
     url: "http://travelsourceindia.in/wp-content/uploads/2016/06/family-ties-300x300.jpg",
     clickHandler: (url, obj) => {
-      console.log(obj)
+      console.log("inside category click "+obj)
     }
   }
 ];
@@ -166,7 +183,7 @@ images =this.mapAppScripts(appscripts);
               <HomeSlider data={packagelist}/>
             </Col>
             <Col xs={12} md={4}>
-              <ReactRpg imagesArray={images} columns={[2, 2, 2]} padding={2}/>
+              <ReactRpg imagesArray={images} columns={[2, 2, 2]} padding={2} clickHandler={that.categorySearch}/>
             </Col>
           </Row>
           <div>
