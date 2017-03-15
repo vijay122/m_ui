@@ -395,8 +395,8 @@ export class PackageBuilder extends Component {
         this.state.assets = img;
         this.state.stepIndex = step;
         this.state.type = 'package';
-        this.state.latitude = this.props.products.loc.coordinates[0];
-        this.state.longitude = this.props.products.loc.coordinates[1];
+        this.state.latitude = this.props.products.loc.coordinates[1];
+        this.state.longitude = this.props.products.loc.coordinates[0];
       }
     }
 

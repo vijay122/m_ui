@@ -372,8 +372,8 @@ export class SidebarTiles extends Component {
     var inMeters = "";
     if (refprod != undefined && refprod.loc != undefined && refprod.loc.coordinates[1]) {
       inMeters = geolib.getDistance(
-        {latitude: input[0], longitude: input[1]},
-        {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]}, function () {
+        {latitude: input[1], longitude: input[0]},
+        {latitude: refprod.loc.coordinates[1], longitude: refprod.loc.coordinates[0]}, function () {
         }
       );
     }
@@ -389,8 +389,8 @@ export class SidebarTiles extends Component {
       var inMeters = "";
       if (refprod != undefined && refprod.loc != undefined && refprod.loc.coordinates[1] != undefined) {
         inMeters = geolib.getDistance(
-          {latitude: input[0], longitude: input[1]},
-          {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]}, function () {
+          {latitude: input[1], longitude: input[0]},
+          {latitude: refprod.loc.coordinates[1], longitude: refprod.loc.coordinates[0]}, function () {
           }
         );
       }

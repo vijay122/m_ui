@@ -95,8 +95,8 @@ export function getProducts(searchtable, searchOptions) {
     if(parsed!= undefined && parsed!="" && parsed.coordinates!=undefined)
     {
       searchvalue = parsed;
-      latitude = searchvalue.coordinates[0];
-      longitude = searchvalue.coordinates[1];
+      latitude = searchvalue.coordinates[1];
+      longitude = searchvalue.coordinates[0];
     }
 
     

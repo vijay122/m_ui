@@ -87,8 +87,8 @@ export default class Maps extends React.Component {
     var that = this;
     var markers = this.props.markers;
     var coords = {
-      lat: this.props.markers[0].loc.coordinates[0],
-      lng: this.props.markers[0].loc.coordinates[1]
+      lat: this.props.markers[0].loc.coordinates[1],
+      lng: this.props.markers[0].loc.coordinates[0]
     };
     return (
       <Gmaps
@@ -102,8 +102,8 @@ export default class Maps extends React.Component {
         onMapCreated={this.onMapCreated}>
         {markers != undefined && markers.length > 0 && markers.map(function (point) {
             return (<Marker
-              lat={point.loc.coordinates[0]}
-              lng={point.loc.coordinates[1]}
+              lat={point.loc.coordinates[1]}
+              lng={point.loc.coordinates[0]}
               draggable={true}
               onDragEnd={that.onDragEnd}/>)
           }

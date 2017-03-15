@@ -310,7 +310,7 @@ export default class TravelMap extends Component {
   plotMarkers(markers) {
     for (var i = 0; i < markers.length; i++) {
       if (markers[i].loc != undefined) {
-        var myLatLng = {lat: markers[i].loc.coordinates[0], lng: markers[i].loc.coordinates[1]};
+        var myLatLng = {lat: markers[i].loc.coordinates[1], lng: markers[i].loc.coordinates[0]};
         var Nmarker = new google.maps.Marker({
           position: myLatLng,
           map: map,
@@ -328,8 +328,8 @@ export default class TravelMap extends Component {
 
 // Initialize google maps
   initializeMap() {
-    var lat = this.props.items[0].loc.coordinates[0];
-    var lon = this.props.items[0].loc.coordinates[1];
+    var lat = this.props.items[0].loc.coordinates[1];
+    var lon = this.props.items[0].loc.coordinates[0];
     // Map options
     var opts = {
       center: new google.maps.LatLng(lat, lon),

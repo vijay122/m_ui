@@ -105,10 +105,10 @@ export class SidebarListItem extends React.Component {
     var refprod = this.props.referenceproduct;
 
     var inMeters = "";
-    if (refprod != undefined && refprod.loc != undefined && refprod.loc.coordinates[1]) {
+    if (refprod != undefined && refprod.loc != undefined && refprod.loc.coordinates[0]) {
       inMeters = geolib.getDistance(
-        {latitude: input[0], longitude: input[1]},
-        {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]}, function () {
+        {latitude: input[1], longitude: input[0]},
+        {latitude: refprod.loc.coordinates[1], longitude: refprod.loc.coordinates[0]}, function () {
         }
       );
     }
@@ -124,8 +124,8 @@ export class SidebarListItem extends React.Component {
       var inMeters = "";
       if (refprod != undefined && refprod.loc != undefined && refprod.loc.coordinates[1] != undefined) {
         inMeters = geolib.getDistance(
-          {latitude: input[0], longitude: input[1]},
-          {latitude: refprod.loc.coordinates[0], longitude: refprod.loc.coordinates[1]}, function () {
+          {latitude: input[1], longitude: input[0]},
+          {latitude: refprod.loc.coordinates[1], longitude: refprod.loc.coordinates[0]}, function () {
           }
         );
       }

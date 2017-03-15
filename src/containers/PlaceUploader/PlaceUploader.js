@@ -389,8 +389,8 @@ export class PlaceUploader extends Component {
       if (this.props.products.loc != undefined) {
         this.state.image = img;
 
-        this.state.latitude = this.props.products.loc.coordinates[0];
-        this.state.longitude = this.props.products.loc.coordinates[1];
+        this.state.latitude = this.props.products.loc.coordinates[1];
+        this.state.longitude = this.props.products.loc.coordinates[0];
 
       }
       this.state.status = stat;
