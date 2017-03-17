@@ -88,6 +88,7 @@ export default function reducer(state = initialState, action = {}) {
 }
 export function getProducts(searchtable, searchOptions) {
   try {
+
     var latitude;
     var longitude;
     var searchvalue = "";
@@ -120,13 +121,13 @@ export function getProducts(searchtable, searchOptions) {
         .then(parseJSON)
         .then(function (data) {
           var searchindex = "";
-          if (searchtable == "Hotel") {
+          if (searchtable == "Hotel"||searchtable == "hotels") {
             searchindex = "hotels"
           }
-          if (searchtable == "Place") {
+          if (searchtable == "Place"|| searchtable == "places") {
             searchindex = "places"
           }
-          if (searchtable == "Package") {
+          if (searchtable == "Package"||searchtable=="packages") {
             searchindex = "packages"
           }
           var response = data[searchindex];

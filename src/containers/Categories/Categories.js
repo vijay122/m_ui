@@ -49,8 +49,6 @@ export class Categories extends Component {
   var searchtable = qs('categories');
     var searchvalue = qs('searchOptions');
 
-
-debugger;
 var sr = qss.parse(searchvalue);
      const parsedresult = querystring.parse(searchvalue);
     try

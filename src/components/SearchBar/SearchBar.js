@@ -54,7 +54,6 @@ export default class SearchBar extends React.Component {
   }
 
   viewDetails(data, fn, st) {
-    debugger;
         var searchArray =[];
         var keyvaluearr=[];
          var searchTabelArray =[];

@@ -39,8 +39,11 @@ export class Products extends Component {
   }
 
   handleToggleKitten(data, fn, st) {
-    var placeid = data.props.data._id;
-    data.props.dispatch(push('/detail/id:' + placeid));
+   // var placeid = data.props.data._id;
+    var params =[];
+    params.push('category');
+    params.push(fn);
+    data.props.dispatch(push('/categories:packages/searchOptions:searchOptions=' + params));
   }
 
   setSelectedFilter(e, v, s) {
@@ -71,36 +74,45 @@ export class Products extends Component {
   }
   mapCategory(obj)
   {
+    var self = this;
     if(obj._id =="honeymoon")
 return {
     url: "http://www.easyweddings.com.au/articles/wp-content/uploads/sites/5/2014/01/178561859-400x400.jpg",
     text:obj._id+'('+ obj.count+')',
+    category:obj._id,
     clickHandler: (url, obj) => {
       console.log("inside category click "+obj)
+      self.handleToggleKitten(this,url,self);
     }
   }
   if(obj._id =="sightseeing")
 return {
     url: "http://www.norgimatravels.com/wp-content/uploads/2014/06/sightseeing-nepal-400x400.jpg",
     text:obj._id+'('+ obj.count+')',
+     category:obj._id,
     clickHandler: (url, obj) => {
-      console.log("inside category click "+obj)
+      console.log("inside category click "+obj);
+      self.handleToggleKitten(this,url,self);
     }
   }
    if(obj._id =="grouptrips")
 return {
     url: "https://marutistoragenew.blob.core.windows.net/nexaexperience/rp/img/footer1-1march.png",
     text:obj._id+'('+ obj.count+')',
+     category:obj._id,
     clickHandler: (url, obj) => {
-      console.log("inside category click "+obj)
+      console.log("inside category click "+obj);
+      self.handleToggleKitten(this,url,self);
     }
   }
   if(obj._id =="party")
 return {
     url: "http://i1.wp.com/discovercorps.com/wp-content/uploads/2013/11/cuba-our-trips-400x400.jpg?fit=400%2C400",
     text:obj._id+'('+ obj.count+')',
+     category:obj._id,
     clickHandler: (url, obj) => {
-      console.log("inside category click "+obj)
+      console.log("inside category click "+obj);
+      self.handleToggleKitten(this,url,self);
     }
   }
   }
@@ -183,7 +195,7 @@ images =this.mapAppScripts(appscripts);
               <HomeSlider data={packagelist}/>
             </Col>
             <Col xs={12} md={4}>
-              <ReactRpg imagesArray={images} columns={[2, 2, 2]} padding={2} clickHandler={that.categorySearch}/>
+              <ReactRpg imagesArray={images} columns={[2, 2, 2]} padding={2} />
             </Col>
           </Row>
           <div>
