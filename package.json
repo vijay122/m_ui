@@ -130,6 +130,7 @@
     "node-fetch": "^1.5.3",
     "piping": "^0.3.0",
     "pretty-error": "^1.2.0",
+    "querystrings": "^0.4.0",
     "react": "^15.4.0",
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-update": "^15.3.0",
