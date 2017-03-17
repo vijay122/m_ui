@@ -96,7 +96,7 @@
     }
   },
   "dependencies": {
-    "@vijay122/react-tiles": "^2.0.10",
+    "@vijay122/react-tiles": "^2.0.12",
     "autoresponsive-react": "^1.1.10",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.1",
