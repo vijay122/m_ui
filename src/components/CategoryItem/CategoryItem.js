@@ -30,6 +30,7 @@ export default class CategoryItem extends Component {
   }
 
   render() {
+    debugger;
       var category = this.props.category;
     var that = this;
     const styles = require('./CategoryItem.scss');
@@ -37,7 +38,7 @@ export default class CategoryItem extends Component {
     var product = this.props.products;
     var img = product.image != undefined && product.image[0] ? product.image[0] : product.assets.display;
     return (
-      <Row>
+      <Row className={styles.categoryItemContainer}>
         <div>
           <Col md={3}>
             <img src={this.resizeImage(img, 250, 250)} onClick={this.viewDetail.bind(this, that, category)}></img>
@@ -46,10 +47,21 @@ export default class CategoryItem extends Component {
             <Row>
               <h2>{product.name}</h2>
               <h3>{product.title}</h3>
-              <h5>{product.city}</h5>
-              <h5>Operator: {product.operator}</h5>
+              <h5>{product.city},{product.state}</h5>
+              <h5>Operator: {product.created_by}</h5>
             </Row>
             <Row>
+              <Divider />
+            </Row>
+             <Row>
+               <Col md={6}>
+                <div>Includes:</div>
+               <span>Internal transits, flight tickets, Stay and Food.</span>
+              </Col>
+                <Col md={6}>
+                <div>Stay:</div>
+              <span></span>
+              </Col>
               <Divider />
             </Row>
             <Row>
@@ -64,12 +76,12 @@ export default class CategoryItem extends Component {
           <Col md={2} className={styles.center}>
             <Row>
               <Row>
-                Price
+                <h1>INR{product.price}</h1>
               </Row>
               <Row>
-                3 days 4 nights
+                {product.noofdays} Days & {product.noofnights} Nights
               </Row>
-              <RaisedButton label="Book Now" primary={true}/>
+              <RaisedButton label="Book Now" primary={true} className={styles.btnBook}/>
             </Row>
             <Row>
               Rating

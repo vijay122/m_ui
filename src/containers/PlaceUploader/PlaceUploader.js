@@ -15,6 +15,7 @@ import * as loginActions from '../../redux/modules/auth';
 import * as productActions from '../../redux/modules/products';
 import {bindActionCreators} from 'redux';
 
+
 function mapStateToProps(state) {
   console.log('state ' + state);
   return {

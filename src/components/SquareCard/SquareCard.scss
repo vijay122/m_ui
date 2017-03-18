@@ -1,10 +1,11 @@
 span {
-  capitalize: capitalize;
+ text-transform:capitalize;
 }
 
 .tiles {
   span {
     font-size: 18px !important;
+     text-transform:capitalize;
   }
 }
 
@@ -15,5 +16,6 @@ span {
   }
   .tiles {
     padding: 4px !important;
+    text-transform:capitalize;
   }
 }

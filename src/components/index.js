@@ -38,3 +38,4 @@ export AutoComplete from './AutoComplete/MaterialUIAutocomplete';
 export PaymentOptions from './PaymentOptions/PaymentOptions';
 export CategoryGallery from './CategoryGallery/CategoryGallery';
 export SidebarList from './SidebarList/SidebarList';
+export MultipleSelectBox from './MultipleSelectBox/MultipleSelectBox';

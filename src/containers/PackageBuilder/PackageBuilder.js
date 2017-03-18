@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FileUploader, TypeAhead} from '../../components';
+import {FileUploader, TypeAhead,MultipleSelectBox} from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Grid from 'react-bootstrap/lib/Grid';
@@ -562,6 +562,8 @@ export class PackageBuilder extends Component {
                     floatingLabelText="category type"
                     floatingLabelFixed={true}
                     data-ctrlid='category' onChange={this.onChange.bind(this)} value={this.state.category}/>
+
+                    <MultipleSelectBox />
 
                   <TextField
                     hintText="Tour Package Operator"

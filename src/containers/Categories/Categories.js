@@ -64,6 +64,15 @@ var sr = qss.parse(searchvalue);
   }
 
   render() {
+      var style1 = {
+backgroundColor:'ghostwhite',
+paddingBottom: '2px'
+    };
+          var style2 = {
+backgroundColor:'floralwhite',
+paddingBottom: '2px'
+    };
+    var i=0;
    let searchtable;
       if(this.props.searchoptions!= null)
       {
@@ -85,12 +94,12 @@ var sr = qss.parse(searchvalue);
     return (
       <div className="container">
         <FilterToolbox />
-        {results != undefined && results.map(function (item) {
-          return (<div>
+        {results != undefined && results.map(function (item,rank,pin,id) {
+          debugger;
+          return (<div key={item._id} style={i%2==0?style1:style2}>
             <CategoryItem products={item} category={searchtable} dispatch={that.props.dispatch}/>
-            <hr />
           </div>)
-
+i++;
         })
         }
 
