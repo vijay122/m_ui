@@ -23,7 +23,7 @@ export default class ToolbarExamplesSimple extends React.Component {
     return (
       <Toolbar>
         <ToolbarGroup firstChild={true}>
-          <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+          <DropDownMenu value={this.state.value} multi={true} onChange={this.handleChange}>
             <MenuItem value={1} primaryText="All Broadcasts"/>
             <MenuItem value={2} primaryText="All Voice"/>
             <MenuItem value={3} primaryText="All Text"/>

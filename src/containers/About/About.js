@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import Helmet from 'react-helmet';
 import {MiniInfoBar, GoogleMaps} from '../../components';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 export default class About extends Component {
 
+  
   state = {
     showKitten: false
   }
@@ -11,32 +14,51 @@ export default class About extends Component {
   handleToggleKitten = () => this.setState({showKitten: !this.state.showKitten});
 
   render() {
+    var styles={
+    width:'100%'
+  }
+      var initialStyle={
+    textTransform:'initial'
+  }
+  var  centerStyle={
+    textAlign:'center'
+  }
     const {showKitten} = this.state;
+    var date = new Date();
     const kitten = require('./kitten.jpg');
     return (
-      <div className="container">
-        <h1>About Us</h1>
-        <GoogleMaps />
-        <Helmet title="About Us"></Helmet>
-        <p>Welcome to LIVELYTRIPS.COM</p>
-        <p>LIVELYTRIPS.COM created the first travel site on the Internet. We created the travel domain back in 1992
-          which also makes us not only the oldest but also the longest continually operating travel site on the
-          Internet. No one else comes close. Come find out why millions of people worldwide have used LIVELYTRIPS.COM to
-          search out travel information and find the best travel deals.</p>
-        <h3>Tours & Activities <span style={{color: '#aaa'}}>(Travel Packages)</span></h3>
-        <p>We offer a wide selection of leisure activities and products including over 5,000 sightseeing tours and
-          activities in over 400 destinations worldwide. You can book in advance many offerings such as theatre tickets,
-          theme park tickets, helicopter tours, sightseeing tours, airport transfers, cruises, mini-vacation packages,
-          and so much more. It is simply a lot of fun just browsing these listings to see what is available to enhance
-          your next trip.</p>
-        <h3>Travel Reviews <span style={{color: '#aaa'}}>(we would love to hear from you..)</span></h3>
-        <p>Whether you are visiting a place halfway around the world or a local resident, we love to read your
-          first-hand reviews & ratings of travel attractions, accommodations, restaurants, and more (over 30+ travel
-          related categories).</p>
-        <h3>Online Community</h3>
-        <p>Join users worldwide to share travel information, photos, videos, and reviews in our online travel community
-          including user country groups and forums.</p>
-        <MiniInfoBar />
+      <div>
+       <Row>
+         <Col xs={12} md={4}>
+         <img src="https://pbs.twimg.com/media/CNADKw4UEAAwYKw.jpg" style={styles}/>
+         </Col>
+         <Col xs={12} md={8}>
+         <div>
+        <h1>Lively Trips - Plan your travel, on the go..</h1>
+        <hr/>
+          <h2>Knowing of the Right Place:</h2>
+        <h3 style={initialStyle}>"A two-wheeled car, pulled by horses, though it has tall and strong wheels cannot travel on seas; nor can ships sailing on the ocean move on the Land."</h3>
+ <h3>"Said by tamil poet Thiruvalluvar."</h3>
+
+  <hr/>
+         <h2>LivelyTrips can help you know the right place for you.</h2>
+<h3 style={initialStyle}>Having Situated in Chennai, a talented team of young and energetic x-mens, working forward to mark their name in the travel and tourism industry with their extraordinary skills to solve the purpose of lively travelling.</h3>
+        </div>
+        </Col>
+      </Row>
+      <hr/>
+      <Row>
+      <Col style={centerStyle} xs={12} md={6}>
+      <h2>Our Mission Statement</h2>
+      <h3 style={initialStyle}>We are committed to establishing lasting relationships with our customers by exceeding their expectations the first time and every time, through consistently delivering outstanding quality of service, experience and value.</h3>
+      </Col>
+      <Col style={centerStyle} xs={12} md={6}>
+      <h2>Our Vision</h2>
+      <h3 style={initialStyle}>Save and location aware travelling in the foreign lands of mother nature.</h3>
+ 
+      </Col >
+      </Row>
+                      <MiniInfoBar time={date}/>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import * as footerActions from '../../redux/modules/info';
 import {connect} from 'react-redux';
+import {IndexLink, Link} from 'react-router';
 import  'isomorphic-fetch';
 
 import Col from 'react-bootstrap/lib/Col';
@@ -135,7 +136,8 @@ export default class InfoBar extends Component {
             <Col xs={12} md={6} className={styles.blackBackgroundColor}>
               <Row className={styles.footerlinks}>
                 <Col xs={12} md={2}>
-                  About
+                   <Link to={'/about'}>About</Link>
+                  
                 </Col>
                 <Col xs={12} md={2}>
                   Livelytrips
@@ -144,7 +146,7 @@ export default class InfoBar extends Component {
                   Contact
                 </Col>
                 <Col xs={12} md={2}>
-                  Survey
+                  <Link to={'/survey'}>Contact</Link>
                 </Col>
                 <Col xs={12} md={2}>
                   Help

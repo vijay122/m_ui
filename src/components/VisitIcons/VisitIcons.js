@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React,{Component} from 'react';
 import {push} from 'react-router-redux';
 export default class VisitIcons extends Component {
   constructor(props) {
