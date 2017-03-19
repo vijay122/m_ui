@@ -313,6 +313,7 @@ error = "please select the date of your travel.";
                   </Tabs>
                 </Row>
               </Col>
+              {1!= 1 &&
               <Col xs={12} md={4}>
                 <div>
                   <h3>what ppl talks about?</h3>
@@ -321,6 +322,7 @@ error = "please select the date of your travel.";
                   </Panel>
                 </div>
               </Col>
+            }
             </Row>
             <Row>
               <Col xs={12} md={4}>
@@ -333,6 +335,7 @@ error = "please select the date of your travel.";
 
               </Col>
             </Row>
+            {1!=1 &&
             <Row>
               <Col xs={12} md={4}>
                <Row className={styles.hotelsHeader}>
@@ -356,6 +359,7 @@ error = "please select the date of your travel.";
                                           dispatch={this.props.dispatch}/>
               </Col>
             </Row>
+          }
           </Grid>
         </div>
       );

@@ -40,3 +40,4 @@ export CategoryGallery from './CategoryGallery/CategoryGallery';
 export SidebarList from './SidebarList/SidebarList';
 export MultipleSelectBox from './MultipleSelectBox/MultipleSelectBox';
 export VisitIcons from './VisitIcons/VisitIcons';
+export PackageList from './PackageList/PackageList';

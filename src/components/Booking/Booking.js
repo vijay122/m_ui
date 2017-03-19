@@ -50,6 +50,7 @@ export default class Booking extends React.Component {
   }
 
   renderPriceDetails(that,detail,cart){
+
     var cartItems =[];
     var styles = require('./Booking.scss');
         let DateTimeFormat;
