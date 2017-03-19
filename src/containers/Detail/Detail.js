@@ -309,7 +309,6 @@ error = "please select the date of your travel.";
                         </Col>
                       </Row>
                     </Tab>
-                    <Tab eventKey={3} title="Tab 3">Tab 3 content</Tab>
                   </Tabs>
                 </Row>
               </Col>

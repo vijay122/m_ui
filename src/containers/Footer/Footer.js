@@ -124,12 +124,6 @@ export class Footer extends Component {
                   About
                 </Col>
                 <Col xs={2} md={2}>
-                  Livelytrips
-                </Col>
-                <Col xs={2} md={2}>
-                  Contact
-                </Col>
-                <Col xs={2} md={2}>
                   Survey
                 </Col>
                 <Col xs={2} md={2}>

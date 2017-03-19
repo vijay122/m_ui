@@ -137,20 +137,11 @@ export default class InfoBar extends Component {
               <Row className={styles.footerlinks}>
                 <Col xs={12} md={2}>
                    <Link to={'/about'}>About</Link>
-                  
-                </Col>
-                <Col xs={12} md={2}>
-                  Livelytrips
-                </Col>
-                <Col xs={12} md={2}>
-                  Contact
                 </Col>
                 <Col xs={12} md={2}>
                   <Link to={'/survey'}>Contact</Link>
                 </Col>
-                <Col xs={12} md={2}>
-                  Help
-                </Col>
+               
               </Row>
             </Col>
           </Row>

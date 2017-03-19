@@ -285,7 +285,7 @@ export class App extends Component {
                         </ul>
                       </div>
                     </li>
-                    <li><Link to={'/products/'} activeClassName="active">Bookings</Link></li>
+                    <li><Link to={'/about/'} activeClassName="active">About</Link></li>
                     <li>
                       {cartcount != null && this.props.appstate != null && this.props.appstate.cart != null && this.props.appstate.cart.items && tempArr.map(function (x) {
                           return (
@@ -316,7 +316,7 @@ export class App extends Component {
                       );
                     })
                     }
-                    <li><a href="help.html">Help</a></li>
+                    <li><Link to={'/contact/'} activeClassName="active">Contact</Link></li>
                     
                   </ul>
                 </nav>
