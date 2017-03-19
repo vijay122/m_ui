@@ -2,6 +2,7 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Divider from 'material-ui/Divider';
 import {push} from 'react-router-redux';
+import {VisitIcons} from '../../components';
 
 
 import React, {Component} from 'react';
@@ -30,7 +31,6 @@ export default class CategoryItem extends Component {
   }
 
   render() {
-    debugger;
       var category = this.props.category;
     var that = this;
     const styles = require('./CategoryItem.scss');
@@ -93,48 +93,4 @@ export default class CategoryItem extends Component {
   }
 }
 
-export class VisitIcons extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.state.product = props.menu;
-    if (props.menu == undefined) {
-      this.state.product = {};
-      this.state.image = [];
-      this.state.image[0] = 'empty';
-      this.state.name = "";
-    }
-  }
 
-  handleClick(data, fn, st) {
-
-    var placeid = data.props.menu._id;
-    data.props.dispatch(push('/detail/id:' + placeid + "/category:products"));
-  }
-
-  resizeImage(url, height, width) {
-    var filter = 'h_' + height + ',w_' + width + '/';
-    var str = url;
-   if(Array.isArray(url))
-   {
-    str = url[0];
-   }
-    var index = str.indexOf("upload/") + 7;
-    var rest = str.substr(0, index) + filter + str.substr(index);
-    return rest;
-  }
-
-  render() {
-const styles = require('./CategoryItem.scss');
-    var product = this.state.product;
-    var ty = this;
-    var prodimage = product.image != undefined ? product.image : product.scrollimage;
-    var imagesrc = this.resizeImage(prodimage, 80, 80)
-    return (
-      <div className={styles.tooltip}>
-      <img src={imagesrc} onClick={this.handleClick.bind(product, ty)} />
-            <span className={styles.tooltiptext}>{product.name}</span>
-            </div>
-    );
-  }
-}

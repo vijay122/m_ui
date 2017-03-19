@@ -25,7 +25,6 @@ export default class MultipleSelectBox extends Component {
 
   handleChange = (event, index, values) =>
   { 
-    debugger;
     var arr =[6,4,5];
     this.setState({values:arr});
 }
@@ -55,7 +54,6 @@ export default class MultipleSelectBox extends Component {
   }
 
   render() {
-    debugger;
     return (
       <SelectField
         multiple={true}

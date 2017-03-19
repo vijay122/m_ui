@@ -117,7 +117,6 @@
     text-align: center;
 }
 .burst12:before, .burst12:after {
-    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -137,4 +136,15 @@
        -moz-transform: rotate(60deg);
         -ms-transform: rotate(60deg);
          -o-transform: rotate(60deg);
+}
+
+
+.daysDisplay {
+color:white;
+    background: cornflowerblue;
+    width: 20% !important;
+    height: 25px;
+    min-width: 40px !important;
+    position: absolute;
+    text-align: center;
 }

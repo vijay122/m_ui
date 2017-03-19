@@ -9,6 +9,7 @@ import SelectField from 'material-ui/SelectField';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import MenuItem from 'material-ui/MenuItem';
 import {isProductExistsInCart} from '../../utils/validation';
+import Chip from 'material-ui/Chip';
 
 export default class Booking extends React.Component {
   constructor(props) {
@@ -48,6 +49,65 @@ export default class Booking extends React.Component {
 
   }
 
+  renderPriceDetails(that,detail,cart){
+    var cartItems =[];
+    var styles = require('./Booking.scss');
+        let DateTimeFormat;
+        var detail = this.props.detail;
+    if (areIntlLocalesSupported(['fr'])) {
+      DateTimeFormat = global.Intl.DateTimeFormat;
+    } else {
+      const IntlPolyfill = require('intl');
+      DateTimeFormat = IntlPolyfill.DateTimeFormat;
+      require('intl/locale-data/jsonp/fr');
+    }
+    var dates = new DateTimeFormat('en-US', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              }).format;
+    if(this.props.cartContext && this.props.cartContext.items)
+    {
+cartItems = this.props.cartContext.items;
+    }
+      return (
+        <div>
+       <Row>
+       <h1>INR {detail.price} only</h1>
+       <h2>{detail.noofdays} Days and {detail.noofnights} Nights at {detail.city}, {detail.state}</h2>
+       {
+        detail.category && detail.category.map(function(category)
+{
+return (<Chip>{category}</Chip>)
+})
+}
+            <h5>I wound love to book this package for you!!</h5>
+            <DatePicker
+              container="inline"
+              floatingLabelText="Choose your travel date"
+              hintText="Custom date format"
+              firstDayOfWeek={0}
+              value={this.state.controlledDate}
+               onChange={this._handleChange}
+              formatDate={dates}
+            />
+          </Row>
+          <Row>
+            <h4>Travel preferences</h4>
+          </Row>
+          <Row>
+            <SelectField value={this.state.type} data-ctrlid='type' onChange={this.handleSelect.bind(this)}>
+              <MenuItem value="standalone" data-ctrlid='type' primaryText="Place"/>
+              <MenuItem value="hotel" data-ctrlid='type' primaryText="Hotel"/>
+              <MenuItem value="event" data-ctrlid='type' primaryText="Event"/>
+            </SelectField>
+          </Row>
+          </div>
+      )
+    }
+
+
+
   renderButtons(that,detail,cart){
     var cartItems =[];
     var styles = require('./Booking.scss');
@@ -80,44 +140,11 @@ cartItems = this.props.cartContext.items;
     var that = this.props.that;
     var detail = this.props.detail;
     var cart = this.props.cartContext;
-    let DateTimeFormat;
 
-    if (areIntlLocalesSupported(['fr'])) {
-      DateTimeFormat = global.Intl.DateTimeFormat;
-    } else {
-      const IntlPolyfill = require('intl');
-      DateTimeFormat = IntlPolyfill.DateTimeFormat;
-      require('intl/locale-data/jsonp/fr');
-    }
     return (
       <Row>
         <Col md={12}>
-          <Row>
-            <h5>I wound love to book this package for you!!</h5>
-            <DatePicker
-              container="inline"
-              floatingLabelText="Choose your travel date"
-              hintText="Custom date format"
-              firstDayOfWeek={0}
-              value={this.state.controlledDate}
-               onChange={this._handleChange}
-              formatDate={new DateTimeFormat('en-US', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              }).format}
-            />
-          </Row>
-          <Row>
-            <h4>Travel preferences</h4>
-          </Row>
-          <Row>
-            <SelectField value={this.state.type} data-ctrlid='type' onChange={this.handleSelect.bind(this)}>
-              <MenuItem value="standalone" data-ctrlid='type' primaryText="Place"/>
-              <MenuItem value="hotel" data-ctrlid='type' primaryText="Hotel"/>
-              <MenuItem value="event" data-ctrlid='type' primaryText="Event"/>
-            </SelectField>
-          </Row>
+           { this.renderPriceDetails(that,detail,cart) }
           <Row>
             { this.renderButtons(that,detail,cart) }
           </Row>

@@ -16,6 +16,7 @@ import {bindActionCreators} from 'redux';
 import {push} from 'react-router-redux';
 import geolib  from 'geolib';
 import * as browserUtils from '../../utils/HtmlUtils';
+import {VisitIcons} from '../../components';
 
 import {TransitionMotion, spring, Motion} from 'react-motion'
 
@@ -172,6 +173,21 @@ error = "please select the date of your travel.";
     this.setState({error:error});
   }
 
+  renderIncludesMenu(that,detail,cart)
+  {
+    debugger;
+    var productsArray =[];
+           if(detail && detail.products && detail.products)
+           {
+            for(var i=0; i<detail.products.length; i++)
+            {
+              productsArray.push(<VisitIcons menu={detail.products[i]} dispatch={that.dispatch}/>);
+            }
+          }
+
+                return productsArray;
+  }
+
   render() {
     var settings = {
       dots: false,
@@ -257,7 +273,7 @@ error = "please select the date of your travel.";
                          src={detail != undefined && detail.image != undefined && this.resizeImage(detail.image[0], 400, 550)}/>
                 </Row>
                 <Row>
-                  this is the small images
+                  {this.renderIncludesMenu(that,detail,cart)}
                 </Row>
               </Col>
               <Col xs={12} md={3}>
