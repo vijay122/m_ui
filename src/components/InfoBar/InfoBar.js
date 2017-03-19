@@ -114,7 +114,7 @@ export default class InfoBar extends Component {
         </div>
         <Row>
           <Col>
-            Contact : 8473282821
+            Contact : 8110001444
             Email : livelytrips@gmail.com
           </Col>
         </Row>
@@ -131,15 +131,18 @@ export default class InfoBar extends Component {
         <div className={styles.copyright}>
           <Row>
             <Col xs={12} md={6}>
-              @2016 livelytrips copyrighted
+              @2017 livelytrips copyrighted
             </Col>
             <Col xs={12} md={6} className={styles.blackBackgroundColor}>
               <Row className={styles.footerlinks}>
+               <Col xs={12} md={2}>
+                  <Link to={'/'}>Home</Link>
+                </Col>
                 <Col xs={12} md={2}>
                    <Link to={'/about'}>About</Link>
                 </Col>
                 <Col xs={12} md={2}>
-                  <Link to={'/survey'}>Contact</Link>
+                  <Link to={'/contact'}>Contact</Link>
                 </Col>
                
               </Row>

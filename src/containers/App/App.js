@@ -215,7 +215,7 @@ export class App extends Component {
           </div>
           <Navbar fixedTop className={styles.insightsBar} id="fxd">
         <Row>
-              <Col md={3}>Livelytrips
+              <Col md={3}>
               </Col>
               <Col className={hideClassForMobile} md={6}>
               <div className={styles.searchContainer}>
@@ -247,6 +247,7 @@ export class App extends Component {
           <div>
             <Row>
               <Col md={3}>
+              <h2>LivelyTrips</h2>
               </Col>
               <Col md={9} className="mininav">
                 <nav className="minnav">
@@ -263,19 +264,13 @@ export class App extends Component {
                               Seeing</Link>
                           </li>
                           <li>
-                            <Link to={'/products/'} activeClassName="active">Adventure</Link>
-                          </li>
-                          <li>
-                            <Link to={'/products/'} activeClassName="active">Culture</Link>
-                          </li>
-                          <li>
-                            <Link to={'/products/'} activeClassName="active">Trekking</Link>
+                            <Link to={'//categories:packages/searchOptions:searchOptions=category,grouptrips'} activeClassName="active">Group Trips</Link>
                           </li>
                            <li>
-                            <Link to={'/products/'} activeClassName="active">Group Trips</Link>
+                            <Link to={'/categories:packages/searchOptions:searchOptions=category,party'} activeClassName="active">Party</Link>
                           </li>
                           <li>
-                            <Link to={'/categories:packages/searchtype:category/search:Honeymoon'}
+                            <Link to={'/categories:packages/searchOptions:searchOptions=category,honeymoon'}
                                   activeClassName="active">Honeymoon</Link>
                           </li>
                            <li>
