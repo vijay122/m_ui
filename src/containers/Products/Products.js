@@ -43,7 +43,7 @@ export class Products extends Component {
     var params =[];
     params.push('category');
     params.push(fn);
-    data.props.dispatch(push('/categories:packages/searchOptions:searchOptions=' + params));
+    data.props.dispatch(push('/categories:Package/searchOptions:searchOptions=' + params));
   }
 
   setSelectedFilter(e, v, s) {

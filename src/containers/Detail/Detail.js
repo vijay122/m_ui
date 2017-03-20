@@ -175,7 +175,6 @@ error = "please select the date of your travel.";
 
   renderIncludesMenu(that,detail,cart)
   {
-    debugger;
     var productsArray =[];
            if(detail && detail.products && detail.products)
            {

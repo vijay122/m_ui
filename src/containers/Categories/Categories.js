@@ -62,9 +62,9 @@ var sr = qss.parse(searchvalue);
     }
        
   }
-
-  render() {
-      var style1 = {
+  renderCategoryLists(results,that,searchtable)
+  {
+     var style1 = {
 backgroundColor:'ghostwhite',
 paddingBottom: '2px'
     };
@@ -72,6 +72,29 @@ paddingBottom: '2px'
 backgroundColor:'floralwhite',
 paddingBottom: '2px'
     };
+    var categoryItems=[];
+      var array =[];
+      var i=0;
+    if(results)
+    {
+   categoryItems  = results.map(function(key) {
+    var stprop =(i%2==0)?style1:style2;
+    i++;
+    return (<div style={stprop}><CategoryItem products={key} category={searchtable} dispatch={that.props.dispatch}/></div>)
+
+})
+return categoryItems;
+    }   
+    for(var i=0;i<array.length;i++)
+    {
+      
+      categoryItems.push(<div style={stprop}><CategoryItem products={array[i]} category={searchtable} dispatch={that.props.dispatch}/></div>);
+    }
+    return categoryItems;
+  }
+
+
+  render() {
     var i=0;
    let searchtable;
       if(this.props.searchoptions!= null)
@@ -94,16 +117,7 @@ paddingBottom: '2px'
     return (
       <div className="container">
         <FilterToolbox />
-        {results != undefined && results.map(function (item,rank,pin,id) {
-          debugger;
-          return (<div key={item._id} style={i%2==0?style1:style2}>
-            <CategoryItem products={item} category={searchtable} dispatch={that.props.dispatch}/>
-          </div>)
-i++;
-        })
-        }
-
-
+        {this.renderCategoryLists(results,that,searchtable)}
       </div>
     );
   }

@@ -260,17 +260,17 @@ export class App extends Component {
                       <div>
                         <ul>
                           <li>
-                            <Link to={'/categories:packages/searchtype:category/search:Beach'} activeClassName="active">Sight
+                            <Link to={'/categories:Package/searchOptions:searchOptions=category,sightseeing'} activeClassName="active">Sight
                               Seeing</Link>
                           </li>
                           <li>
-                            <Link to={'//categories:packages/searchOptions:searchOptions=category,grouptrips'} activeClassName="active">Group Trips</Link>
+                            <Link to={'/categories:Package/searchOptions:searchOptions=category,grouptrips'} activeClassName="active">Group Trips</Link>
                           </li>
                            <li>
-                            <Link to={'/categories:packages/searchOptions:searchOptions=category,party'} activeClassName="active">Party</Link>
+                            <Link to={'/categories:Package/searchOptions:searchOptions=category,party'} activeClassName="active">Party</Link>
                           </li>
                           <li>
-                            <Link to={'/categories:packages/searchOptions:searchOptions=category,honeymoon'}
+                            <Link to={'/categories:Package/searchOptions:searchOptions=category,honeymoon'}
                                   activeClassName="active">Honeymoon</Link>
                           </li>
                            <li>
