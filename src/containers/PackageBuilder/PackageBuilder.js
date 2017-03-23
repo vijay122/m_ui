@@ -306,6 +306,9 @@ export class PackageBuilder extends Component {
     if (!this.isValid(this.state.state)) {
       errorlist.push("please enter valid state.");
     }
+            if (!this.isValid(this.state.aboutoperator)) {
+      errorlist.push("please enter valid info about travel operator.");
+    }
     if (errorlist.length <= 0) {
       this.state.status = "Success";
     }
@@ -570,6 +573,17 @@ export class PackageBuilder extends Component {
                     floatingLabelText="Created By"
                     floatingLabelFixed={true}
                     data-ctrlid='operator' onChange={this.onChange.bind(this)} value={this.state.operator}/>
+
+                    <TextField
+                          hintText="tell us abt speciality of this travel operator"
+                          floatingLabelText="About the travel operator"
+                          floatingLabelFixed={true}
+                          multiLine={true}
+                          rows={3}
+                          data-ctrlid='aboutoperator' onChange={this.onChange.bind(this)} value={this.state.aboutoperator}/>
+
+
+
                   <Checkbox
                     label="Publish on home screen?"
                     labelPosition="left"
@@ -584,6 +598,7 @@ export class PackageBuilder extends Component {
                   </select>
 
                   <FileUploader ref='scrollimage'/>
+
                   <RaisedButton label="Submit" onClick={this.submitform} primary={true}/>
                 </Col>
               </Row>)}

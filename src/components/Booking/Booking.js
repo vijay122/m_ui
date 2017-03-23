@@ -23,6 +23,13 @@ export default class Booking extends React.Component {
     this.state.type = value;
   }
 
+    onChange(e) {
+    var statename = e.target.attributes["data-ctrlid"].value;
+    var newvalue = e.currentTarget.value;
+    this.setState({statename: newvalue});
+    this.state[e.target.attributes["data-ctrlid"].value] = e.currentTarget.value;
+  }
+
   validateAdd()
   {
     var errorlist=[];
@@ -93,16 +100,6 @@ return (<Chip>{category}</Chip>)
               formatDate={dates}
             />
           </Row>
-          <Row>
-            <h4>Travel preferences</h4>
-          </Row>
-          <Row>
-            <SelectField value={this.state.type} data-ctrlid='type' onChange={this.handleSelect.bind(this)}>
-              <MenuItem value="standalone" data-ctrlid='type' primaryText="Place"/>
-              <MenuItem value="hotel" data-ctrlid='type' primaryText="Hotel"/>
-              <MenuItem value="event" data-ctrlid='type' primaryText="Event"/>
-            </SelectField>
-          </Row>
           </div>
       )
     }
@@ -150,8 +147,17 @@ cartItems = this.props.cartContext.items;
             { this.renderButtons(that,detail,cart) }
           </Row>
           <Row>
-            <label>If you like to see packages that includes this place.</label>
-            <RaisedButton label="View packages" primary={true} onClick={this.addToCart.bind(this, that, detail)}/>
+            <label>We would love to call you and explain more about the trip (on your convinent phone number).</label>
+            <TextField
+                          hintText="Phone number"
+                          floatingLabelText="Enter the phone number"
+                          floatingLabelFixed={true}
+                          data-ctrlid="name"
+                          type='number'
+                          default
+                          onChange={this.onChange.bind(this)}
+                          value={this.state.name}/>
+            <RaisedButton label="Call me back" primary={true} onClick={this.addToCart.bind(this, that, detail)}/>
           </Row>
         </Col>
       </Row>

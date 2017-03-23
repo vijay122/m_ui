@@ -311,13 +311,12 @@ error = "please select the date of your travel.";
                   </Tabs>
                 </Row>
               </Col>
-              {1!= 1 &&
+              {1== 1 &&
               <Col xs={12} md={4}>
-                <div>
-                  <h3>what ppl talks about?</h3>
-                  <Panel header="epics">
-                    Panel content
-                  </Panel>
+                <div className={styles.operatorBox}>
+                  <h3>About the Tour Operator</h3>
+                  <hr/>
+                  <p>{detail.aboutoperator}</p>
                 </div>
               </Col>
             }

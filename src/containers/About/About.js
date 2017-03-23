@@ -43,6 +43,7 @@ export default class About extends Component {
   <hr/>
          <h2>LivelyTrips can help you know the right place for you.</h2>
 <h3 style={initialStyle}>Having Situated in Chennai, a talented team of young and energetic x-mens, working forward to mark their name in the travel and tourism industry with their extraordinary skills to solve the purpose of lively travelling.</h3>
+        <h3 style={initialStyle}>We specialize in delivering high quality customized trips that suits the kind of customer we deal. </h3>
         </div>
         </Col>
       </Row>
