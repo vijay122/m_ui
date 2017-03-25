@@ -59,6 +59,7 @@ function checkStatus(response) {
 }
 
 export function loadFooter() {
+   console.log("loadFooter info section called:");
   return dispatch => {
     fetch(process.env.Svc + '/seo', {
       method: 'get',

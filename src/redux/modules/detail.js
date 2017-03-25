@@ -116,6 +116,7 @@ export function viewMore(product, type) {
   }
 }
 export function getProducts(product) {
+   console.log("getProducts detail page called:"+JSON.stringify(product));
   var payload = {};
   payload.sectionName = "detail";
   payload.lat = product.loc!= undefined ?product.loc.coordinates[1]:'';

@@ -47,6 +47,7 @@ export default function reducer(state = initialState, action = {}) {
 
 export function validateOrder(cart) {
   var payload = {};
+   console.log("validateOrder checkout page called:"+JSON.stringify(cart));
   payload.tripInfo = cart.tripInfo;
   payload.products = cart.items;
   return dispatch =>
@@ -78,6 +79,7 @@ export function validateOrder(cart) {
 
 export function submitOrder(cart) {
   var payload = {};
+     console.log("submitOrder checkout page called:"+JSON.stringify(cart));
   payload.products = cart;
   return dispatch =>
     fetch(config.svc + '/submitOrder', {

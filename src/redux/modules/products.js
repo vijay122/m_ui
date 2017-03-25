@@ -157,8 +157,22 @@ export function load() {
     })
   }
 }
+function mapSearchResultForPackage(data)
+{
+        data.packages[0].latitude = data.packages[0].loc.coordinates[1];
+        data.packages[0].longitude = data.packages[0].loc.coordinates[0];
+        return data;
+}
+
+function mapSearchResultForPlace(data)
+{
+        data.places[0].latitude = data.places[0].loc.coordinates[1];
+        data.places[0].longitude = data.places[0].loc.coordinates[0];
+        return data;
+}
 
 export function search(sectionName, searchcriteria) {
+  console.log("search called:"+JSON.stringify(searchcriteria));
   var payload = {};
   payload.sectionName = sectionName;
   payload.findtable = searchcriteria.findtable;
@@ -177,8 +191,15 @@ export function search(sectionName, searchcriteria) {
     }).then(checkStatus)
       .then(parseJSON)
       .then(function (data) {
+         var responsedata ={};
+        if(data.searchOn=='places')
+       responsedata = mapSearchResultForPlace(data);
 
-        dispatch({type: 'SET_SEARCH_RESULTS', result: data});
+          if(data.searchOn=='packages')
+          {
+                   responsedata = mapSearchResultForPackage(data);
+          }
+        dispatch({type: 'SET_SEARCH_RESULTS', result: responsedata});
         //  console.log('request succeeded with JSON response', list)
       }).catch(function (error) {
       console.log('request failed', error)
@@ -189,6 +210,7 @@ export function search(sectionName, searchcriteria) {
 
 
 export function refreshSection(id, category) {// {
+   console.log("refreshSection called:"+category);
   var payload = {};
   payload.sectionName = "refresh";//sectionName;
   payload.findtable = "Place"; //searchcriteria.findtable;
@@ -224,6 +246,7 @@ export function refreshSection(id, category) {// {
 
 
 export function loadAllData(sectionName) {
+    console.log("loadAllData called:"+sectionName);
   var payload = {};
   payload.sectionName = sectionName;
   return dispatch => {

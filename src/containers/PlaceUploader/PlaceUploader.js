@@ -42,31 +42,6 @@ const items = [
   <MenuItem key={3} value="event" primaryText="Event"/>
 ];
 
-function handleActive(tab) {
-  alert(`A tab with this route property ${tab.props.route} was activated.`);
-}
-
-
-export class AdditionalInfoComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  addNew() {
-
-  }
-
-  render() {
-    return (<div>
-      <input type="button" onClick={this.addNew} value="Additional Field"/>
-      <label>AdditionalInfo:</label>
-      <textbox />
-      <label>Value</label>
-      <textbox />
-    </div>)
-  }
-}
-
 const InitialState =
   {
     image: "",
@@ -362,7 +337,8 @@ export class PlaceUploader extends Component {
     }
   }
 
-  submitform() {
+  submitform(e) {
+     e.preventDefault();
     var r = confirm("Please verify all the details were provided correctly like images, names and geo coordinates. If everything is correct, click 'ok' to proceed to save, else click cancel to edit.");
     if (r == true) {
       if (this.validateForm()) {
@@ -390,8 +366,8 @@ export class PlaceUploader extends Component {
       if (this.props.products.loc != undefined) {
         this.state.image = img;
 
-        this.state.latitude = this.props.products.loc.coordinates[1];
-        this.state.longitude = this.props.products.loc.coordinates[0];
+       // this.state.latitude = this.props.products.loc.coordinates[1];
+       // this.state.longitude = this.props.products.loc.coordinates[0];
 
       }
       this.state.status = stat;
@@ -400,7 +376,7 @@ export class PlaceUploader extends Component {
     if (this.props.auth != undefined && this.props.auth.user != undefined && this.props.auth.user._id) {
       this.state.created_by = this.props.auth.user._id
     }
-    this.onChange = this.onChange.bind(this);
+   // this.onChange = this.onChange.bind(this);
     const styles = require('./PlaceUploader.scss');
     // require the logo image both from client and server
     return (
@@ -462,7 +438,6 @@ export class PlaceUploader extends Component {
                           floatingLabelText="Geo coordinates latitude"
                           floatingLabelFixed={true}
                           errorText=""
-                          type="Number"
                           data-ctrlid='latitude' onChange={this.onChange.bind(this)} value={this.state.latitude}/>
 
                         <TextField
@@ -561,22 +536,6 @@ export class PlaceUploader extends Component {
                         </Row>
                       </Col>
                     </Row>
-                  </div>
-                </Tab>
-                <Tab label="Item Two">
-                  <div>
-                    <h2 style={styles.headline}>Tab Two</h2>
-                    <p>
-                      This is another example tab.
-                    </p>
-                  </div>
-                </Tab>
-                <Tab label="onActive">
-                  <div>
-                    <h2 style={styles.headline}>Tab Three</h2>
-                    <p>
-                      This is a third example tab.
-                    </p>
                   </div>
                 </Tab>
               </Tabs>

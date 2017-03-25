@@ -88,7 +88,7 @@ export default function reducer(state = initialState, action = {}) {
 }
 export function getProducts(searchtable, searchOptions) {
   try {
-
+  console.log("getProducts category page called:"+JSON.stringify(searchOptions));
     var latitude;
     var longitude;
     var searchvalue = "";
