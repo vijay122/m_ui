@@ -80,7 +80,16 @@ cartItems = this.props.cartContext.items;
     }
       return (
         <div>
+       {detail.type=='standalone' && ( 
+        <div>
+         <h2>{detail.title}</h2>
+          <h5>{detail.name},{detail.city},{detail.state},{detail.country}</h5>
+        </div>)
+      }
+       {detail.type=='package' && ( 
+        <div>
        <Row>
+       <div>
        <h1>INR {detail.price} only</h1>
        <h2>{detail.noofdays} Days and {detail.noofnights} Nights at {detail.city}, {detail.state}</h2>
        {
@@ -89,8 +98,14 @@ cartItems = this.props.cartContext.items;
 return (<Chip>{category}</Chip>)
 })
 }
-            <h5>I wound love to book this package for you!!</h5>
-            <DatePicker
+ <h5>I wound love to book this package for you!!</h5>
+</div>
+           
+            
+          </Row>
+          </div>)
+        }
+        <DatePicker
               container="inline"
               floatingLabelText="Choose your travel date"
               hintText="Custom date format"
@@ -99,7 +114,6 @@ return (<Chip>{category}</Chip>)
                onChange={this._handleChange}
               formatDate={dates}
             />
-          </Row>
           </div>
       )
     }

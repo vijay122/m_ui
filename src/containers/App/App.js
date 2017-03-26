@@ -213,8 +213,13 @@ export class App extends Component {
           />
           <div>
           </div>
-          <Navbar fixedTop className={styles.insightsBar} id="fxd">
-        <Row>
+          <div className={styles.fixed}>
+          <div className={styles.smalltopbar}><a href="http://designshack.net">livelytrips</a>
+           <Link to="/login">
+                  <NavItem eventKey={5}>{logintext}</NavItem>
+                </Link> 
+          <div className={styles.tophiddenbar}>
+                     <Row>
               <Col md={3}>
               </Col>
               <Col className={hideClassForMobile} md={6}>
@@ -237,16 +242,15 @@ export class App extends Component {
               </div>
               </Col>
               <Col md={3}>
-               <LinkContainer to="/login">
-                  <NavItem eventKey={5}>{logintext}</NavItem>
-                </LinkContainer> 
+              
               </Col>
               </Row>
-
-          </Navbar>
+             </div>
+          </div>
+</div>
           <div>
             <Row>
-              <Col md={3}>
+              <Col md={3} className={styles.logoContainer}>
               <h2>LivelyTrips</h2>
               </Col>
               <Col md={9} className="mininav">
@@ -273,10 +277,6 @@ export class App extends Component {
                             <Link to={'/categories:Package/searchOptions:searchOptions=category,honeymoon'}
                                   activeClassName="active">Honeymoon</Link>
                           </li>
-                           <li>
-                      <Link to={'/products/'} activeClassName="active">Offer Zone</Link>
-                       <Link to={'/products/'} activeClassName="active">FAQ</Link>
-                    </li>
                         </ul>
                       </div>
                     </li>

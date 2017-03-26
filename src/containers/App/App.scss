@@ -32,8 +32,11 @@
 }
 #fxd >.container
 {
+  
   width:100% !important;
 }
+
+
 
 .navbar-fixed-top > .container {
     width: 100% !important;
@@ -119,6 +122,64 @@
   transition: .3s top ease-in, .3s opacity ease-in;
 }
 
+.fixed
+{
+  position: fixed;
+  width:100%;
+  z-index:1000;
+
+}
+
+.logoContainer
+{
+  top:70px;
+  text-align: center;
+}
+
+.smalltopbar {
+  background: #457DBB;
+  padding: 7px 0 10px 0;
+  text-align: center;
+  height: 36px;
+  overflow: hidden;
+  -webkit-transition: height 0.5s linear;
+  -moz-transition: height 0.5s linear;
+  transition: height 0.5s linear;
+}
+.smalltopbar a {
+  color: #fff;
+  font-size:1.3em;
+  line-height: 1.25em;
+  text-decoration: none;
+  opacity: 1;
+  font-weight: bold;
+}
+.smalltopbar a:hover {
+  opacity: 1;
+}
+
+.tophiddenbar {
+  display: block;
+  width: 100%;
+  background: #457DBB;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 0; 
+  font-size: 1.3em;
+  text-align: center;
+  text-shadow: 1px 1px 0 #444;
+}
+.tophiddenbar a {
+  color: #fff;
+  font-size: 1.0em;
+  text-decoration: none;
+  opacity: 0.5;
+  text-shadow: none;
+}
+.tophiddenbar a:hover { opacity: 1; }
+
+.smalltopbar:hover { height: 120px; }
+
 @media (max-width: 480px) {
   .pageContainer {
     width: 100%;
@@ -148,6 +209,8 @@
 {
   height:54px;
   width:100%;
+      font-size: x-large;
+    color: black;
 }
 .fullOverlay
 {
@@ -160,5 +223,6 @@
     left: 0;
     position: fixed;
 }
+
 
 
