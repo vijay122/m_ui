@@ -1,7 +1,7 @@
 import React from 'react';
 import {IndexRoute, Route} from 'react-router';
 import {isLoaded as isAuthLoaded, load as loadAuth} from './redux/modules/auth';
-// import { viewdetail as detail, refreshSection as refresh} from './redux/modules/products';
+ import { viewdetail as detail, refreshSection as refresh} from './redux/modules/products';
 import {qs} from './utils/validation';
 import {
   App,
@@ -52,10 +52,14 @@ export default (store) => {
     {
         detailproduct = Appstate.products[category].get(prodid);
     }
-    store.dispatch({type: 'SET_DETAIL', result: detailproduct});
-    // if(isProductExistInStore(prodid,Appstate,category))
+   // store.dispatch({type: 'SET_DETAIL', result: detailproduct});
+     if(detailproduct && detailproduct.name!= undefined)
     {
-      //  showDetailsPage(prodid,category);
+        store.dispatch({type: 'SET_DETAIL', result: detailproduct});
+    }
+    else
+    {
+      refresh(prodid,category);
     }
     //  refresh(prodid,category);
     // store.dispatch({type:'DETAIL', result:{id:prodid,category:category}});

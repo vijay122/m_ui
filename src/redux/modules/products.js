@@ -213,7 +213,7 @@ export function refreshSection(id, category) {// {
    console.log("refreshSection called:"+category);
   var payload = {};
   payload.sectionName = "refresh";//sectionName;
-  payload.findtable = "Place"; //searchcriteria.findtable;
+  payload.findtable = category; //searchcriteria.findtable;
   payload.searchby = "_id";// searchcriteria.searchby;
   payload.searchvalue = id;// searchcriteria.searchvalue;
   return dispatch => {

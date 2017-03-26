@@ -53,13 +53,13 @@ function mapStateToProps(state) {
   var cat = qs('category');
   var st = isProductExistInStore(state, id, cat);
   if (!isProductExistInStore(state, id, cat)) {
-    if(this!= undefined)
+    if(this!= undefined && id && cat)
     {
           this.store.dispatch(refreshSection(id, cat));
     }
-    else
+   // else if(this.store)
     {
-
+         // this.store.dispatch(refreshSection(id, cat));
   
     }
   }
@@ -94,12 +94,20 @@ export class Detail extends Component {
   }
 
   componentWillMount() {
+  var id = qs('id');
+  var cat = qs('category');
+ /* if(this.state.detail.name==undefined)
+        {
+          this.props.dispatch(refreshSection(id, cat));
+        }
 
-  }
-
+  */
+}
   componentDidMount() {
       var id = qs('id');
   var cat = qs('category');
+  if (!isProductExistInStore({}, id, cat))
+  {
     if(this.props.detail!= undefined && this.props.detail.detail!= undefined)
     {
           this.props.getProducts(this.props.detail.detail);
@@ -107,7 +115,8 @@ export class Detail extends Component {
     else
     {
           this.props.dispatch(refreshSection(id, cat));
-        }
+    }
+  }
   }
 
   componentWillReceiveProps(newprops) {
@@ -257,7 +266,6 @@ error = "please select the date of your travel.";
             <Row className="show-grid">
               <Col className={hideClassForMobile} md={2}>
                 <a onClick={this.previousNearby.bind(this, that, detail)}>Previous</a>
-               <Slider ref="slider" {...settings}>
                {/* <SidebarList videos={nearbyElements} referenceproduct={detail} springValue={self.state.springValue} dispatch={that.dispatch}/> */}
                 {
                   detail != undefined && nearbyElements != undefined && nearbyElements.map(function (nearbyloc) {
@@ -266,7 +274,6 @@ error = "please select the date of your travel.";
                                            key={nearbyloc.id} dispatch={that.dispatch}></SidebarTiles>;
                   })
                 }
-                   </Slider>
                 <a onClick={this.nextNearby.bind(this, that, detail)}>Next</a>
               </Col>
               <Col xs={12} md={6}>
@@ -274,9 +281,11 @@ error = "please select the date of your travel.";
                   <Image className={styles.imageContainer}
                          src={detail != undefined && detail.image != undefined && this.resizeImage(detail.image[0], 400, 550)}/>
                 </Row>
-                <Row>
+                {detail.products && (
+                  <Row>
+                  <h5>Place visits included in package:</h5><br/>
                   {this.renderIncludesMenu(that,detail,cart)}
-                </Row>
+                </Row>)}
               </Col>
               <Col xs={12} md={3}>
                 <Booking that={that} detail={detail} cartContext={cart} validate={this.validateAdd}/>
