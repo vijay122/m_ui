@@ -188,12 +188,14 @@ error = "please select the date of your travel.";
   }
 
   render() {
-    var settings = {
+ var settings = {
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,
+      arrows:false,
+      vertical:true,
     };
         var isMobile = browserUtils.isMobile();
         var hideClassForMobile = isMobile?"hide":"block";
@@ -255,7 +257,7 @@ error = "please select the date of your travel.";
             <Row className="show-grid">
               <Col className={hideClassForMobile} md={2}>
                 <a onClick={this.previousNearby.bind(this, that, detail)}>Previous</a>
-               
+               <Slider ref="slider" {...settings}>
                {/* <SidebarList videos={nearbyElements} referenceproduct={detail} springValue={self.state.springValue} dispatch={that.dispatch}/> */}
                 {
                   detail != undefined && nearbyElements != undefined && nearbyElements.map(function (nearbyloc) {
@@ -264,6 +266,7 @@ error = "please select the date of your travel.";
                                            key={nearbyloc.id} dispatch={that.dispatch}></SidebarTiles>;
                   })
                 }
+                   </Slider>
                 <a onClick={this.nextNearby.bind(this, that, detail)}>Next</a>
               </Col>
               <Col xs={12} md={6}>
