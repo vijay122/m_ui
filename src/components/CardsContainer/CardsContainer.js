@@ -10,6 +10,8 @@ var Slider = require('react-slick');
 export default class CardsContainer extends React.Component {
   constructor(props) {
     super(props);
+        this.next = this.next.bind(this)
+    this.previous = this.previous.bind(this)
   }
 
   resizeImage(url, height, width) {
@@ -26,6 +28,12 @@ export default class CardsContainer extends React.Component {
     var category = fn.props.category;
     fn.props.dispatch(push('/detail/id:' + placeid + "/category:" + category));
   }
+    next() {
+    this.refs['slider'].slickNext()
+  }
+  previous() {
+    this.refs['slider'].slickPrev()
+  }
 
   render() {
     var isMobile = browserUtils.isMobile();
@@ -35,6 +43,7 @@ export default class CardsContainer extends React.Component {
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,
+      arrows:false,
     };
     if (isMobile) {
       settings = {
@@ -43,6 +52,7 @@ export default class CardsContainer extends React.Component {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 2,
+        arrows:false,
       };
     }
     var that = this;
@@ -62,6 +72,10 @@ export default class CardsContainer extends React.Component {
         <Row className={styles.container}>
           <div className={styles.title}>
             <label className={styles.subhead}>{this.props.type}</label>
+            <div style={{float: 'right'}}>
+          <button className='button' onClick={this.previous}>Previous</button>
+          <button className='button' onClick={this.next}>Next</button>
+        </div>
           </div>
           <div className={styles.scriptStyles}>
            {this && this.props!=undefined && this.props.promotionMessage?this.props.promotionMessage:""}
@@ -70,7 +84,7 @@ export default class CardsContainer extends React.Component {
           {canrender && canrender.length > 0 && canrender.map(function (v) {
 
             return (
-              <Slider {...settings}>
+              <Slider ref="slider" {...settings}>
                 {that && that.props && that.props.packagelist && that.props.packagelist.map(function (x) {
                   if (x.image == undefined && x.assets != undefined && x.assets.display) {
                     x.image = [];
@@ -88,8 +102,8 @@ export default class CardsContainer extends React.Component {
                       </div>
                       </div>
                         <Card className={styles.overrideStyles}>
-                          <CardMedia className={styles.titleContent}
-                            overlay={<CardTitle  title={x.name} subtitle={x.title}/>}>
+                          <CardMedia
+                            overlay={<CardTitle  title={x.name} className={styles.tiles} subtitle={x.title}/>}>
                             <div><h2>{x.name} </h2></div>
                             <h3 className={styles.tileTitle}>{x.title}</h3>
                             <div className={styles.daysDisplay}>

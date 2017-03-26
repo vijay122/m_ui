@@ -56,11 +56,6 @@
   h3 {
     font-size: small;
   }
-  .overrideStyles {
-    span {
-      font-size: small !important;
-    }
-  }
 }
 
 .ribbonWrapperGreen {
@@ -147,4 +142,26 @@ color:white;
     min-width: 40px !important;
     position: absolute;
     text-align: center;
+}
+
+span {
+ text-transform:capitalize;
+}
+
+.tiles {
+  span {
+    font-size: 18px !important;
+     text-transform:capitalize;
+  }
+}
+
+@media (max-width: 480px) {
+  .tiles span {
+    font-size: 1em !important;
+    line-height:20px !important;
+  }
+  .tiles {
+    padding: 4px !important;
+    text-transform:capitalize;
+  }
 }
