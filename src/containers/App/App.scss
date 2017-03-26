@@ -122,6 +122,13 @@
   transition: .3s top ease-in, .3s opacity ease-in;
 }
 
+.loginButton
+{
+    float: right;
+    padding-right: 10px;
+
+}
+
 .fixed
 {
   position: fixed;
@@ -155,9 +162,8 @@
   font-weight: bold;
 }
 .smalltopbar a:hover {
-  opacity: 1;
+  opacity: 1; 
 }
-
 .tophiddenbar {
   display: block;
   width: 100%;
@@ -178,7 +184,9 @@
 }
 .tophiddenbar a:hover { opacity: 1; }
 
-.smalltopbar:hover { height: 120px; }
+.smalltopbar:hover { 
+//height: 120px; //uncomment it when search bar is implemented
+}
 
 @media (max-width: 480px) {
   .pageContainer {

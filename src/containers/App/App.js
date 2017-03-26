@@ -214,11 +214,10 @@ export class App extends Component {
           <div>
           </div>
           <div className={styles.fixed}>
-          <div className={styles.smalltopbar}><a href="http://designshack.net">livelytrips</a>
-           <Link to="/login">
-                  <NavItem eventKey={5}>{logintext}</NavItem>
-                </Link> 
-          <div className={styles.tophiddenbar}>
+          <div className={styles.smalltopbar}><a href="http://www.livelytrips.com">livelytrips</a>
+           <Link className={styles.loginButton} to="/login">login</Link> 
+          {1!=1 &&
+          (<div className={styles.tophiddenbar}>
                      <Row>
               <Col md={3}>
               </Col>
@@ -245,7 +244,8 @@ export class App extends Component {
               
               </Col>
               </Row>
-             </div>
+             </div>)}
+
           </div>
 </div>
           <div>
