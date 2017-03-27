@@ -14,7 +14,7 @@ import Chip from 'material-ui/Chip';
 export default class Booking extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {type: null};
+    this.state = {type: null,phoneerror:""};
     this.handleSelect = this.handleSelect.bind(this);
   }
 
@@ -28,6 +28,25 @@ export default class Booking extends React.Component {
     var newvalue = e.currentTarget.value;
     this.setState({statename: newvalue});
     this.state[e.target.attributes["data-ctrlid"].value] = e.currentTarget.value;
+  }
+
+  validatePhonenumber(ip)
+  {
+    var pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+return pattern.test(ip);
+  }
+
+  callBack()
+  {
+    if(this.validatePhonenumber(this.state.callbacknumber))
+    {
+    this.setState({phoneerror:""});
+    }
+    else
+    {
+          this.setState({phoneerror:"Please enter a valid phone number"});
+    }
+
   }
 
   validateAdd()
@@ -152,7 +171,7 @@ cartItems = this.props.cartContext.items;
     var that = this.props.that;
     var detail = this.props.detail;
     var cart = this.props.cartContext;
-
+    var styles = require('./Booking.scss');
     return (
       <Row>
         <Col md={12}>
@@ -164,14 +183,15 @@ cartItems = this.props.cartContext.items;
             <label>We would love to call you and explain more about the trip (on your convinent phone number).</label>
             <TextField
                           hintText="Phone number"
-                          floatingLabelText="Enter the phone number"
+                          floatingLabelText="Enter your phone number"
                           floatingLabelFixed={true}
-                          data-ctrlid="name"
+                          data-ctrlid="callbacknumber"
                           type='number'
+                          errorText={this.state.phoneerror}
                           default
                           onChange={this.onChange.bind(this)}
-                          value={this.state.name}/>
-            <RaisedButton label="Call me back" primary={true} onClick={this.addToCart.bind(this, that, detail)}/>
+                          value={this.state.callbacknumber}/>
+            <RaisedButton className={styles.callToActionButton} label="Call me back" primary={true} onClick={this.callBack.bind(this, that, detail)}/>
           </Row>
         </Col>
       </Row>
