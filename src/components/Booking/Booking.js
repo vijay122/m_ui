@@ -179,7 +179,7 @@ cartItems = this.props.cartContext.items;
           <Row>
             { this.renderButtons(that,detail,cart) }
           </Row>
-          <Row>
+          <Row className={styles.callbackContainer}>
             <label>We would love to call you and explain more about the trip (on your convinent phone number).</label>
             <TextField
                           hintText="Phone number"
