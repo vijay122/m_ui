@@ -197,6 +197,7 @@ error = "please select the date of your travel.";
   }
 
   render() {
+    debugger;
  var settings = {
       dots: false,
       infinite: true,
@@ -218,7 +219,12 @@ error = "please select the date of your travel.";
     }
     if (this.props.detail.detail != undefined && this.props.detail.detail.count == 0 && this.state.dependencies != undefined && this.state.dependencies.place != undefined) {
       detail = this.state.dependencies.place;
+     
     }
+     if(detail.image==undefined && detail.assets && detail.assets.display)
+      {
+         detail.image = [detail.assets.display];
+      }
     var packages = [];
 //(this.state.dependencies!= null && this.state.dependencies.packages!= null):this.state.dependencies.packages:[];
     var events = [];

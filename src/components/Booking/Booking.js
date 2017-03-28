@@ -126,7 +126,7 @@ return (<Chip>{category}</Chip>)
         }
         <DatePicker
               container="inline"
-              floatingLabelText="Choose your travel date"
+              floatingLabelText="Choose your travel start date"
               hintText="Custom date format"
               firstDayOfWeek={0}
               value={this.state.controlledDate}
@@ -179,6 +179,7 @@ cartItems = this.props.cartContext.items;
           <Row>
             { this.renderButtons(that,detail,cart) }
           </Row>
+         {detail.type=='package' && ( 
           <Row className={styles.callbackContainer}>
             <label>We would love to call you and explain more about the trip (on your convinent phone number).</label>
             <TextField
@@ -192,7 +193,8 @@ cartItems = this.props.cartContext.items;
                           onChange={this.onChange.bind(this)}
                           value={this.state.callbacknumber}/>
             <RaisedButton className={styles.callToActionButton} label="Call me back" primary={true} onClick={this.callBack.bind(this, that, detail)}/>
-          </Row>
+          </Row>)
+        }
         </Col>
       </Row>
     );
