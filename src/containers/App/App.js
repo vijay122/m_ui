@@ -152,6 +152,8 @@ export class App extends Component {
   }
 
   render() {
+   var logoImage = require('./sunny.svg');
+        var styles = require('./App.scss');
            var isMobile = browserUtils.isMobile();
         var hideClassForMobile = isMobile?"hide":"block";
     var tempArr =[];
@@ -184,7 +186,7 @@ export class App extends Component {
     if (this.props.appstate != null && this.props.appstate.cart != null && this.props.appstate.cart.items != null)
       cartcount = this.props.appstate.cart.items.length;
     const {user} = this.props;
-    const styles = require('./App.scss');
+
     var userdataloaded = [];
     var logintext = "Login";
     if (this != undefined && this.props != undefined && this.props.user != null) {
@@ -324,9 +326,17 @@ export class App extends Component {
           <br />
           <br />
           <div className={styles.appContent}>
+          {
+            this.props.appstate.products.loaded == true
+            ?
             <div className={styles.pageContainer}>
               {this.props.children}
             </div>
+          :
+            <div className={styles.preloader}>
+          <img src={logoImage}/>
+          </div>
+        }
           </div>
           <InfoBar linkItems={seoitems}/>
 {/* this.props &&  this.props.appstate!= undefined && this.props.appstate.products!= undefined && this.props.appstate.products.loaded == true?<div />:<div className={styles.fullOverlay}></div> */}
