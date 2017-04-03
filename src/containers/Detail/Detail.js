@@ -294,7 +294,7 @@ error = "please select the date of your travel.";
                 </Row>)}
               </Col>
               <Col xs={12} md={3}>
-                <Booking that={that} detail={detail} cartContext={cart} validate={this.validateAdd}/>
+                <Booking that={that} detail={detail} cartContext={cart} validate={this.validateAdd} callBack={this.props.callBack}/>
               </Col>
             </Row>
             <Row style={{minHeight: "300px"}}>

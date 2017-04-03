@@ -248,3 +248,26 @@ function checkStatus(response) {
   }
 }
 
+export function callBack(callbackinfo) {
+  return dispatch => {
+    fetch(config.svc + '/getCallBack', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+      payload: callbackinfo
+      })
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(function (data) {
+
+        dispatch({type: 'CALLBACK_NOTIFIED', result: data});
+        //  console.log('request succeeded with JSON response', list)
+      }).catch(function (error) {
+      console.log('request failed', error)
+    })
+  }
+}
+
