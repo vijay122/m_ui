@@ -8,7 +8,6 @@ import Carousel from 'react-bootstrap/lib/Carousel';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import * as productActions from '../../redux/modules/products';
 import {connect} from 'react-redux';
-import {initializeWithKey} from 'redux-form';
 import {asyncConnect} from 'redux-async-connect';
 import {bindActionCreators} from 'redux';
 import {push} from 'react-router-redux';

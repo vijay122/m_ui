@@ -3,8 +3,6 @@ import Helmet from 'react-helmet';
 import {connect} from 'react-redux';
 import * as widgetActions from '../../redux/modules/widgets';
 import {isLoaded, load as loadWidgets} from '../../redux/modules/widgets';
-import {initializeWithKey} from 'redux-form';
-import {WidgetForm} from '../../components';
 import {asyncConnect} from 'redux-async-connect';
 
 @asyncConnect([{
@@ -22,13 +20,12 @@ import {asyncConnect} from 'redux-async-connect';
     error: state.widgets.error,
     loading: state.widgets.loading
   }),
-  {...widgetActions, initializeWithKey})
+  {...widgetActions})
 export default class Widgets extends Component {
   static propTypes = {
     widgets: PropTypes.array,
     error: PropTypes.string,
     loading: PropTypes.bool,
-    initializeWithKey: PropTypes.func.isRequired,
     editing: PropTypes.object.isRequired,
     load: PropTypes.func.isRequired,
     editStart: PropTypes.func.isRequired
@@ -83,21 +80,7 @@ export default class Widgets extends Component {
           </tr>
           </thead>
           <tbody>
-          {
-            widgets.map((widget) => editing[widget.id] ?
-              <WidgetForm formKey={String(widget.id)} key={String(widget.id)} initialValues={widget}/> :
-              <tr key={widget.id}>
-                <td className={styles.idCol}>{widget.id}</td>
-                <td className={styles.colorCol}>{widget.color}</td>
-                <td className={styles.sprocketsCol}>{widget.sprocketCount}</td>
-                <td className={styles.ownerCol}>{widget.owner}</td>
-                <td className={styles.buttonCol}>
-                  <button className="btn btn-primary" onClick={handleEdit(widget)}>
-                    <i className="fa fa-pencil"/> Edit
-                  </button>
-                </td>
-              </tr>)
-          }
+
           </tbody>
         </table>}
       </div>

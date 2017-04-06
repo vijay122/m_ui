@@ -9,7 +9,6 @@ import detail from './detail';
 import cart from './cart';
 import category from './category';
 import counter from './counter';
-import {reducer as form} from 'redux-form';
 import info from './info';
 // import widgets from './widgets';
 import checkout from './checkout';
@@ -22,7 +21,6 @@ export default combineReducers({
   detail,
   category,
   cart,
-  form,
  // multireducer: multireducer({
  //   counter1: counter,
  //   counter2: counter,

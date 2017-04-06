@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import {connect} from 'react-redux';
-
-import {initializeWithKey} from 'redux-form';
 import {bindActionCreators} from 'redux';
 import {load} from '../../redux/modules/info';
 import {asyncConnect} from 'redux-async-connect';

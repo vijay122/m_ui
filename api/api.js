@@ -6,7 +6,6 @@ import * as actions from './actions/index';
 import {mapUrl} from './utils/url.js';
 import PrettyError from 'pretty-error';
 import http from 'http';
-import SocketIo from 'socket.io';
 
 const pretty = new PrettyError();
 const app = express();
@@ -47,9 +46,6 @@ app.use(function(req, res, next) {
 
 
 //Very important change for enabling cross domain origin ----------------End
-
-const io = new SocketIo(server);
-io.path('/ws');
 
 app.use(session({
   secret: 'react and redux rule!!!!',
