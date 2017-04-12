@@ -309,6 +309,28 @@ export function isProductExistInStore(globalState, prodid, category) {
   }
 
 }
+export function isProductAlreadyLoaded(getProductsResult, prodid, category) {
+   if(category=="products")
+  {
+    category = "places";
+
+   var  Placesmap = Map(getProductsResult[category].reduce(function (previous, current) {
+          previous[current._id] = current;
+          return previous;
+        }, {}));
+    getProductsResult[category] = Placesmap;
+  }
+
+  if(getProductsResult!= undefined && getProductsResult[category] != undefined)
+  {
+     return getProductsResult[category].get(prodid);
+  }
+  else
+  {
+    return undefined;
+  }
+
+}
 export function isLoaded(globalState) {
   if (globalState != undefined && globalState.products != undefined && globalState.products.loaded) {
     return true;

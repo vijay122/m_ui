@@ -606,12 +606,3 @@ export class PackageBuilder extends Component {
 
 export default connect(mapStateToProps, mapDispatchToProps)(PackageBuilder);
 
-Array.prototype.clean = function(deleteValue) {
-  for (var i = 0; i < this.length; i++) {
-    if (this[i] == deleteValue) {         
-      this.splice(i, 1);
-      i--;
-    }
-  }
-  return this;
-};

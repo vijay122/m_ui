@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/lib/Row';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
 import Panel from 'react-bootstrap/lib/Panel';
-import {isLoaded, load as load, isProductExistInStore, refreshSection} from '../../redux/modules/products';
+import {isLoaded, load as load, isProductExistInStore,isProductAlreadyLoaded, refreshSection} from '../../redux/modules/products';
 import * as detailActions from '../../redux/modules/detail';
 import {asyncConnect} from 'redux-async-connect';
 import {connect} from 'react-redux';
@@ -42,6 +42,18 @@ function qs(key) {
     vars[hash[0]] = hash[1];
   }
   return vars[key];
+}
+
+function isCurrentProduct(product,cat, id)
+{
+if(product._id==id)
+{
+  return true;
+}
+else
+{
+  return false;
+}
 }
 
 function mapStateToProps(state) {
@@ -122,7 +134,24 @@ export class Detail extends Component {
   componentWillReceiveProps(newprops) {
     if (newprops.detail.getProductsResult != undefined)
       this.setState({'dependencies': newprops.detail.getProductsResult});
-
+      var id = qs('id');
+  var cat = qs('category');
+  var existingproduct = isProductAlreadyLoaded(newprops.detail.getProductsResult, id, cat);
+  if (!existingproduct)
+  {
+    if(this.props.detail!= undefined && this.props.detail.detail!= undefined)
+    {
+          this.props.getProducts(this.props.detail.detail);
+    }
+    else
+    {
+          this.props.dispatch(refreshSection(id, cat));
+    }
+  }
+  else
+  {
+    this.props.detail.detail = existingproduct;
+  }
   }
 
   viewmore(data, fn) {
@@ -182,6 +211,7 @@ error = "please select the date of your travel.";
     this.setState({error:error});
   }
 
+
   renderIncludesMenu(that,detail,cart)
   {
     var productsArray =[];
@@ -197,7 +227,6 @@ error = "please select the date of your travel.";
   }
 
   render() {
-    debugger;
  var settings = {
       dots: false,
       infinite: true,
@@ -234,7 +263,8 @@ error = "please select the date of your travel.";
     var nearbyElements = [];
     var startIndex = this.state.startIndex;
     var endIndex = this.state.endIndex;
-
+     var includes = detail.description.split("|").clean("");
+       var excludes = detail.landmark.split("|").clean("");
     if (this.state != null && this.state.dependencies != null) {
       hotels = this.state.dependencies.hotels;
       packages = this.state.dependencies.packages;
@@ -305,11 +335,36 @@ error = "please select the date of your travel.";
                 <Row>
                   <Tabs defaultActiveKey={1}>
                     <Tab eventKey={1} title="About & Info">
-                      <Row className="show-grid">
-                        <Col sm={12} md={6}>About the place:<br/>{detail.description}</Col>
-                        <Col sm={12} md={6}>Landmarks:<br/>{detail.landmark}</Col>
-
+                   { detail.type!="package" &&
+      <Row className="show-grid">
+                        <Col sm={12} md={6}><h1>About the place:</h1><br/>{detail.description}</Col>
+                        <Col sm={12} md={6}><h1>Landmarks:</h1><br/>{detail.landmark}</Col>
                       </Row>
+                    }
+    {detail.type=="package" && detail.description && detail.landmark
+&& 
+<Row className="show-grid">                     
+                        {                           
+      
+                          <div>
+                          <Col sm={12} md={6}><h1>Package Includes:</h1><br/>
+                         {includes && includes.map(function(x)
+                            {
+                         return(<li>{x}</li>)
+                       })
+                         }
+                          </Col>
+                          <Col sm={12} md={6}><h1>Excludes:</h1><br/>
+                        {excludes && excludes.map(function(x)
+                        {
+                         return(<li>{x}</li>)
+                       })
+                         }
+                          </Col>
+                          </div>
+                        }
+                      </Row>
+    }
                     </Tab>
                     <Tab eventKey={2} title="Location and visiting">
                       <Row className="show-grid">
