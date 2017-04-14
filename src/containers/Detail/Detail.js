@@ -78,7 +78,12 @@ function mapStateToProps(state) {
   else {
     state.detail.detail = isProductExistInStore(state, id, cat);
   }
-  return {products: state.products, detail: state.detail, cart: state.cart}
+   var deps  ={};
+ if(state && state.detail && state.detail.getProductsResult &&  state.detail.getProductsResult.places)
+  {
+deps = state.detail.getProductsResult.places;
+  }
+  return {products: state.products, detail: state.detail, dependencies:deps, cart: state.cart}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -263,8 +268,8 @@ error = "please select the date of your travel.";
     var nearbyElements = [];
     var startIndex = this.state.startIndex;
     var endIndex = this.state.endIndex;
-     var includes = detail.description.split("|").clean("");
-       var excludes = detail.landmark.split("|").clean("");
+     var includes = (detail.description && detail.description.indexOf("|")>-1)?detail.description.split("|").clean(""):detail.description;
+       var excludes = (detail.landmark && detail.landmark.indexOf("|")>-1)? detail.landmark.split("|").clean(""):detail.landmark;
     if (this.state != null && this.state.dependencies != null) {
       hotels = this.state.dependencies.hotels;
       packages = this.state.dependencies.packages;

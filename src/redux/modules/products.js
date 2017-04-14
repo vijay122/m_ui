@@ -318,12 +318,11 @@ export function isProductAlreadyLoaded(getProductsResult, prodid, category) {
           previous[current._id] = current;
           return previous;
         }, {}));
-    getProductsResult[category] = Placesmap;
   }
-
   if(getProductsResult!= undefined && getProductsResult[category] != undefined)
   {
-     return getProductsResult[category].get(prodid);
+     var product = Placesmap.get(prodid);
+     return product;
   }
   else
   {

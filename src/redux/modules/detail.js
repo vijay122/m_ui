@@ -45,7 +45,6 @@ export default function reducer(state = initialState, action = {}) {
         error: action.error
       };
     case 'SET_DEPENDANT':
-
       const newItems = action.result;
       return {
         ...state,
