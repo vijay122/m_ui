@@ -113,12 +113,6 @@ export class Detail extends Component {
   componentWillMount() {
   var id = qs('id');
   var cat = qs('category');
- /* if(this.state.detail.name==undefined)
-        {
-          this.props.dispatch(refreshSection(id, cat));
-        }
-
-  */
 }
   componentDidMount() {
       var id = qs('id');
