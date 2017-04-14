@@ -262,8 +262,8 @@ error = "please select the date of your travel.";
     var nearbyElements = [];
     var startIndex = this.state.startIndex;
     var endIndex = this.state.endIndex;
-     var includes = (detail.description && detail.description.indexOf("|")>-1)?detail.description.split("|").clean(""):detail.description;
-       var excludes = (detail.landmark && detail.landmark.indexOf("|")>-1)? detail.landmark.split("|").clean(""):detail.landmark;
+     var includes = (detail.description && detail.description.indexOf("|")>-1)?detail.description.split("|").clean(""):[detail.description];
+       var excludes = (detail.landmark && detail.landmark.indexOf("|")>-1)? detail.landmark.split("|").clean(""):[detail.landmark];
     if (this.state != null && this.state.dependencies != null) {
       hotels = this.state.dependencies.hotels;
       packages = this.state.dependencies.packages;
