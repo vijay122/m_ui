@@ -18,6 +18,8 @@ import geolib  from 'geolib';
 import * as browserUtils from '../../utils/HtmlUtils';
 import {VisitIcons} from '../../components';
 
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup' 
+
 import {TransitionMotion, spring, Motion} from 'react-motion'
 
 var Slider = require('react-slick');
@@ -305,8 +307,11 @@ error = "please select the date of your travel.";
                 {
                   detail != undefined && nearbyElements != undefined && nearbyElements.map(function (nearbyloc) {
                     if (detail._id != nearbyloc._id)
-                      return <SidebarTiles data={nearbyloc} key={nearbyloc._id + "detail"} referenceproduct={detail}
-                                           key={nearbyloc.id} dispatch={that.dispatch}></SidebarTiles>;
+                      return (
+                     <CSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+                    <SidebarTiles data={nearbyloc} key={nearbyloc._id + "detail"} referenceproduct={detail}
+                                           key={nearbyloc.id} dispatch={that.dispatch}></SidebarTiles>
+                                             </CSSTransitionGroup>);
                   })
                 }
                 <a onClick={this.nextNearby.bind(this, that, detail)}>Next</a>
