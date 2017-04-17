@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import {push} from 'react-router-redux';
 import * as browserUtils from '../../utils/HtmlUtils';
+import LazyLoad from 'react-lazyload';
 
 var Slider = require('react-slick');
 
@@ -109,7 +110,9 @@ export default class CardsContainer extends React.Component {
                             <div className={styles.daysDisplay}>
                             {x.noofdays}D/{x.noofnights}N
                             </div>
-                            <img src={x.image[0] != undefined && that.resizeImage(x.image[0], 250, 250)}></img>
+                              <LazyLoad>
+                            <img className={styles.fullWidth} src={x.image[0] != undefined && that.resizeImage(x.image[0], 250, 250)}></img>
+                             </LazyLoad>
                           </CardMedia>
                         </Card>
                       </div>

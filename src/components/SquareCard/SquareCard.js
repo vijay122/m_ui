@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import Col from 'react-bootstrap/lib/Col';
 import {push} from 'react-router-redux';
+import LazyLoad from 'react-lazyload';
 
 export default class SquareCard extends React.Component {
   constructor(props) {
@@ -44,9 +45,10 @@ export default class SquareCard extends React.Component {
         <div onClick={this.viewDetails.bind(this, ty, category)}>
           <Card>
             <CardMedia
-              overlay={<CardTitle title={product.name} className={styles.tiles} subtitle={product.title}/>}
-            >
-              <img src={image != undefined && this.resizeImage(image, 250, 250)}></img>
+              overlay={<CardTitle title={product.name} className={styles.tiles} subtitle={product.title}/>}>
+<LazyLoad >
+              <img className={styles.fullWidth} src={image != undefined && this.resizeImage(image, 250, 250)}></img>
+                 </LazyLoad>
             </CardMedia>
           </Card>
         </div>

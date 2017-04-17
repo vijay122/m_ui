@@ -12,6 +12,7 @@ import {asyncConnect} from 'redux-async-connect';
 import {bindActionCreators} from 'redux';
 import {push} from 'react-router-redux';
 import {ReactRpg} from '@vijay122/react-tiles';
+import LazyLoad from 'react-lazyload';
 
 @asyncConnect([{
   deferred: true,
@@ -342,7 +343,9 @@ export class HomeSlider extends Component {
               <p>{scrolloffer.noofdays}Days&{scrolloffer.noofnights}Nights</p>
               <p>{scrolloffer.state}</p>
               </div>
+   <LazyLoad once > 
                 <img src={that.resizeImage(img, 450, 900)}/>
+                  </LazyLoad>
                 <div className="carousel-caption">
                   <h1>{scrolloffer.city}</h1>
                   <h2>{scrolloffer.title} {scrolloffer.type}</h2>
