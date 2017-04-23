@@ -162,7 +162,7 @@ cartItems = this.props.cartContext.items;
       );
     } else {
       return (
-        <label className={styles.successText}>Item is already added to cart</label>
+        <label className={styles.successText}>Item is in the cart now</label>
       );
     }
   }

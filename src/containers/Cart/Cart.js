@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {OrderSummary, CartOptions, PaymentOptions} from '../../components';
+import {OrderSummary, CartOptions, PaymentOptions,PanelContainer,CartGrid} from '../../components';
 import Helmet from 'react-helmet';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
@@ -8,14 +8,11 @@ import {asyncConnect} from 'redux-async-connect';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as productActions from '../../redux/modules/products';
-
 import * as checkoutActions from '../../redux/modules/checkout';
-
 import DeleteIcon from 'react-material-icons/icons/action/delete';
-
 import {TableRow, TableRowColumn} from 'material-ui/Table';
-
 import RaisedButton from 'material-ui/RaisedButton';
+import DatePicker from 'material-ui/DatePicker';
 
 
 function mapStateToProps(state) {
@@ -132,6 +129,13 @@ tripInfo:{
 
   clicking() {
 
+
+  }
+
+  handleOptionChange = (changeEvent) => {
+    this.setState({
+    selectedOption: changeEvent.target.value
+  });
   }
 
   render() {
@@ -149,29 +153,104 @@ mon = validationresponse.mon;
     // require the logo image both from client and server
     return (
       <div className={styles.home}>
-        <Helmet title="Home"/>
-        <div className="container">
-          <label>{title}</label>
+       <Row>
+       <h5>Dear Traveller, Thanks for choosing livelytrips.com</h5>
+       </Row>
+       <Row>
+       <h5>Order number:{title}</h5>
+       </Row>
+        <Row>
+         <Col xs={12} md={4}>
+        <PanelContainer title="Summary" subtitle="Your travel shapshot">
+        <OrderSummary />
+        </PanelContainer>
+        </Col>
+      <Col xs={12} md={8}>
+      <div>
+        <PanelContainer title="Order Review">
+        <CartGrid items={cartItems} validationresponse={validationresponse}/>
+         <Row>
+        <Col xs={12} md={6}>
+        coupon code
+        </Col>
+         <Col xs={12} md={6}>
+         comments
+        </Col>
+        </Row>
+        </PanelContainer>
+
+</div>
+        </Col>
+        </Row>
           <Row>
-            <Col md={8}>
-              <CartOptions items={cartItems} validationresponse={validationresponse}/>
+        <Col xs={12} md={4}>
+        <PanelContainer title="Billing Address"/>
+        </Col>
+        <Col xs={12} md={4}>
+        <PanelContainer title="Travel Dates" subtitle="Date of the travel and traveller details">
+        <Row>
+         <Col xs={12} md={6}>
+         Travel Date
+              </Col>
+         <Col xs={12} md={6}>
+        <DatePicker
+              container="inline"
+              floatingLabelText="Date of travel"
+              hintText="Custom date format"
+              firstDayOfWeek={0}
+              value={this.state.controlledDate}
+               onChange={this._handleChange}
+            />
             </Col>
-            <Col md={4}>
-              <OrderSummary />
+ <Col xs={12} md={6}>
+         Traveller name
+              </Col>
+         <Col xs={12} md={6}>
+        
             </Col>
-          </Row>
+        </Row>
+        </PanelContainer>
+        </Col>
+         <Col xs={12} md={4}>
+        <PanelContainer title="Payment Method">
+        <Row>
+           <div className="radio">
+      <label>
+        <input type="radio" value="cashondelivery" 
+                      checked={this.state.selectedOption === 'cashondelivery'} 
+                      onChange={this.handleOptionChange} />
+        Cash On Delivery
+      </label>
+    </div>
+    <div className="radio">
+      <label>
+        <input type="radio" value="paynow" 
+                      checked={this.state.selectedOption === 'paynow'} 
+                      onChange={this.handleOptionChange} />
+        Pay Now
+      </label>
+    </div>
+     </Row>
+    </PanelContainer>
+        </Col>
+        </Row>
+        <Row>
+        <div id="paymentDiv">
         </div>
-        <div>
-          <RaisedButton label="validate cart" primary={true} onClick={this.checkout}/>
-        </div>
-        <div>
-        <PaymentOptions />
-        </div>
+        <iframe id="paymentFrame">
+
+        </iframe>
+ 
+        </Row>
       </div>
     );
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+
+
+
+
 
 
 export class CartProduct extends Component {

@@ -45,23 +45,23 @@ export default class CartGrid extends Component {
         <div className="">
           <label>htr</label>
           <Table className={styles.tableClass}>
-            <TableHeader>
-              <TableRow>
-                <TableHeaderColumn>Item#</TableHeaderColumn>
-                <TableHeaderColumn>Name</TableHeaderColumn>
-                <TableHeaderColumn>Total</TableHeaderColumn>
-              </TableRow>
-            </TableHeader>
-            
-            <TableBody>
-              {cartItems && cartItems.map(function (place) {
+    <TableHeader>
+      <TableRow>
+        <TableHeaderColumn>View</TableHeaderColumn>
+        <TableHeaderColumn>Name</TableHeaderColumn>
+        <TableHeaderColumn>City</TableHeaderColumn>
+        <TableHeaderColumn>Remove</TableHeaderColumn>
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+{cartItems && cartItems.map(function (place) {
                 if (place._id != undefined) {
                   return <CartProduct place={place} removeItem={self.removeCart}/>
                 }
               })
               }
-            </TableBody>
-          </Table>
+              </TableBody>
+  </Table>
         </div>
       </div>
     );
@@ -73,12 +73,10 @@ export class CartProduct extends Component {
     var image = this.props.place.image[0];
     return (
       <TableRow>
-        <TableRowColumn>
-          <DeleteIcon/>
-        </TableRowColumn>
         <TableRowColumn> <img className={styles.thumbnail} src={image}/></TableRowColumn>
-        <TableRowColumn>{this.props.place.name},{this.props.place.city}</TableRowColumn>
-        <TableRowColumn>0</TableRowColumn>
+        <TableRowColumn>{this.props.place.name}</TableRowColumn>
+        <TableRowColumn>{this.props.place.city}</TableRowColumn>
+         <TableRowColumn><DeleteIcon/></TableRowColumn>
       </TableRow>
     );
   }
