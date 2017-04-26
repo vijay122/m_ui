@@ -67,6 +67,12 @@ export class Cart extends Component {
 tripInfo:{
   fromdate:this.getEvents(),
   todate:this.getEvents(),
+  traveller:{
+    name:"",
+    age:"",
+    idproof:"",
+    noofcotravellers:""
+  }
 },
       }
     }
@@ -147,6 +153,12 @@ tripInfo:{
     {
 mon = validationresponse.mon;
     }
+    var orderReviewResponse = this.props.validationresponse? this.props.validationresponse.orderReviewResponse:"";
+     var orderBillingAddressResponse = this.props.validationresponse?this.props.validationresponse.orderBillingAddressResponse:"";
+      var orderPaymentInfoResponse =this.props.validationresponse? this.props.validationresponse.orderPaymentInfoResponse:"";
+      // var orderReviewValidation =this.props.validationresponse? this.props.validationresponse.orderReviewResponse:"";
+       var orderTravelDetailsResponse =this.props.validationresponse? this.props.validationresponse.orderTravelDetailsResponse:"";
+    var title = "Master Order Number :"+ mon;
     var title = "Master Order Number :"+ mon;
     const cartItems = this.props.cartcontext.items;
     const styles = require('./Detail.scss');
@@ -161,13 +173,13 @@ mon = validationresponse.mon;
        </Row>
         <Row>
          <Col xs={12} md={4}>
-        <PanelContainer title="Summary" subtitle="Your travel shapshot">
+        <PanelContainer title="Summary" subtitle="Your travel shapshot" status={this.props.validationresponse}>
         <OrderSummary />
         </PanelContainer>
         </Col>
       <Col xs={12} md={8}>
       <div>
-        <PanelContainer title="Order Review">
+        <PanelContainer title="Order Review" status={orderReviewResponse}>
         <CartGrid items={cartItems} validationresponse={validationresponse}/>
          <Row>
         <Col xs={12} md={6}>
@@ -184,13 +196,14 @@ mon = validationresponse.mon;
         </Row>
           <Row>
         <Col xs={12} md={4}>
-        <PanelContainer title="Billing Address"/>
+        <PanelContainer title="Billing Address" status={orderBillingAddressResponse}/>
         </Col>
         <Col xs={12} md={4}>
-        <PanelContainer title="Travel Dates" subtitle="Date of the travel and traveller details">
+        <PanelContainer title="Travel Dates" subtitle="Date of the travel and traveller details" status={orderTravelDetailsResponse }>
+        <div>
         <Row>
          <Col xs={12} md={6}>
-         Travel Date
+         Travel start date
               </Col>
          <Col xs={12} md={6}>
         <DatePicker
@@ -202,6 +215,23 @@ mon = validationresponse.mon;
                onChange={this._handleChange}
             />
             </Col>
+             </Row>
+              <Row>
+         <Col xs={12} md={6}>
+         Travel end date
+              </Col>
+         <Col xs={12} md={6}>
+        <DatePicker
+              container="inline"
+              floatingLabelText="Date of travel"
+              hintText="Custom date format"
+              firstDayOfWeek={0}
+              value={this.state.controlledDate}
+               onChange={this._handleChange}
+            />
+            </Col>
+             </Row>
+              <Row>
  <Col xs={12} md={6}>
          Traveller name
               </Col>
@@ -209,10 +239,11 @@ mon = validationresponse.mon;
         
             </Col>
         </Row>
+        </div>
         </PanelContainer>
         </Col>
          <Col xs={12} md={4}>
-        <PanelContainer title="Payment Method">
+        <PanelContainer title="Payment Method" status={orderPaymentInfoResponse}>
         <Row>
            <div className="radio">
       <label>

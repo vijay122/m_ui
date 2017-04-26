@@ -50,7 +50,9 @@ export default class CartGrid extends Component {
         <TableHeaderColumn>View</TableHeaderColumn>
         <TableHeaderColumn>Name</TableHeaderColumn>
         <TableHeaderColumn>City</TableHeaderColumn>
-        <TableHeaderColumn>Remove</TableHeaderColumn>
+           <TableHeaderColumn>State</TableHeaderColumn>
+        <TableHeaderColumn>Type</TableHeaderColumn>
+        <TableHeaderColumn style={{width:'80px'}}>Remove</TableHeaderColumn>
       </TableRow>
     </TableHeader>
     <TableBody>
@@ -76,7 +78,9 @@ export class CartProduct extends Component {
         <TableRowColumn> <img className={styles.thumbnail} src={image}/></TableRowColumn>
         <TableRowColumn>{this.props.place.name}</TableRowColumn>
         <TableRowColumn>{this.props.place.city}</TableRowColumn>
-         <TableRowColumn><DeleteIcon/></TableRowColumn>
+             <TableRowColumn>{this.props.place.state}</TableRowColumn>
+          <TableRowColumn>{this.props.place.type}</TableRowColumn>
+         <TableRowColumn style={{width:'80px',    textAlign: 'right'}}><DeleteIcon/></TableRowColumn>
       </TableRow>
     );
   }

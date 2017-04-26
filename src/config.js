@@ -23,7 +23,7 @@ module.exports = Object.assign({
       titleTemplate: '',
     }
   },
-  home: {
+  home: {  
     title: 'trip planner,cheap travel packages,tours,sight seeing,honeymoon,trekkings and pilgrim trips, Livelytrips',
     description: 'All the modern best practices in one example.',
     head: {
