@@ -22,7 +22,7 @@ function mapStateToProps(state) {
   {
     validation = state.checkout.validationresponse.result;
   }
-  return {cartcontext: state.cart , validationresponse: validation}
+  return {cartcontext: state.cart , validationresponse: validation,travelinfo :state.checkout }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -62,21 +62,29 @@ export class Cart extends Component {
     super(props);
     this.checkout = this.checkout.bind(this);
     this.removeCart = this.removeCart.bind(this);
-    this.state={
-      cartcontext:{
-tripInfo:{
-  fromdate:this.getEvents(),
-  todate:this.getEvents(),
-  traveller:{
-    name:"",
-    age:"",
-    idproof:"",
-    noofcotravellers:""
-  }
-},
-      }
-    }
+this.state={};
+this.state.cartcontext ={};
+              var tripInfo={
+                        fromdate:"",
+                        todate:"",
+                            traveller:{
+                                      name:"",
+                                      age:"",
+                                      idproof:"",
+                                      noofcotravellers:""
+                                        }
+
+                          };
+                          if(this.props.cartcontext)
+                          {
     this.state.cartcontext = this.props.cartcontext;
+  }
+    this.state.cartcontext.tripInfo = tripInfo;
+     if(this.props.travelinfo)
+    {
+      this.state.cartcontext.tripInfo.fromdate = this.props.travelinfo.startdate;
+    }
+
   }
 
   removeCart(data, fn, st) {
@@ -211,7 +219,7 @@ mon = validationresponse.mon;
               floatingLabelText="Date of travel"
               hintText="Custom date format"
               firstDayOfWeek={0}
-              value={this.state.controlledDate}
+              value={this.state.cartcontext.tripInfo.fromdate}
                onChange={this._handleChange}
             />
             </Col>
@@ -226,7 +234,7 @@ mon = validationresponse.mon;
               floatingLabelText="Date of travel"
               hintText="Custom date format"
               firstDayOfWeek={0}
-              value={this.state.controlledDate}
+              value={this.state.cartcontext.tripInfo.todate}
                onChange={this._handleChange}
             />
             </Col>

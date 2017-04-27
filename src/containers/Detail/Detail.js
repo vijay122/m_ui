@@ -10,6 +10,7 @@ import Tab from 'react-bootstrap/lib/Tab';
 import Panel from 'react-bootstrap/lib/Panel';
 import {isLoaded, load as load, isProductExistInStore,isProductAlreadyLoaded, refreshSection} from '../../redux/modules/products';
 import * as detailActions from '../../redux/modules/detail';
+import * as checkoutActions from '../../redux/modules/checkout';
 import {asyncConnect} from 'redux-async-connect';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -85,7 +86,7 @@ function mapStateToProps(state) {
   {
 deps = state.detail.getProductsResult.places;
   }
-  return {products: state.products, detail: state.detail, dependencies:deps, cart: state.cart}
+  return {products: state.products, detail: state.detail, dependencies:deps, cart: state.cart, checkout:state.checkout}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -157,7 +158,7 @@ export class Detail extends Component {
 
   viewmore(data, fn) {
     data.viewMore(fn, "places");
-// data.dispatch({ type: 'VIEW_MORE', result: fn });
+ //data.dispatch({ type: 'VIEW_MORE', result: fn });
   }
 
   previousNearby() {
@@ -205,6 +206,7 @@ export class Detail extends Component {
   validateAdd(date)
   {
     var error ="";
+
     if(date!= undefined)
     {
 error = "please select the date of your travel.";
@@ -328,7 +330,7 @@ error = "please select the date of your travel.";
                 </Row>)}
               </Col>
               <Col xs={12} md={3}>
-                <Booking that={that} detail={detail} cartContext={cart} validate={this.validateAdd} callBack={this.props.callBack}/>
+                <Booking that={that} detail={detail} cartContext={cart} checkout={this.props.checkout} validate={this.validateAdd}  callBack={this.props.callBack}/>
               </Col>
             </Row>
             <Row style={{minHeight: "300px"}}>

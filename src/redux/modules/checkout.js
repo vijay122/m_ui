@@ -38,6 +38,16 @@ export default function reducer(state = initialState, action = {}) {
         error: action.error,
         validationresponse:action
       };
+      case "SET_TRAVEL_START_DATE":
+      return {
+        ...state,
+        startdate: action.result,
+      };
+       case "SET_TRAVEL_END_DATE":
+      return {
+        ...state,
+        startdate: action.result,
+      };
     // return setEntries(...state,action.result);
 
     default:

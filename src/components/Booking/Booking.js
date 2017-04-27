@@ -14,7 +14,12 @@ import Chip from 'material-ui/Chip';
 export default class Booking extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {type: null,phoneerror:""};
+        if(this.props.checkout)
+    {
+      this.state.controlledDate = this.props.checkout.startdate;
+    }
     this.handleSelect = this.handleSelect.bind(this);
   }
 
@@ -55,12 +60,12 @@ return pattern.test(ip);
 
   }
 
-  validateAdd()
+  validateAdd(data)
   {
     var errorlist=[];
     if(this.state.controlledDate != undefined)
     {
-
+    data.dispatch({type: 'SET_TRAVEL_START_DATE', result: this.state.controlledDate});
     }
     else
     {
@@ -69,7 +74,7 @@ return pattern.test(ip);
     return errorlist;
   }
   addToCart(data, fn, st) {
-   var st = this.validateAdd();
+   var st = this.validateAdd(data);
     if(st.length<=0)
     {
     data.dispatch({type: 'ADD_TO_CART', result: fn});
@@ -82,7 +87,7 @@ return pattern.test(ip);
   }
 
   renderPriceDetails(that,detail,cart){
-
+    var dt = this.state.controlledDate;
     var cartItems =[];
     var styles = require('./Booking.scss');
         let DateTimeFormat;
@@ -103,6 +108,7 @@ return pattern.test(ip);
     {
 cartItems = this.props.cartContext.items;
     }
+    
       return (
         <div>
        {detail.type=='standalone' && ( 
