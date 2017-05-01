@@ -55,7 +55,7 @@ export default class About extends Component {
       </Col>
       <Col style={centerStyle} xs={12} md={6}>
       <h2>Our Vision</h2>
-      <h3 style={initialStyle}>Save and location aware travelling in the foreign lands of mother nature.</h3>
+      <h3 style={initialStyle}>Plan your  travel on the go in the foreign lands of mother nature with LivelyTrips.</h3>
  
       </Col >
       </Row>

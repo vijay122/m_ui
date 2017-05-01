@@ -127,7 +127,6 @@ export function load() {
       .then(parseJSON)
       .then(function (data) {
         let Placesmap;
-
         if(data.places!= undefined)
         Placesmap = Map(data.places.reduce(function (previous, current) {
           previous[current._id] = current;

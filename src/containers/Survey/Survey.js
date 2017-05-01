@@ -421,8 +421,10 @@ export class PlaceUploader extends Component {
                          <p>Aishwarya flats,</p>
                        <p>Drowpathy amman kovil street,</p>
                        <p>Ullagaram,</p>
-                       <p>Chennai</p>
-
+                       <p>Chennai.</p>
+                       <p>
+                       <h1>Phone:8110001444</h1>
+                       </p>
                       </Col>
                       <Col xs={12} md={6}>
 

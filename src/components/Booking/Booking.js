@@ -47,6 +47,8 @@ return pattern.test(ip);
     callbackinfo.number = this.state.callbacknumber;
     callbackinfo.session = "xyz";
     callbackinfo.interests =["PACKAGEs"];
+    callbackinfo.currentItemName =this.props.detail.name;
+     callbackinfo.currentItemId =this.props.detail._id;
     if(this.validatePhonenumber(this.state.callbacknumber))
     {
     this.setState({phoneerror:""});
@@ -129,13 +131,14 @@ cartItems = this.props.cartContext.items;
 return (<Chip>{category}</Chip>)
 })
 }
- <h5>I wound love to book this package for you!!</h5>
 </div>
            
             
           </Row>
           </div>)
         }
+       { 1!=1 && <div>
+         <h5>I wound love to book this package for you!!</h5>
         <DatePicker
               container="inline"
               floatingLabelText="Choose your travel start date"
@@ -145,6 +148,8 @@ return (<Chip>{category}</Chip>)
                onChange={this._handleChange}
               formatDate={dates}
             />
+          </div>
+        }
           </div>
       )
     }
@@ -189,9 +194,9 @@ cartItems = this.props.cartContext.items;
         <Col md={12}>
            { this.renderPriceDetails(that,detail,cart) }
           <Row>
-            { this.renderButtons(that,detail,cart) }
+            {1!=1 && this.renderButtons(that,detail,cart) }
           </Row>
-         {detail.type=='package' && ( 
+         { detail.type=='package' && ( 
           <Row className={styles.callbackContainer}>
             <label>We would love to call you and explain more about the trip (on your convinent phone number).</label>
             <TextField

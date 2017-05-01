@@ -81,11 +81,11 @@ export default class InfoBar extends Component {
                     <h3>Popular Categories</h3>
                     <div style={styles.wrapper}>
                       {linkitems && linkitems.size > 0 && linkitems.map(function (x) {
-                       var href ="http://localhost:7000/detail/id:"+x._id+"/category:products";
+                       var href ="http://www.livelytrips.com/detail/id:"+x._id+"/category:products";
                        var st = x;
                         return (
                           <div>
-                            <a href={href} onClick={ty.viewDetails.bind(x, ty, st)}>{x.name}, {x.city}</a>
+                            <a target="__blank" href={href} onClick={ty.viewDetails.bind(x, ty, st)}>{x.name}, {x.city}</a>
                           </div>)
                       })}
                     </div>

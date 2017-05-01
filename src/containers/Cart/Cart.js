@@ -60,12 +60,13 @@ const events = [
 export class Cart extends Component {
   constructor(props) {
     super(props);
+    var self = this;
     this.checkout = this.checkout.bind(this);
     this.removeCart = this.removeCart.bind(this);
 this.state={};
 this.state.cartcontext ={};
               var tripInfo={
-                        fromdate:"",
+                        fromdate:self.props.travelinfo.startdate,
                         todate:"",
                             traveller:{
                                       name:"",
@@ -227,6 +228,36 @@ mon = validationresponse.mon;
               <Row>
          <Col xs={12} md={6}>
          Travel end date
+              </Col>
+         <Col xs={12} md={6}>
+        <DatePicker
+              container="inline"
+              floatingLabelText="Date of travel"
+              hintText="Custom date format"
+              firstDayOfWeek={0}
+              value={this.state.cartcontext.tripInfo.todate}
+               onChange={this._handleChange}
+            />
+            </Col>
+             </Row>
+              <Row>
+         <Col xs={12} md={6}>
+         Traveller Name
+              </Col>
+         <Col xs={12} md={6}>
+        <DatePicker
+              container="inline"
+              floatingLabelText="Date of travel"
+              hintText="Custom date format"
+              firstDayOfWeek={0}
+              value={this.state.cartcontext.tripInfo.todate}
+               onChange={this._handleChange}
+            />
+            </Col>
+             </Row>
+              <Row>
+         <Col xs={12} md={6}>
+         Total number of travellers
               </Col>
          <Col xs={12} md={6}>
         <DatePicker

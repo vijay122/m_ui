@@ -46,7 +46,7 @@ export default function reducer(state = initialState, action = {}) {
        case "SET_TRAVEL_END_DATE":
       return {
         ...state,
-        startdate: action.result,
+        startend: action.result,
       };
     // return setEntries(...state,action.result);
 
