@@ -296,14 +296,12 @@ export class PackageBuilder extends Component {
     if (!this.isValid(this.state.country)) {
       errorlist.push("please enter valid country.");
     }
-    if (!this.isValid(this.state.assets.display)) {
       if ((this.state.image == undefined || this.state.image.length == 0) && (this.refs['UploadImages'] != undefined && this.refs['UploadImages'].state != undefined && this.refs['UploadImages'].state.images != undefined && this.refs['UploadImages'].state.images.length != 0)) {
         this.state.image = this.refs['UploadImages'].state.images;
       }
       else {
         errorlist.push("please add a photo.");
       }
-    }
     if (errorlist.length <= 0) {
       status.text = "Success";
       status.message = [];
