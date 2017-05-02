@@ -79,6 +79,7 @@ export class PackageBuilder extends Component {
     this.handleSearchSelect = this.handleSearchSelect.bind(this);
     this.validateForm = this.validateForm.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.addProduct = this.addProduct.bind(this);
     this.searchByID = this.searchByID.bind(this);
   }
 
@@ -95,6 +96,20 @@ export class PackageBuilder extends Component {
       categorylist.clean();
       return categorylist;
     }
+  }
+
+    addProduct(product) {
+    var prod = {};
+    if (this != undefined && this.refs != undefined && this.refs.newproduct != undefined &&
+      this.refs.newproduct.state != undefined &&
+      this.refs.newproduct.state.searchText != undefined && this.refs.newproduct.state.searchText.value != undefined) {
+      prod = this.refs.newproduct.state.searchText.value;
+    }
+    var prdlist = this.state.products?this.state.products:[];
+    if (prod != {})
+      prdlist.push(prod);
+    this.state.products=prdlist;
+    this.setState({'products': prdlist});
   }
 
   _create() {
