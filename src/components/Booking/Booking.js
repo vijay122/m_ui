@@ -51,7 +51,7 @@ return pattern.test(ip);
      callbackinfo.currentItemId =this.props.detail._id;
     if(this.validatePhonenumber(this.state.callbacknumber))
     {
-    this.setState({phoneerror:""});
+    this.setState({phoneerror:"",message:"callback to your number registered. Our experts will contact you within an hour"});
     }
     else
     {
@@ -59,7 +59,6 @@ return pattern.test(ip);
     }
 
     this.props.callBack(callbackinfo);
-
   }
 
   validateAdd(data)
@@ -187,6 +186,7 @@ cartItems = this.props.cartContext.items;
   render() {
     var that = this.props.that;
     var detail = this.props.detail;
+    var message = this.state.message?this.state.message:"";
     var cart = this.props.cartContext;
     var styles = require('./Booking.scss');
     return (
@@ -199,6 +199,7 @@ cartItems = this.props.cartContext.items;
          { detail.type=='package' && ( 
           <Row className={styles.callbackContainer}>
             <label>We would love to call you and explain more about the trip (on your convinent phone number).</label>
+            <p className={styles.successText}>{message}</p>
             <TextField
                           hintText="Phone number"
                           floatingLabelText="Enter your phone number"

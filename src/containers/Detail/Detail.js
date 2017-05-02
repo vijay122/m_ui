@@ -353,7 +353,7 @@ error = "please select the date of your travel.";
                         {                           
       
                           <div>
-                          <Col sm={12} md={6}><h1>Package Includes:</h1><br/>
+                          <Col sm={12} md={6}><h1>Package Includes/Itenary:</h1><br/>
                          {includes && includes.map(function(x)
                             {
                          return(<li>{x}</li>)
