@@ -325,7 +325,7 @@ error = "please select the date of your travel.";
                 </Row>
                 {detail.products && (
                   <Row>
-                  <h5>Place visits included in package:</h5><br/>
+                  <h5>Place visits included in package/Itenary:</h5><br/>
                   {this.renderIncludesMenu(that,detail,cart)}
                 </Row>)}
               </Col>

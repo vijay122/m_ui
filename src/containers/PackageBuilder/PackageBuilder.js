@@ -472,6 +472,12 @@ export class PackageBuilder extends Component {
                     <option value="4" data-ctrlid='noofdays'>4</option>
                     <option value="5" data-ctrlid='noofdays'>5</option>
                     <option value="6" data-ctrlid='noofdays'>6</option>
+                      <option value="7" data-ctrlid='noofdays'>7</option>
+                    <option value="8" data-ctrlid='noofdays'>8</option>
+                     <option value="9" data-ctrlid='noofdays'>9</option>
+                    <option value="10" data-ctrlid='noofdays'>10</option>
+                    <option value="11" data-ctrlid='noofdays'>11</option>
+                    <option value="12" data-ctrlid='noofdays'>12</option>
                   </select>
 
                    <label>No of Nights:</label>
@@ -483,6 +489,12 @@ export class PackageBuilder extends Component {
                     <option value="4" data-ctrlid='noofnights'>4</option>
                     <option value="5" data-ctrlid='noofnights'>5</option>
                     <option value="6" data-ctrlid='noofnights'>6</option>
+                           <option value="7" data-ctrlid='noofnights'>7</option>
+                    <option value="8" data-ctrlid='noofnights'>8</option>
+                     <option value="9" data-ctrlid='noofnights'>9</option>
+                    <option value="10" data-ctrlid='noofnights'>10</option>
+                    <option value="11" data-ctrlid='noofnights'>11</option>
+                    <option value="12" data-ctrlid='noofnights'>12</option>
                   </select>
 
 
