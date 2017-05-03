@@ -102,7 +102,7 @@ export default class InfoBar extends Component {
                       <Chip
                         style={styles.chip}
                       >
-                        Text Chip
+                        
                       </Chip>
                     </div>
                   </div>
