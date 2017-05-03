@@ -67,11 +67,11 @@ export class PackageBuilder extends Component {
     super(props);
 
 
-   // this.state = {
-   //   value1: 1,
+    this.state = {
+      type: "package",
    //   finished: false,
    //   stepIndex: 0
-   // };
+    };
  
     this._create = this._create.bind(this);
     this.submitform = this.submitform.bind(this);
@@ -96,6 +96,10 @@ export class PackageBuilder extends Component {
       categorylist.clean();
       return categorylist;
     }
+    else
+    {
+      categorylist = categorystring;
+    }
   }
 
     addProduct(product) {
@@ -114,6 +118,12 @@ export class PackageBuilder extends Component {
 
   _create() {
          this.state.category = this.prepareCategory(this.state.category);
+          this.state.type="package";
+         if( this.state.assets == undefined )
+         {
+          this.state.assets ={};
+          this.state.assets.display = this.state.image[0];
+         }
     var that = this;
    // if (this.state.image == undefined || this.state.image.length == 0) {
    //   this.state.image = this.refs['UploadImages'].state.images;
@@ -243,8 +253,9 @@ export class PackageBuilder extends Component {
   }
 
   handleSelect = (event, index, value) => {
-    this.setState({type: event.currentTarget.value})
-    this.state.type = event.currentTarget.value;
+
+    this.setState({classification: event.currentTarget.value})
+    this.state.classification = event.currentTarget.value;
   }
   handleSearchSelect = (event) => {
     var st = event.target.value;
@@ -287,7 +298,7 @@ export class PackageBuilder extends Component {
     if (!this.isValid(this.state.landmark)) {
       errorlist.push("please enter valid landmark.");
     }
-    if (!this.isValid(this.state.type)) {
+    if (!this.isValid(this.state.classification)) {
       errorlist.push("please enter valid placetype.");
     }
     if (!this.isValid(this.state.state)) {
@@ -296,12 +307,15 @@ export class PackageBuilder extends Component {
     if (!this.isValid(this.state.country)) {
       errorlist.push("please enter valid country.");
     }
-      if ((this.state.image == undefined || this.state.image.length == 0) && (this.refs['UploadImages'] != undefined && this.refs['UploadImages'].state != undefined && this.refs['UploadImages'].state.images != undefined && this.refs['UploadImages'].state.images.length != 0)) {
-        this.state.image = this.refs['UploadImages'].state.images;
+        if (this.state.assets == undefined || !this.isValid(this.state.assets.display)) {
+      if ((this.state.image == undefined || this.state.image.length == 0) && (this.refs['scrollimage'] != undefined && this.refs['scrollimage'].state != undefined && this.refs['scrollimage'].state.images != undefined && this.refs['scrollimage'].state.images.length != 0)) {
+        this.state.image = this.refs['scrollimage'].state.images;
       }
       else {
-        errorlist.push("please add a photo.");
+       // errorlist.push("please add a photo.");
       }
+    }
+      
     if (errorlist.length <= 0) {
       status.text = "Success";
       status.message = [];
@@ -463,7 +477,7 @@ export class PackageBuilder extends Component {
 
                           <label>No of Days:</label>
                   <select value={this.state.noofdays} data-ctrlid='noofdays' defaultValue={""}
-                          onChange={this.handleDaysSelect} required>
+                          onChange={this.onChange} required>
                     <option value="1" data-ctrlid='noofdays'>1</option>
                     <option value="2" data-ctrlid='noofdays'>2</option>
                      <option value="3" data-ctrlid='noofdays'>3</option>
@@ -480,7 +494,7 @@ export class PackageBuilder extends Component {
 
                    <label>No of Nights:</label>
                   <select value={this.state.noofnights} data-ctrlid='noofnights' defaultValue={""}
-                          onChange={this.handleNightsSelect} required>
+                          onChange={this.onChange} required>
                      <option value="1" data-ctrlid='noofnights'>1</option>
                     <option value="2" data-ctrlid='noofnights'>2</option>
                      <option value="3" data-ctrlid='noofnights'>3</option>
@@ -589,8 +603,8 @@ export class PackageBuilder extends Component {
                           rows={3}
                           data-ctrlid='aboutoperator' onChange={this.onChange.bind(this)} value={this.state.aboutoperator}/>
                      <label>Package Type</label>
-                  <select value={this.state.searchtype} data-ctrlid='classification' defaultValue={""}
-                          onChange={this.handleClassificationSelect} required>
+                  <select value={this.state.type} data-ctrlid='classification'
+                          onChange={this.handleSelect} required>
                     <option value="none" data-ctrlid='classification'>None</option>
                     <option value="grouppackage" data-ctrlid='classification'>GroupPackage</option>
                   </select>
