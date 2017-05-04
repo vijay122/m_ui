@@ -138,7 +138,22 @@ export class Detail extends Component {
       this.setState({'dependencies': newprops.detail.getProductsResult});
       var id = qs('id');
   var cat = qs('category');
-  var existingproduct = isProductAlreadyLoaded(newprops.detail.getProductsResult, id, cat);
+  var existingproduct = {};
+  if(newprops.detail.getProductsResult)
+    {
+     existingproduct = isProductAlreadyLoaded(newprops.detail.getProductsResult, id, cat);
+    }
+  if(newprops.detail.getProductsResult== undefined)
+  {
+    if(newprops.detail && newprops.detail.detail)
+    {
+         existingproduct = newprops.detail.detail;
+    }
+    else
+    {
+   existingproduct = newprops.detail;
+ }
+  }
   if (!existingproduct)
   {
     if(this.props.detail!= undefined && this.props.detail.detail!= undefined)
