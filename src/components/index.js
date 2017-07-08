@@ -40,3 +40,4 @@ export MultipleSelectBox from './MultipleSelectBox/MultipleSelectBox';
 export VisitIcons from './VisitIcons/VisitIcons';
 export PackageList from './PackageList/PackageList';
 export PanelContainer from './PanelContainer/PanelContainer';
+export BlogTile from './BlogTile/BlogTile';

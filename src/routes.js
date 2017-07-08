@@ -7,7 +7,7 @@ import {
   App,
   Categories,
   Chat,
-  Home,
+	Blog,
   // Widgets,
   About,
   Login,
@@ -116,12 +116,12 @@ export default (store) => {
 
       { /* Routes */ }
       <Route path="/about" component={About}/>
+		<Route path="/blog" component={Blog}/>
       <Route path="/categories:id/searchtype:id/search:id" component={Categories} onEnter={loadCategories}/>
        <Route path="/categories:id/search:searchOptions" component={Categories} onEnter={loadCategories}/>
       <Route path="/login" component={Login}/>
       <Route path="/contact" component={Survey}/>
       <Route path="/contests" component={Votings}/>
-      <Route path="/widgets" component={Home}/>
       <Route path="/products" component={Products}/>
       <Route path="/upload" component={PlaceUploader}/>
       <Route path="/detail/id:productid/category:category" component={Detail} onEnter={loadDetails}/>

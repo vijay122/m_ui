@@ -16,3 +16,4 @@ export Votings from './Votings/Votings';
 export Footer from './Footer/Footer';
 export MyProfile from './MyProfile/MyProfile';
 export Admin from './Admin/Admin';
+export Blog from './Blog/Blog';

@@ -1,10 +1,22 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-
-@connect(
-  state => ({user: state.auth.user})
-)
-export default class Chat extends Component {
+import {asyncConnect} from 'redux-async-connect';
+import Jumbotron from 'react-bootstrap/lib/Jumbotron';
+import Col from 'react-bootstrap/lib/Col';
+import Row from 'react-bootstrap/lib/Row';
+import Button from 'react-bootstrap/lib/Button';
+import {BlogTile} from '../../components';
+import Pagination from 'react-bootstrap/lib/Pagination';
+import {bindActionCreators} from 'redux';
+import blogActions from '../../redux/modules/blog';
+import {loadAllPosts} from '../../redux/modules/blog';
+@asyncConnect([{
+	deferred: true,
+	promise: ({store: {dispatch, getState}}) => {
+			return dispatch(loadAllPosts());
+	}
+}])
+export class Blog extends Component {
 
   static propTypes = {
     user: PropTypes.object
@@ -16,66 +28,65 @@ export default class Chat extends Component {
   };
 
   componentDidMount() {
-    if (socket) {
-      socket.on('msg', this.onMessageReceived);
-      setTimeout(() => {
-        socket.emit('history', {offset: 0, length: 100});
-      }, 100);
-    }
+
   }
 
   componentWillUnmount() {
-    if (socket) {
-      socket.removeListener('msg', this.onMessageReceived);
-    }
+
   }
 
   onMessageReceived = (data) => {
-    const messages = this.state.messages;
-    messages.push(data);
-    this.setState({messages});
+
   }
+
+	handleSelect(eventKey) {
+
+	}
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    const msg = this.state.message;
-
-    this.setState({message: ''});
-
-    socket.emit('msg', {
-      from: this.props.user.name,
-      text: msg
-    });
   }
 
   render() {
     const style = require('./Blog.scss');
-    const {user} = this.props;
-
     return (
-      <div className={style.chat + ' container'}>
-        <h1 className={style}>Chat</h1>
+    	<div>
+		<Jumbotron>
+			<h1>Blogs</h1>
+			<p>"Here's to books, the cheapest vacation you can buy" - Charlaine Harris . My only vacation</p>
+		</Jumbotron>
+			<div>
+				{this.props && this.props.posts && this.props.posts.getPostsResult && this.props.posts.getPostsResult.posts.map(function(post)
+					{
+						return <BlogTile post={post}/>
+					}
+				)}
 
-        {user &&
-        <div>
-          <ul>
-            {this.state.messages.map((msg) => {
-              return <li key={`chat.msg.${msg.id}`}>{msg.from}: {msg.text}</li>;
-            })}
-          </ul>
-          <form className="login-form" onSubmit={this.handleSubmit}>
-            <input type="text" ref="message" placeholder="Enter your message"
-                   value={this.state.message}
-                   onChange={(event) => {
-                     this.setState({message: event.target.value});
-                   }
-                   }/>
-            <button className="btn" onClick={this.handleSubmit}>Send</button>
-          </form>
-        </div>
-        }
-      </div>
+			</div>
+			<Row>
+				<Col>
+				<Pagination
+					bsSize="medium"
+					items={10}
+					activePage={1}
+					onSelect={this.handleSelect} />
+				</Col>
+				<br />
+			</Row>
+		</div>
+
     );
   }
 }
+
+function mapStateToProps(state) {
+	console.log('state ' + state);
+	debugger;
+	return {posts: state.blog}
+}
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(Object.assign({}, blogActions), dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);
