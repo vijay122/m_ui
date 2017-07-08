@@ -7,6 +7,7 @@ import Chip from 'material-ui/Chip';
 import {connect} from 'react-redux';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 import Button from 'react-bootstrap/lib/Button';
+import {push} from 'react-router-redux';
 
 export default class BlogTile extends Component {
 
@@ -34,9 +35,15 @@ export default class BlogTile extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 	}
+	viewDetails(data, fn, st) {
+		var that = this;
+		var placeid = data.slug;
+		fn.props.dispatch(push('/blog/post:' + placeid));
+	}
 
 	render() {
 		let post = this.props.post;
+		let that = this;
 		const style = require('./BlogTile.scss');
 		return (
 			<div>
@@ -56,6 +63,7 @@ export default class BlogTile extends Component {
 						<p className={style.changesDetail}>
 							{post.md}
 						</p>
+						<Button bsStyle="primary" onClick={that.viewDetails.bind(this, post, that)}>>Continue reading..</Button>
 					</Col>
 				</Row>
 				<Row>

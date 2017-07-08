@@ -48,17 +48,18 @@ export class Blog extends Component {
   }
 
   render() {
+  	var that = this;
     const style = require('./Blog.scss');
     return (
     	<div>
-		<Jumbotron>
+		<Jumbotron className={style.headingstyle}>
 			<h1>Blogs</h1>
 			<p>"Here's to books, the cheapest vacation you can buy" - Charlaine Harris . My only vacation</p>
 		</Jumbotron>
 			<div>
 				{this.props && this.props.posts && this.props.posts.getPostsResult && this.props.posts.getPostsResult.posts.map(function(post)
 					{
-						return <BlogTile post={post}/>
+						return <BlogTile post={post} dispatch ={that.props.dispatch}/>
 					}
 				)}
 
@@ -81,7 +82,6 @@ export class Blog extends Component {
 
 function mapStateToProps(state) {
 	console.log('state ' + state);
-	debugger;
 	return {posts: state.blog}
 }
 

@@ -31,6 +31,15 @@ export default function reducer(state = initialState, action = {}) {
 				getPostsResult:allPosts
 			}
 		}
+		case 'SET_CURRENT_POST': {
+			const post = action.result;
+			return {
+				...state,
+				loading: false,
+				loaded: true,
+				currentPost:post
+			}
+		}
 
 		default:
 			return state;
@@ -195,10 +204,15 @@ export function loadAllData(sectionName) {
 		})
 	}
 }
-export function isProductExistInStore(globalState, prodid, category) {
-	if(globalState!= undefined && globalState.products!= undefined && globalState.products[category] != undefined)
+export function isProductExistInStore(globalState, postid) {
+	if(globalState!= undefined && globalState.blog!= undefined && globalState.blog.getPostsResult!= undefined)
 	{
-		return globalState.products[category].get(prodid);
+		let postN =  globalState.blog.getPostsResult.posts;
+		let postsMap = Map(globalState.blog.getPostsResult.posts.reduce(function (previous, current) {
+			previous[current.slug] = current;
+			return previous;
+		}, {}));
+		return postsMap.get(postid);
 	}
 	else
 	{

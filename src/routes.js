@@ -2,12 +2,14 @@ import React from 'react';
 import {IndexRoute, Route} from 'react-router';
 import {isLoaded as isAuthLoaded, load as loadAuth} from './redux/modules/auth';
  import { viewdetail as detail, refreshSection as refresh} from './redux/modules/products';
+import { isProductExistInStore} from './redux/modules/blog';
 import {qs} from './utils/validation';
 import {
   App,
   Categories,
   Chat,
 	Blog,
+	BlogDetail,
   // Widgets,
   About,
   Login,
@@ -42,7 +44,23 @@ export default (store) => {
       checkAuth();
     }
   };
-
+	function loadBlogDetails(nextState, replace) {
+		const prodid = qs('post');
+		const Appstate = store.getState();
+		let detailproduct = {};
+		if(Appstate!= undefined && Appstate.blog!= undefined && Appstate.blog)
+		{
+			detailproduct = isProductExistInStore(Appstate,prodid);
+		}
+		if(detailproduct && detailproduct.title!= undefined)
+		{
+			store.dispatch({type: 'SET_CURRENT_POST', result: detailproduct});
+		}
+		//  refresh(prodid,category);
+		// store.dispatch({type:'DETAIL', result:{id:prodid,category:category}});
+		replace();
+		// }
+	}
   function loadDetails(nextState, replace) {
     const prodid = qs('id');
     const category = qs('category');
@@ -117,6 +135,7 @@ export default (store) => {
       { /* Routes */ }
       <Route path="/about" component={About}/>
 		<Route path="/blog" component={Blog}/>
+		<Route path="/blog/post:id" component={BlogDetail} onEnter={loadBlogDetails}/>
       <Route path="/categories:id/searchtype:id/search:id" component={Categories} onEnter={loadCategories}/>
        <Route path="/categories:id/search:searchOptions" component={Categories} onEnter={loadCategories}/>
       <Route path="/login" component={Login}/>
