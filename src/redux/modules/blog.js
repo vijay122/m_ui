@@ -22,6 +22,14 @@ export default function reducer(state = initialState, action = {}) {
 				...state,
 				loading: true
 			};
+		case 'ADD_POST_ITEM':{
+			let postlist = state.newPostItems ||[];
+			const postItems = action.result;
+			return {
+				...state,
+				newPostItems : postlist.concat(postItems)
+			}
+	}
 		case 'SET_ALL_POSTS': {
 			const allPosts = action.result;
 			return {
@@ -40,14 +48,62 @@ export default function reducer(state = initialState, action = {}) {
 				currentPost:post
 			}
 		}
+		case 'POST_COMMENTS_SUCCESS': {
+			const post = action.result;
+			return {
+				...state,
+				loading: false,
+				loaded: true,
+				currentPost:post
+			}
+		}
 
 		default:
 			return state;
 	}
 }
-export function loadAllPosts() {
+
+export function postComments(slugid,name,email,comment) {
+  return dispatch =>
+    fetch(config.blogsvc + '/post/'+slugid+'/comment', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: slugid,
+        name: name,
+        comment: comment,
+      }),
+    })
+    .then(response => {
+      if (response.status >= 200 && response.status < 300) {
+        console.log(response);
+        dispatch(loginSuccess(response));
+      } else {
+        const error = new Error(response.statusText);
+        error.response = response;
+        dispatch(loginError(error));
+        throw error;
+      }
+    })
+    .catch(error => { console.log('request failed', error); });
+}
+
+export function updatePostItem(item) {
+				dispatch({type: 'ADD_POST_ITEM', result: item});
+}
+
+export function loadAllPosts(pageId) {
+	debugger;
+let pageQs = "/";
+if(pageId)
+{
+	 pageQs = "/?page="+pageId;
+}
 	return dispatch => {
-		fetch("http://localhost:5000" + '/', {
+		fetch(config.blogsvc + pageQs, {
 			method: 'get',
 			headers: {
 				'Accept': 'application/json',

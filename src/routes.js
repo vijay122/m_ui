@@ -23,6 +23,7 @@ import {
   NotFound,
   PackageBuilder,
   MyProfile,
+  AddBlogPost,
   Admin,
 } from './containers';
 
@@ -134,7 +135,8 @@ export default (store) => {
 
       { /* Routes */ }
       <Route path="/about" component={About}/>
-		<Route path="/blog" component={Blog}/>
+      <Route path="/newblog" component={AddBlogPost}/>
+		<Route path="/posts/:x" component={Blog}/>
 		<Route path="/blog/post:id" component={BlogDetail} onEnter={loadBlogDetails}/>
       <Route path="/categories:id/searchtype:id/search:id" component={Categories} onEnter={loadCategories}/>
        <Route path="/categories:id/search:searchOptions" component={Categories} onEnter={loadCategories}/>

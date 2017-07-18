@@ -44,17 +44,20 @@ export default class BlogTile extends Component {
 	render() {
 		let post = this.props.post;
 		let that = this;
+		let items = this.props.post.items;
+		let dateString = new Date(Date.parse(post.date)).toDateString();
+		let url = (items[0] && items[0].image )?items[0].image : "http://news.gtp.gr/wp-content/uploads/2014/01/samos_muskat.jpg";
 		const style = require('./BlogTile.scss');
 		return (
 			<div>
 				<Row>
 					<Col xs={12} md={4}>
-						<Image src="http://news.gtp.gr/wp-content/uploads/2014/01/samos_muskat.jpg" responsive />
+						<Image src={url} responsive />
 					</Col>
 					<Col xs={12} md={8}>
 						<PageHeader>{post.title} <small>{post.author}</small>
 							<br/>
-							<small>{post.date}</small>
+							<small>{dateString}</small>
 							{post.tags&& post.tags.map(function (tag) {
 								return <Chip>{tag}</Chip>
 							})}

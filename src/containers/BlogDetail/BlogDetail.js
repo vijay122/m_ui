@@ -8,30 +8,26 @@ import Media from 'react-bootstrap/lib/Media';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import Button from 'react-bootstrap/lib/Button';
-import {BlogTile} from '../../components';
+import {BlogTile,ImageText} from '../../components';
 import Pagination from 'react-bootstrap/lib/Pagination';
 import {bindActionCreators} from 'redux';
 import blogActions from '../../redux/modules/blog';
-import {loadAllPosts,isProductExistInStore} from '../../redux/modules/blog';
+import {postComments,isProductExistInStore} from '../../redux/modules/blog';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
-/*
-@asyncConnect([{
-	deferred: true,
-	promise: ({store: {dispatch, getState}}) => {
-		return dispatch(loadAllPosts());
-	}
-}])
-*/
 export class BlogDetail extends Component {
 
 	static propTypes = {
 		user: PropTypes.object
 	};
 
-	state = {
-		message: '',
-		messages: []
-	};
+	constructor(props) {
+		super(props);
+		this.state ={};
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
 
 	componentDidMount() {
 
@@ -49,13 +45,56 @@ export class BlogDetail extends Component {
 
 	}
 
+	onChange(e) {
+		this.state[e.target.attributes["data-ctrlid"].value] = e.currentTarget.value;
+	}
+
+	  resizeImage(url) {
+ var filter =  'w_900/';
+    var str = url;
+    var index = str.indexOf("upload/") + 7;
+    var rest = str.substr(0, index) + filter + str.substr(index);
+    return rest;
+  }
+
 	handleSubmit = (event) => {
 		event.preventDefault();
+		var slugid= this.props.blogDetail.slug;
+		var payload = {};
+	payload.name = this.state.name;
+	payload.body = this.state.comment;
+	payload.email = this.state.email;
+		//postComments(slugid,name,email,comment);
+
+		fetch('http://localhost:5000/post/'+slugid+'/comment', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        payload
+      }),
+    })
+    .then(response => {
+      if (response.status >= 200 && response.status < 300) {
+        console.log(response);
+        dispatch(loginSuccess(response));
+      } else {
+        const error = new Error(response.statusText);
+        error.response = response;
+        dispatch(loginError(error));
+        throw error;
+      }
+    })
+    .catch(error => { console.log('request failed', error); });
 	}
 
 	render() {
+		let self = this;
 		const style = require('./BlogDetail.scss');
 		let PostDetail = this.props.blogDetail;
+				let dateString = new Date(Date.parse(PostDetail.date)).toDateString();
 		if(PostDetail)
 		{
 			//PostDetail.date =  PostDetail.date.toDateString();
@@ -65,12 +104,26 @@ export class BlogDetail extends Component {
 				<Jumbotron className={style.headingstyle}>
 					<PageHeader>{PostDetail.title} <small>{PostDetail.author}</small>
 						<br/>
-						<small>{PostDetail.date }</small>
+						<small>{dateString }</small>
 					</PageHeader>
 				</Jumbotron>
-				<div>
+				<div className={style.infoText}>
 					{PostDetail.md}
 				</div>
+				<Row>
+				<Col xs={12} md={9}>
+				{PostDetail && PostDetail.items && PostDetail.items.map(function(x,index)
+				{
+return 			(
+					<ImageText title={x.title} content={x.content} index={index} image={self.resizeImage(x.image)} />
+				 )
+					})
+				}
+				</Col>
+				<Col xs={12} md={3}>
+				</Col>
+				</Row>
+				
 				<Row>
 					<h2>Opinions/Comments:</h2>
 				</Row>
@@ -97,12 +150,32 @@ export class BlogDetail extends Component {
 				</Row>
 				<Row>
 					<Col>
+						<TextField
+							hintText="Your name"
+							data-ctrlid='name'
+							onChange={this.onChange.bind(this)}
+							value={this.state.name}/>
 					</Col>
 					<Col>
+						<TextField
+							hintText="Email (optional)"
+							data-ctrlid='email'
+							onChange={this.onChange.bind(this)}
+							value={this.state.email}/>
 					</Col>
 				</Row>
 				<Row>
-
+					<TextField
+						hintText="Comment text.."
+						multiLine={true}
+						data-ctrlid='comment'
+						rows={2}
+						onChange={this.onChange.bind(this)}
+						rowsMax={4}
+					/>
+				</Row>
+				<Row>
+					<RaisedButton label="Submit Button" onClick={this.handleSubmit} primary={true}/>
 				</Row>
 			</div>
 

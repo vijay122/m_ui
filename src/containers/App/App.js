@@ -283,8 +283,8 @@ export class App extends Component {
                       </div>
                     </li>
                     <li><Link to={'/about/'} activeClassName="active">About</Link></li>
-					  <li><Link to={'/blog/'} activeClassName="active">Blog</Link></li>
-					  <li><Link to={'/blog/post'} activeClassName="active">Post</Link></li>
+					  <li><Link to={'/posts/1'} activeClassName="active">Blog</Link></li>
+					  <li><Link to={'/newblog'} activeClassName="active">newBlog</Link></li>
                     <li>
                       {cartcount != null && this.props.appstate != null && this.props.appstate.cart != null && this.props.appstate.cart.items && tempArr.map(function (x) {
                           return (

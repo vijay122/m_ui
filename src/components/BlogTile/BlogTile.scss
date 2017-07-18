@@ -1,9 +1,10 @@
 .changesDetail {
+  font-family: monospace;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   line-height: 16px;     /* fallback */
-  max-height: 32px;      /* fallback */
+  max-height: 132px;      /* fallback */
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
 }

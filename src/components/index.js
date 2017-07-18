@@ -41,3 +41,5 @@ export VisitIcons from './VisitIcons/VisitIcons';
 export PackageList from './PackageList/PackageList';
 export PanelContainer from './PanelContainer/PanelContainer';
 export BlogTile from './BlogTile/BlogTile';
+export ImageText from './ImageText/ImageText';
+export TextImageUploader from './TextImageUploader/TextImageUploader';
