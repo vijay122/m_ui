@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {OrderSummary, CartOptions, PaymentOptions,PanelContainer,CartGrid} from '../../components';
-import Helmet from 'react-helmet';
+import {OrderSummary,PanelContainer,CartGrid} from '../../components';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import {isLoaded, load as load} from '../../redux/modules/products';
@@ -11,7 +10,6 @@ import * as productActions from '../../redux/modules/products';
 import * as checkoutActions from '../../redux/modules/checkout';
 import DeleteIcon from 'react-material-icons/icons/action/delete';
 import {TableRow, TableRowColumn} from 'material-ui/Table';
-import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
 
 

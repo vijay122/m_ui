@@ -1,28 +1,19 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {IndexLink, Link} from 'react-router';
-import {LinkContainer} from 'react-router-bootstrap';
-import Navbar from 'react-bootstrap/lib/Navbar';
-import {Form, FormGroup, Button, FormControl} from 'react-bootstrap'
-import Nav from 'react-bootstrap/lib/Nav';
-import NavItem from 'react-bootstrap/lib/NavItem';
+import { Link} from 'react-router';
 import Helmet from 'react-helmet';
-import {isLoaded as isInfoLoaded, load as loadInfo} from '../../redux/modules/info';
 import {isLoaded as isAuthLoaded, load as loadAuth, logout} from '../../redux/modules/auth';
 import {load as load, isLoaded} from '../../redux/modules/products';
-import {InfoBar, Badge} from '../../components';
+import {InfoBar} from '../../components';
 import * as detailActions from '../../redux/modules/detail';
 import {routeActions, push} from 'react-router-redux';
-import config from '../../config';
 import {asyncConnect} from 'redux-async-connect';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import IconButton from 'material-ui/IconButton';
-import DeleteIcon from 'react-material-icons/icons/action/shopping-cart';
 import * as browserUtils from '../../utils/HtmlUtils';
 
 injectTapEventPlugin();

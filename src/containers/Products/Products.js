@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SquareCard, SearchBar, CardsContainer,CategoryGallery} from '../../components';
+import {SquareCard, SearchBar, CardsContainer} from '../../components';
 import Helmet from 'react-helmet';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';

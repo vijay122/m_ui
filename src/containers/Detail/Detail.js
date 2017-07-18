@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
-import {Booking,SidebarList} from '../../components';
-import Helmet from 'react-helmet';
+import {Booking} from '../../components';
 import Grid from 'react-bootstrap/lib/Grid';
 import Image from 'react-bootstrap/lib/Image';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import Tabs from 'react-bootstrap/lib/Tabs';
 import Tab from 'react-bootstrap/lib/Tab';
-import Panel from 'react-bootstrap/lib/Panel';
 import {isLoaded, load as load, isProductExistInStore,isProductAlreadyLoaded, refreshSection} from '../../redux/modules/products';
 import * as detailActions from '../../redux/modules/detail';
-import * as checkoutActions from '../../redux/modules/checkout';
 import {asyncConnect} from 'redux-async-connect';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';

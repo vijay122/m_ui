@@ -5,8 +5,6 @@ import Col from 'react-bootstrap/lib/Col';
 import {push} from 'react-router-redux';
 import * as browserUtils from '../../utils/HtmlUtils';
 import LazyLoad from 'react-lazyload';
-
-//var Slider = require('react-slick');
 import Slider from 'react-slick';
 
 export default class CardsContainer extends React.Component {

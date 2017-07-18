@@ -6,8 +6,6 @@ const EDIT_STOP = 'redux-example/widgets/EDIT_STOP';
 const SAVE = 'redux-example/widgets/SAVE';
 const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
 const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
-import {List, Map} from 'immutable';
-
 
 const initialState = {
   addedIds: [],

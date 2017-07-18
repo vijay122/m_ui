@@ -1,13 +1,8 @@
 import React from 'react';
 import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import DatePicker from 'material-ui/DatePicker';
-import SelectField from 'material-ui/SelectField';
 import areIntlLocalesSupported from 'intl-locales-supported';
-import MenuItem from 'material-ui/MenuItem';
 
 export default class Register extends React.Component {
   constructor(props) {

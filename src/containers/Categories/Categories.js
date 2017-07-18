@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import {CategoryItem, FilterToolbox} from '../../components';
 import * as categoryActions from '../../redux/modules/category';
-import * as productActions from '../../redux/modules/products';
-import {asyncConnect} from 'redux-async-connect';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 var querystring = require('querystring');
 
 var qss = require('querystrings')

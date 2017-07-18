@@ -1,11 +1,5 @@
 import React, {Component} from 'react';
-import Helmet from 'react-helmet';
 import * as checkoutActions from '../../redux/modules/checkout';
-import DeleteIcon from 'react-material-icons/icons/action/delete';
-
-
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-
 
 export default class CategoryGallery extends Component {
   constructor(props) {

@@ -1,18 +1,15 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {asyncConnect} from 'redux-async-connect';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
 import Well from 'react-bootstrap/lib/Well';
 import Media from 'react-bootstrap/lib/Media';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import Button from 'react-bootstrap/lib/Button';
-import {BlogTile,ImageText} from '../../components';
-import Pagination from 'react-bootstrap/lib/Pagination';
+import {ImageText} from '../../components';
 import {bindActionCreators} from 'redux';
 import blogActions from '../../redux/modules/blog';
-import {postComments,isProductExistInStore} from '../../redux/modules/blog';
+import {isProductExistInStore} from '../../redux/modules/blog';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -91,6 +88,36 @@ export class BlogDetail extends Component {
 	}
 
 	render() {
+		var images = [
+  {
+    url: "http://tripconnoisseurs.com/wp-content/uploads/2016/08/Honeymoon.jpg",
+    text:"honeymoon",
+    clickHandler: (url, obj) => {
+      console.log("inside category click "+obj)
+    }
+  },
+  {
+    url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
+    text:"treks",
+    clickHandler: (url, obj) => {
+      console.log("inside category click "+obj)
+    }
+  },
+  {
+    text:"grouptrips",
+    url: "https://static2.tripoto.com/media/filter/t/img/101328/TripDocument/1474279330_1474279325380.jpg",
+    clickHandler: (url, obj) => {
+      console.log("inside category click "+obj)
+    }
+  },
+  {
+    text:"solotrips",
+    url: "http://travelsourceindia.in/wp-content/uploads/2016/06/family-ties-300x300.jpg",
+    clickHandler: (url, obj) => {
+      console.log("inside category click "+obj)
+    }
+  }
+];
 		let self = this;
 		const style = require('./BlogDetail.scss');
 		let PostDetail = this.props.blogDetail;
@@ -121,6 +148,7 @@ return 			(
 				}
 				</Col>
 				<Col xs={12} md={3}>
+				  
 				</Col>
 				</Row>
 				

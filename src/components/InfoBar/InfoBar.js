@@ -1,8 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import * as footerActions from '../../redux/modules/info';
-import {connect} from 'react-redux';
-import {IndexLink, Link} from 'react-router';
+import { Link} from 'react-router';
 import  'isomorphic-fetch';
 
 import Col from 'react-bootstrap/lib/Col';

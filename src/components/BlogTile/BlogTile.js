@@ -4,8 +4,6 @@ import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
 import Chip from 'material-ui/Chip';
-import {connect} from 'react-redux';
-import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 import Button from 'react-bootstrap/lib/Button';
 import {push} from 'react-router-redux';
 
@@ -13,11 +11,6 @@ export default class BlogTile extends Component {
 
 	static propTypes = {
 		user: PropTypes.object
-	};
-
-	state = {
-		message: '',
-		messages: []
 	};
 
 	componentDidMount() {

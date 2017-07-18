@@ -1,6 +1,5 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardHeader} from 'material-ui/Card';
 var tickIcon = require('./tick.svg');
 var uncheckIcon = require('./unchecked.svg');
 

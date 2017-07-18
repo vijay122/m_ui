@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Helmet from 'react-helmet';
-import {MiniInfoBar, GoogleMaps} from '../../components';
+import {MiniInfoBar} from '../../components';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 

@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
-import {FileUploader, TypeAhead} from '../../components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 import Grid from 'react-bootstrap/lib/Grid';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import Panel from 'react-bootstrap/lib/Panel';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import {Tabs, Tab} from 'material-ui/Tabs';
 import MenuItem from 'material-ui/MenuItem';
 import {connect} from 'react-redux';
 import * as loginActions from '../../redux/modules/auth';

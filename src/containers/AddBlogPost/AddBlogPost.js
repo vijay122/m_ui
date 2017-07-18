@@ -3,16 +3,12 @@ import {connect} from 'react-redux';
 import {asyncConnect} from 'redux-async-connect';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 import PageHeader from 'react-bootstrap/lib/PageHeader';
-import Well from 'react-bootstrap/lib/Well';
-import Media from 'react-bootstrap/lib/Media';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import Button from 'react-bootstrap/lib/Button';
-import {BlogTile,TextImageUploader,ImageText} from '../../components';
-import Pagination from 'react-bootstrap/lib/Pagination';
+import {TextImageUploader,ImageText} from '../../components';
 import {bindActionCreators} from 'redux';
 import blogActions from '../../redux/modules/blog';
-import {postComments,isProductExistInStore,updatePostItem} from '../../redux/modules/blog';
+import {isProductExistInStore} from '../../redux/modules/blog';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 

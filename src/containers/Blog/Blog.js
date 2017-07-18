@@ -4,7 +4,6 @@ import {asyncConnect} from 'redux-async-connect';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import Button from 'react-bootstrap/lib/Button';
 import {BlogTile} from '../../components';
 import Pagination from 'react-bootstrap/lib/Pagination';
 import {bindActionCreators} from 'redux';

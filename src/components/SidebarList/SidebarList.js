@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {TransitionMotion, spring, Motion} from 'react-motion';
+import {TransitionMotion, spring} from 'react-motion';
 import geolib  from 'geolib';
 import {push} from 'react-router-redux';
 

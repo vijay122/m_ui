@@ -4,7 +4,6 @@ import Well from 'react-bootstrap/lib/Well';
 import React, {Component} from 'react';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import {TravelMap, CartGrid} from '../../components';
 
 import areIntlLocalesSupported from 'intl-locales-supported';
 

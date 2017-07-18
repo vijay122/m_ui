@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn
+  Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn
 }
   from 'material-ui/Table';
 

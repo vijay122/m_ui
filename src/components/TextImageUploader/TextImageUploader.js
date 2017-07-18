@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
-import config from '../../config';
 import Row from 'react-bootstrap/lib/Row';
-import FormControl from 'react-bootstrap/lib/FormControl';
 import FileUploader from '../FileUploader/FileUploader';
-import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import Image from 'react-bootstrap/lib/Image';
 import Col from 'react-bootstrap/lib/Col';
-import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
 export default class TextImageUploader extends Component {

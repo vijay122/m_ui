@@ -24,14 +24,6 @@ export default class CartGrid extends Component {
     this.props.dispatch(checkoutActions.submitOrder(cart));
   }
 
-  printit() {
-
-  }
-
-  clicking() {
-
-  }
-
   render() {
     var self = this;
     var that = this.props;
