@@ -25,6 +25,7 @@ import {
   MyProfile,
   AddBlogPost,
   Admin,
+  JobPostings,
 } from './containers';
 
 const querystring = require('querystring');
@@ -142,6 +143,7 @@ export default (store) => {
        <Route path="/categories:id/search:searchOptions" component={Categories} onEnter={loadCategories}/>
       <Route path="/login" component={Login}/>
       <Route path="/contact" component={Survey}/>
+        <Route path="/join-us" component={JobPostings}/>
       <Route path="/contests" component={Votings}/>
       <Route path="/products" component={Products}/>
       <Route path="/upload" component={PlaceUploader}/>

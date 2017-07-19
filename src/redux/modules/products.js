@@ -7,6 +7,7 @@ const SAVE = 'redux-example/widgets/SAVE';
 const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
 const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
+import {GetHttpHeaders} from "../../utils/HttpUtils";
 
 import  'isomorphic-fetch';
 import config from '../../config';
@@ -116,7 +117,7 @@ export function load() {
   return dispatch => {
     fetch(config.svc + '/test', {
       method: 'post',
-      headers: {
+     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
@@ -180,7 +181,7 @@ export function search(sectionName, searchcriteria) {
   return dispatch => {
     fetch(config.svc + '/getProducts', {
       method: 'post',
-      headers: {
+     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },

@@ -7,6 +7,7 @@ const SAVE = 'redux-example/widgets/SAVE';
 const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
 const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 import {List, Map} from 'immutable';
+import {GetHttpHeaders} from "../../utils/HttpUtils";
 
 import config from '../../config';
 
@@ -95,10 +96,7 @@ export function viewMore(product, type) {
   return dispatch => {
     fetch(config.svc + '/viewmore', {
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+     headers: GetHttpHeaders(),
       body: JSON.stringify({
         table: 'places',
         product: product
@@ -124,10 +122,7 @@ export function getProducts(product) {
   return dispatch => {
     fetch(config.svc + '/getProducts', {
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+    headers: GetHttpHeaders(),
       body: JSON.stringify({
         payload
       })
@@ -251,10 +246,7 @@ export function callBack(callbackinfo) {
   return dispatch => {
     fetch(config.svc + '/getCallBack', {
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+     headers: GetHttpHeaders(),
       body: JSON.stringify({
       payload: callbackinfo
       })

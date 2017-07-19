@@ -14,7 +14,7 @@ module.exports = Object.assign({
   port: process.env.PORT = '7000',
   apiHost: process.env.APIHOST = 'localhost',
   apiPort: process.env.APIPORT = '3030',
-  svc: process.env.Svc =  'http://148.72.244.18:8000', //'http://localhost:8000', //
+  svc: process.env.Svc = 'http://148.72.244.18:8000', //'http://localhost:8000', //
     blogsvc: 'http://148.72.244.18:5000', //'http://localhost:8000', //
   staticassets: '../../static/dist',
   app: {

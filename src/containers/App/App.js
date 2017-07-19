@@ -208,7 +208,7 @@ export class App extends Component {
           </div>
           <div className={styles.fixed}>
           <div className={styles.smalltopbar}><a href="http://www.livelytrips.com">livelytrips</a>
-          { /* <Link className={styles.loginButton} to="/login">login</Link> */} 
+          { <Link className={styles.loginButton} to="/login">login</Link>}
           {1!=1 &&
           (<div className={styles.tophiddenbar}>
                      <Row>
@@ -275,7 +275,6 @@ export class App extends Component {
                     </li>
                     <li><Link to={'/about/'} activeClassName="active">About</Link></li>
 					  <li><Link to={'/posts/1'} activeClassName="active">Blog</Link></li>
-					  <li><Link to={'/newblog'} activeClassName="active">newBlog</Link></li>
                     <li>
                       {cartcount != null && this.props.appstate != null && this.props.appstate.cart != null && this.props.appstate.cart.items && tempArr.map(function (x) {
                           return (
@@ -300,6 +299,9 @@ export class App extends Component {
                               <li>
                                 <Link to={'/packagebuilder/'} activeClassName="active">Add package</Link>
                               </li>
+								<li>
+									<Link to={'/newblog'} activeClassName="active">newBlog</Link>
+								</li>
                             </ul>
                           </div>
                         </li>
@@ -307,7 +309,8 @@ export class App extends Component {
                     })
                     }
                     <li><Link to={'/contact/'} activeClassName="active">Contact</Link></li>
-                    
+                    <li><Link to={'/join-us/'} activeClassName="active">We Are Hiring!</Link></li>
+
                   </ul>
                 </nav>
 

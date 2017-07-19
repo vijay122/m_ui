@@ -158,14 +158,14 @@ return 			(
 				<Row>
 					<Well bsSize="large">
 						{PostDetail && PostDetail.comments && PostDetail.comments.map(function (x) {
-
+							let postedDate = new Date(Date.parse(x.date)).toDateString();
 							return(
 								<Media>
 									<Media.Left>
 										<img width={64} height={64} src="http://www.merricktowle.com/wp-content/themes/merricktowle/images/Your-Face-Here.gif" alt="Image"/>
 									</Media.Left>
 									<Media.Body>
-										<Media.Heading>{x.name} writes: <span>commented on : {x.date }</span></Media.Heading>
+										<Media.Heading>{x.name} writes: <span>commented on : {postedDate }</span></Media.Heading>
 										<p>{x.body}</p>
 									</Media.Body>
 								</Media>

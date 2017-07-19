@@ -9,6 +9,7 @@ const LOGOUT_SUCCESS = 'redux-example/auth/LOGOUT_SUCCESS';
 const LOGOUT_FAIL = 'redux-example/auth/LOGOUT_FAIL';
 
 import config from '../../config';
+import {GetHttpHeaders} from "../../utils/HttpUtils";
 
 const initialState = {
   loaded: false
@@ -26,7 +27,8 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: false,
         loaded: true,
-        user: action.result
+        user: action.result,
+        token:action.result.token
       };
     case LOAD_FAIL:
       return {
@@ -98,10 +100,7 @@ export function register(user) {
   return dispatch => {
     fetch(config.svc + '/register', {
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers: GetHttpHeaders(),
       body: JSON.stringify({
         payload
       })
@@ -118,6 +117,7 @@ export function register(user) {
 }
 
 export function loginUser(phonenumber, password) {
+  debugger;
   var payload = {};
   payload.phone_number = phonenumber;
   payload.password = password;
@@ -125,10 +125,7 @@ export function loginUser(phonenumber, password) {
   return dispatch => {
     fetch(config.svc + '/login', {
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers: GetHttpHeaders(),
       body: JSON.stringify({
         payload
       })
@@ -136,6 +133,8 @@ export function loginUser(phonenumber, password) {
       .then(parseJSON)
       .then(function (data) {
         dispatch({type: 'LOGIN_SUCCESS', result: data});
+         debugger;
+        localStorage.setItem('jwtToken', data.token);
         //  console.log('request succeeded with JSON response', list)
       }).catch(function (error) {
       console.log('request failed', error)
@@ -150,10 +149,7 @@ export function disableUser(disableUserId) {
   return dispatch => {
     fetch(config.svc + '/disableUser', {
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers: GetHttpHeaders(),
       body: JSON.stringify({
         payload
       })
