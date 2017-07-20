@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import Grid from 'react-bootstrap/lib/Grid';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
+import Image from 'react-bootstrap/lib/Image';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
@@ -81,7 +82,7 @@ const InitialState =
   }
 
 
-export class PlaceUploader extends Component {
+export class JobPostings extends Component {
 
   constructor(props) {
     super(props);
@@ -406,56 +407,72 @@ export class PlaceUploader extends Component {
           <Grid>
              <h1>Work With Us</h1>
              <Row>
-             <h2>Want to make the web a better place for more than a billion people each month? We’re hiring.</h2>
+             <h2>Want to make the web a better place for a billion of travel lovers around the world ? We’re hiring.</h2>
              </Row>
             <form validationState={this.getValidationState}>
 
                   <div>
                     <Row className="show-grid">
                     <div>
+                    <Row>
+                    <Col xs={12} md={6}>
                       <h1>HOW WE WORK</h1><br/>
 
 <h2>Choose your own adventure</h2><br/>
- Everyone works from the location they choose. We’re located at the heart of Chennai city. 
+ Everyone works from the location they choose. We’re located at the calmest part of Chennai city, highly accessible, just 100 meters from the beach at palavakkam. 
+ We believe, the noise of the ocean “probably triggers deep memories or feelings of relaxation and safety. Some people might even say it’s recalling the womb and your mother’s heartbeat.”
  We’re dedicated to creating technology that makes travel better for everyone. Whether you’re an avid techie, an experienced business professional, a recent graduate or a student, we have a job for you.
- When you make it past the interview stage we’ll do a project together on contract, typically lasting between two to six weeks depending on how much time you can spend, to see how we work together. When you join full-time, you’ll do customer support for WordPress.com for your first three weeks and spend a week in support annually, for evermore, regardless of your position. We believe an early and ongoing connection with the people who use our products is irreplaceable.
+ We believe an early and ongoing connection with the people who use our products is irreplaceable.
+</Col>
+<Col xs={12} md={6}>
+</Col>
+</Row>
+<Row>
+<Col xs={12} md={9}>
 <h2>Meeting up</h2><br/>
- We get the whole company together once a year for seven days so that Automatticians can create bonds that influence them all year long. So far we’ve done Grand Meetups in San Francisco, California; La Paz, Mexico; Oracle, Arizona; Breckenridge, Colorado; Mont-Sainte-Anne, Québec; Seaside, Florida; Budapest, Hungary; San Diego, California; Santa Cruz, California; Park City, Utah; and Whistler, Canada.
+ We get the whole company together once a year for seven days so that Livelytrips can create bonds that influence them all year long.
 
- In addition to our all-company Grand Meetup, teams meet for five to seven days to brainstorm team-level strategy and bond in locales ranging from Boulder to Buenos Aires, Las Vegas to Lisbon, Montréal to Mexico City, and Vienna to Vietnam. If you join our merry band, expect to travel three to four weeks per year.
+ In addition to our all-company Grand Meetup, teams meet for five to seven days to brainstorm team-level strategy and bond in locales ranging from trekking and other team building activities are handled once in every three months.
 <h2>Diversity and Inclusion</h2><br/>
- In 2014 we started to work, as a company, on facilitating spaces for discussions about diversity at Automattic. And at the 2016 Grand Meetup with all of our employees across 50 countries, we decided to share with the rest of the world what we are doing about diversity and inclusion.
+ In 2014 we started to work, as a company, on facilitating spaces for discussions about diversity at Livelytrips. And at the 2016 Grand Meetup with all of our employees decided to share with the rest of the world what we are doing about diversity and inclusion.
 <h2>What do we look for?</h2><br/>
- Automatticians are curious, driven, compassionate, tenacious, autonomous, friendly, independent, collaborative, communicative, supportive, self-motivated, and amazing with .gifs. We want to work with people interested in making the web and the world a better place. Think you’ve got what it takes? Apply today.
+ Livelytripians are curious, driven, compassionate, tenacious, autonomous, friendly, independent, collaborative, communicative, supportive, self-motivated, and amazing with .gifs. We want to work with people interested in making the web and the world a better place. Think you’ve got what it takes? Apply today.
 <h2>Getting to know us</h2><br/>
- Would you like to know a bit more about what it’s like to be part of Automattic? Check out this Business Insider interview with Matt on how our company runs without offices or email. Meet a few colleagues (aka Automatticians) and hear about their experiences in their own words. Eric did a Q&A on what it’s like to work at Automattic. Still on the fence? Karen says you should really just apply. Take a look at all of the things we accomplished in 2016.
+ Would you like to know a bit more about what it’s like to be part of Livelytrips?  Meet a few colleagues and hear about their experiences in their own words. Still on the fence? Karen says you should really just apply. Take a look at all of the things we accomplished in 2016.
+                   </Col>
+                   <Col xs={12} md={3} className={styles.currentOpenings}>
                    <h2>Current Openings</h2>
-                   Travel Consultant
-Experience: Min 2 yrs
-Qualification: Any Graduate
-Job Type: Permanent, full time
-Apply
-Job Description
-Driving sales of International/Domestic holiday packages.
-Designing itineraries, vacation packages, costing and hotel booking.
-Fostering existing relationships and developing new ones.
-Build business relationships.
-Keep accurate and detailed records of sales made and results achieved.
-Understand and manage personal performance on a daily basis.
-Service and generating leads & follow-Up with the customer.
-Requirement
-Enthusiastic with excellent Communication Skills.
-Confident and ability to interact with customers.
-Knowledge of the Travel industry.
-Should be highly sales oriented.
-Should be excellent with international destination knowledge.
-Good knowledge of destinations, suppliers & hotels.
+                   <div><b>Travel Consultant</b></div>
+  <div><b>Experience:</b> 0 - 2 yrs  </div>
+  <div><b>Qualification:</b> Any Graduate </div>
+ <div><b>Job Type:</b> Permanent, full time</div>
+
+ <div><b>Job Description:</b></div>
+ <ul>
+<li>Driving sales of International/Domestic holiday packages</li>
+<li>Designing itineraries, vacation packages, costing and hotel booking</li>
+<li>Fostering existing relationships and developing new ones</li>
+<li>Build business relationships</li>
+<li>Keep accurate and detailed records of sales made and results achieved</li>
+<li>Understand and manage personal performance on a daily basis</li>
+<li>Service and generating leads & follow-Up with the customer</li>
+</ul>
+<div><b>Requirement:</b></div>
+<ul>
+<li>Enthusiastic with excellent Communication Skills</li>
+<li>Confident and ability to interact with customers</li>
+<li>Knowledge of the Travel industry</li>
+<li>Should be highly sales oriented</li>
+<li>Should be excellent with international destination knowledge</li>
+<li>Good knowledge of destinations, suppliers & hotels</li>
+</ul>
+<div><b>How to apply:</b></div>
+<div>Just send out your resume to livelytrips@gmail.com to be a part of this fast growing start-up!</div>
+</Col>
+</Row>
                     </div>  
                        </Row>
                   </div>
-
-
-
             </form>
           </Grid>
         </div>
@@ -464,4 +481,4 @@ Good knowledge of destinations, suppliers & hotels.
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlaceUploader);
+export default connect(mapStateToProps, mapDispatchToProps)(JobPostings);

@@ -6,6 +6,7 @@ import Well from 'react-bootstrap/lib/Well';
 import Media from 'react-bootstrap/lib/Media';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
+import Image from 'react-bootstrap/lib/Image';
 import {ImageText} from '../../components';
 import {bindActionCreators} from 'redux';
 import blogActions from '../../redux/modules/blog';
@@ -88,36 +89,6 @@ export class BlogDetail extends Component {
 	}
 
 	render() {
-		var images = [
-  {
-    url: "http://tripconnoisseurs.com/wp-content/uploads/2016/08/Honeymoon.jpg",
-    text:"honeymoon",
-    clickHandler: (url, obj) => {
-      console.log("inside category click "+obj)
-    }
-  },
-  {
-    url: "http://www.easternwatersports.com/wp-content/uploads/2016/04/grouptrip-300x300.jpg?x94867",
-    text:"treks",
-    clickHandler: (url, obj) => {
-      console.log("inside category click "+obj)
-    }
-  },
-  {
-    text:"grouptrips",
-    url: "https://static2.tripoto.com/media/filter/t/img/101328/TripDocument/1474279330_1474279325380.jpg",
-    clickHandler: (url, obj) => {
-      console.log("inside category click "+obj)
-    }
-  },
-  {
-    text:"solotrips",
-    url: "http://travelsourceindia.in/wp-content/uploads/2016/06/family-ties-300x300.jpg",
-    clickHandler: (url, obj) => {
-      console.log("inside category click "+obj)
-    }
-  }
-];
 		let self = this;
 		const style = require('./BlogDetail.scss');
 		let PostDetail = this.props.blogDetail;
@@ -148,7 +119,10 @@ return 			(
 				}
 				</Col>
 				<Col xs={12} md={3}>
-				  
+				<div className={style.authorProfile}>
+				<h1>Author</h1>
+				  <Image src="https://scontent.cdninstagram.com/t51.2885-15/e15/19933320_115729549052200_1462965981000237056_n.jpg" rounded responsive/>
+				</div>
 				</Col>
 				</Row>
 				

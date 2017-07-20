@@ -117,7 +117,6 @@ export function register(user) {
 }
 
 export function loginUser(phonenumber, password) {
-  debugger;
   var payload = {};
   payload.phone_number = phonenumber;
   payload.password = password;
@@ -133,7 +132,6 @@ export function loginUser(phonenumber, password) {
       .then(parseJSON)
       .then(function (data) {
         dispatch({type: 'LOGIN_SUCCESS', result: data});
-         debugger;
         localStorage.setItem('jwtToken', data.token);
         //  console.log('request succeeded with JSON response', list)
       }).catch(function (error) {

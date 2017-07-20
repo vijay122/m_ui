@@ -96,7 +96,6 @@ export function updatePostItem(item) {
 }
 
 export function loadAllPosts(pageId) {
-	debugger;
 let pageQs = "/";
 if(pageId)
 {
