@@ -444,7 +444,7 @@ export class JobPostings extends Component {
                    <h2>Current Openings</h2>
                    <div><b>Travel Consultant</b></div>
   <div><b>Experience:</b> 0 - 2 yrs  </div>
-  <div><b>Qualification:</b> Any Graduate </div>
+  <div><b>Qualification:</b> MBA, Any Graduate </div>
  <div><b>Job Type:</b> Permanent, full time</div>
 
  <div><b>Job Description:</b></div>
