@@ -423,7 +423,7 @@ error = "please select the date of your travel.";
 
               </Col>
             </Row>
-            {1!=1 &&
+            {1==1 &&
             <Row>
               <Col xs={12} md={4}>
                <Row className={styles.hotelsHeader}>

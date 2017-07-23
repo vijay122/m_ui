@@ -97,6 +97,7 @@
   },
   "dependencies": {
     "@vijay122/react-tiles": "^2.0.12",
+    "axios": "^0.16.2",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.1",
     "babel-plugin-add-module-exports": "^0.1.4",

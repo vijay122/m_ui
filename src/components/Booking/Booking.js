@@ -7,6 +7,7 @@ import DatePicker from 'material-ui/DatePicker';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import {isProductExistsInCart} from '../../utils/validation';
 import Chip from 'material-ui/Chip';
+import Modal from 'react-bootstrap/lib/Modal';
 
 export default class Booking extends React.Component {
   constructor(props) {
@@ -73,6 +74,8 @@ return pattern.test(ip);
   }
   addToCart(data, fn, st) {
    var st = this.validateAdd(data);
+   this.setState({lgShow: true});
+   /*
     if(st.length<=0)
     {
     data.dispatch({type: 'ADD_TO_CART', result: fn});
@@ -81,7 +84,7 @@ return pattern.test(ip);
     {
           data.dispatch({type: 'ERROR', result: st});
     }
-
+*/
   }
 
   renderPriceDetails(that,detail,cart){
@@ -133,7 +136,7 @@ return (<Chip>{category}</Chip>)
           </Row>
           </div>)
         }
-       { 1!=1 && <div>
+       { 1==1 && <div>
          <h5>I wound love to book this package for you!!</h5>
         <DatePicker
               container="inline"
@@ -178,6 +181,7 @@ cartItems = this.props.cartContext.items;
       controlledDate: date,
     });
   };
+   lgClose = () => this.setState({ lgShow: false });
 
 
   render() {
@@ -186,12 +190,13 @@ cartItems = this.props.cartContext.items;
     var message = this.state.message?this.state.message:"";
     var cart = this.props.cartContext;
     var styles = require('./Booking.scss');
+
     return (
       <Row>
         <Col md={12}>
            { this.renderPriceDetails(that,detail,cart) }
           <Row>
-            {1!=1 && this.renderButtons(that,detail,cart) }
+            {1==1 && this.renderButtons(that,detail,cart) }
           </Row>
          { detail.type=='package' && ( 
           <Row className={styles.callbackContainer}>
@@ -208,6 +213,7 @@ cartItems = this.props.cartContext.items;
                           onChange={this.onChange.bind(this)}
                           value={this.state.callbacknumber}/>
             <RaisedButton className={styles.callToActionButton} label="Call me back" primary={true} onClick={this.callBack.bind(this, that, detail)}/>
+              <MyLargeModal show={this.state.lgShow} onHide={this.lgClose}/>
           </Row>)
         }
         </Col>
@@ -215,3 +221,28 @@ cartItems = this.props.cartContext.items;
     );
   }
 }
+
+
+const MyLargeModal = React.createClass({
+  render() {
+    return (
+      <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Wrapped Text</h4>
+          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        </Modal.Body>
+      </Modal>
+    );
+  }
+});

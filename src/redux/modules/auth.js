@@ -11,6 +11,8 @@ const LOGOUT_FAIL = 'redux-example/auth/LOGOUT_FAIL';
 import config from '../../config';
 import {GetHttpHeaders} from "../../utils/HttpUtils";
 
+import restClient from '../../utils/RestClient';
+
 const initialState = {
   loaded: false
 };
@@ -122,13 +124,17 @@ export function loginUser(phonenumber, password) {
   payload.password = password;
   console.log("config: " + config.svc);
   return dispatch => {
+    let url = config.svc + '/login';
+    //restClient.post(url,payload)
+    
     fetch(config.svc + '/login', {
       method: 'post',
       headers: GetHttpHeaders(),
       body: JSON.stringify({
         payload
       })
-    }).then(checkStatus)
+    })
+.then(checkStatus)
       .then(parseJSON)
       .then(function (data) {
         dispatch({type: 'LOGIN_SUCCESS', result: data});

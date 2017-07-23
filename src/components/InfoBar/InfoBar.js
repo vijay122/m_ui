@@ -113,7 +113,7 @@ export default class InfoBar extends Component {
         </div>
         <Row>
           <Col>
-            Contact : 8110001444
+            Contact : 9442426265
             Email : livelytrips@gmail.com
           </Col>
         </Row>

@@ -30,23 +30,6 @@ export class Login extends Component {
     this.state = {value1: 1};
 
   }
-
-  /*
-   handleSubmit = (event) => {
-
-   promise: ({store: {dispatch, getState}}) => {
-   if (!isAuthLoaded(getState())) {
-   return dispatch(loginUser());
-   }
-   }
-
-   //event.preventDefault();
-   // loginUser();
-   const input = this.refs.username;
-   //return loginActions.loginUser("user","pass");
-   //input.value = '';
-   }
-   */
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.loginUser(this.state.username, this.state.password);

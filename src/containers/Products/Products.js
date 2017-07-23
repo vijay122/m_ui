@@ -224,7 +224,7 @@ images =this.mapAppScripts(appscripts);
           <CardsContainer packagelist={packagelist} type="Popular Packages" dispatch={that.props.dispatch}
                         promotionMessage={packagescript}  category="packages"/>
           <br />
-          {1!=1 &&
+          {1==1 &&
             <div>
           <CardsContainer packagelist={hotellist} type="Popular Hotels" dispatch={that.props.dispatch}
                          promotionMessage={hotelscript}   category="hotels"/>

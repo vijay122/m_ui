@@ -209,7 +209,7 @@ export class App extends Component {
           <div className={styles.fixed}>
           <div className={styles.smalltopbar}><a href="http://www.livelytrips.com">livelytrips</a>
           { <Link className={styles.loginButton} to="/login">login</Link>}
-          {1!=1 &&
+          {1==1 &&
           (<div className={styles.tophiddenbar}>
                      <Row>
               <Col md={3}>

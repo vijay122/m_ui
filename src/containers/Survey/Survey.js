@@ -406,7 +406,7 @@ export class PlaceUploader extends Component {
           <Grid>
              <h1>Contact LivelyTrips</h1>
              <Row>
-             <h2>We are just a phone call away, dial or give a missed call to 8110001444, to book your trips over phone, or to check enquiries. Still if you want to visit in person, we are glad to have a cup of tea with you in our office.</h2>
+             <h2>We are just a phone call away, dial or give a missed call to 9442426265, to book your trips over phone, or to check enquiries. Still if you want to visit in person, we are glad to have a cup of tea with you in our office.</h2>
              </Row>
             <form validationState={this.getValidationState}>
 
@@ -420,7 +420,7 @@ export class PlaceUploader extends Component {
                        <p>Ullagaram,</p>
                        <p>Chennai.</p>
                        <p>
-                       <h1>Phone:8110001444</h1>
+                       <h1>Phone:9442426265</h1>
                        </p>
                       </Col>
                       <Col xs={12} md={6}>
