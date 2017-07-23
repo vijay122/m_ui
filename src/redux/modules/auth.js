@@ -109,8 +109,6 @@ export function register(user) {
     }).then(checkStatus)
       .then(parseJSON)
       .then(function (data) {
-        // dispatch({ type: 'SET_ALL_ENTRIES', result: data });
-        //  console.log('request succeeded with JSON response', list)
       }).catch(function (error) {
       console.log('request failed', error)
     })
