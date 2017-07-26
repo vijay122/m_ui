@@ -83,7 +83,7 @@ function mapStateToProps(state) {
   {
 deps = state.detail.getProductsResult.places;
   }
-  return {products: state.products, detail: state.detail, dependencies:deps, cart: state.cart, checkout:state.checkout}
+  return {products: state.products, detail: state.detail, dependencies:deps, cart: state.cart, checkout:state.checkout, auth : state.auth}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -342,7 +342,7 @@ error = "please select the date of your travel.";
                 </Row>)}
               </Col>
               <Col xs={12} md={3}>
-                <Booking that={that} detail={detail} cartContext={cart} checkout={this.props.checkout} validate={this.validateAdd}  callBack={this.props.callBack}/>
+                <Booking that={that} detail={detail} cartContext={cart} checkout={this.props.checkout} validate={this.validateAdd}  callBack={this.props.callBack} auth ={this.props.auth}/>
               </Col>
             </Row>
             <Row style={{minHeight: "300px"}}>

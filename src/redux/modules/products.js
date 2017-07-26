@@ -314,14 +314,14 @@ export function isProductAlreadyLoaded(getProductsResult, prodid, category) {
   {
     category = "places";
 
-   var  Placesmap = Map(getProductsResult[category].reduce(function (previous, current) {
+     getProductsResult[category] = Map(getProductsResult[category].reduce(function (previous, current) {
           previous[current._id] = current;
           return previous;
         }, {}));
   }
   if(getProductsResult!= undefined && getProductsResult[category] != undefined)
   {
-     var product = Placesmap.get(prodid);
+     var product = getProductsResult[category].get(prodid);
      return product;
   }
   else
