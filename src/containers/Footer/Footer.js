@@ -55,10 +55,9 @@ export class Footer extends Component {
                 Make your trips lively
               </div>
               <p>
-                Our Commitment
-                We are committed to establishing lasting relationships with our customers by exceeding their
-                expectations the first time and every time, through consistently delivering outstanding quality of
-                service, experience and value.
+              Our promise to our customers is a cheaper, faster and safer travel throughout their journey with us.
+              We believe the most important thing which we could give our customers is to comfort them in a good mood
+              and enjoyable time, whereever they are. 
               </p>
               <Row>
                 Contact Us

@@ -52,8 +52,9 @@
   margin: auto;
 }
 
-.violetTextColor {
+.footerTitles {
   color: #515C95;
+  font-family: monospace !important;
 }
 
 .blackBackgroundColor {
@@ -62,4 +63,24 @@
 
 .blackColor {
   color: black;
+}
+.aboutUs
+{
+  color: darkblue;
+    font-family: inherit;
+    font-size: larger;
+}
+
+.cursiveLabel
+{
+  font-family: cursive;
+    color: mediumvioletred;
+}
+.bigBanner
+{
+  
+    font-size: x-large;
+    color: royalblue;
+    background-color: #E7F3F7;
+
 }

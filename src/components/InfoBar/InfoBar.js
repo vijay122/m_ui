@@ -51,24 +51,23 @@ export default class InfoBar extends Component {
         <div className={styles.centerWidth}>
           <Row>
             <Col xs={12} md={3}>
-              <div className={styles.violetTextColor}>
-                <h3>LivelyTrips</h3>
-              </div>
               <div>
-                Make your trips lively
+                <h3 className={styles.footerTitles}>LivelyTrips</h3>
               </div>
-              <p>
-                Our Commitment
-                We are committed to establishing lasting relationships with our customers by exceeding their
-                expectations the first time and every time, through consistently delivering outstanding quality of
-                service, experience and value.
+              <div className={styles.cursiveLabel}>
+                Make your trips lively with livelytrips.com
+              </div>
+              <p className={styles.aboutUs}>
+              "Our promise to our customers is a cheaper, faster and safer travel throughout their journey with us.
+              We believe the most important thing which we could give our customers is to comfort them in a good mood
+              and enjoyable time, whereever they are". 
               </p>
             </Col>
             <Col xs={12} md={3}>
               <div>
                 <Row>
-                  <div className={styles.violetTextColor}>
-                    <h3>Popular Posts</h3>
+                  <div>
+                    <h3 className={styles.footerTitles}>Popular Posts</h3>
                   </div>
                 </Row>
               </div>
@@ -76,8 +75,8 @@ export default class InfoBar extends Component {
             <Col xs={12} md={3}>
               <div>
                 <Row>
-                  <div className={styles.violetTextColor}>
-                    <h3>Popular Categories</h3>
+                  <div>
+                    <h3 className={styles.footerTitles}>Popular Categories</h3>
                     <div style={styles.wrapper}>
                       {linkitems && linkitems.size > 0 && linkitems.map(function (x) {
                        var href ="http://www.livelytrips.com/detail/id:"+x._id+"/category:products";
@@ -112,19 +111,9 @@ export default class InfoBar extends Component {
 
         </div>
         <Row>
-          <Col>
+          <Col className={styles.bigBanner}>
             Contact : 9442426265
             Email : livelytrips@gmail.com
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            Terms of use
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            Sitemap
           </Col>
         </Row>
         <div className={styles.copyright}>
