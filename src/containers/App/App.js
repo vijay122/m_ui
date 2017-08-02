@@ -182,12 +182,12 @@ export class App extends Component {
     var logintext = "Login";
     if (this != undefined && this.props != undefined && this.props.user != null) {
       if (this.props.user.name != null) {
-        logintext = this.props.user.name;
+        logintext = "Signed in as :"+ this.props.user.name;
         userdataloaded[0] = true;
       }
 
       else if (this.props.user._id != null) {
-        logintext = this.props.user._id;
+        logintext ="Signed in as :"+  this.props.user._id;
         userdataloaded[0] = true;
       }
     }
@@ -208,7 +208,7 @@ export class App extends Component {
           </div>
           <div className={styles.fixed}>
           <div className={styles.smalltopbar}><a href="http://www.livelytrips.com">livelytrips</a>
-          { <Link className={styles.loginButton} to="/login">login</Link>}
+          { <Link className={styles.loginButton} to="/login">{logintext}</Link>}
           {1==1 &&
           (<div className={styles.tophiddenbar}>
                      <Row>

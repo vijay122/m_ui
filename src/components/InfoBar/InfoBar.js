@@ -1,5 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import Button from 'react-bootstrap/lib/Button';
 import * as footerActions from '../../redux/modules/info';
 import { Link} from 'react-router';
 import  'isomorphic-fetch';
@@ -95,7 +98,18 @@ export default class InfoBar extends Component {
               <div>
                 <Row>
                   <div className={styles.violetTextColor}>
-                    <h3>Lets be Friends..</h3>
+                    <h3>Lets be Friends...</h3>
+                   <div className={styles.cursiveLabel}>
+                    Get inspired and take actions weekly with livelytrips news letter. Get on the list for actionable trips every week.
+                    </div>
+                    <div className={styles.aboutUs}>
+                    Subscribe with your email id now.
+                    </div>
+                     <FormGroup>
+                      <FormControl className={styles.inputEmail} type="text" placeholder="Email" />
+                     </FormGroup>
+                      {' '}
+                      <Button bsStyle="success" type="submit">Subscribe</Button>
                     <div style={styles.wrapper}>
                       <Chip
                         style={styles.chip}
