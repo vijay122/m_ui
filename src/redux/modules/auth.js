@@ -11,11 +11,11 @@ const LOGOUT_FAIL = 'redux-example/auth/LOGOUT_FAIL';
 import config from '../../config';
 import {GetHttpHeaders} from "../../utils/HttpUtils";
 
-import restClient from '../../utils/RestClient';
-
+import * as restClient from '../../utils/RestClient';
 const initialState = {
   loaded: false
 };
+
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
@@ -118,14 +118,12 @@ export function register(user) {
 }
 
 export function loginUser(phonenumber, password) {
+  debugger;
   var payload = {};
   payload.phone_number = phonenumber;
   payload.password = password;
   console.log("config: " + config.svc);
   return dispatch => {
-    let url = config.svc + '/login';
-    //restClient.post(url,payload)
-    
     fetch(config.svc + '/login', {
       method: 'post',
       headers: GetHttpHeaders(),
@@ -134,8 +132,9 @@ export function loginUser(phonenumber, password) {
       })
     })
 .then(checkStatus)
-      .then(parseJSON)
+.then(parseJSON)
       .then(function (data) {
+        debugger;
         dispatch({type: 'LOGIN_SUCCESS', result: data});
         localStorage.setItem('jwtToken', data.token);
         //  console.log('request succeeded with JSON response', list)
@@ -185,7 +184,7 @@ export function logout() {
   };
 }
 
-function parseJSON(response) {
+export function parseJSON(response) {
   return response.json()
 }
 

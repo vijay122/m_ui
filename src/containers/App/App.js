@@ -48,11 +48,9 @@ const AppbarStyles = () => getMuiTheme({
  //   if (!isInfoLoaded(getState())) {
 //      promises.push(dispatch(loadFooter()));
  //   }
- //   if (!isAuthLoaded(getState())) {
-      //  promises.push(dispatch(loadAuth()));
- //   }
-
-    return Promise.all(promises);
+   if (!isAuthLoaded(getState())) {
+    return dispatch(loadAuth());
+    }
   }
 }])
 @connect(
@@ -298,6 +296,9 @@ export class App extends Component {
                               </li>
                               <li>
                                 <Link to={'/packagebuilder/'} activeClassName="active">Add package</Link>
+                              </li>
+                              <li>
+                                <Link to={'/dynamicUpload/'} activeClassName="active">Add More</Link>
                               </li>
 								<li>
 									<Link to={'/newblog'} activeClassName="active">newBlog</Link>

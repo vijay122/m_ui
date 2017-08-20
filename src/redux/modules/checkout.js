@@ -1,4 +1,5 @@
 import config from '../../config';
+import fetch from 'better-fetch';
 
 const initialState = {
   count: 0

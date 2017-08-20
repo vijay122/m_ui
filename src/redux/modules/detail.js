@@ -10,6 +10,7 @@ import {List, Map} from 'immutable';
 import {GetHttpHeaders} from "../../utils/HttpUtils";
 
 import config from '../../config';
+import fetch from 'better-fetch';
 
 const initialState = {
   count: 0
@@ -70,6 +71,12 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         nearby: action.result
       }
+    case 'ADDITIONAL_ITEMS':
+      return {
+        ...state,
+        additionalServices: action.result
+      }
+
 
 
     // here is my problem
@@ -255,6 +262,26 @@ export function callBack(callbackinfo) {
       .then(function (data) {
 
         dispatch({type: 'CALLBACK_NOTIFIED', result: data});
+        //  console.log('request succeeded with JSON response', list)
+      }).catch(function (error) {
+      console.log('request failed', error)
+    })
+  }
+}
+
+export function additionalServices(additionalinfo) {
+  return dispatch => {
+    fetch(config.svc + '/getAdditionalServices', {
+      method: 'post',
+     headers: GetHttpHeaders(),
+      body: JSON.stringify({
+      payload: additionalinfo
+      })
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(function (data) {
+
+        dispatch({type: 'ADDITIONAL_ITEMS', result: data});
         //  console.log('request succeeded with JSON response', list)
       }).catch(function (error) {
       console.log('request failed', error)

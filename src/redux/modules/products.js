@@ -15,6 +15,8 @@ const initialState = {
   count: 0
 };
 
+import fetch from 'better-fetch';
+
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
@@ -117,10 +119,7 @@ export function load() {
   return dispatch => {
     fetch(config.svc + '/test', {
       method: 'post',
-     headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers: GetHttpHeaders(),
       body: JSON.stringify({
         payload
       })
@@ -181,10 +180,7 @@ export function search(sectionName, searchcriteria) {
   return dispatch => {
     fetch(config.svc + '/getProducts', {
       method: 'post',
-     headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers: GetHttpHeaders(),
       body: JSON.stringify({
         payload
       })
@@ -219,10 +215,7 @@ export function refreshSection(id, category) {// {
   return dispatch => {
     fetch(config.svc + '/getProducts', {
       method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers: GetHttpHeaders(),
       body: JSON.stringify({
         payload
       })

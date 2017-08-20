@@ -20,6 +20,7 @@ export FilterToolbox from './FilterToolbox/FilterToolbox';
 export CategoryItem from './CategoryItem/CategoryItem';
 export OrderSummary from './OrderSummary/OrderSummary';
 export Booking from './Booking/Booking';
+export Services from './Services/Services';
 export GeoCoder from './GeoCoder/GeoCoder';
 export WeatherCard from './WeatherCard/WeatherCard';
 export Maps from './Maps/Maps';

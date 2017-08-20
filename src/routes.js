@@ -26,7 +26,9 @@ import {
   AddBlogPost,
   Admin,
   JobPostings,
+  DynamicUpload,
 } from './containers';
+import fetch from 'better-fetch';
 
 const querystring = require('querystring');
 
@@ -152,6 +154,7 @@ export default (store) => {
       <Route path="/packagebuilder" component={PackageBuilder}/>
       <Route path="/admin" component={Admin}/>
       <Route path="/myprofile" component={MyProfile}/>
+      <Route path="/dynamicUpload" component={DynamicUpload}/>
       //onEnter={loadDetails}
 
       { /* Catch all route */ }

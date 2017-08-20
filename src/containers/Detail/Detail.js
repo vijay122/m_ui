@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Booking} from '../../components';
+import {Booking,Services} from '../../components';
 import Grid from 'react-bootstrap/lib/Grid';
 import Image from 'react-bootstrap/lib/Image';
 import Col from 'react-bootstrap/lib/Col';
@@ -343,6 +343,7 @@ error = "please select the date of your travel.";
               </Col>
               <Col xs={12} md={3}>
                 <Booking that={that} detail={detail} cartContext={cart} checkout={this.props.checkout} validate={this.validateAdd}  callBack={this.props.callBack} auth ={this.props.auth}/>
+                <Services that={that} detail={detail} cartContext={cart} checkout={this.props.checkout} validate={this.validateAdd}  callBack={this.props.callBack} auth ={this.props.auth}/>
               </Col>
             </Row>
             <Row style={{minHeight: "300px"}}>

@@ -143,10 +143,13 @@ export default class InfoBar extends Component {
                 <Col xs={12} md={2}>
                    <Link to={'/about'}>About</Link>
                 </Col>
+                 <Col xs={12} md={2}>
+                  <Link to={'/posts/1'}>Blog</Link>
+                </Col>
                 <Col xs={12} md={2}>
                   <Link to={'/contact'}>Contact</Link>
                 </Col>
-               
+              
               </Row>
             </Col>
           </Row>

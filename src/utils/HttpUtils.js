@@ -9,7 +9,7 @@ exports.GetHttpHeaders = function()
 
 function getToken()
 {
-	if(window && window.localStorage) 
+	if(typeof window !== 'undefined' && window && window.localStorage) 
 	{
 			return localStorage.getItem('jwtToken');
 	}

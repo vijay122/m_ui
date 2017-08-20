@@ -20,3 +20,4 @@ export Blog from './Blog/Blog';
 export BlogDetail from './BlogDetail/BlogDetail';
 export AddBlogPost from './AddBlogPost/AddBlogPost';
 export JobPostings from './JobPostings/JobPostings';
+export DynamicUpload from './DynamicUpload/DynamicUpload';
