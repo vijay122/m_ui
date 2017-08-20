@@ -10,7 +10,7 @@ import {List, Map} from 'immutable';
 
 import config from '../../config';
 var querystring = require('querystring');
-import fetch from 'better-fetch';
+//import fetch from 'better-fetch';
 
 const initialState = {
   count: 0

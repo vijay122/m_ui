@@ -1209,6 +1209,10 @@ better-assert@~1.0.0:
   dependencies:
     callsite "1.0.0"
 
+better-fetch@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/better-fetch/-/better-fetch-1.1.2.tgz#c302421096c672bfc953a846104a3bcde0398403"
+
 better-npm-run@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/better-npm-run/-/better-npm-run-0.0.8.tgz#eead557db0542c85d5052d1d64ceb75075926dab"

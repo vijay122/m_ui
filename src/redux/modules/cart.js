@@ -7,7 +7,7 @@ const SAVE = 'redux-example/widgets/SAVE';
 const SAVE_SUCCESS = 'redux-example/widgets/SAVE_SUCCESS';
 const SAVE_FAIL = 'redux-example/widgets/SAVE_FAIL';
 
-import fetch from 'better-fetch';
+//import fetch from 'better-fetch';
 
 const initialState = {
   addedIds: [],

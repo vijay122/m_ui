@@ -15,7 +15,7 @@ const initialState = {
   count: 0
 };
 
-import fetch from 'better-fetch';
+//import fetch from 'better-fetch';
 
 
 export default function reducer(state = initialState, action = {}) {
