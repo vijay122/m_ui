@@ -158,7 +158,7 @@ export default (store) => {
       //onEnter={loadDetails}
 
       { /* Catch all route */ }
-      <Route path="*" component={NotFound} status={404}/>
+
     </Route>
   );
 };

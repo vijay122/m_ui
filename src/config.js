@@ -15,7 +15,7 @@ module.exports = Object.assign({
   apiHost: process.env.APIHOST = 'localhost',
   apiPort: process.env.APIPORT = '3030',
   svc: process.env.Svc = 'http://103.90.241.17:8000', //'http://localhost:8000', //
-    blogsvc: 'http://148.72.244.18:5000', //'http://localhost:8000', //148.72.244.18
+    blogsvc: 'http://103.90.241.17:5000', //'http://localhost:8000', //148.72.244.18
   staticassets: '../../static/dist',
   app: {
     title: 'LivelyTrips',
