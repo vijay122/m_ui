@@ -66,10 +66,13 @@ export class Products extends Component {
   mapAppScripts(cateroryArray)
   {
     var rry=[];
+    if(cateroryArray && cateroryArray.CategoryCount)
+    {
     for(var i=0;i<cateroryArray.CategoryCount.length;i++)
     {
       rry.push(this.mapCategory(cateroryArray.CategoryCount[i]));
     }
+  }
     return rry;
   }
   mapCategory(obj)
@@ -128,7 +131,7 @@ return {
       var productlist = this.props.products.products;
           var appscripts = this.props.products.appscripts;
           var sectionscript={};
-          if(appscripts!= undefined)
+          if(appscripts!= undefined && appscripts[0])
           {
             appscripts = appscripts[0];
             sectionscript = appscripts.SectionScripts;
