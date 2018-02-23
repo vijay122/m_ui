@@ -14,8 +14,8 @@ module.exports = Object.assign({
   port: process.env.PORT = '7000',
   apiHost: process.env.APIHOST = 'localhost',
   apiPort: process.env.APIPORT = '3030',
-  svc: process.env.Svc = 'http://103.90.241.17:8000', //'http://localhost:8000', //
-    blogsvc: 'http://103.90.241.17:5000', //'http://localhost:8000', //148.72.244.18
+  svc: process.env.Svc = 'http://159.89.170.165:8000', //'http://localhost:8000', //
+    blogsvc: 'http://159.89.170.165:5000', //'http://localhost:8000', //148.72.244.18
   staticassets: '../../static/dist',
   app: {
     title: 'LivelyTrips',
@@ -24,7 +24,7 @@ module.exports = Object.assign({
       titleTemplate: '',
     }
   },
-  home: {  
+  home: {
     title: 'trip planner,cheap travel packages,tours,sight seeing,honeymoon,trekkings and pilgrim trips, Livelytrips',
     description: 'All the modern best practices in one example.',
     head: {
