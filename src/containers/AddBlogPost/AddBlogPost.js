@@ -11,6 +11,7 @@ import blogActions from '../../redux/modules/blog';
 import {isProductExistInStore} from '../../redux/modules/blog';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import config from "../../config";
 
 /*
 @asyncConnect([{
@@ -100,7 +101,7 @@ export class AddBlogPost extends Component {
 		payload.published = true;
 		//postComments(slugid,name,email,comment);
 
-		fetch('http://localhost:5000/new', {
+		fetch(config.blogsvc+'/new', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -117,7 +118,7 @@ export class AddBlogPost extends Component {
 			items:[]})
       if (response.status >= 200 && response.status < 300) {
         console.log(response);
-      
+
       } else {
         const error = new Error(response.statusText);
         error.response = response;
