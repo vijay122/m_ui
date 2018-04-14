@@ -14,6 +14,14 @@ import {connect} from 'react-redux';
 import * as loginActions from '../../redux/modules/auth';
 import * as productActions from '../../redux/modules/products';
 import {bindActionCreators} from 'redux';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
 
 function mapStateToProps(state) {
@@ -74,6 +82,8 @@ export class PlaceUploader extends Component {
     this.validateForm = this.validateForm.bind(this);
     this.onChange = this.onChange.bind(this);
     this.searchByID = this.searchByID.bind(this);
+    this.fetchPendingValidationProducts = this.fetchPendingValidationProducts.bind(this);
+    this.row = this.row.bind(this);
 
 
     this.state = {type: null};
@@ -143,13 +153,18 @@ export class PlaceUploader extends Component {
     });
   }
 
-  searchByID() {
+  searchByID(placeId) {
+    alert("hh")
     var id = "";
     var searchon = "standalone";
     if (this.state.searchtype != undefined) {
       searchon = this.state.searchtype;
     }
-    if (this != undefined && this.refs != undefined && this.refs.searched_id != undefined &&
+    if(typeof(placeId)== "string" && placeId)
+    {
+      id = placeId;
+    }
+    else if(this != undefined && this.refs != undefined && this.refs.searched_id != undefined &&
       this.refs.searched_id.state != undefined &&
       this.refs.searched_id.state.searchText != undefined && this.refs.searched_id.state.searchText.resultKey != undefined) {
       id = this.refs.searched_id.state.searchText.resultKey;
@@ -206,6 +221,10 @@ export class PlaceUploader extends Component {
     var newvalue = e.currentTarget.value;
     this.setState({statename: newvalue});
     this.state[e.target.attributes["data-ctrlid"].value] = e.currentTarget.value;
+  }
+  componentWillMount()
+  {
+    this.fetchPendingValidationProducts();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -349,6 +368,62 @@ export class PlaceUploader extends Component {
     }
   }
 
+  fetchPendingValidationProducts()
+  {
+    var self = this;
+    fetch(config.svc + '/findPendingValidationProducts', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+      })
+    }).then(checkStatus)
+      .then(parseJSON)
+      .then(function (data) {
+        var datalist =[];
+        for (var i = 0; i < data.length; i++) {
+          var input = {};
+          input["id"] = data[i]["_id"];
+          input["name"] = data[i]["name"];
+          input["city"] = data[i]["city"];
+          datalist.push(input);
+        }
+        self.setState({dataSource: datalist});
+      })
+  }
+
+  row(x,y)
+  {
+this.searchByID(this.state.dataSource[x[0]].id);
+  }
+
+    TableExampleSimple() {
+      var that = this;
+      return (
+        <Table onRowSelection={that.row}>
+          <TableHeader>
+            <TableRow>
+              <TableHeaderColumn>ID</TableHeaderColumn>
+              <TableHeaderColumn>Name</TableHeaderColumn>
+              <TableHeaderColumn>City</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {this.state&& this.state.dataSource && this.state.dataSource.map(function(data){
+              return( <TableRow>
+                <TableRowColumn>{data.id}</TableRowColumn>
+                <TableRowColumn>{data.name}</TableRowColumn>
+                <TableRowColumn>{data.city}</TableRowColumn>
+              </TableRow>)
+            })}
+
+          </TableBody>
+        </Table>
+      )
+    }
+
   render() {
     var that = this;
     var stat = this.state.status;
@@ -362,7 +437,7 @@ export class PlaceUploader extends Component {
     }
     var img = this.props.products.image;
     if (this.props.products != undefined) {
-      this.state = this.props.products;
+      this.state = {...this.state,...this.props.products};
       if (this.props.products.loc != undefined) {
         this.state.image = img;
 
@@ -389,6 +464,8 @@ export class PlaceUploader extends Component {
 
           <Grid>
             <form validationState={this.getValidationState}>
+              <Tabs>
+                <Tab label="search">
               <Row>
                 <label>Search</label>
                 <select value={this.state.searchtype} data-ctrlid='searchtype' default={defaultPlaceType}
@@ -411,6 +488,11 @@ export class PlaceUploader extends Component {
                 </Panel>
                 }
               </Row>
+                </Tab>
+                <Tab label="fill pending data">
+                  {this.TableExampleSimple()}
+                </Tab>
+              </Tabs>
               <Tabs>
                 <Tab label="Item One">
                   <div>
@@ -546,6 +628,20 @@ export class PlaceUploader extends Component {
         </div>
       </div>
     );
+  }
+}
+
+function parseJSON(response) {
+  return response.json()
+}
+
+function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response
+  } else {
+    var error = new Error(response.statusText)
+    error.response = response
+    throw error
   }
 }
 

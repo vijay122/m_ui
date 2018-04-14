@@ -91,7 +91,6 @@ export class DynamicUpload extends Component {
   {
     let formElements = this.state.formElements;
     var self = this;
-    debugger;
     if(formElements)
     {
     formElements.map(function(x){
@@ -108,12 +107,11 @@ return(
                           onChange={self.onChange.bind(this)}/>)
     })
   }
-    
+
   }
 
   fetchSchema(event, index, value)
   {
-    debugger;
     var that = this;
     this.state.type = event.currentTarget.value;
     var payload = this.state;
@@ -129,14 +127,12 @@ return(
     })
     .then(loginActions.parseJSON)
     .then(function (data) {
-      debugger;
       that.setState({"formElements":data});
     });
   //  this.setState(InitialState);
   }
 
   _create() {
-    debugger;
     var that = this;
     if (this.state.image == undefined || this.state.image.length == 0) {
      // this.state.image = this.refs['UploadImages'].state.images;
@@ -254,7 +250,6 @@ return(
   }
 
   onChange(e) {
-    debugger;
     // e.preventDefault();
     var statename = e.target.attributes["data-ctrlid"].value;
     var newvalue = e.currentTarget.value;

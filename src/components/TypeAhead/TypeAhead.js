@@ -114,7 +114,7 @@ export default class AutoCompleteExampleSimple extends React.Component {
     payload.search = value;
     payload.resultKey = resultkey;
     payload.nofilter = nofilter;
-    if (value.length >= 2) {
+    if (value.length > 0) {
 
       fetch(config.svc + '/complete', {
         method: 'post',

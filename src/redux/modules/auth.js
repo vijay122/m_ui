@@ -118,7 +118,6 @@ export function register(user) {
 }
 
 export function loginUser(phonenumber, password) {
-  debugger;
   var payload = {};
   payload.phone_number = phonenumber;
   payload.password = password;
