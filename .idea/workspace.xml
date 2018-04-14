@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/TypeAhead/TypeAhead.js" afterPath="$PROJECT_DIR$/src/components/TypeAhead/TypeAhead.js" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" afterPath="$PROJECT_DIR$/src/config.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/DynamicUpload/DynamicUpload.js" afterPath="$PROJECT_DIR$/src/containers/DynamicUpload/DynamicUpload.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js" afterPath="$PROJECT_DIR$/src/containers/PlaceUploader/PlaceUploader.js" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/auth.js" afterPath="$PROJECT_DIR$/src/redux/modules/auth.js" />
-      <change beforePath="$PROJECT_DIR$/webpack-assets.json" afterPath="$PROJECT_DIR$/webpack-assets.json" />
-    </list>
+    <list default="true" id="268c1afa-0424-4116-ba8a-de752c01d9b5" name="Default" comment="" />
     <ignored path="react-redux-universal-hot-example.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -449,12 +441,12 @@
       <workItem from="1518942915824" duration="2046000" />
       <workItem from="1523173190131" duration="1992000" />
       <workItem from="1523175436856" duration="1470000" />
-      <workItem from="1523723783865" duration="110000" />
+      <workItem from="1523723783865" duration="595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68095000" />
+    <option name="totallyTimeSpent" value="68580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="811" extended-state="0" />
