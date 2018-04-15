@@ -154,7 +154,6 @@ export class PlaceUploader extends Component {
   }
 
   searchByID(placeId) {
-    alert("hh")
     var id = "";
     var searchon = "standalone";
     if (this.state.searchtype != undefined) {
