@@ -123,7 +123,7 @@ export function loginUser(phonenumber, password) {
   payload.password = password;
   console.log("config: " + config.svc);
   return dispatch => {
-    fetch(config.svc + '/login', {
+    fetch(config.svc +'/login', {
       method: 'post',
       headers: GetHttpHeaders(),
       body: JSON.stringify({
