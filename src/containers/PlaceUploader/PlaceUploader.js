@@ -155,7 +155,7 @@ export class PlaceUploader extends Component {
 
   searchByID(placeId) {
     var id = "";
-    var searchon = "standalone";
+    var searchon = "Place";
     if (this.state.searchtype != undefined) {
       searchon = this.state.searchtype;
     }
