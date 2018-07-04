@@ -214,7 +214,7 @@ export class PlaceUploader extends Component {
     }
   }
 
-  onChange(e) {
+  onChange=(e)=> {
     // e.preventDefault();
     var statename = e.target.attributes["data-ctrlid"].value;
     var newvalue = e.currentTarget.value;
@@ -227,7 +227,14 @@ export class PlaceUploader extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({value: nextProps.value});
+    if(nextProps && nextProps.products)
+    {
+      let stvar = this.state;
+      let state = {...stvar,...nextProps.products};
+      this.setState(state);
+   //   this.state= {this.state,...nextProps.products};
+    }
+
   }
 
   handleSelect = (event, index, value) => {
@@ -404,15 +411,15 @@ this.searchByID(this.state.dataSource[x[0]].id);
       return (
         <Table onRowSelection={that.row}>
           <TableHeader>
-            <TableRow>
+            <TableRow key="fillPendingTableKey">
               <TableHeaderColumn>ID</TableHeaderColumn>
               <TableHeaderColumn>Name</TableHeaderColumn>
               <TableHeaderColumn>City</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {this.state&& this.state.dataSource && this.state.dataSource.map(function(data){
-              return( <TableRow>
+            {this.state&& this.state.dataSource && this.state.dataSource.map(function(data,i){
+              return( <TableRow key={"pendingKey"+i}>
                 <TableRowColumn>{data.id}</TableRowColumn>
                 <TableRowColumn>{data.name}</TableRowColumn>
                 <TableRowColumn>{data.city}</TableRowColumn>
@@ -437,7 +444,7 @@ this.searchByID(this.state.dataSource[x[0]].id);
     }
     var img = this.props.products.image;
     if (this.props.products != undefined) {
-      this.state = {...this.state,...this.props.products};
+      //this.state = {...this.state,...this.props.products};
       if (this.props.products.loc != undefined) {
         this.state.image = img;
 
@@ -463,7 +470,7 @@ this.searchByID(this.state.dataSource[x[0]].id);
         <div className="">
 
           <Grid>
-            <form validationState={this.getValidationState}>
+            <form>
               <Tabs>
                 <Tab label="search">
               <Row>
@@ -504,7 +511,7 @@ this.searchByID(this.state.dataSource[x[0]].id);
                           floatingLabelFixed={true}
                           data-ctrlid="name"
                           default
-                          onChange={this.onChange.bind(this)}
+                          onChange={this.onChange}
                           value={this.state.name}/>
 
 
