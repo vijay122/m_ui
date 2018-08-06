@@ -197,6 +197,7 @@ export class App extends Component {
 
     return (
       <MuiThemeProvider muiTheme={AppbarStyles()}>
+        <ReactPageClicks>
         <div className={styles.app}>
           <Helmet
             title={pageContents.title}
@@ -225,14 +226,14 @@ export class App extends Component {
                     </div>
               </div>
               </Col>
-               <Col md={9} className={styles.noPadding}> 
-               <input className={styles.height54} type="text" /> 
+               <Col md={9} className={styles.noPadding}>
+               <input className={styles.height54} type="text" />
               </Col>
               </Row>
               </div>
               </Col>
               <Col md={3}>
-              
+
               </Col>
               </Row>
              </div>)}
@@ -337,8 +338,9 @@ export class App extends Component {
           </div>
           <InfoBar linkItems={seoitems}/>
 {/* this.props &&  this.props.appstate!= undefined && this.props.appstate.products!= undefined && this.props.appstate.products.loaded == true?<div />:<div className={styles.fullOverlay}></div> */}
-          
+
         </div>
+        </ReactPageClicks>
       </MuiThemeProvider>
     );
   }
